@@ -52,7 +52,7 @@ public abstract class MessageReplier {
         if (members.size() == 0) { throw new IllegalArgumentException("No members with raid policies."); }
         StringBuilder desc = new StringBuilder("```");
         for (int i = -2; i <= 2; i++) {
-            int p = (page + i + members.size()) % members.size();
+            int p = ((page + i) % members.size() + members.size()) % members.size();
             GuildMember gm = members.get(p);
             if (i == 0) desc.append(String.format(" >  %d. %s", p, gm.igName()));
             else desc.append(String.format("-   %d. %s", p, gm.igName()));

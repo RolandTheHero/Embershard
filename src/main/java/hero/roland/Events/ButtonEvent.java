@@ -9,8 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import hero.roland.GuildMember;
 import hero.roland.Main;
-import net.dv8tion.jda.api.components.actionrow.ActionRow;
-import net.dv8tion.jda.api.components.buttons.Button;
+
 import net.dv8tion.jda.api.components.label.Label;
 import net.dv8tion.jda.api.components.textinput.TextInput;
 import net.dv8tion.jda.api.components.textinput.TextInputStyle;
@@ -55,12 +54,7 @@ class EditPolicyButton implements ButtonEvent {
 }
 class ScrollViewButton implements ButtonEvent {
     private class PaginationSession {
-        final public List<GuildMember> list = Main.dataHandler().allMembers()
-            .values()
-            .stream()
-            .filter(gm -> gm.raidPolicy() != null && gm.igName() != null)
-            .sorted((gm1, gm2) -> gm1.igName().compareToIgnoreCase(gm2.igName()))
-            .toList();
+        final public List<GuildMember> list = ListCommand.getMembersWithPolicy();
         public int currentPage = 0;
         public PaginationSession(String msgId) {
             ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();

@@ -68,7 +68,7 @@ record ListCommand() implements SlashEvent {
                 .queue();
         });
     }
-    private List<GuildMember> getMembersWithPolicy() {
+    static public List<GuildMember> getMembersWithPolicy() {
         Map<Long, GuildMember> allMembers = Main.dataHandler().allMembers();
         List<GuildMember> membersWithPolicy = allMembers.values().stream()
             .filter(gm -> gm.raidPolicy() != null && gm.igName() != null)

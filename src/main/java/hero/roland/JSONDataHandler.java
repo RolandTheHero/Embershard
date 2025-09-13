@@ -27,7 +27,7 @@ public class JSONDataHandler implements DataHandler {
             }
             System.out.println("Loaded " + members.size() + " members from policies.json");
         } catch (IOException e) {
-            System.err.println("Error reading policies.json: " + e.getMessage());
+            System.err.println("Error reading file: " + e.getMessage());
         }
     }
 
