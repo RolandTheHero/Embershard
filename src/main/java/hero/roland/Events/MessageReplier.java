@@ -52,15 +52,15 @@ public abstract class MessageReplier {
         int membersSize = members.size();
         if (members.isEmpty()) { throw new IllegalArgumentException("No members with raid policies."); }
         int maxNumSize = String.valueOf(membersSize).length();
-        StringBuilder desc = new StringBuilder("```shell");
+        StringBuilder desc = new StringBuilder("```py");
         for (int i = -2; i <= 2; i++) {
             desc.append("\n");
             int p = ((page + i) % membersSize + membersSize) % membersSize;
             int p1 = p + 1;
             String padding = " ".repeat(maxNumSize - String.valueOf(p1).length());
             GuildMember gm = members.get(p);
-            if (i == 0) desc.append(String.format(" ->  %s%d. %s", padding, p1, gm.igName()));
-            else desc.append(String.format("##   %s%d. %s", padding, p1, gm.igName()));
+            if (i == 0) desc.append(String.format(" >   %s%d. %s", padding, p1, gm.igName()));
+            else desc.append(String.format("#    %s%d. %s", padding, p1, gm.igName()));
         }
         desc.append("```");
         MessageEmbed embed = new EmbedBuilder()
