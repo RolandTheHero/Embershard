@@ -9,7 +9,6 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 import java.awt.Color;
 import java.util.List;
-import java.util.Map;
 
 import hero.roland.GuildMember;
 import hero.roland.Main;
@@ -69,11 +68,9 @@ record ListCommand() implements SlashEvent {
         });
     }
     static public List<GuildMember> getMembersWithPolicy() {
-        Map<Long, GuildMember> allMembers = Main.dataHandler().allMembers();
-        List<GuildMember> membersWithPolicy = allMembers.values().stream()
+        return Main.dataHandler().allMembers().values().stream()
             .filter(gm -> gm.raidPolicy() != null && gm.igName() != null)
             .sorted((gm1, gm2) -> gm1.igName().compareToIgnoreCase(gm2.igName()))
             .toList();
-        return membersWithPolicy;
     }
 }

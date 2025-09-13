@@ -54,8 +54,8 @@ public abstract class MessageReplier {
         for (int i = -2; i <= 2; i++) {
             int p = ((page + i) % members.size() + members.size()) % members.size();
             GuildMember gm = members.get(p);
-            if (i == 0) desc.append(String.format(" >  %d. %s", p, gm.igName()));
-            else desc.append(String.format("-   %d. %s", p, gm.igName()));
+            if (i == 0) desc.append(String.format(" >  %d. %s", p + 1, gm.igName()));
+            else desc.append(String.format("-   %d. %s", p + 1, gm.igName()));
             if (i != 2) desc.append("\n");
         }
         desc.append("```");
