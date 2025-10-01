@@ -71,7 +71,4 @@ public abstract class MessageReplier {
             .build();
         return embed;
     }
-    static public void getListViewButtonRow() {
-
-    }
 }
