@@ -48,7 +48,7 @@ public abstract class MessageReplier {
         reply.queue();
     }
     
-    static public MessageEmbed getPaginatedMemberList(List<GuildMember> members, int page) {
+    static public MessageEmbed getPaginatedMemberList(List<GuildMember> members, int page, boolean showAll) {
         int membersSize = members.size();
         if (members.isEmpty()) { throw new IllegalArgumentException("No members with raid policies."); }
         int maxNumSize = String.valueOf(membersSize).length();
@@ -59,13 +59,14 @@ public abstract class MessageReplier {
             int p1 = p + 1;
             String padding = " ".repeat(maxNumSize - String.valueOf(p1).length());
             GuildMember gm = members.get(p);
-            if (i == 0) desc.append(String.format(" >   %s%d. %s", padding, p1, gm.igName()));
-            else desc.append(String.format("#    %s%d. %s", padding, p1, gm.igName()));
+            String igName = gm.igName() == null ? "<@" + gm.id() + ">" : gm.igName();
+            if (i == 0) desc.append(String.format(" >   %s%d. %s", padding, p1, igName));
+            else desc.append(String.format("#    %s%d. %s", padding, p1, igName));
         }
         desc.append("```");
         MessageEmbed embed = new EmbedBuilder()
             .setDescription(desc.toString())
-            .setFooter("Only displaying members with both username and policy set")
+            .setFooter(showAll ? "Displaying all members regardless of username or policy set" : "Only displaying members with both username and policy set")
             .setColor(Color.CYAN)
             .build();
         return embed;

@@ -54,9 +54,10 @@ class EditPolicyButton implements ButtonEvent {
 }
 class ScrollViewButton implements ButtonEvent {
     private class PaginationSession {
-        final public List<GuildMember> list = ListCommand.getMembersWithPolicy();
+        final public List<GuildMember> list;
         public int currentPage = 0;
-        public PaginationSession(String msgId) {
+        public PaginationSession(String msgId, boolean showAll) {
+            list = ListCommand.getMembersWithPolicy(showAll);
             ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
             scheduler.schedule(() -> ScrollViewButton.this.activeSessions.remove(msgId), 15, TimeUnit.MINUTES);
         }
@@ -67,7 +68,7 @@ class ScrollViewButton implements ButtonEvent {
     Map<String, PaginationSession> activeSessions = new HashMap<>();
 
     @Override public void run(ButtonInteractionEvent event) {
-        // scrollview:USERID:PAGE_DIFF
+        // scrollview:USERID:PAGE_DIFF:SHOWALL
         String[] buttonId = event.getButton().getCustomId().split(":");
         long userIdWhoMustRun = Long.parseLong(buttonId[1]);
         if (userIdWhoMustRun != event.getUser().getIdLong()) {
@@ -75,12 +76,13 @@ class ScrollViewButton implements ButtonEvent {
             return;
         }
         PaginationSession session = activeSessions.get(event.getMessageId());
+        boolean showAll = Boolean.parseBoolean(buttonId[3]);
         if (session == null) {
-            session = new PaginationSession(event.getMessageId());
+            session = new PaginationSession(event.getMessageId(), showAll);
             activeSessions.put(event.getMessageId(), session);
         }
         session.currentPage += Integer.parseInt(buttonId[2]);
-        MessageEmbed userListEmbed = MessageReplier.getPaginatedMemberList(session.list, session.currentPage);
+        MessageEmbed userListEmbed = MessageReplier.getPaginatedMemberList(session.list, session.currentPage, showAll);
         Main.jda().retrieveUserById(session.getCurrent().id()).queue(user -> {
             MessageEmbed policyEmbed = MessageReplier.getPolicyReply(user);
             event.deferEdit().setEmbeds(policyEmbed, userListEmbed).queue();

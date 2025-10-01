@@ -54,23 +54,30 @@ record SetIgNameCommand() implements SlashEvent {
 }
 record ListCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
-        List<GuildMember> membersWithPolicy = getMembersWithPolicy();
-        MessageEmbed embed = MessageReplier.getPaginatedMemberList(membersWithPolicy, 0);
+        var showAllOption = event.getOption("all");
+        boolean showAll = showAllOption == null ? false : showAllOption.getAsBoolean();
+        List<GuildMember> membersWithPolicy = getMembersWithPolicy(showAll);
+        MessageEmbed embed = MessageReplier.getPaginatedMemberList(membersWithPolicy, 0, showAll);
         Main.jda().retrieveUserById(membersWithPolicy.getFirst().id()).queue(user -> {
             MessageEmbed userEmbed = MessageReplier.getPolicyReply(user);
-            Button leftLeft = Button.secondary("scrollview:" + event.getUser().getId() + ":-3", "<<<");
-            Button left = Button.secondary("scrollview:" + event.getUser().getId() + ":-1", "<");
-            Button right = Button.secondary("scrollview:" + event.getUser().getId() + ":1", ">");
-            Button rightRight = Button.secondary("scrollview:" + event.getUser().getId() + ":3", ">>>");
+            Button leftLeft = Button.secondary("scrollview:" + event.getUser().getId() + ":-3:" + showAll, "<<<");
+            Button left = Button.secondary("scrollview:" + event.getUser().getId() + ":-1:" + showAll, "<");
+            Button right = Button.secondary("scrollview:" + event.getUser().getId() + ":1:" + showAll, ">");
+            Button rightRight = Button.secondary("scrollview:" + event.getUser().getId() + ":3:" + showAll, ">>>");
             event.replyEmbeds(userEmbed, embed)
                 .setComponents(ActionRow.of(leftLeft, left, right, rightRight))
                 .queue();
         });
     }
-    static public List<GuildMember> getMembersWithPolicy() {
+    static public List<GuildMember> getMembersWithPolicy(boolean showAll) {
         return Main.dataHandler().allMembers().values().stream()
-            .filter(gm -> gm.raidPolicy() != null && gm.igName() != null)
-            .sorted((gm1, gm2) -> gm1.igName().compareToIgnoreCase(gm2.igName()))
+            .filter(gm -> showAll || (gm.raidPolicy() != null && gm.igName() != null))
+            .sorted((gm1, gm2) -> {
+                if (gm1.igName() == null && gm2.igName() == null) return 0;
+                if (gm1.igName() == null) return 1;
+                if (gm2.igName() == null) return -1;
+                return gm1.igName().compareToIgnoreCase(gm2.igName());
+            })
             .toList();
     }
 }

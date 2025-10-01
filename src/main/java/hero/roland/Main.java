@@ -19,7 +19,8 @@ public class Main {
                 .addOption(OptionType.STRING, "message", "Your new raid policy message. Maximum 300 characters.", false),
             Commands.slash("setname", "Set your in-game name.")
                 .addOption(OptionType.STRING, "name", "Your in-game name.", true),
-            Commands.slash("list", "List all members who have set a raid policy.")
+            Commands.slash("list", "List all members who have set a name and raid policy.")
+                .addOption(OptionType.BOOLEAN, "all", "Show all members regardless of their name or raid policy set.", false)
         ).queue();
     }
     static public DataHandler dataHandler() { return dataHandler; }
