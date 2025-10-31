@@ -10,7 +10,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class EventListener extends ListenerAdapter {
     final private Map<String, SlashEvent> slashEvents = Map.of(
         "view", new ViewCommand(),
-        "set", new SetCommand(),
         "setname", new SetIgNameCommand(),
         "list", new ListCommand()
     );

@@ -15,8 +15,6 @@ public class Main {
         jda.updateCommands().addCommands(
             Commands.slash("view", "View the raid policy of a member. Edit your own raid policy by using this command on yourself.")
                 .addOption(OptionType.USER, "member", "The member to view the policy of.", true),
-            Commands.slash("set", "Set your raid policy by providing a custom message.")
-                .addOption(OptionType.STRING, "message", "Your new raid policy message. Maximum 300 characters.", false),
             Commands.slash("setname", "Set your in-game name.")
                 .addOption(OptionType.STRING, "name", "Your in-game name.", true),
             Commands.slash("list", "List all members who have set a name and raid policy.")

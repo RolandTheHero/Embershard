@@ -23,11 +23,6 @@ record ViewCommand() implements SlashEvent {
         MessageReplier.viewPolicyReply(event.getUser(), userToView, event.deferReply());
     }
 }
-record SetCommand() implements SlashEvent {
-    @Override public void run(SlashCommandInteractionEvent event) {
-        event.reply("This command has been deprecated and will be deleted soon. Please use /view on yourself to edit your raid policy!").setEphemeral(true).queue();
-    }
-}
 record SetIgNameCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
         var nameOption = event.getOption("name");
