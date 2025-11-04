@@ -40,7 +40,7 @@ public class JSONDataHandler implements DataHandler {
             obj.put("id", member.id());
             obj.put("igName", member.igName());
             obj.put("policy", member.raidPolicy());
-            obj.put("gold", member.gold());
+            if (member.gold() != 0) obj.put("gold", member.gold());
             arr.put(obj);
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("policies.json"))) {
