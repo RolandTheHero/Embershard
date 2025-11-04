@@ -43,9 +43,9 @@ public class JSONDataHandler implements DataHandler {
             if (member.gold() != 0) obj.put("gold", member.gold());
             arr.put(obj);
         }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("policies.json"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("user_data.json"))) {
             writer.write(arr.toString(2));
-            System.out.println(LocalDateTime.now() + ": Successfully updated policies.json");
+            System.out.println(LocalDateTime.now() + ": Successfully updated user_data.json");
         } catch (IOException e) {
             System.err.println("Error writing to file: " + e.getMessage());
         }
