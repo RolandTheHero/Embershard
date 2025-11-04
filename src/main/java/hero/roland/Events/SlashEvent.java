@@ -92,7 +92,7 @@ record GoldCommand() implements SlashEvent {
 
         MessageEmbed embed = new EmbedBuilder()
             .setTitle("Gold")
-            .setDescription(event.getMember().getAsMention() + ", your gold amount has been updated to <:gold:1435206410429403180>" + amount + ".")
+            .setDescription(String.format("%s, your gold amount has been updated to <:gold:1435206410429403180>%,d.", event.getMember().getAsMention(), amount))
             .setColor(Color.CYAN)
             .build();
         event.replyEmbeds(embed).setEphemeral(true).queue();
