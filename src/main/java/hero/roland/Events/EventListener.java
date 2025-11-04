@@ -11,7 +11,8 @@ public class EventListener extends ListenerAdapter {
     final private Map<String, SlashEvent> slashEvents = Map.of(
         "view", new ViewCommand(),
         "setname", new SetIgNameCommand(),
-        "list", new ListCommand()
+        "list", new ListCommand(),
+        "gold", new GoldCommand()
     );
     @Override public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         String eventName = event.getName();

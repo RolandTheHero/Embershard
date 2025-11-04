@@ -76,3 +76,25 @@ record ListCommand() implements SlashEvent {
             .toList();
     }
 }
+record GoldCommand() implements SlashEvent {
+    @Override public void run(SlashCommandInteractionEvent event) {
+        GuildMember gm = Main.dataHandler().load(event.getUser().getIdLong());
+        var amountOption = event.getOption("amount");
+        if (amountOption == null) { // View leaderboard
+            MessageReplier.goldLeaderboardReply(gm, event.deferReply());
+            return;
+        }
+        long amount = amountOption.getAsLong();
+        if (amount < 0) amount = 0;
+        else if (amount > 999_999_999L) amount = 999_999_999L;
+        gm.setGold(amount);
+        Main.dataHandler().save(gm);
+
+        MessageEmbed embed = new EmbedBuilder()
+            .setTitle("Gold")
+            .setDescription(event.getMember().getAsMention() + ", your gold amount has been updated to <:gold:1435206410429403180>" + amount + ".")
+            .setColor(Color.CYAN)
+            .build();
+        event.replyEmbeds(embed).setEphemeral(true).queue();
+    }
+}

@@ -23,11 +23,13 @@ public class JSONDataHandler implements DataHandler {
                 long id = obj.getLong("id");
                 String igName = obj.optString("igName", null);
                 String policy = obj.optString("policy", null);
-                members.put(id, new GuildMember(id, igName, policy));
+                long gold = obj.optLong("gold", 0);
+                members.put(id, new GuildMember(id, igName, policy, gold));
             }
             System.out.println("Loaded " + members.size() + " members from policies.json");
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
+            throw new RuntimeException();
         }
     }
 
@@ -38,6 +40,7 @@ public class JSONDataHandler implements DataHandler {
             obj.put("id", member.id());
             obj.put("igName", member.igName());
             obj.put("policy", member.raidPolicy());
+            obj.put("gold", member.gold());
             arr.put(obj);
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("policies.json"))) {
@@ -58,7 +61,7 @@ public class JSONDataHandler implements DataHandler {
     public GuildMember load(long id) {
         GuildMember member = members.get(id);
         if (member != null) { return member; }
-        return new GuildMember(id, null, null);
+        return new GuildMember(id, null, null, 0);
     }
 
     @Override

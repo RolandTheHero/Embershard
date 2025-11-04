@@ -71,4 +71,33 @@ public abstract class MessageReplier {
             .build();
         return embed;
     }
+    static public void goldLeaderboardReply(GuildMember gmSelf, ReplyCallbackAction deferReply) {
+        long totalGold = Main.dataHandler().allMembers().values().stream()
+            .mapToLong(gm -> gm.gold())
+            .sum();
+        List<GuildMember> sortedByGold = Main.dataHandler().allMembers().values().stream()
+            .filter(gm -> gm.gold() > 0)
+            .sorted((gm1, gm2) -> Long.compare(gm2.gold(), gm1.gold()))
+            .toList();
+        StringBuilder desc = new StringBuilder(String.format("You have <:gold:1435206410429403180>%,d, which is `%.2f%%` of the guild's total of <:gold:1435206410429403180>%,d.\n", gmSelf.gold(), (double) gmSelf.gold() / totalGold * 100, totalGold));
+        desc.append(String.format("The guild is `%.2f%%` of the way to <:gold:1435206410429403180>1,258,441,650.", (double) totalGold / 1258441650 * 100));
+        desc.append("```py\n");
+        int rank = 1;
+        for (GuildMember gm : sortedByGold) {
+            String igName = gm.igName() == null ? "<@" + gm.id() + ">" : gm.igName();
+            desc.append(String.format("%2d. %-25s %,10d\n", rank++, igName, gm.gold()));
+            if (rank > 10) break;
+        }
+        if (sortedByGold.isEmpty()) {
+            desc.append("There are no gold records yet.\n");
+        }
+        desc.append("```");
+        MessageEmbed embed = new EmbedBuilder()
+            .setTitle("Gold Leaderboard")
+            .setDescription(desc.toString())
+            .setFooter("Showing top 10 members by gold amount.")
+            .setColor(Color.CYAN)
+            .build();
+        deferReply.setEmbeds(embed).queue();
+    }
 }

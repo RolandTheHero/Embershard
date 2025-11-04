@@ -18,7 +18,9 @@ public class Main {
             Commands.slash("setname", "Set your in-game name.")
                 .addOption(OptionType.STRING, "name", "Your in-game name.", true),
             Commands.slash("list", "List all members who have set a name and raid policy.")
-                .addOption(OptionType.BOOLEAN, "all", "Show all members regardless of their name or raid policy set.", false)
+                .addOption(OptionType.BOOLEAN, "all", "Show all members regardless of their name or raid policy set.", false),
+            Commands.slash("gold", "View the gold leaderboard or set your amount of gold.")
+                .addOption(OptionType.INTEGER, "amount", "Update the amount of gold you possess.", false)
         ).queue();
     }
     static public DataHandler dataHandler() { return dataHandler; }
