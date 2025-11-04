@@ -4,4 +4,4 @@
 dependency-reduced-pom.xml
 
 Token.java
-policies.json
+*.json

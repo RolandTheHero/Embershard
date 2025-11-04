@@ -16,7 +16,7 @@ public class JSONDataHandler implements DataHandler {
 
     public JSONDataHandler() {
         try {
-            String content = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get("policies.json")));
+            String content = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get("user_data.json")));
             JSONArray arr = new JSONArray(content);
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
