@@ -89,3 +89,16 @@ class ScrollViewButton implements ButtonEvent {
         });
     }
 }
+class ScrollGoldButton implements ButtonEvent {
+    @Override public void run(ButtonInteractionEvent event) {
+        // scrollgold:USERID:PAGE
+        String[] buttonId = event.getButton().getCustomId().split(":");
+        long userIdWhoMustRun = Long.parseLong(buttonId[1]);
+        if (userIdWhoMustRun != event.getUser().getIdLong()) {
+            event.reply("You can't control this pagination!").setEphemeral(true).queue();
+            return;
+        }
+        int page = Integer.parseInt(buttonId[2]);
+        MessageReplier.goldLeaderboardReply(Main.dataHandler().load(userIdWhoMustRun), page, event.deferEdit());
+    }
+}

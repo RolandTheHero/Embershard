@@ -23,7 +23,8 @@ public class EventListener extends ListenerAdapter {
 
     final private Map<String, ButtonEvent> buttonEvents = Map.of(
         "editpolicy", new EditPolicyButton(),
-        "scrollview", new ScrollViewButton()
+        "scrollview", new ScrollViewButton(),
+        "scrollgold", new ScrollGoldButton()
     );
     @Override public void onButtonInteraction(ButtonInteractionEvent event) {
         String buttonId = event.getButton().getCustomId().split(":")[0];
