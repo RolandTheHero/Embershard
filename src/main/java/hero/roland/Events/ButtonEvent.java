@@ -7,9 +7,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import hero.roland.GuildMember;
 import hero.roland.Main;
-
+import hero.roland.Data.GuildMember;
 import net.dv8tion.jda.api.components.label.Label;
 import net.dv8tion.jda.api.components.textinput.TextInput;
 import net.dv8tion.jda.api.components.textinput.TextInputStyle;

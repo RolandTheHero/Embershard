@@ -1,7 +1,7 @@
 package hero.roland.Events;
 
-import hero.roland.GuildMember;
 import hero.roland.Main;
+import hero.roland.Data.GuildMember;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.interactions.modals.ModalMapping;
 

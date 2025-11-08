@@ -1,0 +1,9 @@
+package hero.roland.Data;
+
+import java.util.Map;
+
+public interface DataHandler {
+    public void save(GuildMember member);
+    public GuildMember load(long id);
+    public Map<Long, GuildMember> allMembers();
+}

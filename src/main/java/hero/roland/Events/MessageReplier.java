@@ -3,8 +3,8 @@ package hero.roland.Events;
 import java.awt.Color;
 import java.util.List;
 
-import hero.roland.GuildMember;
 import hero.roland.Main;
+import hero.roland.Data.GuildMember;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.components.actionrow.ActionRow;
 import net.dv8tion.jda.api.components.buttons.Button;
@@ -71,6 +71,7 @@ public abstract class MessageReplier {
             .build();
         return embed;
     }
+
     static private final int GOLD_LEADERBOARD_PAGE_SIZE = 10;
     static private int goldLeaderboardMembers = 0;
     static public MessageEmbed getGoldLeaderboardEmbed(GuildMember gmSelf, int page) {
@@ -106,16 +107,17 @@ public abstract class MessageReplier {
     }
     static public void goldLeaderboardReply(GuildMember gmSelf, ReplyCallbackAction deferReply) {
         ReplyCallbackAction reply = deferReply.setEmbeds(getGoldLeaderboardEmbed(gmSelf, 0));
-        Button left = Button.secondary("scrollgold:" + gmSelf.id() + ":0", "<").asDisabled();
+        Button left = Button.secondary("scrollgold:0:0", "<").asDisabled();
         Button right = Button.secondary("scrollgold:" + gmSelf.id() + ":1", ">");
         if (goldLeaderboardMembers <= GOLD_LEADERBOARD_PAGE_SIZE) right = right.asDisabled();
         reply.setComponents(ActionRow.of(left, right)).queue();
     }
     static public void goldLeaderboardReply(GuildMember gmSelf, int page, MessageEditCallbackAction editReply) {
         MessageEditCallbackAction reply = editReply.setEmbeds(getGoldLeaderboardEmbed(gmSelf, page));
-        Button left = Button.secondary(String.format("scrollgold:%d:%d", gmSelf.id(), page - 1), "<");
+        String buttonId = "scrollgold:" + gmSelf.id() + ":";
+        Button left = Button.secondary(buttonId + (page - 1), "<");
         if (page <= 0) left = left.asDisabled();
-        Button right = Button.secondary(String.format("scrollgold:%d:%d", gmSelf.id(), page + 1), ">");
+        Button right = Button.secondary(buttonId + (page + 1), ">");
         if (GOLD_LEADERBOARD_PAGE_SIZE * (page + 1) >= goldLeaderboardMembers) right = right.asDisabled();
         reply.setComponents(ActionRow.of(left, right)).queue();
     }

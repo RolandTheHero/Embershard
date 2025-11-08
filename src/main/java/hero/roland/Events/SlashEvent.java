@@ -10,8 +10,8 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import java.awt.Color;
 import java.util.List;
 
-import hero.roland.GuildMember;
 import hero.roland.Main;
+import hero.roland.Data.GuildMember;
 
 public interface SlashEvent {
     public void run(SlashCommandInteractionEvent event);
