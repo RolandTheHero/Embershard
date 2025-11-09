@@ -88,7 +88,7 @@ public abstract class MessageReplier {
             gmSelf.id(), gmSelf.gold(), (double) gmSelf.gold() / totalGold * 100, totalGold)
         );
         desc.append(String.format("The guild is `%.2f%%` of the way to <:gold:1435206410429403180>1,258,441,650.", (double) totalGold / 1258441650 * 100));
-        desc.append("```py\n");
+        desc.append("```java\n");
         for (int rank = 1 + GOLD_LEADERBOARD_PAGE_SIZE * page; rank <= sortedByGold.size(); rank++) {
             GuildMember gm = sortedByGold.get(rank - 1); // Since rank starts from 1
             String igName = gm.igName() == null ? "<@" + gm.id() + ">" : gm.igName();
