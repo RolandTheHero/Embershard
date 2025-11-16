@@ -12,11 +12,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JSONDataHandler implements DataHandler {
+    final private String DATA_FILE = "user_data.json";
     private Map<Long, GuildMember> members = new HashMap<>();
 
     public JSONDataHandler() {
         try {
-            String content = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get("user_data.json")));
+            String content = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get(DATA_FILE)));
             JSONArray arr = new JSONArray(content);
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
@@ -26,7 +27,7 @@ public class JSONDataHandler implements DataHandler {
                 long gold = obj.optLong("gold", 0);
                 members.put(id, new GuildMember(id, igName, policy, gold));
             }
-            System.out.println("Loaded " + members.size() + " members from policies.json");
+            System.out.println("Loaded " + members.size() + " members from " + DATA_FILE);
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
             throw new RuntimeException();
@@ -43,11 +44,11 @@ public class JSONDataHandler implements DataHandler {
             if (member.gold() != 0) obj.put("gold", member.gold());
             arr.put(obj);
         }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("user_data.json"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DATA_FILE))) {
             writer.write(arr.toString(2));
-            System.out.println(LocalDateTime.now() + ": Successfully updated user_data.json");
+            System.out.println(LocalDateTime.now() + ": Successfully saved data.");
         } catch (IOException e) {
-            System.err.println("Error writing to file: " + e.getMessage());
+            System.err.println("Error saving data: " + e.getMessage());
         }
     }
 
