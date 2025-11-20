@@ -27,9 +27,9 @@ record SetIgNameCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
         var nameOption = event.getOption("name");
         String igName = "";
-        String replyMessage = event.getMember().getAsMention() + ", your in-game name has been updated.";
+        String replyMessage;
         if (nameOption != null) igName = nameOption.getAsString();
-        Color colour = Color.GREEN;
+        Color colour = Color.CYAN;
         if (igName.length() > 25) {
             replyMessage = event.getMember().getAsMention() + ", please keep your in-game name at no more than 25 characters.";
             colour = Color.RED;
@@ -37,6 +37,9 @@ record SetIgNameCommand() implements SlashEvent {
             GuildMember gm = Main.dataHandler().load(event.getUser().getIdLong());
             gm.setIgName(igName);
             Main.dataHandler().save(gm);
+            replyMessage = igName.isEmpty() ? 
+                event.getMember().getAsMention() + ", your in-game name has been cleared." :
+                event.getMember().getAsMention() + ", your in-game name is set to `" + igName + "`.";
         }
 
         MessageEmbed embed = new EmbedBuilder()
