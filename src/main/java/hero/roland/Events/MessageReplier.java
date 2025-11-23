@@ -16,7 +16,7 @@ import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
 public abstract class MessageReplier {
     static public MessageEmbed getPolicyReply(User userToView) {
         GuildMember gm = Main.dataHandler().load(userToView.getIdLong());
-        String igName = gm.igName() == null ? "In-game name not set" : gm.igName();
+        String igName = gm.igName() == null ? "In-game name not set" : "`" + gm.igName() + "`";
         String raidPolicy = gm.raidPolicy() == null ? "No raid policy set." : gm.raidPolicy();
         String descHeader = String.format("Viewing the raid policy of %s (%s)\n\n", userToView.getAsMention(), igName);
 
