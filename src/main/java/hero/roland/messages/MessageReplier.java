@@ -121,8 +121,4 @@ public abstract class MessageReplier {
         if (GOLD_LEADERBOARD_PAGE_SIZE * (page + 1) >= goldLeaderboardMembers) right = right.asDisabled();
         reply.setComponents(ActionRow.of(left, right)).queue();
     }
-
-    abstract static public class Guides {
-
-    }
 }
