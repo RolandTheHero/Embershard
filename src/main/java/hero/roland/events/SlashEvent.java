@@ -1,4 +1,4 @@
-package hero.roland.Event;
+package hero.roland.events;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.components.actionrow.ActionRow;
@@ -11,7 +11,7 @@ import java.awt.Color;
 import java.util.List;
 
 import hero.roland.Main;
-import hero.roland.dat.GuildMember;
+import hero.roland.data.GuildMember;
 
 public interface SlashEvent {
     public void run(SlashCommandInteractionEvent event);

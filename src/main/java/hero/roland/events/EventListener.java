@@ -1,4 +1,4 @@
-package hero.roland.Event;
+package hero.roland.events;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
 package hero.roland;
 
-import hero.roland.Event.EventListener;
-import hero.roland.dat.DataHandler;
-import hero.roland.dat.JSONDataHandler;
+import hero.roland.data.DataHandler;
+import hero.roland.data.JSONDataHandler;
+import hero.roland.events.EventListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;

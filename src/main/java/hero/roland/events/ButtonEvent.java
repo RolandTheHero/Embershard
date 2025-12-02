@@ -1,4 +1,4 @@
-package hero.roland.Event;
+package hero.roland.events;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import hero.roland.Main;
-import hero.roland.dat.GuildMember;
+import hero.roland.data.GuildMember;
 import net.dv8tion.jda.api.components.label.Label;
 import net.dv8tion.jda.api.components.textinput.TextInput;
 import net.dv8tion.jda.api.components.textinput.TextInputStyle;

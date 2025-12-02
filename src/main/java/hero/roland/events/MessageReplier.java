@@ -1,10 +1,10 @@
-package hero.roland.Event;
+package hero.roland.events;
 
 import java.awt.Color;
 import java.util.List;
 
 import hero.roland.Main;
-import hero.roland.dat.GuildMember;
+import hero.roland.data.GuildMember;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.components.actionrow.ActionRow;
 import net.dv8tion.jda.api.components.buttons.Button;
