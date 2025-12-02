@@ -12,6 +12,7 @@ import java.util.List;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
+import hero.roland.messages.*;
 
 public interface SlashEvent {
     public void run(SlashCommandInteractionEvent event);
@@ -99,5 +100,13 @@ record GoldCommand() implements SlashEvent {
             .setColor(Color.CYAN)
             .build();
         event.replyEmbeds(embed).setEphemeral(true).queue();
+    }
+}
+record GuidesCommand() implements SlashEvent {
+    @Override public void run(SlashCommandInteractionEvent event) {
+        MessageEmbed embed = GuidePages.pages.get("home").toEmbed();
+        event.replyEmbeds(embed)
+            .setComponents(GuidePages.pages.get("home").components())
+            .queue();
     }
 }

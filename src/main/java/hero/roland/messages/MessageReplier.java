@@ -1,4 +1,4 @@
-package hero.roland.events;
+package hero.roland.messages;
 
 import java.awt.Color;
 import java.util.List;
@@ -120,5 +120,9 @@ public abstract class MessageReplier {
         Button right = Button.secondary(buttonId + (page + 1), ">");
         if (GOLD_LEADERBOARD_PAGE_SIZE * (page + 1) >= goldLeaderboardMembers) right = right.asDisabled();
         reply.setComponents(ActionRow.of(left, right)).queue();
+    }
+
+    abstract static public class Guides {
+
     }
 }
