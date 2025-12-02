@@ -1,4 +1,4 @@
-package hero.roland.Data;
+package hero.roland.dat;
 
 public class GuildMember {
     private long id;
