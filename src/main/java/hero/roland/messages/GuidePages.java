@@ -24,7 +24,7 @@ public abstract class GuidePages {
     );
     static private final GuidePage RAIDING_RESOURCES = new GuidePage(
         "Guides: Raiding Resources",
-        "Select a resource below to learn more. If a resource is not listed, it is not possible (yet) to collect it by raiding.\nGuides are available for the following resources:\n* Stone\n* Wood",
+        "Select a resource below to learn more. If a resource is not listed, it is not possible (yet) to collect it by raiding.\nGuides are available for the following resources:\n* Stone\n* Wood\n* Iron\n* Coal\n* Oil\n* Lumber",
         null,
         null,
         null,
