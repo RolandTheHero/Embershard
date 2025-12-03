@@ -75,7 +75,7 @@ public abstract class GuidePages {
     );
     static private final GuidePage RAIDING_COAL = new GuidePage(
         "Guides: Raiding Resources - Coal",
-        "No known locations at this time.",
+        "**Sarin's Base** (Level ??+): 20 coal, 8 stone",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/4/44/Resource-coal.png",
         null,
@@ -105,7 +105,7 @@ public abstract class GuidePages {
     );
     static private final GuidePage BOSS_FORMATIONS = new GuidePage(
         "Guides: Boss Formations",
-        "Information about the best unit formations to take down bosses.",
+        "This information is regarding the repeatable versions of bosses. Choose a boss below to learn more.",
         null,
         null,
         null,
@@ -136,6 +136,7 @@ public abstract class GuidePages {
     );
     static private final GuidePage BOSS_FORMATIONS_DREADNOUGHT = new GuidePage(
         "Guides: Boss Formations - Dreadnought",
+        "*Make sure all units are at least rank four!*\n\n" + 
         "**Free to Play**: Place three Buoys in the front row to absorb damage. Beside them, a Baby Grouper (using the Nibble attack) to take out the Submarines. " + 
         "Behind the Buoys and the Baby Grouper, you can fit seven Raptor-Class Battleships. Use the battleships' Bombard attack to deal damage to the Dreadnought." + 
         "\n**Pay to Win**: The formation used is the same as the Free to Play formation, but replace the Baby Grouper with a Monster Grouper and the Raptor-Class Battleships with Mammoth-Class Battleships.",
