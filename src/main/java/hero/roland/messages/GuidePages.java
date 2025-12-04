@@ -55,10 +55,10 @@ public abstract class GuidePages {
     );
     static private final GuidePage RAIDING_WOOD = new GuidePage(
         "Guides: Raiding Resources - Wood",
-        "**Raider Farms** (Level ??+): 150 wood\n**Greenborough** (Level ??+): 50 wood, 30 lumber",
+        "**Raider Farms** (Level ??+): 120 wood\n**Greenborough** (Level ??+): 50 wood, 30 lumber",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/8/88/Resource-wood.png",
-        null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1445950908289781841/woodlocations.png?ex=69323639&is=6930e4b9&hm=8e2518651e01656a265341720b6b5ca1c63dcf58ab1dd85a39d2b12988f5e711&",
         ActionRow.of(
             Button.secondary("guideselect:raiding-resources", "Back")
         )
