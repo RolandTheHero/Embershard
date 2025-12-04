@@ -68,17 +68,17 @@ public abstract class GuidePages {
         "**Greenborough** (Level ??+): 30 iron, 6 stone, 5 wood\n**Warlord Gantas' Fortress** (Level ??+): 10 iron, 20 stone, 5 wood",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/b/b0/Resource-iron.png",
-        null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1445958063554035944/ironlocations.png?ex=69323ce2&is=6930eb62&hm=2d3e0c11bba74985e4507df0c6231779fdb737ddf372fa819daa8f5e1bf3158e&",
         ActionRow.of(
             Button.secondary("guideselect:raiding-resources", "Back")
         )
     );
     static private final GuidePage RAIDING_COAL = new GuidePage(
         "Guides: Raiding Resources - Coal",
-        "**Sarin's Base** (Level ??+): 20 coal, 8 stone",
+        "**Sarin's Base** (Level ??+): 20 coal, 8 stone, 5 wood",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/4/44/Resource-coal.png",
-        null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1445959942577324102/coallocations.png?ex=69323ea2&is=6930ed22&hm=dd35b5e5340e92bf1bf80ea893cfc89a0ed5d8a3f461a95068710722c3c8a493&",
         ActionRow.of(
             Button.secondary("guideselect:raiding-resources", "Back")
         )
@@ -88,7 +88,7 @@ public abstract class GuidePages {
         "**Greenborough** (Level ??+): 40 oil, 6 stone",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/9/9e/Resource-oil.png",
-        null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1445954887962595488/oillocations.png?ex=693239ed&is=6930e86d&hm=1937ec8a097f5165eb39022f725d36c03aad71e28127ec3278014bd9680260dd&",
         ActionRow.of(
             Button.secondary("guideselect:raiding-resources", "Back")
         )
@@ -98,7 +98,7 @@ public abstract class GuidePages {
         "**Greenborough** (Level ??+): 30 lumber, 50 wood",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/7/7c/Resource-lumber.png",
-        null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1445961173160689756/lumberlocations.png?ex=69323fc8&is=6930ee48&hm=3b46ef90011d8284ef90f829b0a883d44e9f9fb3b199a9d6108a8623282f8f42&",
         ActionRow.of(
             Button.secondary("guideselect:raiding-resources", "Back")
         )
