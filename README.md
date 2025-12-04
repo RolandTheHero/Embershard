@@ -1,0 +1,15 @@
+# Embershard
+Embershard is the name of this [Battle Nations](https://en.wikipedia.org/wiki/Battle_Nations) helper bot designed for the Battle Nations guild *Eternal Embers* on [Discord](https://discord.com). It is written in the [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) programming language.
+
+## Commands
+The bot supports various [slash commands](https://discord.com/developers/docs/interactions/application-commands#slash-commands). Parameters in square brackets (`[]`) are required, whereas parameters in parentheses (`()`) are optional.
+
+`/view [user]` View a user's Raid Policy. If used on oneself, an Edit button is placed to allow the editing of one's Raid Policy. The Edit button opens a [modal](https://discord.com/developers/docs/components/using-modal-components) (or a form) with which one can customise their Raid Policy. Additionally, if the user does not have a username set, there is another entry on the modal to specify their username.
+
+`/list (all)` List all users' Raid Policies. The `all` boolean parameter specifies whether or not to show users all users regardless if they have set their username or a Raid Policy, defaulted to `false` if not supplied.
+
+`/setname [username]` Set your Battle Nations username.
+
+`/gold (amount)` View the gold leaderboard. If the `amount` integer parameter is specified, updates your gold amount with the new value instead.
+
+`/guides` View Battle Nations guides compiled from various sources.
