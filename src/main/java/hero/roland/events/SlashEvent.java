@@ -104,9 +104,9 @@ record GoldCommand() implements SlashEvent {
 }
 record GuidesCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
-        MessageEmbed embed = GuidePages.pages.get("home").toEmbed();
-        event.replyEmbeds(embed)
-            .setComponents(GuidePages.pages.get("home").components())
+        GuidePage page = GuidePages.getPage("home", event.getUser().getIdLong());
+        event.replyEmbeds(page.toEmbed())
+            .setComponents(page.components())
             .queue();
     }
 }

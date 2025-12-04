@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
+import hero.roland.messages.GuidePage;
+import hero.roland.messages.GuidePages;
 import hero.roland.messages.MessageReplier;
 import net.dv8tion.jda.api.components.label.Label;
 import net.dv8tion.jda.api.components.textinput.TextInput;
@@ -104,10 +106,15 @@ class ScrollGoldButton implements ButtonEvent {
 }
 class GuidesButton implements ButtonEvent {
     @Override public void run(ButtonInteractionEvent event) {
-        // guideselect:PAGEID
+        // guideselect:USERID:PAGEID
         String[] buttonId = event.getButton().getCustomId().split(":");
-        String pageId = buttonId[1];
-        var guidePage = hero.roland.messages.GuidePages.pages.get(pageId);
+        long userIdWhoMustRun = Long.parseLong(buttonId[1]);
+        if (userIdWhoMustRun != event.getUser().getIdLong()) {
+            event.reply("You can't control this guide! Use the `/guides` command to open your own.").setEphemeral(true).queue();
+            return;
+        }
+        String pageId = buttonId[2];
+        GuidePage guidePage = GuidePages.getPage(pageId, userIdWhoMustRun);
         event.editMessageEmbeds(guidePage.toEmbed())
             .setComponents(guidePage.components())
             .queue();
