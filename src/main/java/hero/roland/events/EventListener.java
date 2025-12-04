@@ -5,6 +5,7 @@ import java.util.Map;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class EventListener extends ListenerAdapter {
@@ -12,7 +13,8 @@ public class EventListener extends ListenerAdapter {
         "view", new ViewCommand(),
         "setname", new SetIgNameCommand(),
         "list", new ListCommand(),
-        "gold", new GoldCommand()
+        "gold", new GoldCommand(),
+        "guides", new GuidesCommand()
     );
     @Override public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         String eventName = event.getName();
@@ -24,7 +26,8 @@ public class EventListener extends ListenerAdapter {
     final private Map<String, ButtonEvent> buttonEvents = Map.of(
         "editpolicy", new EditPolicyButton(),
         "scrollview", new ScrollViewButton(),
-        "scrollgold", new ScrollGoldButton()
+        "scrollgold", new ScrollGoldButton(),
+        "guideselect", new GuidesButton()
     );
     @Override public void onButtonInteraction(ButtonInteractionEvent event) {
         String buttonId = event.getButton().getCustomId().split(":")[0];
@@ -41,5 +44,15 @@ public class EventListener extends ListenerAdapter {
         ModalEvent mcmd = modalEvents.get(modalId);
         if (mcmd == null) throw new IllegalArgumentException("No such modal command: " + modalId);
         mcmd.run(event);
+    }
+
+    final private Map<String, StringSelectEvent> stringSelectEvents = Map.of(
+        "guideselect", new GuideStringSelect()
+    );
+    @Override public void onStringSelectInteraction(StringSelectInteractionEvent event) {
+        String selectId = event.getComponentId().split(":")[0];
+        StringSelectEvent sscmd = stringSelectEvents.get(selectId);
+        if (sscmd == null) throw new IllegalArgumentException("No such string select command: " + selectId);
+        sscmd.run(event);
     }
 }

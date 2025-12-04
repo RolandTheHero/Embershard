@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
+import hero.roland.messages.MessageReplier;
 import net.dv8tion.jda.api.components.label.Label;
 import net.dv8tion.jda.api.components.textinput.TextInput;
 import net.dv8tion.jda.api.components.textinput.TextInputStyle;
@@ -99,5 +100,16 @@ class ScrollGoldButton implements ButtonEvent {
         }
         int page = Integer.parseInt(buttonId[2]);
         MessageReplier.goldLeaderboardReply(Main.dataHandler().load(userIdWhoMustRun), page, event.deferEdit());
+    }
+}
+class GuidesButton implements ButtonEvent {
+    @Override public void run(ButtonInteractionEvent event) {
+        // guideselect:PAGEID
+        String[] buttonId = event.getButton().getCustomId().split(":");
+        String pageId = buttonId[1];
+        var guidePage = hero.roland.messages.GuidePages.pages.get(pageId);
+        event.editMessageEmbeds(guidePage.toEmbed())
+            .setComponents(guidePage.components())
+            .queue();
     }
 }

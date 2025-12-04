@@ -1,4 +1,4 @@
-package hero.roland.events;
+package hero.roland.messages;
 
 import java.awt.Color;
 import java.util.List;
