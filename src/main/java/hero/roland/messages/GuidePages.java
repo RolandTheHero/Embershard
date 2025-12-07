@@ -138,7 +138,7 @@ public abstract class GuidePages {
     static private final Function<Long, GuidePage> BOSS_FORMATIONS_DREADNOUGHT = userId -> new GuidePage(
         "Guides: Boss Formations - Dreadnought",
         "*Make sure all units are at least rank four!*\n\n" + 
-        "**Free to Play**: Place three Buoys in the front row to absorb damage. Beside them, a Baby Grouper (using the Nibble attack) to take out the Submarines. " + 
+        "**Free to Play**: Place three Buoys in the front row to absorb damage. Beside them, a Baby Grouper (using the Nibble attack) to take out the Submarines ideally in one attack. " + 
         "Behind the Buoys and the Baby Grouper, you can fit seven Raptor-Class Battleships. Use the battleships' Bombard attack to deal damage to the Dreadnought." + 
         "\n**Pay to Win**: The formation used is the same as the Free to Play formation, but replace the Baby Grouper with a Monster Grouper and the Raptor-Class Battleships with Mammoth-Class Battleships.",
         null,
