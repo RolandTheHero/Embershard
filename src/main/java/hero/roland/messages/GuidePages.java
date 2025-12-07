@@ -150,7 +150,11 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> BOSS_FORMATIONS_KRAKEN = userId -> new GuidePage(
         "Guides: Boss Formations - The Kraken",
-        "Coming soon!",
+        "*Make sure your units are all at least rank four!*\n\n" +
+        "Use three Buoys in the front, and two Baby or Monster Groupers on the side. Place Raptor- or Mammoth-Class Battleships on the edges. " +
+        "The Buoys and Baby Groupers have great resistance to Crushing, Piercing and Fire damage, so will last longer against the Kraken and its Tentacle's attacks. " +
+        "The Kraken's Acidic Ink attack does the most damage to units at the forefront, so Buoys are ideal to absorb this damage.\n\n" +
+        "Continuously use the Bombard attack from your battleships to hit the Kraken head. If you do not have the Bombard attack available, use the Broadside attack only if the attack can actually hit. The residual damage from Broadside is little and the Mammoth-Class' machine gun or Grouper can be used instead.",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/f/f6/Boss_kraken_body_nowater.png",
         null,
