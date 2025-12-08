@@ -20,6 +20,7 @@ public abstract class GuidePages {
                 .setPlaceholder("Select a guide")
                 .addOption("Raiding Resources", "raiding-resources", "What are the best spots to raid for resources?")
                 .addOption("Boss Formations", "boss-formations", "What are the best unit formations to take down bosses?")
+                .addOption("Other Guides", "other", "Links to other guides created by the Battle Nations community.")
                 .build()
         )
     );
@@ -172,6 +173,19 @@ public abstract class GuidePages {
             Button.secondary("guideselect:" + userId + ":boss-formations", "Back")
         )
     );
+    static private final Function<Long, GuidePage> OTHER = userId -> new GuidePage(
+        "Other Guides",
+        "The following are externally created guides that you may find useful:\n" +
+        "* [Detailed Leveling Guide](https://docs.google.com/spreadsheets/d/e/2PACX-1vQSn1Krwu5fDOtmC4wcbyS1brc7NCJJpqljSB0zlQFYHjs62JFh0CbFy-LqJcao3xt-iqCze17HFHRm/pubhtml)\n" +
+        "* [Tier 2 Resources Efficiency Sheet](https://docs.google.com/spreadsheets/d/1BXizD0CArTvn36QPLhJASkJ4FrdS_Va1M1_K_WJbmAE)\n" + 
+        "* [Unit Guide](https://docs.google.com/document/d/11NxaG86XYPrvQk6CTV6HFQnJ24_Zm0CA6v2A5_vxLu0)*",
+        "* No longer maintained, updated or accurate",
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":home", "Back")
+        )
+    );
 
     static private Map<String, Function<Long, GuidePage>> pages = new HashMap<>();
     static {
@@ -188,6 +202,7 @@ public abstract class GuidePages {
         pages.put("boss-formations-dreadnought", BOSS_FORMATIONS_DREADNOUGHT);
         pages.put("boss-formations-kraken", BOSS_FORMATIONS_KRAKEN);
         pages.put("boss-formations-ancient-sentinel", BOSS_FORMATIONS_ANCIENT_SENTINEL);
+        pages.put("other", OTHER);
     }
     static public GuidePage getPage(String pageId, long userId) {
         return pages.get(pageId).apply(userId);
