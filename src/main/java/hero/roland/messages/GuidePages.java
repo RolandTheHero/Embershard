@@ -20,6 +20,7 @@ public abstract class GuidePages {
                 .setPlaceholder("Select a guide")
                 .addOption("Raiding Resources", "raiding-resources", "What are the best spots to raid for resources?")
                 .addOption("Boss Formations", "boss-formations", "What are the best unit formations to take down bosses?")
+                .addOption("Infection Rates", "infection-rates", "Which units should I infect?")
                 .addOption("Other Guides", "other", "Links to other guides created by the Battle Nations community.")
                 .build()
         )
@@ -173,6 +174,120 @@ public abstract class GuidePages {
             Button.secondary("guideselect:" + userId + ":boss-formations", "Back")
         )
     );
+    static private final Function<Long, GuidePage> INFECTION_RATES = userId -> new GuidePage(
+        "Guides: Infection Rates",
+        "You can spend five Black Nanopods in the Infection Test Facility to turn an injured unit into an Infected unit. Each unit has different chances to turn into different Infected units. The full infection rate table can also be found [here](https://battlenations.miraheze.org/wiki/The_Infected#Infection_Rates).\nChoose a specimen type to learn which units to infect for your desired Infected.",
+        null,
+        "https://static.wikia.nocookie.net/battlenations/images/f/fa/Comp_mil_hospital_zombies_icon.png",
+        null,
+        ActionRow.of(
+            StringSelectMenu.create("guideselect:" + userId)
+                .setPlaceholder("Select an Infected type")
+                .addOption("Bullfrogs (\"Specimen a\")", "infection-rates-a")
+                .addOption("Creepers (\"Specimen b\")", "infection-rates-b")
+                .addOption("Cannoneers (\"Specimen c\")", "infection-rates-c")
+                .addOption("Stalkers (\"Specimen d\")", "infection-rates-d")
+                .addOption("Colossi (\"Specimen e\")", "infection-rates-e")
+                .addOption("Hunters (\"Specimen f\")", "infection-rates-f")
+                .addOption("Shredders (\"Specimen g\")", "infection-rates-g")
+                .addOption("Crawlers (\"Specimen h\")", "infection-rates-h")
+                .addOption("Maulers (\"Specimen i\")", "infection-rates-i")
+                .build()
+        ),
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":home", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_A = userId -> new GuidePage(
+        "Guides: Infection Rates - Bullfrogs (\"Specimen a\")",
+        null,
+        null,
+        null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1447767699777130531/bullfrogrates.png?ex=6938d23d&is=693780bd&hm=42e909d92a126f93f3135f98af3ddc1ef96f447a7cbc78bdc1ba96b803110d0f&",
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_B = userId -> new GuidePage(
+        "Guides: Infection Rates - Creepers (\"Specimen b\")",
+        "Coming soon.",
+        null,
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_C = userId -> new GuidePage(
+        "Guides: Infection Rates - Cannoneers (\"Specimen c\")",
+        "Coming soon.",
+        null,
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_D = userId -> new GuidePage(
+        "Guides: Infection Rates - Stalkers (\"Specimen d\")",
+        "Coming soon.",
+        null,
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_E = userId -> new GuidePage(
+        "Guides: Infection Rates - Colossi (\"Specimen e\")",
+        "Coming soon.",
+        null,
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_F = userId -> new GuidePage(
+        "Guides: Infection Rates - Hunters (\"Specimen f\")",
+        "Coming soon.",
+        null,
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_G = userId -> new GuidePage(
+        "Guides: Infection Rates - Shredders (\"Specimen g\")",
+        "Coming soon.",
+        null,
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_H = userId -> new GuidePage(
+        "Guides: Infection Rates - Crawlers (\"Specimen h\")",
+        "Coming soon.",
+        null,
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> INFECTION_RATES_I = userId -> new GuidePage(
+        "Guides: Infection Rates - Maulers (\"Specimen i\")",
+        "Coming soon.",
+        null,
+        null,
+        null,
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
+        )
+    );
     static private final Function<Long, GuidePage> OTHER = userId -> new GuidePage(
         "Other Guides",
         "The following are externally created guides that you may find useful:\n" +
@@ -202,6 +317,16 @@ public abstract class GuidePages {
         pages.put("boss-formations-dreadnought", BOSS_FORMATIONS_DREADNOUGHT);
         pages.put("boss-formations-kraken", BOSS_FORMATIONS_KRAKEN);
         pages.put("boss-formations-ancient-sentinel", BOSS_FORMATIONS_ANCIENT_SENTINEL);
+        pages.put("infection-rates", INFECTION_RATES);
+        pages.put("infection-rates-a", INFECTION_RATES_A);
+        pages.put("infection-rates-b", INFECTION_RATES_B);
+        pages.put("infection-rates-c", INFECTION_RATES_C);
+        pages.put("infection-rates-d", INFECTION_RATES_D);
+        pages.put("infection-rates-e", INFECTION_RATES_E);
+        pages.put("infection-rates-f", INFECTION_RATES_F);
+        pages.put("infection-rates-g", INFECTION_RATES_G);
+        pages.put("infection-rates-h", INFECTION_RATES_H);
+        pages.put("infection-rates-i", INFECTION_RATES_I);
         pages.put("other", OTHER);
     }
     static public GuidePage getPage(String pageId, long userId) {
