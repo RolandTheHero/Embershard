@@ -210,10 +210,10 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> INFECTION_RATES_B = userId -> new GuidePage(
         "Guides: Infection Rates - Creepers (\"Specimen b\")",
-        "Coming soon.",
         null,
         null,
         null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1448099476580597760/creeperrates.png?ex=693a073b&is=6938b5bb&hm=3fe9ebb35068ff61ac2c988470a5ed7b39f585769487b8f31ad843f83815f550&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
         )
