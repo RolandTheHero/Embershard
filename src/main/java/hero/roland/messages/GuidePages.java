@@ -223,7 +223,7 @@ public abstract class GuidePages {
         "Coming soon.",
         null,
         null,
-        "https://cdn.discordapp.com/attachments/1041212643958071336/1448105960609419334/cannoneerrates.png?ex=693a0d45&is=6938bbc5&hm=ee0884e2bcae226889b0cc0b681ef1c17ea19b4aa39f9fed9b257c620ed7f047&",
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1448106626299990099/cannoneerrates.png?ex=693a0de4&is=6938bc64&hm=a2f299e86607a4d5d7f52593fea609c0b1a14e01350259af127c556e8d420d21&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
         )
