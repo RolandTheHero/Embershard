@@ -220,7 +220,7 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> INFECTION_RATES_C = userId -> new GuidePage(
         "Guides: Infection Rates - Cannoneers (\"Specimen c\")",
-        "Coming soon.",
+        null,
         null,
         null,
         "https://cdn.discordapp.com/attachments/1041212643958071336/1448106626299990099/cannoneerrates.png?ex=693a0de4&is=6938bc64&hm=a2f299e86607a4d5d7f52593fea609c0b1a14e01350259af127c556e8d420d21&",
@@ -230,60 +230,60 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> INFECTION_RATES_D = userId -> new GuidePage(
         "Guides: Infection Rates - Stalkers (\"Specimen d\")",
-        "Coming soon.",
         null,
         null,
         null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1448120380589084712/stalkerrates.png?ex=693a1ab3&is=6938c933&hm=3146b532b46478db4903d844bd6b487fd9975f7e22810e0a6ae1a2f015b9e202&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
         )
     );
     static private final Function<Long, GuidePage> INFECTION_RATES_E = userId -> new GuidePage(
         "Guides: Infection Rates - Colossi (\"Specimen e\")",
-        "Coming soon.",
         null,
         null,
         null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1448127893749370890/colossusrates.png?ex=693a21b2&is=6938d032&hm=3d17d77acf65e7848755048956c610ad1a7d8e8c99d01456395f570d01d888c0&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
         )
     );
     static private final Function<Long, GuidePage> INFECTION_RATES_F = userId -> new GuidePage(
         "Guides: Infection Rates - Hunters (\"Specimen f\")",
-        "Coming soon.",
         null,
         null,
         null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1448133478062231604/hunterrates.png?ex=693a26e6&is=6938d566&hm=984d9fda63c5d70e3bd3f928d4d1ce469bda1e87330b46c2b0ac12ef2281475c&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
         )
     );
     static private final Function<Long, GuidePage> INFECTION_RATES_G = userId -> new GuidePage(
         "Guides: Infection Rates - Shredders (\"Specimen g\")",
-        "Coming soon.",
         null,
         null,
         null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1448137105648652288/shredderrates.png?ex=693a2a47&is=6938d8c7&hm=e5c93afb77e9101b8c15ef681ec874418e7042ee629366c9c763c7c40b43d4e6&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
         )
     );
     static private final Function<Long, GuidePage> INFECTION_RATES_H = userId -> new GuidePage(
         "Guides: Infection Rates - Crawlers (\"Specimen h\")",
-        "Coming soon.",
         null,
         null,
         null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1448141855328960542/crawlerrates.png?ex=693a2eb3&is=6938dd33&hm=ca937201ae92288a04923c5935438c2c1cff4a1b4df90c9881d1057e116763f4&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
         )
     );
     static private final Function<Long, GuidePage> INFECTION_RATES_I = userId -> new GuidePage(
         "Guides: Infection Rates - Maulers (\"Specimen i\")",
-        "Coming soon.",
         null,
         null,
         null,
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1448145395078140006/maulerrates.png?ex=693a31ff&is=6938e07f&hm=2850df2af9428e81601d2f90e22d00b2b2bdd265d85183a8262ee43795bd8557&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":infection-rates", "Back")
         )
