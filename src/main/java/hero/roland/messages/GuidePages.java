@@ -140,9 +140,9 @@ public abstract class GuidePages {
     static private final Function<Long, GuidePage> BOSS_FORMATIONS_DREADNOUGHT = userId -> new GuidePage(
         "Guides: Boss Formations - Dreadnought",
         "*Make sure all units are at least rank four!*\n\n" + 
-        "**Free to Play**: Place three Buoys in the front row to absorb damage. Beside them, a Baby Grouper (using the Nibble attack) to take out the Submarines ideally in one attack. " + 
-        "Behind the Buoys and the Baby Grouper, you can fit seven Raptor-Class Battleships. Use the battleships' Bombard attack to deal damage to the Dreadnought." + 
-        "\n**Pay to Win**: The formation used is the same as the Free to Play formation, but replace the Baby Grouper with a Monster Grouper and the Raptor-Class Battleships with Mammoth-Class Battleships.",
+        "**Formation**: Place three Buoys in the front middle, with a Grouper beside them. Fill all the space behind them with your strongest battleships.\n" + 
+        "**Strategy**: On the first two turns use the Grouper to take out each Submarine in one attack. You may be able to finish one of the Submarines off with a Mammoth-Class Battleship's Broadside attack, but make sure that attack hits the Dreadnought too. " + 
+        "You should restart the fight if both Submarines are not destroyed before your fourth turn. After that, just focus your battleships' Bombard attacks on the Dreadnought. If you suffer lots of critical hits from the Dreadnought or you lose ships early, you should also restart.",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/2/24/Boss_ship_dreadnaught_icon.png",
         "https://cdn.discordapp.com/attachments/1041212643958071336/1445566599066288238/image.png?ex=6930d04e&is=692f7ece&hm=39fa8ff5735659b7909d0f09462dcb1ba619ea52dacf0a548f311584b5fa3b33&",
