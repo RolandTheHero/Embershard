@@ -63,6 +63,12 @@ class ScrollViewButton implements ButtonEvent {
         }
         boolean showAll = Boolean.parseBoolean(buttonId[3]);
         List<GuildMember> list = ListCommand.getMembersWithPolicy(showAll);
+        if (list.isEmpty()) {
+            event.deferEdit().setEmbeds(MessageReplier.noPoliciesEmbed(), MessageReplier.getPaginatedMemberList(list, 0, showAll))
+                .setComponents()
+                .queue();
+            return;
+        }
         int currentPage = (Integer.parseInt(buttonId[2]) % list.size() + list.size()) % list.size(); // Wrap around
         MessageEmbed userListEmbed = MessageReplier.getPaginatedMemberList(list, currentPage, showAll);
         Main.jda().retrieveUserById(list.get(currentPage).id()).queue(user -> {

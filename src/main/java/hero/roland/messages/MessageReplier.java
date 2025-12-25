@@ -50,7 +50,13 @@ public abstract class MessageReplier {
     
     static public MessageEmbed getPaginatedMemberList(List<GuildMember> members, int page, boolean showAll) {
         int membersSize = members.size();
-        if (members.isEmpty()) { throw new IllegalArgumentException("No members with raid policies."); }
+        if (members.isEmpty()) {
+            MessageEmbed embed = new EmbedBuilder()
+                .setDescription("```Once someone has set their username and raid policy, they will show up here!```")
+                .setColor(Color.CYAN)
+                .build();
+            return embed;
+        }
         int maxNumSize = String.valueOf(membersSize).length();
         StringBuilder desc = new StringBuilder("```py");
         for (int i = -2; i <= 2; i++) {
@@ -70,6 +76,13 @@ public abstract class MessageReplier {
             .setColor(Color.CYAN)
             .build();
         return embed;
+    }
+    static public MessageEmbed noPoliciesEmbed() {
+        return new EmbedBuilder()
+            .setTitle("Raid Policy")
+            .setDescription("It looks like there are no raid policies to show! Someone needs to use the `/view` command on themselves and set one first.")
+            .setColor(Color.CYAN)
+            .build();
     }
 
     static private final int GOLD_LEADERBOARD_PAGE_SIZE = 10;

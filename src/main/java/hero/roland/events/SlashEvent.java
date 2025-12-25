@@ -57,6 +57,10 @@ record ListCommand() implements SlashEvent {
         boolean showAll = showAllOption == null ? false : showAllOption.getAsBoolean();
         List<GuildMember> membersWithPolicy = getMembersWithPolicy(showAll);
         MessageEmbed embed = MessageReplier.getPaginatedMemberList(membersWithPolicy, 0, showAll);
+        if (membersWithPolicy.isEmpty()) {
+            event.replyEmbeds(MessageReplier.noPoliciesEmbed(), embed).queue();
+            return;
+        }
         Main.jda().retrieveUserById(membersWithPolicy.getFirst().id()).queue(user -> {
             MessageEmbed userEmbed = MessageReplier.getPolicyReply(user);
             Button leftLeft = Button.secondary("scrollview:" + event.getUser().getId() + ":-3:" + showAll, "<<<");
