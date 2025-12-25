@@ -1,5 +1,5 @@
 # Embershard
-Embershard is the name of this [Battle Nations](https://en.wikipedia.org/wiki/Battle_Nations) helper bot designed for the Battle Nations guild *Eternal Embers* on [Discord](https://discord.com). It is written in the [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) programming language.
+Embershard is the name of this [Battle Nations](https://en.wikipedia.org/wiki/Battle_Nations) helper bot designed for the Battle Nations guild *Eternal Embers* on [Discord](https://discord.com). It is written in the [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) programming language using the [JDA](https://jda.wiki/) (Java Discord API) library.
 
 ## Commands
 The bot supports various [slash commands](https://discord.com/developers/docs/interactions/application-commands#slash-commands). Parameters in square brackets (`[]`) are required, whereas parameters in parentheses (`()`) are optional.
