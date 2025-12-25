@@ -46,9 +46,9 @@ class EditPolicyButton implements ButtonEvent {
         }
         TextInput policyInput = TextInput.create("policy", TextInputStyle.PARAGRAPH)
             .setRequired(false)
-            .setPlaceholder("Let people know what encounters they can or can't take! Leave blank to clear")
+            .setPlaceholder("Let people know what encounters they can or can't take, what you'd like assisted, etc. Leave blank to clear...")
             .setValue(gm.raidPolicy())
-            .setMaxLength(300)
+            .setMaxLength(500)
             .build();
         
         Modal modal = modalBuilder.addComponents(Label.of("New Raid Policy", policyInput)).build();
