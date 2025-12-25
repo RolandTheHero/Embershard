@@ -1,17 +1,14 @@
 package hero.roland.events;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
 import hero.roland.messages.GuidePage;
 import hero.roland.messages.GuidePages;
 import hero.roland.messages.MessageReplier;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
+import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.components.label.Label;
 import net.dv8tion.jda.api.components.textinput.TextInput;
 import net.dv8tion.jda.api.components.textinput.TextInputStyle;
@@ -56,39 +53,27 @@ class EditPolicyButton implements ButtonEvent {
     }
 }
 class ScrollViewButton implements ButtonEvent {
-    private class PaginationSession {
-        final public List<GuildMember> list;
-        public int currentPage = 0;
-        public PaginationSession(String msgId, boolean showAll) {
-            list = ListCommand.getMembersWithPolicy(showAll);
-            ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-            scheduler.schedule(() -> ScrollViewButton.this.activeSessions.remove(msgId), 15, TimeUnit.MINUTES);
-        }
-        public GuildMember getCurrent() {
-            return list.get((currentPage % list.size() + list.size()) % list.size());
-        }
-    }
-    Map<String, PaginationSession> activeSessions = new HashMap<>();
-
     @Override public void run(ButtonInteractionEvent event) {
-        // scrollview:USERID:PAGE_DIFF:SHOWALL
+        // scrollview:USERID:PAGE:SHOWALL
         String[] buttonId = event.getButton().getCustomId().split(":");
         long userIdWhoMustRun = Long.parseLong(buttonId[1]);
         if (userIdWhoMustRun != event.getUser().getIdLong()) {
-            event.reply("You can't control this pagination!").setEphemeral(true).queue();
+            event.reply("You can't control this pagination! Use the `/list` command to open your own.").setEphemeral(true).queue();
             return;
         }
-        PaginationSession session = activeSessions.get(event.getMessageId());
         boolean showAll = Boolean.parseBoolean(buttonId[3]);
-        if (session == null) {
-            session = new PaginationSession(event.getMessageId(), showAll);
-            activeSessions.put(event.getMessageId(), session);
-        }
-        session.currentPage += Integer.parseInt(buttonId[2]);
-        MessageEmbed userListEmbed = MessageReplier.getPaginatedMemberList(session.list, session.currentPage, showAll);
-        Main.jda().retrieveUserById(session.getCurrent().id()).queue(user -> {
+        List<GuildMember> list = ListCommand.getMembersWithPolicy(showAll);
+        int currentPage = (Integer.parseInt(buttonId[2]) % list.size() + list.size()) % list.size(); // Wrap around
+        MessageEmbed userListEmbed = MessageReplier.getPaginatedMemberList(list, currentPage, showAll);
+        Main.jda().retrieveUserById(list.get(currentPage).id()).queue(user -> {
             MessageEmbed policyEmbed = MessageReplier.getPolicyReply(user);
-            event.deferEdit().setEmbeds(policyEmbed, userListEmbed).queue();
+            Button leftLeft = Button.secondary("scrollview:" + event.getUser().getId() + ":" + (currentPage - 3) + ":" + showAll, "<<<");
+            Button left = Button.secondary("scrollview:" + event.getUser().getId() + ":" + (currentPage - 1) + ":" + showAll, "<");
+            Button right = Button.secondary("scrollview:" + event.getUser().getId() + ":" + (currentPage + 1) + ":" + showAll, ">");
+            Button rightRight = Button.secondary("scrollview:" + event.getUser().getId() + ":" + (currentPage + 3) + ":" + showAll, ">>>");
+            event.deferEdit().setEmbeds(policyEmbed, userListEmbed)
+                .setComponents(ActionRow.of(leftLeft, left, right, rightRight))
+                .queue();
         });
     }
 }
