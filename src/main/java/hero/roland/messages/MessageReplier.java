@@ -48,11 +48,11 @@ public abstract class MessageReplier {
         reply.queue();
     }
     
-    static public MessageEmbed getPaginatedMemberList(List<GuildMember> members, int page, boolean showAll) {
+    static public MessageEmbed getPaginatedMemberList(List<GuildMember> members, int page, String footerMessage) {
         int membersSize = members.size();
         if (members.isEmpty()) {
             MessageEmbed embed = new EmbedBuilder()
-                .setDescription("```Once someone has set their username and raid policy, they will show up here!```")
+                .setDescription("```No Results to display!```")
                 .setColor(Color.CYAN)
                 .build();
             return embed;
@@ -72,7 +72,7 @@ public abstract class MessageReplier {
         desc.append("```");
         MessageEmbed embed = new EmbedBuilder()
             .setDescription(desc.toString())
-            .setFooter(showAll ? "Displaying all members regardless of username or policy set" : "Only displaying members with both username and policy set")
+            .setFooter(footerMessage)
             .setColor(Color.CYAN)
             .build();
         return embed;

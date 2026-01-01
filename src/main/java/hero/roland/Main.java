@@ -16,7 +16,8 @@ public class Main {
 
         jda.updateCommands().addCommands(
             Commands.slash("view", "View the raid policy of a member. Edit your own raid policy by using this command on yourself.")
-                .addOption(OptionType.USER, "member", "The member to view the policy of.", true),
+                .addOption(OptionType.USER, "discord-user", "The Discord member to view the policy of.", false)
+                .addOption(OptionType.STRING, "bn-user", "The Battle Nations username of the member to view the policy of.", false),
             Commands.slash("setname", "Set your in-game name.")
                 .addOption(OptionType.STRING, "name", "Your in-game name.", true),
             Commands.slash("list", "List all members who have set a name and raid policy.")

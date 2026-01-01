@@ -26,6 +26,7 @@ public class EventListener extends ListenerAdapter {
     final private Map<String, ButtonEvent> buttonEvents = Map.of(
         "editpolicy", new EditPolicyButton(),
         "scrollview", new ScrollViewButton(),
+        "scrolllist", new ScrollListButton(),
         "scrollgold", new ScrollGoldButton(),
         "guideselect", new GuidesButton()
     );

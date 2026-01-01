@@ -20,8 +20,51 @@ public interface SlashEvent {
 
 record ViewCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
-        User userToView = event.getOption("member").getAsUser();
-        MessageReplier.viewPolicyReply(event.getUser(), userToView, event.deferReply());
+        var discordUserOption = event.getOption("discord-user");
+        var bnUserOption = event.getOption("bn-user");
+        User discordUserToView;
+        String bnUserToView;
+        if (discordUserOption != null) discordUserToView = discordUserOption.getAsUser();
+        else discordUserToView = null;
+        if (bnUserOption != null) bnUserToView = bnUserOption.getAsString();
+        else bnUserToView = null;
+        if (discordUserToView == null && bnUserToView == null) { // No arguments supplied, show own policy
+            MessageReplier.viewPolicyReply(event.getUser(), event.getUser(), event.deferReply());
+            return;
+        }
+        if (discordUserToView != null && bnUserToView != null) { // Both arguments supplied, error
+            event.reply("Please provide either a Discord user or a Battle Nations username, not both!").setEphemeral(true).queue();
+            return;
+        }
+        if (discordUserToView != null) { // View by Discord user
+            MessageReplier.viewPolicyReply(event.getUser(), discordUserToView, event.deferReply());
+            return;
+        }
+        // Search by Battle Nations username
+        List<GuildMember> searchResults = Main.dataHandler().allMembers().values().stream()
+            .filter(gm -> gm.igName() != null && gm.igName().toLowerCase().contains(bnUserToView.toLowerCase()))
+            .sorted((gm1, gm2) -> gm1.igName().compareToIgnoreCase(gm2.igName()))
+            .toList();
+        if (searchResults.isEmpty()) {
+            event.reply("No members found with the Battle Nations username containing `" + bnUserToView + "`.").queue();
+            return;
+        }
+        Main.jda().retrieveUserById(searchResults.get(0).id()).queue(user -> {
+            if (searchResults.size() == 1) {
+                MessageReplier.viewPolicyReply(event.getUser(), user, event.deferReply());
+                return;
+            }
+            MessageEmbed policyEmbed = MessageReplier.getPolicyReply(user);
+            MessageEmbed embed = MessageReplier.getPaginatedMemberList(searchResults, 0, "Showing usernames containing `" + bnUserToView + "`");
+            event.replyEmbeds(policyEmbed, embed)
+                .setComponents(ActionRow.of(
+                    Button.secondary("scrollview:" + event.getUser().getId() + ":" + bnUserToView + ":-3", "<<<"),
+                    Button.secondary("scrollview:" + event.getUser().getId() + ":" + bnUserToView + ":-1", "<"),
+                    Button.secondary("scrollview:" + event.getUser().getId() + ":" + bnUserToView + ":1", ">"),
+                    Button.secondary("scrollview:" + event.getUser().getId() + ":" + bnUserToView + ":3", ">>>")
+                ))
+                .queue();
+        });
     }
 }
 record SetIgNameCommand() implements SlashEvent {
@@ -56,21 +99,25 @@ record ListCommand() implements SlashEvent {
         var showAllOption = event.getOption("all");
         boolean showAll = showAllOption == null ? false : showAllOption.getAsBoolean();
         List<GuildMember> membersWithPolicy = getMembersWithPolicy(showAll);
-        MessageEmbed embed = MessageReplier.getPaginatedMemberList(membersWithPolicy, 0, showAll);
+        String footerMessage = listFooter(showAll);
+        MessageEmbed embed = MessageReplier.getPaginatedMemberList(membersWithPolicy, 0, footerMessage);
         if (membersWithPolicy.isEmpty()) {
             event.replyEmbeds(MessageReplier.noPoliciesEmbed(), embed).queue();
             return;
         }
         Main.jda().retrieveUserById(membersWithPolicy.getFirst().id()).queue(user -> {
             MessageEmbed userEmbed = MessageReplier.getPolicyReply(user);
-            Button leftLeft = Button.secondary("scrollview:" + event.getUser().getId() + ":-3:" + showAll, "<<<");
-            Button left = Button.secondary("scrollview:" + event.getUser().getId() + ":-1:" + showAll, "<");
-            Button right = Button.secondary("scrollview:" + event.getUser().getId() + ":1:" + showAll, ">");
-            Button rightRight = Button.secondary("scrollview:" + event.getUser().getId() + ":3:" + showAll, ">>>");
+            Button leftLeft = Button.secondary("scrolllist:" + event.getUser().getId() + ":-3:" + showAll, "<<<");
+            Button left = Button.secondary("scrolllist:" + event.getUser().getId() + ":-1:" + showAll, "<");
+            Button right = Button.secondary("scrolllist:" + event.getUser().getId() + ":1:" + showAll, ">");
+            Button rightRight = Button.secondary("scrolllist:" + event.getUser().getId() + ":3:" + showAll, ">>>");
             event.replyEmbeds(userEmbed, embed)
                 .setComponents(ActionRow.of(leftLeft, left, right, rightRight))
                 .queue();
         });
+    }
+    static public String listFooter(boolean showAll) {
+        return showAll ? "Displaying all members" : "Only displaying members with policy set";
     }
     static public List<GuildMember> getMembersWithPolicy(boolean showAll) {
         return Main.dataHandler().allMembers().values().stream()
