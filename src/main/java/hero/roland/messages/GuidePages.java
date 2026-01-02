@@ -88,10 +88,10 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> RAIDING_OIL = userId -> new GuidePage(
         "Guides: Raiding Resources - Oil",
-        "**Greenborough** (Level ??+): 40 oil, 6 stone",
+        "**Greenborough** (Level ??+): 40 oil, 6 stone\n**Blade's Base** (Level ??+): 40 oil\n**Bigfoot Country** (Level 46+): 25 oil\n\nNotes:\n* Bigfoot Country, although less oil, may be desirable to raid due to higher SP rewards.\n* It may be slower to raid oil in Greenborough due to its strong defenders.",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/9/9e/Resource-oil.png",
-        "https://cdn.discordapp.com/attachments/1041212643958071336/1445954887962595488/oillocations.png?ex=693239ed&is=6930e86d&hm=1937ec8a097f5165eb39022f725d36c03aad71e28127ec3278014bd9680260dd&",
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1456604393825894410/oillocations.png?ex=6958f80d&is=6957a68d&hm=0c3f8dfce2bd91aa3a38fd0425ca765710e37342c1e1689a42ede7d1c4779dee&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":raiding-resources", "Back")
         )
