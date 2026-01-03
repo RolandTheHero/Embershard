@@ -166,8 +166,8 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> BOSS_FORMATIONS_ANCIENT_SENTINEL = userId -> new GuidePage(
         "Guides: Boss Formations - Ancient Sentinel",
-        "Just use Veterans.",
-        "This is an upcoming boss",
+        "Check out BNAP's video on this matter: https://www.youtube.com/watch?v=M6D9EpVOpRY",
+        null,
         "https://static.wikia.nocookie.net/battlenations/images/5/55/Hero_ancient_BossFull_icon.png",
         null,
         ActionRow.of(
