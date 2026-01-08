@@ -12,11 +12,11 @@ class FormationTest {
         formation.grid1 = EnemyUnit.PUMA;
         formation.grid2 = EnemyUnit.FLAME_TURRET;
         formation.grid3 = EnemyUnit.WARLORD_GANTAS;
-        formation.grid4 = EnemyUnit.BOOM_BOOM;
+        formation.grid4 = EnemyUnit.GUN_TRUCK;
         formation.grid5 = EnemyUnit.RAIDER_BRAWLER;
-        formation.grid6 = EnemyUnit.DRAGON;
-        formation.grid7 = EnemyUnit.RECON_VEHICLE;
-        formation.grid8 = EnemyUnit.RECON_VEHICLE;
+        formation.grid6 = EnemyUnit.WOLF_DEFENDER;
+        formation.grid7 = EnemyUnit.WOLF_BOMBADIER;
+        formation.grid8 = EnemyUnit.WOLF_DEVASTATOR;
         formation.grid9 = EnemyUnit.RECON_VEHICLE;
         formation.grid10 = EnemyUnit.RECON_VEHICLE;
         formation.grid11 = EnemyUnit.RECON_VEHICLE;

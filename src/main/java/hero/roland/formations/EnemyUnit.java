@@ -36,8 +36,43 @@ public enum EnemyUnit {
         @Override public int x() { return 82; }
         @Override public int y() { return 166; }
     },
+    GUN_TRUCK {
+        @Override public String filePathString() { return super.filePathString() + "Guntruck_front.png"; }
+        @Override public int x() { return 60; }
+        @Override public int y() { return 117; }
+    },
+    LIGHT_TANK {
+        @Override public String filePathString() { return super.filePathString() + "LightTank_grey_front.png"; }
+        @Override public int x() { return 58; }
+        @Override public int y() { return 117; }
+    },
+    TEMPEST {
+        @Override public String filePathString() { return super.filePathString() + "MGTank_front.png"; }
+        @Override public int x() { return 55; }
+        @Override public int y() { return 111; }
+    },
+    MAMMOTH_RIDER {
+        @Override public String filePathString() { return super.filePathString() + "MammothRaider.png"; }
+        @Override public int x() { return 72; }
+        @Override public int y() { return 184; }
+    },
+    WOLF_BOMBADIER {
+        @Override public String filePathString() { return super.filePathString() + "SWBombadier_front.png"; }
+        @Override public int x() { return 72; }
+        @Override public int y() { return 120; }
+    },
+    WOLF_DEFENDER {
+        @Override public String filePathString() { return super.filePathString() + "SWDefender_front.png"; }
+        @Override public int x() { return 37; }
+        @Override public int y() { return 106; }
+    },
+    WOLF_DEVASTATOR {
+        @Override public String filePathString() { return super.filePathString() + "SWDevastator_front.png"; }
+        @Override public int x() { return 53; }
+        @Override public int y() { return 123; }
+    },
 
-    
+
     DRAGON {
         @Override public String filePathString() { return super.filePathString() + "Veh_tank_flame_heavy_front.png"; }
         @Override public int x() { return 67; }
@@ -60,7 +95,13 @@ public enum EnemyUnit {
             case "FireBreather" -> FIREBREATHER;
             case "FlameTurret" -> FLAME_TURRET;
             case "Gantas" -> WARLORD_GANTAS;
-
+            case "Guntruck" -> GUN_TRUCK;
+            case "LightTank_grey" -> LIGHT_TANK;
+            case "MGTank" -> TEMPEST;
+            case "MammothRaider" -> MAMMOTH_RIDER;
+            case "SWBombadier" -> WOLF_BOMBADIER;
+            case "SWDefender" -> WOLF_DEFENDER;
+            case "SWDevastator" -> WOLF_DEVASTATOR;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
