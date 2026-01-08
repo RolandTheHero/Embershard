@@ -6,12 +6,19 @@ import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.utils.FileUpload;
 
 import java.awt.Color;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
+import hero.roland.formations.EnemyFormation;
 import hero.roland.messages.*;
 
 public interface SlashEvent {
@@ -158,6 +165,44 @@ record GuidesCommand() implements SlashEvent {
         GuidePage page = GuidePages.getPage("home", event.getUser().getIdLong());
         event.replyEmbeds(page.toEmbed())
             .setComponents(page.components())
+            .queue();
+    }
+}
+record FormationCommand() implements SlashEvent {
+    @Override public void run(SlashCommandInteractionEvent event) {
+        var dataOption = event.getOption("data");
+        if (dataOption == null) {
+            MessageEmbed embed = new EmbedBuilder()
+                .setTitle("Formation Help")
+                .setDescription("The `/formation` command allows you to generate a custom formation image to share.\n\n" +
+                    "To create a formation, you need to provide a data string that represents the units in each grid position. " +
+                    "When referring to units, their unit ID is used. Refer [here](https://battlenations.miraheze.org/wiki/Template:BattleMap/Units) for a list of unit IDs.\n\n" +
+                    "Once you have your data string, use the command like this:\n" +
+                    "`/formation data:<your_data_string>`\n\n"
+                )
+                .setImage("https://static.wikia.nocookie.net/battlenations/images/2/2b/GridNumbers.png")
+                .setColor(Color.CYAN)
+                .build();
+            event.replyEmbeds(embed).queue();
+            return;
+        }
+        String dataString = dataOption.getAsString();
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(EnemyFormation.fromDataString(dataString).toImage(), "png", os);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        os.toByteArray();
+        MessageEmbed embed = new EmbedBuilder()
+            .setTitle("Enemy Formation")
+            .setDescription("Generated using data string: `" + dataString + "`")
+            .setImage("attachment://enemy_formation.png")
+            .setColor(Color.CYAN)
+            .build();
+
+        event.replyEmbeds(embed)
+            .addFiles(FileUpload.fromData(os.toByteArray(), "enemy_formation.png"))
             .queue();
     }
 }

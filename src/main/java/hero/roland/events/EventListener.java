@@ -14,7 +14,8 @@ public class EventListener extends ListenerAdapter {
         "setname", new SetIgNameCommand(),
         "list", new ListCommand(),
         "gold", new GoldCommand(),
-        "guides", new GuidesCommand()
+        "guides", new GuidesCommand(),
+        "formation", new FormationCommand()
     );
     @Override public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         String eventName = event.getName();
