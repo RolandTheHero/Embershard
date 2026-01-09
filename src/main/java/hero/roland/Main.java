@@ -25,7 +25,7 @@ public class Main {
             Commands.slash("gold", "View the gold leaderboard or set your amount of gold.")
                 .addOption(OptionType.INTEGER, "amount", "Update the amount of gold you possess.", false),
             Commands.slash("guides", "View the Battle Nations guides."),
-            Commands.slash("formation", "Create and view enemy formations for raid planning.")
+            Commands.slash("formation", "Create a custom formation image.")
                 .addOption(OptionType.STRING, "data", "The formation data string to load.", false)
         ).queue();
     }
