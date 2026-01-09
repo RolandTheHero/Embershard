@@ -511,6 +511,72 @@ public enum EnemyUnit {
         @Override public int x() { return 56; }
         @Override public int y() { return 121; }
     },
+    ROCKET_TRUCK {
+        @Override public String filePathString() { return super.filePathString() + "Mlrs_grey_front.png"; }
+        @Override public int x() { return 58; }
+        @Override public int y() { return 113; }
+    },
+    MORTAR_TEAM {
+        @Override public String filePathString() { return super.filePathString() + "Mortarteam_grey_front.png"; }
+        @Override public int x() { return 40; }
+        @Override public int y() { return 117; }
+    },
+    ARIES {
+        @Override public String filePathString() { return super.filePathString() + "MtArt_front.png"; }
+        @Override public int x() { return 156; }
+        @Override public int y() { return 198; }
+    },
+    THE_ROCK {
+        @Override public String filePathString() { return super.filePathString() + "NatBarricade_01.png"; }
+        @Override public int x() { return 31; }
+        @Override public int y() { return 87; }
+    },
+    STONE_SLAB {
+        @Override public String filePathString() { return super.filePathString() + "NatBarricade_02.png"; }
+        @Override public int x() { return 52; }
+        @Override public int y() { return 109; }
+    },
+    LINE_OF_ROCKS {
+        @Override public String filePathString() { return super.filePathString() + "NatBarricade_03.png"; }
+        @Override public int x() { return 63; }
+        @Override public int y() { return 118; }
+    },
+    GRANITE_BOULDER {
+        @Override public String filePathString() { return super.filePathString() + "NatBarricade_04.png"; }
+        @Override public int x() { return 75; }
+        @Override public int y() { return 137; }
+    },
+    DEBRIS {
+        @Override public String filePathString() { return super.filePathString() + "NatBarricade_debris.png"; }
+        @Override public int x() { return 80; }
+        @Override public int y() { return 140; }
+    },
+    FALLEN_LOG {
+        @Override public String filePathString() { return super.filePathString() + "NatBarricade_log.png"; }
+        @Override public int x() { return 59; }
+        @Override public int y() { return 107; }
+    },
+    NINJA_TROOPER {
+        @Override public String filePathString() { return super.filePathString() + "NinjaTrooper_front.png"; }
+        @Override public int x() { return 36; }
+        @Override public int y() { return 128; }
+    },
+    JUNIOR_OFFICER {
+        @Override public String filePathString() { return super.filePathString() + "Officer_front.png"; }
+        @Override public int x() { return 17; }
+        @Override public int y() { return 119; }
+    },
+    PILLBOX {
+        @Override public String filePathString() { return super.filePathString() + "Pillbox_front.png"; }
+        @Override public int x() { return 53; }
+        @Override public int y() { return 128; }
+    },
+    HEAVY_RECON {
+        @Override public String filePathString() { return super.filePathString() + "PremiumAPC_front.png"; }
+        @Override public int x() { return 61; }
+        @Override public int y() { return 139; }
+    },
+
 
 
 
@@ -633,6 +699,19 @@ public enum EnemyUnit {
             case "mgShield" -> ARMADILLO;
             case "miniTank" -> MINI_TANK;
             case "minigunner" -> HEAVY_GUNNER;
+            case "mlrs_grey" -> ROCKET_TRUCK;
+            case "mortarteam_grey" -> MORTAR_TEAM;
+            case "mtArt" -> ARIES;
+            case "natBarricade_01" -> THE_ROCK;
+            case "natBarricade_02" -> STONE_SLAB;
+            case "natBarricade_03" -> LINE_OF_ROCKS;
+            case "natBarricade_04" -> GRANITE_BOULDER;
+            case "natBarricade_debris" -> DEBRIS;
+            case "natBarricade_log" -> FALLEN_LOG;
+            case "ninjaTrooper" -> NINJA_TROOPER;
+            case "officer" -> JUNIOR_OFFICER;
+            case "pillbox" -> PILLBOX;
+            case "premiumAPC" -> HEAVY_RECON;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
