@@ -8,20 +8,7 @@ import javax.imageio.ImageIO;
 
 class FormationTest {
     public static void main(String[] args) {
-        EnemyFormation formation = new EnemyFormation();
-        formation.grid1 = EnemyUnit.PUMA;
-        formation.grid2 = EnemyUnit.FLAME_TURRET;
-        formation.grid3 = EnemyUnit.WARLORD_GANTAS;
-        formation.grid4 = EnemyUnit.GUN_TRUCK;
-        formation.grid5 = EnemyUnit.RAIDER_BRAWLER;
-        formation.grid6 = EnemyUnit.WOLF_DEFENDER;
-        formation.grid7 = EnemyUnit.WOLF_BOMBADIER;
-        formation.grid8 = EnemyUnit.WOLF_DEVASTATOR;
-        formation.grid9 = EnemyUnit.RECON_VEHICLE;
-        formation.grid10 = EnemyUnit.RECON_VEHICLE;
-        formation.grid11 = EnemyUnit.RECON_VEHICLE;
-        formation.grid12 = EnemyUnit.FIREBREATHER;
-        formation.grid13 = EnemyUnit.DUST_WALKER;
+        EnemyFormation formation = EnemyFormation.fromDataString("bay,null,null,null,null,null,null,null,null,null,null,null,heavyartillery,heavyChemTank");
         BufferedImage img = formation.toImage();
         try {
             ImageIO.write(img, "png", new File("enemy_formation.png"));
@@ -33,38 +20,39 @@ class FormationTest {
 
 public class EnemyFormation {
     EnemyBattleMap map = EnemyBattleMap.OUTPOST;
-    EnemyUnit grid1;
-    EnemyUnit grid2;
-    EnemyUnit grid3;
-    EnemyUnit grid4;
-    EnemyUnit grid5;
-    EnemyUnit grid6;
-    EnemyUnit grid7;
-    EnemyUnit grid8;
-    EnemyUnit grid9;
-    EnemyUnit grid10;
-    EnemyUnit grid11;
-    EnemyUnit grid12;
-    EnemyUnit grid13;
+    EnemyUnit grid1; EnemyUnit grid2; EnemyUnit grid3; EnemyUnit grid4; EnemyUnit grid5;
+    EnemyUnit grid6; EnemyUnit grid7; EnemyUnit grid8; EnemyUnit grid9; EnemyUnit grid10;
+    EnemyUnit grid11; EnemyUnit grid12; EnemyUnit grid13;
     static final int X_OFFSET = 30;
     static final int Y_OFFSET = 40;
     static public EnemyFormation fromDataString(String data) {
         EnemyFormation formation = new EnemyFormation();
-        String[] parts = data.split(",");
-        formation.map = EnemyBattleMap.fromId(parts[0]);
-        formation.grid1 = parts[1].equals("null") ? null : EnemyUnit.fromId(parts[1]);
-        formation.grid2 = parts[2].equals("null") ? null : EnemyUnit.fromId(parts[2]);
-        formation.grid3 = parts[3].equals("null") ? null : EnemyUnit.fromId(parts[3]);
-        formation.grid4 = parts[4].equals("null") ? null : EnemyUnit.fromId(parts[4]);
-        formation.grid5 = parts[5].equals("null") ? null : EnemyUnit.fromId(parts[5]);
-        formation.grid6 = parts[6].equals("null") ? null : EnemyUnit.fromId(parts[6]);
-        formation.grid7 = parts[7].equals("null") ? null : EnemyUnit.fromId(parts[7]);
-        formation.grid8 = parts[8].equals("null") ? null : EnemyUnit.fromId(parts[8]);
-        formation.grid9 = parts[9].equals("null") ? null : EnemyUnit.fromId(parts[9]);
-        formation.grid10 = parts[10].equals("null") ? null : EnemyUnit.fromId(parts[10]);
-        formation.grid11 = parts[11].equals("null") ? null : EnemyUnit.fromId(parts[11]);
-        formation.grid12 = parts[12].equals("null") ? null : EnemyUnit.fromId(parts[12]);
-        formation.grid13 = parts[13].equals("null") ? null : EnemyUnit.fromId(parts[13]);
+        try {
+            String[] parts = data.split(",");
+            for (String part : parts) {
+                String[] keyValue = part.split("=");
+                String key = keyValue[0];
+                String value = keyValue[1];
+                switch (key) {
+                    case "map" -> formation.map = EnemyBattleMap.fromId(value);
+                    case "1" -> formation.grid1 = EnemyUnit.fromId(value);
+                    case "2" -> formation.grid2 = EnemyUnit.fromId(value);
+                    case "3" -> formation.grid3 = EnemyUnit.fromId(value);
+                    case "4" -> formation.grid4 = EnemyUnit.fromId(value);
+                    case "5" -> formation.grid5 = EnemyUnit.fromId(value);
+                    case "6" -> formation.grid6 = EnemyUnit.fromId(value);
+                    case "7" -> formation.grid7 = EnemyUnit.fromId(value);
+                    case "8" -> formation.grid8 = EnemyUnit.fromId(value);
+                    case "9" -> formation.grid9 = EnemyUnit.fromId(value);
+                    case "10" -> formation.grid10 = EnemyUnit.fromId(value);
+                    case "11" -> formation.grid11 = EnemyUnit.fromId(value);
+                    case "12" -> formation.grid12 = EnemyUnit.fromId(value);
+                    case "13" -> formation.grid13 = EnemyUnit.fromId(value);
+                }
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("Your formation data string is malformed. Use `/formation` with no arguments if you need help.");
+        }
         return formation;
     }
     public BufferedImage toImage() {

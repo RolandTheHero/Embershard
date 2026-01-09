@@ -175,10 +175,10 @@ record FormationCommand() implements SlashEvent {
             MessageEmbed embed = new EmbedBuilder()
                 .setTitle("Formation Help")
                 .setDescription("The `/formation` command allows you to generate a custom formation image to share.\n\n" +
-                    "To create a formation, you need to provide a data string that represents the units in each grid position. " +
+                    "To create a formation, you need to provide a data string that describes the formation. " +
                     "When referring to units, their unit ID is used. Refer [here](https://battlenations.miraheze.org/wiki/Template:BattleMap/Units) for a list of unit IDs.\n\n" +
-                    "Once you have your data string, use the command like this:\n" +
-                    "`/formation data:<your_data_string>`\n\n"
+                    "An example of a valid data string is:\n" +
+                    "`map=city,12=heavyartillery,3=heavytank_front_grey,10=assassinator,5=def_wall_concrete_60,1=def_wall_concrete_60`"
                 )
                 .setImage("https://static.wikia.nocookie.net/battlenations/images/2/2b/GridNumbers.png")
                 .setColor(Color.CYAN)
@@ -187,22 +187,26 @@ record FormationCommand() implements SlashEvent {
             return;
         }
         String dataString = dataOption.getAsString();
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        try {
-            ImageIO.write(EnemyFormation.fromDataString(dataString).toImage(), "png", os);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        os.toByteArray();
-        MessageEmbed embed = new EmbedBuilder()
+        String generatedMessage = "Generated using data string: `" + dataString + "`";  
+        EmbedBuilder unbuiltEmbed = new EmbedBuilder()
             .setTitle("Enemy Formation")
-            .setDescription("Generated using data string: `" + dataString + "`")
+            .setDescription(generatedMessage + "\n\nPlease wait a moment while your string is being parsed...")
             .setImage("attachment://enemy_formation.png")
-            .setColor(Color.CYAN)
-            .build();
-
-        event.replyEmbeds(embed)
-            .addFiles(FileUpload.fromData(os.toByteArray(), "enemy_formation.png"))
-            .queue();
+            .setColor(Color.CYAN);
+        event.replyEmbeds(unbuiltEmbed.build()).queue(interaction -> {
+            try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+                EnemyFormation formation = EnemyFormation.fromDataString(dataString);
+                ImageIO.write(formation.toImage(), "png", os);
+                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build())
+                    .setAttachments(FileUpload.fromData(os.toByteArray(), "enemy_formation.png"))
+                    .queue();
+            } catch (IOException e) {
+                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\nAn error occurred while generating the formation image. Please try again.").build())
+                    .queue();
+            } catch (IllegalArgumentException e) {
+                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\n" + e.getMessage()).build())
+                    .queue();
+            }
+        });
     }
 }

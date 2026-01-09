@@ -1,6 +1,11 @@
 package hero.roland.formations;
 
 public enum EnemyUnit {
+    UNKNOWN {
+        @Override public String filePathString() { return super.filePathString() + "Orange_question_mark.png"; }
+        @Override public int x() { return 32; }
+        @Override public int y() { return 95; }
+    },
     RECON_VEHICLE {
         @Override public String filePathString() { return super.filePathString() + "APC_front.png"; }
         @Override public int x() { return 60; }
@@ -715,7 +720,7 @@ public enum EnemyUnit {
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
-            default -> throw new IllegalArgumentException("Unknown Unit ID: " + s);
+            default -> UNKNOWN;
         };
     }
 }
