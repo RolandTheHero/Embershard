@@ -581,6 +581,11 @@ public enum EnemyUnit {
         @Override public int x() { return 61; }
         @Override public int y() { return 139; }
     },
+    RAIDER_WARRIOR {
+        @Override public String filePathString() { return super.filePathString() + "Raider_front.png"; }
+        @Override public int x() { return 52; }
+        @Override public int y() { return 131; }
+    },
 
 
 
@@ -717,6 +722,7 @@ public enum EnemyUnit {
             case "officer" -> JUNIOR_OFFICER;
             case "pillbox" -> PILLBOX;
             case "premiumAPC" -> HEAVY_RECON;
+            case "raider" -> RAIDER_WARRIOR;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
