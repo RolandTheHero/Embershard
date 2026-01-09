@@ -441,6 +441,66 @@ public enum EnemyUnit {
         @Override public int x() { return 132; }
         @Override public int y() { return 447; }
     },
+    EXPERIMENTAL_CONSTRUCT {
+        @Override public String filePathString() { return super.filePathString() + "Hero_i17_ancient_robot_clone_front.png"; }
+        @Override public int x() { return 208; }
+        @Override public int y() { return 279; }
+    },
+    HITMAN {
+        @Override public String filePathString() { return super.filePathString() + "Hitman_front.png"; }
+        @Override public int x() { return 23; }
+        @Override public int y() { return 134; }
+    },
+    HUNTER {
+        @Override public String filePathString() { return super.filePathString() + "Hunter_front.png"; }
+        @Override public int x() { return 57; }
+        @Override public int y() { return 120; }
+    },
+    RAILGUN_TANK {
+        @Override public String filePathString() { return super.filePathString() + "I17_veh_tank_railgun_front.png"; }
+        @Override public int x() { return 87; }
+        @Override public int y() { return 149; }
+    },
+    HUMVEE {
+        @Override public String filePathString() { return super.filePathString() + "Jeep_grey_front.png"; }
+        @Override public int x() { return 50; }
+        @Override public int y() { return 116; }
+    },
+    JUGGERNAUT {
+        @Override public String filePathString() { return super.filePathString() + "Juggernaut_front.png"; }
+        @Override public int x() { return 59; }
+        @Override public int y() { return 123; }
+    },
+    HAILSTORM {
+        @Override public String filePathString() { return super.filePathString() + "Katyusha_front.png"; }
+        @Override public int x() { return 58; }
+        @Override public int y() { return 107; }
+    },
+    LIGHT_CHEMICAL_TANK {
+        @Override public String filePathString() { return super.filePathString() + "LtChemTank_front.png"; }
+        @Override public int x() { return 45; }
+        @Override public int y() { return 128; }
+    },
+    FIREDRAKE {
+        @Override public String filePathString() { return super.filePathString() + "LtFlameTank_front.png"; }
+        @Override public int x() { return 72; }
+        @Override public int y() { return 113; }
+    },
+    MEDIUM_TANK {
+        @Override public String filePathString() { return super.filePathString() + "Mediumtank_front_grey.png"; }
+        @Override public int x() { return 68; }
+        @Override public int y() { return 109; }
+    },
+    PEACEMAKER {
+        @Override public String filePathString() { return super.filePathString() + "MegaArtillery_front.png"; }
+        @Override public int x() { return 119; }
+        @Override public int y() { return 180; }
+    },
+    ARMADILLO {
+        @Override public String filePathString() { return super.filePathString() + "MgShield_front.png"; }
+        @Override public int x() { return 50; }
+        @Override public int y() { return 107; }
+    },
 
 
 
@@ -548,6 +608,19 @@ public enum EnemyUnit {
             case "hero_ancient_robot_2_arm_left" -> MELEE_WEAPON_SYSTEM;
             case "hero_ancient_robot_2_arm_right" -> RANGED_WEAPON_SYSTEM;
             case "hero_ancient_robot_2_body" -> ANCIENT_SENTINEL;
+            case "hero_i17_ancient_robot_clone" -> EXPERIMENTAL_CONSTRUCT;
+            case "hero_spiderwasp_queen" -> SPIDERWASP_QUEEN; // For some reason two IDs link the Spiderwasp Queen, other being 'boss_spiderwasp_queen'
+            case "hitman" -> HITMAN;
+            case "hunter" -> HUNTER;
+            case "i17_veh_tank_railgun" -> RAILGUN_TANK;
+            case "jeep_grey" -> HUMVEE;
+            case "juggernaut" -> JUGGERNAUT;
+            case "katyusha" -> HAILSTORM;
+            case "ltChemTank" -> LIGHT_CHEMICAL_TANK;
+            case "ltFlameTank" -> FIREDRAKE;
+            case "mediumtank_front_grey" -> MEDIUM_TANK;
+            case "megaArtillery" -> PEACEMAKER;
+            case "mgShield" -> ARMADILLO;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
