@@ -356,6 +356,91 @@ public enum EnemyUnit {
         @Override public int x() { return 34; }
         @Override public int y() { return 117; }
     },
+    IMPERIAL_DRAGOON {
+        @Override public String filePathString() { return super.filePathString() + "Dragoon_front.png"; }
+        @Override public int x() { return 87; }
+        @Override public int y() { return 110; }
+    },
+    DUNE_RIDER {
+        @Override public String filePathString() { return super.filePathString() + "Dunerider_grey_front.png"; }
+        @Override public int x() { return 70; }
+        @Override public int y() { return 132; }
+    },
+    ELDER_SANDWORM {
+        @Override public String filePathString() { return super.filePathString() + "ElderSandworm.png"; }
+        @Override public int x() { return 96; }
+        @Override public int y() { return 157; }
+    },
+    LIGHTNING_TROOPER {
+        @Override public String filePathString() { return super.filePathString() + "ElectroTrooper_front.png"; }
+        @Override public int x() { return 30; }
+        @Override public int y() { return 129; }
+    },
+    FLAME_TROOPER {
+        @Override public String filePathString() { return super.filePathString() + "Flametrooper_grey_front.png"; }
+        @Override public int x() { return 35; }
+        @Override public int y() { return 122; }
+    },
+    HORNET {
+        @Override public String filePathString() { return super.filePathString() + "Fliegerhaust_front.png"; }
+        @Override public int x() { return 81; }
+        @Override public int y() { return 119; }
+    },
+    GRENADIER {
+        @Override public String filePathString() { return super.filePathString() + "Grenadier_front.png"; }
+        @Override public int x() { return 39; }
+        @Override public int y() { return 127; }
+    },
+    WATCHTOWER {
+        @Override public String filePathString() { return super.filePathString() + "GuardTower_battle.png"; }
+        @Override public int x() { return 87; }
+        @Override public int y() { return 189; }
+    },
+    GUNNER {
+        @Override public String filePathString() { return super.filePathString() + "Gunner_grey_front.png"; }
+        @Override public int x() { return 57; }
+        @Override public int y() { return 113; }
+    },
+    HEAVY_CHEMICAL_TANK {
+        @Override public String filePathString() { return super.filePathString() + "HeavyChemTank_front.png"; }
+        @Override public int x() { return 65; }
+        @Override public int y() { return 134; }
+    },
+    BRIMSTONE {
+        @Override public String filePathString() { return super.filePathString() + "HeavyLauncher_front.png"; }
+        @Override public int x() { return 69; }
+        @Override public int y() { return 137; }
+    },
+    HEAVY_ARTILLERY {
+        @Override public String filePathString() { return super.filePathString() + "Heavyartillery_front.png"; }
+        @Override public int x() { return 92; }
+        @Override public int y() { return 116; }
+    },
+    HEAVY_TANK {
+        @Override public String filePathString() { return super.filePathString() + "Heavytank_front_grey.png"; }
+        @Override public int x() { return 67; }
+        @Override public int y() { return 129; }
+    },
+    ANCIENT_CONSTRUCT {
+        @Override public String filePathString() { return super.filePathString() + "Hero_ancient_robot_front.png"; }
+        @Override public int x() { return 207; }
+        @Override public int y() { return 279; }
+    },
+    MELEE_WEAPON_SYSTEM {
+        @Override public String filePathString() { return super.filePathString() + "Hero_ancient_robot_2_arm_left_front.png"; }
+        @Override public int x() { return 106; }
+        @Override public int y() { return 349; }
+    },
+    RANGED_WEAPON_SYSTEM {
+        @Override public String filePathString() { return super.filePathString() + "Hero_ancient_robot_2_arm_right_front.png"; }
+        @Override public int x() { return 149; }
+        @Override public int y() { return 368; }
+    },
+    ANCIENT_SENTINEL {
+        @Override public String filePathString() { return super.filePathString() + "Hero_ancient_robot_2_body.png"; }
+        @Override public int x() { return 132; }
+        @Override public int y() { return 447; }
+    },
 
 
 
@@ -446,6 +531,23 @@ public enum EnemyUnit {
             case "def_wall_concrete_60" -> REINFORCED_CONCRETE_WALL;
             case "def_whirlpool" -> WHIRLPOOL;
             case "demolitionist" -> DEMOLITIONIST;
+            case "dragoon" -> IMPERIAL_DRAGOON;
+            case "dunerider_grey" -> DUNE_RIDER;
+            case "elderSandworm" -> ELDER_SANDWORM;
+            case "electroTrooper" -> LIGHTNING_TROOPER;
+            case "flametrooper_grey" -> FLAME_TROOPER;
+            case "fliegerhaust" -> HORNET;
+            case "grenadier" -> GRENADIER;
+            case "guardTower_battle" -> WATCHTOWER;
+            case "gunner_grey" -> GUNNER;
+            case "heavyChemTank" -> HEAVY_CHEMICAL_TANK;
+            case "heavyLauncher" -> BRIMSTONE;
+            case "heavyartillery" -> HEAVY_ARTILLERY;
+            case "heavytank_front_grey" -> HEAVY_TANK;
+            case "hero_ancient_robot" -> ANCIENT_CONSTRUCT;
+            case "hero_ancient_robot_2_arm_left" -> MELEE_WEAPON_SYSTEM;
+            case "hero_ancient_robot_2_arm_right" -> RANGED_WEAPON_SYSTEM;
+            case "hero_ancient_robot_2_body" -> ANCIENT_SENTINEL;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
