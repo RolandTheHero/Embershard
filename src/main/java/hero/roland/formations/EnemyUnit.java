@@ -501,6 +501,16 @@ public enum EnemyUnit {
         @Override public int x() { return 50; }
         @Override public int y() { return 107; }
     },
+    MINI_TANK {
+        @Override public String filePathString() { return super.filePathString() + "MiniTank_front.png"; }
+        @Override public int x() { return 38; }
+        @Override public int y() { return 109; }
+    },
+    HEAVY_GUNNER {
+        @Override public String filePathString() { return super.filePathString() + "Minigunner_front.png"; }
+        @Override public int x() { return 56; }
+        @Override public int y() { return 121; }
+    },
 
 
 
@@ -621,6 +631,8 @@ public enum EnemyUnit {
             case "mediumtank_front_grey" -> MEDIUM_TANK;
             case "megaArtillery" -> PEACEMAKER;
             case "mgShield" -> ARMADILLO;
+            case "miniTank" -> MINI_TANK;
+            case "minigunner" -> HEAVY_GUNNER;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
