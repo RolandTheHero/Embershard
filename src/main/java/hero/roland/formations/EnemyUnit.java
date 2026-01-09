@@ -301,6 +301,62 @@ public enum EnemyUnit {
         @Override public int x() { return 53; }
         @Override public int y() { return 123; }
     },
+    CONCRETE_WALL_A {
+        @Override public String filePathString() { return super.filePathString() + "Def_barricade_cementWall_front.png"; }
+        @Override public int x() { return 55; }
+        @Override public int y() { return 110; }
+    },
+    CONCRETE_WALL_B {
+        @Override public String filePathString() { return super.filePathString() + "Def_barricade_concreteWall_front.png"; }
+        @Override public int x() { return 84; }
+        @Override public int y() { return 124; }
+    },
+    SANDBAGS {
+        @Override public String filePathString() { return super.filePathString() + "Def_barricade_sandbags_front.png"; }
+        @Override public int x() { return 66; }
+        @Override public int y() { return 95; }
+    },
+    BUOY {
+        @Override public String filePathString() { return super.filePathString() + "Def_buoy.png"; }
+        @Override public int x() { return 25; }
+        @Override public int y() { return 121; }
+    },
+    PORTABLE_ELECTRIC_FENCE {
+        @Override public String filePathString() { return super.filePathString() + "Def_fence_electric_front.png"; }
+        @Override public int x() { return 65; }
+        @Override public int y() { return 122; }
+    },
+    FLOATING_MINE {
+        @Override public String filePathString() { return super.filePathString() + "Def_mine.png"; }
+        @Override public int x() { return 33; }
+        @Override public int y() { return 96; }
+    },
+    RAIDER_FENCE {
+        @Override public String filePathString() { return super.filePathString() + "Def_raiderbarricade.png"; }
+        @Override public int x() { return 77; }
+        @Override public int y() { return 132; }
+    },
+    SPIDERWASP_EGG {
+        @Override public String filePathString() { return super.filePathString() + "Def_spiderwasp_egg_front.png"; }
+        @Override public int x() { return 59; }
+        @Override public int y() { return 126; }
+    },
+    REINFORCED_CONCRETE_WALL {
+        @Override public String filePathString() { return super.filePathString() + "Def_wall_concrete_60_front.png"; }
+        @Override public int x() { return 69; }
+        @Override public int y() { return 114; }
+    },
+    WHIRLPOOL {
+        @Override public String filePathString() { return super.filePathString() + "Def_whirlpool.png"; }
+        @Override public int x() { return 88; }
+        @Override public int y() { return 91; }
+    },
+    DEMOLITIONIST {
+        @Override public String filePathString() { return super.filePathString() + "Demolitionist_front.png"; }
+        @Override public int x() { return 34; }
+        @Override public int y() { return 117; }
+    },
+
 
 
     DRAGON {
@@ -379,6 +435,17 @@ public enum EnemyUnit {
             case "chemTrooper" -> CHEM_TROOPER;
             case "commando_grey" -> RANGER;
             case "crowdControl" -> PEACE_KEEPER;
+            case "def_barricade_cementWall" -> CONCRETE_WALL_A;
+            case "def_barricade_concreteWall" -> CONCRETE_WALL_B;
+            case "def_barricade_sandbags" -> SANDBAGS;
+            case "def_buoy" -> BUOY;
+            case "def_fence_electric" -> PORTABLE_ELECTRIC_FENCE;
+            case "def_mine" -> FLOATING_MINE;
+            case "def_raiderbarricade" -> RAIDER_FENCE;
+            case "def_spiderwasp_egg" -> SPIDERWASP_EGG;
+            case "def_wall_concrete_60" -> REINFORCED_CONCRETE_WALL;
+            case "def_whirlpool" -> WHIRLPOOL;
+            case "demolitionist" -> DEMOLITIONIST;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
