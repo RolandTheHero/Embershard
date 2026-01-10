@@ -651,6 +651,26 @@ public enum EnemyUnit {
         @Override public int x() { return 56; }
         @Override public int y() { return 132; }
     },
+    BIGFOOT {
+        @Override public String filename() { return "S_bigfoot_adult_front.png"; }
+        @Override public int x() { return 61; }
+        @Override public int y() { return 147; }
+    },
+    BIGFOOT_WARRIOR {
+        @Override public String filename() { return "S_bigfoot_adult_55_front.png"; }
+        @Override public int x() { return 61; }
+        @Override public int y() { return 147; }
+    },
+    YOUNG_BIGFOOT {
+        @Override public String filename() { return "S_bigfoot_child_front.png"; }
+        @Override public int x() { return 61; }
+        @Override public int y() { return 124; }
+    },
+    APEX_MAULER {
+        @Override public String filename() { return "S_bigfoot_zombie_super_player_front.png"; }
+        @Override public int x() { return 60; }
+        @Override public int y() { return 146; }
+    },
 
 
 
@@ -802,6 +822,10 @@ public enum EnemyUnit {
             case "rpg" -> RPG_TROOPER;
             case "s_arctic_trooper" -> ARCTIC_TROOPER;
             case "s_arctic_trooper_rebel" -> ARCTIC_TROOPER_2;
+            case "s_bigfoot_adult" -> BIGFOOT;
+            case "S_bigfoot_adult_55" -> BIGFOOT_WARRIOR;
+            case "s_bigfoot_child" -> YOUNG_BIGFOOT;
+            case "s_bigfoot_zombie_super_player" -> APEX_MAULER;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
