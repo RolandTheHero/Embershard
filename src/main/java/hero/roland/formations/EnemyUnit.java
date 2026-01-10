@@ -2,587 +2,587 @@ package hero.roland.formations;
 
 public enum EnemyUnit {
     UNKNOWN {
-        @Override public String filePathString() { return super.filePathString() + "Orange_question_mark.png"; }
+        @Override public String filename() { return "Orange_question_mark.png"; }
         @Override public int x() { return 32; }
         @Override public int y() { return 95; }
     },
     RECON_VEHICLE {
-        @Override public String filePathString() { return super.filePathString() + "APC_front.png"; }
+        @Override public String filename() { return "APC_front.png"; }
         @Override public int x() { return 60; }
         @Override public int y() { return 105; }
     },
     BOOM_BOOM {
-        @Override public String filePathString() { return super.filePathString() + "BoomBoom_front.png"; }
+        @Override public String filename() { return "BoomBoom_front.png"; }
         @Override public int x() { return 41; }
         @Override public int y() { return 124; }
     },
     RAIDER_BRAWLER {
-        @Override public String filePathString() { return super.filePathString() + "BrawlerRaider_front.png"; }
+        @Override public String filename() { return "BrawlerRaider_front.png"; }
         @Override public int x() { return 46; }
         @Override public int y() { return 141; }
     },
     DUST_WALKER {
-        @Override public String filePathString() { return super.filePathString() + "DustwalkerRaider_front.png"; }
+        @Override public String filename() { return "DustwalkerRaider_front.png"; }
         @Override public int x() { return 47; }
         @Override public int y() { return 122; }
     },
     FIREBREATHER {
-        @Override public String filePathString() { return super.filePathString() + "FireBreather_front.png"; }
+        @Override public String filename() { return "FireBreather_front.png"; }
         @Override public int x() { return 50; }
         @Override public int y() { return 136; }
     },
     FLAME_TURRET {
-        @Override public String filePathString() { return super.filePathString() + "FlameTurret_front.png"; }
+        @Override public String filename() { return "FlameTurret_front.png"; }
         @Override public int x() { return 29; }
         @Override public int y() { return 141; }
     },
     WARLORD_GANTAS {
-        @Override public String filePathString() { return super.filePathString() + "Gantas_front.png"; }
+        @Override public String filename() { return "Gantas_front.png"; }
         @Override public int x() { return 82; }
         @Override public int y() { return 166; }
     },
     GUN_TRUCK {
-        @Override public String filePathString() { return super.filePathString() + "Guntruck_front.png"; }
+        @Override public String filename() { return "Guntruck_front.png"; }
         @Override public int x() { return 60; }
         @Override public int y() { return 117; }
     },
     LIGHT_TANK {
-        @Override public String filePathString() { return super.filePathString() + "LightTank_grey_front.png"; }
+        @Override public String filename() { return "LightTank_grey_front.png"; }
         @Override public int x() { return 58; }
         @Override public int y() { return 117; }
     },
     TEMPEST {
-        @Override public String filePathString() { return super.filePathString() + "MGTank_front.png"; }
+        @Override public String filename() { return "MGTank_front.png"; }
         @Override public int x() { return 55; }
         @Override public int y() { return 111; }
     },
     MAMMOTH_RIDER {
-        @Override public String filePathString() { return super.filePathString() + "MammothRaider.png"; }
+        @Override public String filename() { return "MammothRaider.png"; }
         @Override public int x() { return 72; }
         @Override public int y() { return 184; }
     },
     WOLF_BOMBADIER {
-        @Override public String filePathString() { return super.filePathString() + "SWBombadier_front.png"; }
+        @Override public String filename() { return "SWBombadier_front.png"; }
         @Override public int x() { return 72; }
         @Override public int y() { return 120; }
     },
     WOLF_DEFENDER {
-        @Override public String filePathString() { return super.filePathString() + "SWDefender_front.png"; }
+        @Override public String filename() { return "SWDefender_front.png"; }
         @Override public int x() { return 37; }
         @Override public int y() { return 106; }
     },
     WOLF_DEVASTATOR {
-        @Override public String filePathString() { return super.filePathString() + "SWDevastator_front.png"; }
+        @Override public String filename() { return "SWDevastator_front.png"; }
         @Override public int x() { return 53; }
         @Override public int y() { return 123; }
     },
     WOLF_ENFORCER {
-        @Override public String filePathString() { return super.filePathString() + "SWEnforcer_front.png"; }
+        @Override public String filename() { return "SWEnforcer_front.png"; }
         @Override public int x() { return 56; }
         @Override public int y() { return 127; }
     },
     WOLF_GRENADIER {
-        @Override public String filePathString() { return super.filePathString() + "SWGrenadier_front.png"; }
+        @Override public String filename() { return "SWGrenadier_front.png"; }
         @Override public int x() { return 34; }
         @Override public int y() { return 112; }
     },
     WOLF_THUG {
-        @Override public String filePathString() { return super.filePathString() + "SWThug_front.png"; }
+        @Override public String filename() { return "SWThug_front.png"; }
         @Override public int x() { return 41; }
         @Override public int y() { return 120; }
     },
     WOLF_ARMORED_TRUCK {
-        @Override public String filePathString() { return super.filePathString() + "SWarmoredTruck_front.png"; }
+        @Override public String filename() { return "SWarmoredTruck_front.png"; }
         @Override public int x() { return 57; }
         @Override public int y() { return 125; }
     },
     WOLF_SCRAPPER {
-        @Override public String filePathString() { return super.filePathString() + "SWscrapper_front.png"; }
+        @Override public String filename() { return "SWscrapper_front.png"; }
         @Override public int x() { return 52; }
         @Override public int y() { return 133; }
     },
     SNIPER {
-        @Override public String filePathString() { return super.filePathString() + "Sniper2_front.png"; }
+        @Override public String filename() { return "Sniper2_front.png"; }
         @Override public int x() { return 50; }
         @Override public int y() { return 109; }
     },
     SUPER_TANK {
-        @Override public String filePathString() { return super.filePathString() + "Supertank_fr.png"; }
+        @Override public String filename() { return "Supertank_fr.png"; }
         @Override public int x() { return 78; }
         @Override public int y() { return 141; }
     },
     MEERKAT {
-        @Override public String filePathString() { return super.filePathString() + "TOW_front.png"; }
+        @Override public String filename() { return "TOW_front.png"; }
         @Override public int x() { return 51; }
         @Override public int y() { return 114; }
     },
     FLYING_DEXTER_FRAGMENT {
-        @Override public String filePathString() { return super.filePathString() + "Air_ancient_fragment_front.png"; }
+        @Override public String filename() { return "Air_ancient_fragment_front.png"; }
         @Override public int x() { return 96; }
         @Override public int y() { return 258; }
     },
     UH1B_SKYRAPTOR {
-        @Override public String filePathString() { return super.filePathString() + "Air_attack_helicopter_front.png"; }
+        @Override public String filename() { return "Air_attack_helicopter_front.png"; }
         @Override public int x() { return 75; }
         @Override public int y() { return 172; }
     },
     Z218_BOMBER {
-        @Override public String filePathString() { return super.filePathString() + "Air_bomber_front.png"; }
+        @Override public String filename() { return "Air_bomber_front.png"; }
         @Override public int x() { return 84; }
         @Override public int y() { return 185; }
     },
     THUNDERCLOUD_F10 {
-        @Override public String filePathString() { return super.filePathString() + "Air_corsair_front.png"; }
+        @Override public String filename() { return "Air_corsair_front.png"; }
         @Override public int x() { return 63; }
         @Override public int y() { return 136; }
     },
     V14_MAVERICK {
-        @Override public String filePathString() { return super.filePathString() + "Air_jet_fighter_front.png"; }
+        @Override public String filename() { return "Air_jet_fighter_front.png"; }
         @Override public int x() { return 69; }
         @Override public int y() { return 156; }
     },
     FALCONS_NEST {
-        @Override public String filePathString() { return super.filePathString() + "Air_raider_zeppelin_front.png"; }
+        @Override public String filename() { return "Air_raider_zeppelin_front.png"; }
         @Override public int x() { return 99; }
         @Override public int y() { return 181; }
     },
     PROTO_HUNTER {
-        @Override public String filePathString() { return super.filePathString() + "Air_s_trooper_zombie_front.png"; }
+        @Override public String filename() { return "Air_s_trooper_zombie_front.png"; }
         @Override public int x() { return 49; }
         @Override public int y() { return 192; }
     },
     ADVANCED_HUNTER {
-        @Override public String filePathString() { return super.filePathString() + "Air_s_trooper_zombie_c_front.png"; }
+        @Override public String filename() { return "Air_s_trooper_zombie_c_front.png"; }
         @Override public int x() { return 49; }
         @Override public int y() { return 192; }
     },
     ARCHETYPE_HUNTER {
-        @Override public String filePathString() { return super.filePathString() + "Air_s_trooper_zombie_d_front.png"; }
+        @Override public String filename() { return "Air_s_trooper_zombie_d_front.png"; }
         @Override public int x() { return 49; }
         @Override public int y() { return 192; }
     },
     SPIDERWASP_DRONE {
-        @Override public String filePathString() { return super.filePathString() + "Air_spiderwasp_striker_front.png"; }
+        @Override public String filename() { return "Air_spiderwasp_striker_front.png"; }
         @Override public int x() { return 63; }
         @Override public int y() { return 190; }
     },
     ROYAL_SPIDERWASP_DRONE {
-        @Override public String filePathString() { return super.filePathString() + "Air_spiderwasp_striker_70_front.png"; }
+        @Override public String filename() { return "Air_spiderwasp_striker_70_front.png"; }
         @Override public int x() { return 63; }
         @Override public int y() { return 189; }
     },
     SILVERWOLF_CROP_BUSTER {
-        @Override public String filePathString() { return super.filePathString() + "Air_sw_plane_front.png"; }
+        @Override public String filename() { return "Air_sw_plane_front.png"; }
         @Override public int x() { return 83; }
         @Override public int y() { return 155; }
     },
     SILVERWOLF_CHUNOOK_HELICOPTER {
-        @Override public String filePathString() { return super.filePathString() + "Air_sw_whirlybird_front.png"; }
+        @Override public String filename() { return "Air_sw_whirlybird_front.png"; }
         @Override public int x() { return 65; }
         @Override public int y() { return 219; }
     },
     B10_WILD_BOAR {
-        @Override public String filePathString() { return super.filePathString() + "Air_warthog_front.png"; }
+        @Override public String filename() { return "Air_warthog_front.png"; }
         @Override public int x() { return 70; }
         @Override public int y() { return 150; }
     },
     L60_HAWKER_HURRICANE {
-        @Override public String filePathString() { return super.filePathString() + "Air_ww2_fighter_front.png"; }
+        @Override public String filename() { return "Air_ww2_fighter_front.png"; }
         @Override public int x() { return 67; }
         @Override public int y() { return 149; }
     },
     ARMORED_FORTRESS {
-        @Override public String filePathString() { return super.filePathString() + "ArmoredFortress_front.png"; }
+        @Override public String filename() { return "ArmoredFortress_front.png"; }
         @Override public int x() { return 76; }
         @Override public int y() { return 170; }
     },
     ARMORED_RAIDER_MAMMOTH {
-        @Override public String filePathString() { return super.filePathString() + "ArmoredMammoth_front.png"; }
+        @Override public String filename() { return "ArmoredMammoth_front.png"; }
         @Override public int x() { return 100; }
         @Override public int y() { return 200; }
     },
     ARMORED_PILLBOX {
-        @Override public String filePathString() { return super.filePathString() + "ArmoredPillbox.png"; }
+        @Override public String filename() { return "ArmoredPillbox.png"; }
         @Override public int x() { return 49; }
         @Override public int y() { return 110; }
     },
     ARSONIST {
-        @Override public String filePathString() { return super.filePathString() + "Arsonist_front.png"; }
+        @Override public String filename() { return "Arsonist_front.png"; }
         @Override public int x() { return 42; }
         @Override public int y() { return 148; }
     },
     LIGHT_ARTILLERY {
-        @Override public String filePathString() { return super.filePathString() + "Artillery_grey_front.png"; }
+        @Override public String filename() { return "Artillery_grey_front.png"; }
         @Override public int x() { return 106; }
         @Override public int y() { return 121; }
     },
     ASSASSINATOR {
-        @Override public String filePathString() { return super.filePathString() + "Assassinator_front.png"; }
+        @Override public String filename() { return "Assassinator_front.png"; }
         @Override public int x() { return 69; }
         @Override public int y() { return 129; }
     },
     BAZOOKA_SQUAD {
-        @Override public String filePathString() { return super.filePathString() + "BazookaTeam_front.png"; }
+        @Override public String filename() { return "BazookaTeam_front.png"; }
         @Override public int x() { return 67; }
         @Override public int y() { return 114; }
     },
     BIO_GRENADIER {
-        @Override public String filePathString() { return super.filePathString() + "BioGrenadier_front.png"; }
+        @Override public String filename() { return "BioGrenadier_front.png"; }
         @Override public int x() { return 43; }
         @Override public int y() { return 119; }
     },
     BLOCKHOUSE {
-        @Override public String filePathString() { return super.filePathString() + "Blockhouses_idle_front.png"; }
+        @Override public String filename() { return "Blockhouses_idle_front.png"; }
         @Override public int x() { return 55; }
         @Override public int y() { return 142; }
     },
     MULTILAUNCH_ROCKET_SYSTEM_LEFT {
-        @Override public String filePathString() { return super.filePathString() + "Boss_goliath_tank_leftside_front.png"; }
+        @Override public String filename() { return "Boss_goliath_tank_leftside_front.png"; }
         @Override public int x() { return 77; }
         @Override public int y() { return 318; }
     },
     GOLIATH_TANK {
-        @Override public String filePathString() { return super.filePathString() + "Boss_goliath_tank_main_front.png"; }
+        @Override public String filename() { return "Boss_goliath_tank_main_front.png"; }
         @Override public int x() { return 122; }
         @Override public int y() { return 380; }
     },
     MULTILAUNCH_ROCKET_SYSTEM_RIGHT {
-        @Override public String filePathString() { return super.filePathString() + "Boss_goliath_tank_rightside_front.png"; }
+        @Override public String filename() { return "Boss_goliath_tank_rightside_front.png"; }
         @Override public int x() { return 37; }
         @Override public int y() { return 266; }
     },
     THE_KRAKEN {
-        @Override public String filePathString() { return super.filePathString() + "Boss_kraken_body_Crop.png"; }
+        @Override public String filename() { return "Boss_kraken_body_Crop.png"; }
         @Override public int x() { return 151; }
         @Override public int y() { return 161; }
     },
     KRAKEN_TENTACLE {
-        @Override public String filePathString() { return super.filePathString() + "Boss_kraken_arm_front_Crop.png"; }
+        @Override public String filename() { return "Boss_kraken_arm_front_Crop.png"; }
         @Override public int x() { return 40; }
         @Override public int y() { return 206; }
     },
     DREADNOUGHT {
-        @Override public String filePathString() { return super.filePathString() + "Boss_ship_dreadnought_front.png"; }
+        @Override public String filename() { return "Boss_ship_dreadnought_front.png"; }
         @Override public int x() { return 107; }
         @Override public int y() { return 313; }
     },
     SPIDERWASP_QUEEN {
-        @Override public String filePathString() { return super.filePathString() + "Boss_spiderwasp_queen_front.png"; }
+        @Override public String filename() { return "Boss_spiderwasp_queen_front.png"; }
         @Override public int x() { return 134; }
         @Override public int y() { return 237; }
     },
     WOLF_CRUEL_BUS {
-        @Override public String filePathString() { return super.filePathString() + "CannonSchoolBus_front.png"; }
+        @Override public String filename() { return "CannonSchoolBus_front.png"; }
         @Override public int x() { return 58; }
         @Override public int y() { return 146; }
     },
     RAIDER_CANNONEER {
-        @Override public String filePathString() { return super.filePathString() + "Cannonraider_front.png"; }
+        @Override public String filename() { return "Cannonraider_front.png"; }
         @Override public int x() { return 54; }
         @Override public int y() { return 137; }
     },
     RAIDER_CHAMPION {
-        @Override public String filePathString() { return super.filePathString() + "Championraider_front.png"; }
+        @Override public String filename() { return "Championraider_front.png"; }
         @Override public int x() { return 64; }
         @Override public int y() { return 137; }
     },
     CHEMICAL_SPRINKLER {
-        @Override public String filePathString() { return super.filePathString() + "ChemSprinkler_front.png"; }
+        @Override public String filename() { return "ChemSprinkler_front.png"; }
         @Override public int x() { return 42; }
         @Override public int y() { return 156; }
     },
     CHEM_TROOPER {
-        @Override public String filePathString() { return super.filePathString() + "ChemTrooper_front.png"; }
+        @Override public String filename() { return "ChemTrooper_front.png"; }
         @Override public int x() { return 50; }
         @Override public int y() { return 131; }
     },
     RANGER {
-        @Override public String filePathString() { return super.filePathString() + "Commando_grey_front.png"; }
+        @Override public String filename() { return "Commando_grey_front.png"; }
         @Override public int x() { return 35; }
         @Override public int y() { return 124; }
     },
     PEACE_KEEPER {
-        @Override public String filePathString() { return super.filePathString() + "CrowdControl_front.png"; }
+        @Override public String filename() { return "CrowdControl_front.png"; }
         @Override public int x() { return 53; }
         @Override public int y() { return 123; }
     },
     CONCRETE_WALL_A {
-        @Override public String filePathString() { return super.filePathString() + "Def_barricade_cementWall_front.png"; }
+        @Override public String filename() { return "Def_barricade_cementWall_front.png"; }
         @Override public int x() { return 55; }
         @Override public int y() { return 110; }
     },
     CONCRETE_WALL_B {
-        @Override public String filePathString() { return super.filePathString() + "Def_barricade_concreteWall_front.png"; }
+        @Override public String filename() { return "Def_barricade_concreteWall_front.png"; }
         @Override public int x() { return 84; }
         @Override public int y() { return 124; }
     },
     SANDBAGS {
-        @Override public String filePathString() { return super.filePathString() + "Def_barricade_sandbags_front.png"; }
+        @Override public String filename() { return "Def_barricade_sandbags_front.png"; }
         @Override public int x() { return 66; }
         @Override public int y() { return 95; }
     },
     BUOY {
-        @Override public String filePathString() { return super.filePathString() + "Def_buoy.png"; }
+        @Override public String filename() { return "Def_buoy.png"; }
         @Override public int x() { return 25; }
         @Override public int y() { return 121; }
     },
     PORTABLE_ELECTRIC_FENCE {
-        @Override public String filePathString() { return super.filePathString() + "Def_fence_electric_front.png"; }
+        @Override public String filename() { return "Def_fence_electric_front.png"; }
         @Override public int x() { return 65; }
         @Override public int y() { return 122; }
     },
     FLOATING_MINE {
-        @Override public String filePathString() { return super.filePathString() + "Def_mine.png"; }
+        @Override public String filename() { return "Def_mine.png"; }
         @Override public int x() { return 33; }
         @Override public int y() { return 96; }
     },
     RAIDER_FENCE {
-        @Override public String filePathString() { return super.filePathString() + "Def_raiderbarricade.png"; }
+        @Override public String filename() { return "Def_raiderbarricade.png"; }
         @Override public int x() { return 77; }
         @Override public int y() { return 132; }
     },
     SPIDERWASP_EGG {
-        @Override public String filePathString() { return super.filePathString() + "Def_spiderwasp_egg_front.png"; }
+        @Override public String filename() { return "Def_spiderwasp_egg_front.png"; }
         @Override public int x() { return 59; }
         @Override public int y() { return 126; }
     },
     REINFORCED_CONCRETE_WALL {
-        @Override public String filePathString() { return super.filePathString() + "Def_wall_concrete_60_front.png"; }
+        @Override public String filename() { return "Def_wall_concrete_60_front.png"; }
         @Override public int x() { return 69; }
         @Override public int y() { return 114; }
     },
     WHIRLPOOL {
-        @Override public String filePathString() { return super.filePathString() + "Def_whirlpool.png"; }
+        @Override public String filename() { return "Def_whirlpool.png"; }
         @Override public int x() { return 88; }
         @Override public int y() { return 91; }
     },
     DEMOLITIONIST {
-        @Override public String filePathString() { return super.filePathString() + "Demolitionist_front.png"; }
+        @Override public String filename() { return "Demolitionist_front.png"; }
         @Override public int x() { return 34; }
         @Override public int y() { return 117; }
     },
     IMPERIAL_DRAGOON {
-        @Override public String filePathString() { return super.filePathString() + "Dragoon_front.png"; }
+        @Override public String filename() { return "Dragoon_front.png"; }
         @Override public int x() { return 87; }
         @Override public int y() { return 110; }
     },
     DUNE_RIDER {
-        @Override public String filePathString() { return super.filePathString() + "Dunerider_grey_front.png"; }
+        @Override public String filename() { return "Dunerider_grey_front.png"; }
         @Override public int x() { return 70; }
         @Override public int y() { return 132; }
     },
     ELDER_SANDWORM {
-        @Override public String filePathString() { return super.filePathString() + "ElderSandworm.png"; }
+        @Override public String filename() { return "ElderSandworm.png"; }
         @Override public int x() { return 96; }
         @Override public int y() { return 157; }
     },
     LIGHTNING_TROOPER {
-        @Override public String filePathString() { return super.filePathString() + "ElectroTrooper_front.png"; }
+        @Override public String filename() { return "ElectroTrooper_front.png"; }
         @Override public int x() { return 30; }
         @Override public int y() { return 129; }
     },
     FLAME_TROOPER {
-        @Override public String filePathString() { return super.filePathString() + "Flametrooper_grey_front.png"; }
+        @Override public String filename() { return "Flametrooper_grey_front.png"; }
         @Override public int x() { return 35; }
         @Override public int y() { return 122; }
     },
     HORNET {
-        @Override public String filePathString() { return super.filePathString() + "Fliegerhaust_front.png"; }
+        @Override public String filename() { return "Fliegerhaust_front.png"; }
         @Override public int x() { return 81; }
         @Override public int y() { return 119; }
     },
     GRENADIER {
-        @Override public String filePathString() { return super.filePathString() + "Grenadier_front.png"; }
+        @Override public String filename() { return "Grenadier_front.png"; }
         @Override public int x() { return 39; }
         @Override public int y() { return 127; }
     },
     WATCHTOWER {
-        @Override public String filePathString() { return super.filePathString() + "GuardTower_battle.png"; }
+        @Override public String filename() { return "GuardTower_battle.png"; }
         @Override public int x() { return 87; }
         @Override public int y() { return 189; }
     },
     GUNNER {
-        @Override public String filePathString() { return super.filePathString() + "Gunner_grey_front.png"; }
+        @Override public String filename() { return "Gunner_grey_front.png"; }
         @Override public int x() { return 57; }
         @Override public int y() { return 113; }
     },
     HEAVY_CHEMICAL_TANK {
-        @Override public String filePathString() { return super.filePathString() + "HeavyChemTank_front.png"; }
+        @Override public String filename() { return "HeavyChemTank_front.png"; }
         @Override public int x() { return 65; }
         @Override public int y() { return 134; }
     },
     BRIMSTONE {
-        @Override public String filePathString() { return super.filePathString() + "HeavyLauncher_front.png"; }
+        @Override public String filename() { return "HeavyLauncher_front.png"; }
         @Override public int x() { return 69; }
         @Override public int y() { return 137; }
     },
     HEAVY_ARTILLERY {
-        @Override public String filePathString() { return super.filePathString() + "Heavyartillery_front.png"; }
+        @Override public String filename() { return "Heavyartillery_front.png"; }
         @Override public int x() { return 92; }
         @Override public int y() { return 116; }
     },
     HEAVY_TANK {
-        @Override public String filePathString() { return super.filePathString() + "Heavytank_front_grey.png"; }
+        @Override public String filename() { return "Heavytank_front_grey.png"; }
         @Override public int x() { return 67; }
         @Override public int y() { return 129; }
     },
     ANCIENT_CONSTRUCT {
-        @Override public String filePathString() { return super.filePathString() + "Hero_ancient_robot_front.png"; }
+        @Override public String filename() { return "Hero_ancient_robot_front.png"; }
         @Override public int x() { return 207; }
         @Override public int y() { return 279; }
     },
     MELEE_WEAPON_SYSTEM {
-        @Override public String filePathString() { return super.filePathString() + "Hero_ancient_robot_2_arm_left_front.png"; }
+        @Override public String filename() { return "Hero_ancient_robot_2_arm_left_front.png"; }
         @Override public int x() { return 106; }
         @Override public int y() { return 349; }
     },
     RANGED_WEAPON_SYSTEM {
-        @Override public String filePathString() { return super.filePathString() + "Hero_ancient_robot_2_arm_right_front.png"; }
+        @Override public String filename() { return "Hero_ancient_robot_2_arm_right_front.png"; }
         @Override public int x() { return 149; }
         @Override public int y() { return 368; }
     },
     ANCIENT_SENTINEL {
-        @Override public String filePathString() { return super.filePathString() + "Hero_ancient_robot_2_body.png"; }
+        @Override public String filename() { return "Hero_ancient_robot_2_body.png"; }
         @Override public int x() { return 132; }
         @Override public int y() { return 447; }
     },
     EXPERIMENTAL_CONSTRUCT {
-        @Override public String filePathString() { return super.filePathString() + "Hero_i17_ancient_robot_clone_front.png"; }
+        @Override public String filename() { return "Hero_i17_ancient_robot_clone_front.png"; }
         @Override public int x() { return 208; }
         @Override public int y() { return 279; }
     },
     HITMAN {
-        @Override public String filePathString() { return super.filePathString() + "Hitman_front.png"; }
+        @Override public String filename() { return "Hitman_front.png"; }
         @Override public int x() { return 23; }
         @Override public int y() { return 134; }
     },
     HUNTER {
-        @Override public String filePathString() { return super.filePathString() + "Hunter_front.png"; }
+        @Override public String filename() { return "Hunter_front.png"; }
         @Override public int x() { return 57; }
         @Override public int y() { return 120; }
     },
     RAILGUN_TANK {
-        @Override public String filePathString() { return super.filePathString() + "I17_veh_tank_railgun_front.png"; }
+        @Override public String filename() { return "I17_veh_tank_railgun_front.png"; }
         @Override public int x() { return 87; }
         @Override public int y() { return 149; }
     },
     HUMVEE {
-        @Override public String filePathString() { return super.filePathString() + "Jeep_grey_front.png"; }
+        @Override public String filename() { return "Jeep_grey_front.png"; }
         @Override public int x() { return 50; }
         @Override public int y() { return 116; }
     },
     JUGGERNAUT {
-        @Override public String filePathString() { return super.filePathString() + "Juggernaut_front.png"; }
+        @Override public String filename() { return "Juggernaut_front.png"; }
         @Override public int x() { return 59; }
         @Override public int y() { return 123; }
     },
     HAILSTORM {
-        @Override public String filePathString() { return super.filePathString() + "Katyusha_front.png"; }
+        @Override public String filename() { return "Katyusha_front.png"; }
         @Override public int x() { return 58; }
         @Override public int y() { return 107; }
     },
     LIGHT_CHEMICAL_TANK {
-        @Override public String filePathString() { return super.filePathString() + "LtChemTank_front.png"; }
+        @Override public String filename() { return "LtChemTank_front.png"; }
         @Override public int x() { return 45; }
         @Override public int y() { return 128; }
     },
     FIREDRAKE {
-        @Override public String filePathString() { return super.filePathString() + "LtFlameTank_front.png"; }
+        @Override public String filename() { return "LtFlameTank_front.png"; }
         @Override public int x() { return 72; }
         @Override public int y() { return 113; }
     },
     MEDIUM_TANK {
-        @Override public String filePathString() { return super.filePathString() + "Mediumtank_front_grey.png"; }
+        @Override public String filename() { return "Mediumtank_front_grey.png"; }
         @Override public int x() { return 68; }
         @Override public int y() { return 109; }
     },
     PEACEMAKER {
-        @Override public String filePathString() { return super.filePathString() + "MegaArtillery_front.png"; }
+        @Override public String filename() { return "MegaArtillery_front.png"; }
         @Override public int x() { return 119; }
         @Override public int y() { return 180; }
     },
     ARMADILLO {
-        @Override public String filePathString() { return super.filePathString() + "MgShield_front.png"; }
+        @Override public String filename() { return "MgShield_front.png"; }
         @Override public int x() { return 50; }
         @Override public int y() { return 107; }
     },
     MINI_TANK {
-        @Override public String filePathString() { return super.filePathString() + "MiniTank_front.png"; }
+        @Override public String filename() { return "MiniTank_front.png"; }
         @Override public int x() { return 38; }
         @Override public int y() { return 109; }
     },
     HEAVY_GUNNER {
-        @Override public String filePathString() { return super.filePathString() + "Minigunner_front.png"; }
+        @Override public String filename() { return "Minigunner_front.png"; }
         @Override public int x() { return 56; }
         @Override public int y() { return 121; }
     },
     ROCKET_TRUCK {
-        @Override public String filePathString() { return super.filePathString() + "Mlrs_grey_front.png"; }
+        @Override public String filename() { return "Mlrs_grey_front.png"; }
         @Override public int x() { return 58; }
         @Override public int y() { return 113; }
     },
     MORTAR_TEAM {
-        @Override public String filePathString() { return super.filePathString() + "Mortarteam_grey_front.png"; }
+        @Override public String filename() { return "Mortarteam_grey_front.png"; }
         @Override public int x() { return 40; }
         @Override public int y() { return 117; }
     },
     ARIES {
-        @Override public String filePathString() { return super.filePathString() + "MtArt_front.png"; }
+        @Override public String filename() { return "MtArt_front.png"; }
         @Override public int x() { return 156; }
         @Override public int y() { return 198; }
     },
     THE_ROCK {
-        @Override public String filePathString() { return super.filePathString() + "NatBarricade_01.png"; }
+        @Override public String filename() { return "NatBarricade_01.png"; }
         @Override public int x() { return 31; }
         @Override public int y() { return 87; }
     },
     STONE_SLAB {
-        @Override public String filePathString() { return super.filePathString() + "NatBarricade_02.png"; }
+        @Override public String filename() { return "NatBarricade_02.png"; }
         @Override public int x() { return 52; }
         @Override public int y() { return 109; }
     },
     LINE_OF_ROCKS {
-        @Override public String filePathString() { return super.filePathString() + "NatBarricade_03.png"; }
+        @Override public String filename() { return "NatBarricade_03.png"; }
         @Override public int x() { return 63; }
         @Override public int y() { return 118; }
     },
     GRANITE_BOULDER {
-        @Override public String filePathString() { return super.filePathString() + "NatBarricade_04.png"; }
+        @Override public String filename() { return "NatBarricade_04.png"; }
         @Override public int x() { return 75; }
         @Override public int y() { return 137; }
     },
     DEBRIS {
-        @Override public String filePathString() { return super.filePathString() + "NatBarricade_debris.png"; }
+        @Override public String filename() { return "NatBarricade_debris.png"; }
         @Override public int x() { return 80; }
         @Override public int y() { return 140; }
     },
     FALLEN_LOG {
-        @Override public String filePathString() { return super.filePathString() + "NatBarricade_log.png"; }
+        @Override public String filename() { return "NatBarricade_log.png"; }
         @Override public int x() { return 59; }
         @Override public int y() { return 107; }
     },
     NINJA_TROOPER {
-        @Override public String filePathString() { return super.filePathString() + "NinjaTrooper_front.png"; }
+        @Override public String filename() { return "NinjaTrooper_front.png"; }
         @Override public int x() { return 36; }
         @Override public int y() { return 128; }
     },
     JUNIOR_OFFICER {
-        @Override public String filePathString() { return super.filePathString() + "Officer_front.png"; }
+        @Override public String filename() { return "Officer_front.png"; }
         @Override public int x() { return 17; }
         @Override public int y() { return 119; }
     },
     PILLBOX {
-        @Override public String filePathString() { return super.filePathString() + "Pillbox_front.png"; }
+        @Override public String filename() { return "Pillbox_front.png"; }
         @Override public int x() { return 53; }
         @Override public int y() { return 128; }
     },
     HEAVY_RECON {
-        @Override public String filePathString() { return super.filePathString() + "PremiumAPC_front.png"; }
+        @Override public String filename() { return "PremiumAPC_front.png"; }
         @Override public int x() { return 61; }
         @Override public int y() { return 139; }
     },
     RAIDER_WARRIOR {
-        @Override public String filePathString() { return super.filePathString() + "Raider_front.png"; }
+        @Override public String filename() { return "Raider_front.png"; }
         @Override public int x() { return 52; }
         @Override public int y() { return 131; }
     },
@@ -591,16 +591,17 @@ public enum EnemyUnit {
 
 
     DRAGON {
-        @Override public String filePathString() { return super.filePathString() + "Veh_tank_flame_heavy_front.png"; }
+        @Override public String filename() { return "Veh_tank_flame_heavy_front.png"; }
         @Override public int x() { return 66; }
         @Override public int y() { return 147; }
     },
     PUMA {
-        @Override public String filePathString() { return super.filePathString() + "WheeledTank_front.png"; }
+        @Override public String filename() { return "WheeledTank_front.png"; }
         @Override public int x() { return 59; }
         @Override public int y() { return 114; }
     };
-    public String filePathString() { return "/units/front/"; }
+    public String filePathString() { return "/units/front/" + filename(); }
+    abstract public String filename();
     abstract public int x();
     abstract public int y();
     public static EnemyUnit fromId(String s) {
