@@ -811,6 +811,261 @@ public enum EnemyUnit {
         @Override public int x() { return 103; }
         @Override public int y() { return 127; }
     },
+    WILD_RAPTOR {
+        @Override public String filename() { return "S_raptor_large_front.png"; }
+        @Override public int x() { return 57; }
+        @Override public int y() { return 138; }
+    },
+    RAPTOR {
+        @Override public String filename() { return "S_raptor_medium_front.png"; }
+        @Override public int x() { return 43; }
+        @Override public int y() { return 116; }
+    },
+    YOUNG_RAPTOR {
+        @Override public String filename() { return "S_raptor_small_front.png"; }
+        @Override public int x() { return 27; }
+        @Override public int y() { return 93; }
+    },
+    PRIMORDIAL_RAPTOR {
+        @Override public String filename() { return "S_raptor_tough_55_front.png"; }
+        @Override public int x() { return WILD_RAPTOR.x(); }
+        @Override public int y() { return WILD_RAPTOR.y(); }
+    },
+    PROTO_SHREDDER {
+        @Override public String filename() { return "S_raptor_zombie_front.png"; }
+        @Override public int x() { return 65; }
+        @Override public int y() { return 134; }
+    },
+    ADVANCED_SHREDDER {
+        @Override public String filename() { return "S_raptor_zombie_c_front.png"; }
+        @Override public int x() { return 66; }
+        @Override public int y() { return PROTO_SHREDDER.y(); }
+    },
+    ARCHETYPE_SHREDDER {
+        @Override public String filename() { return "S_raptor_zombie_d_front.png"; }
+        @Override public int x() { return PROTO_SHREDDER.x(); }
+        @Override public int y() { return PROTO_SHREDDER.y(); }
+    },
+    WANDERING_SAMURAI {
+        @Override public String filename() { return "S_samurai_front.png"; }
+        @Override public int x() { return 35; }
+        @Override public int y() { return 128; }
+    },
+    SANDBAG_PILE {
+        @Override public String filename() { return "S_sandbags_front.png"; }
+        @Override public int x() { return 43; }
+        @Override public int y() { return 86; }
+    },
+    SANDWORM_GUARDIAN {
+        @Override public String filename() { return "S_sandworm_55_front.png"; }
+        @Override public int x() { return 113; }
+        @Override public int y() { return 186; }
+    },
+    EMPEROR_SANDWORM {
+        @Override public String filename() { return "S_sandworm_emperor_front.png"; }
+        @Override public int x() { return 180; }
+        @Override public int y() { return 252; }
+    },
+    GROUNDSHAKER {
+        @Override public String filename() { return "S_sandworm_large_front.png"; }
+        @Override public int x() { return 114; }
+        @Override public int y() { return 186; }
+    },
+    IRONHIDE_SANDWORM {
+        @Override public String filename() { return "S_sandworm_medium_front.png"; }
+        @Override public int x() { return 81; }
+        @Override public int y() { return 159; }
+    },
+    SPIDERWASP_STRIKER {
+        @Override public String filename() { return "S_spiderwasp_spitter_front.png"; }
+        @Override public int x() { return 61; }
+        @Override public int y() { return 150; }
+    },
+    ROYAL_SPIDERWASP_STRIKER {
+        @Override public String filename() { return "S_spiderwasp_spitter_70_front.png"; }
+        @Override public int x() { return SPIDERWASP_STRIKER.x(); }
+        @Override public int y() { return SPIDERWASP_STRIKER.y(); }
+    },
+    SPIDERWASP_WARRIOR {
+        @Override public String filename() { return "S_spiderwasp_warrior_front.png"; }
+        @Override public int x() { return 76; }
+        @Override public int y() { return 155; }
+    },
+    ROYAL_SPIDERWASP_WARRIOR {
+        @Override public String filename() { return "S_spiderwasp_warrior_70_front.png"; }
+        @Override public int x() { return SPIDERWASP_WARRIOR.x(); }
+        @Override public int y() { return SPIDERWASP_WARRIOR.y(); }
+    },
+    SPIDERWASP_WORKER {
+        @Override public String filename() { return "S_spiderwasp_worker_front.png"; }
+        @Override public int x() { return 78; }
+        @Override public int y() { return 161; }
+    },
+    ROYAL_SPIDERWASP_WORKER {
+        @Override public String filename() { return "S_spiderwasp_worker_70_front.png"; }
+        @Override public int x() { return SPIDERWASP_WORKER.x(); }
+        @Override public int y() { return SPIDERWASP_WORKER.y(); }
+    },
+    BIG_GAME_HUNTER {
+        @Override public String filename() { return "S_trooper_bigGameHunter_front.png"; }
+        @Override public int x() { return 62; }
+        @Override public int y() { return 118; }
+    },
+    CRYO_TROOPER {
+        @Override public String filename() { return "S_trooper_cryo_front.png"; }
+        @Override public int x() { return 40; }
+        @Override public int y() { return 137; }
+    },
+    LIGHTNING_DRAGOON {
+        @Override public String filename() { return "S_trooper_dragoon_heavy_front.png"; }
+        @Override public int x() { return 90; }
+        @Override public int y() { return 135; }
+    },
+    ELEMENTAL_TROOPER {
+        @Override public String filename() { return "S_trooper_fire_ice_front.png"; }
+        @Override public int x() { return 82; }
+        @Override public int y() { return 129; }
+    },
+    AERO_JETPACK_TROOPER {
+        @Override public String filename() { return "S_trooper_jetpack_front.png"; }
+        @Override public int x() { return 44; }
+        @Override public int y() { return 159; }
+    },
+    PLASMA_TROOPER {
+        @Override public String filename() { return "S_trooper_plasma_front.png"; }
+        @Override public int x() { return 55; }
+        @Override public int y() { return 128; }
+    },
+    RAILGUN_TROOPER {
+        @Override public String filename() { return "S_trooper_railgun_front.png"; }
+        @Override public int x() { return 93; }
+        @Override public int y() { return 122; }
+    },
+    GUERILLA {
+        @Override public String filename() { return "S_trooper_saboteur_heavy_front.png"; }
+        @Override public int x() { return 61; }
+        @Override public int y() { return 130; }
+    },
+    SPECIAL_AGENT {
+        @Override public String filename() { return "S_trooper_specialAgent_front.png"; }
+        @Override public int x() { return 41; }
+        @Override public int y() { return 154; }
+    },
+    VETERAN {
+        @Override public String filename() { return "S_trooper_veteran_front.png"; }
+        @Override public int x() { return 39; }
+        @Override public int y() { return 172; }
+    },
+    VETERAN_2 {
+        @Override public String filename() { return "S_trooper_veteran_rebel_front.png"; }
+        @Override public int x() { return VETERAN.x(); }
+        @Override public int y() { return VETERAN.y(); }
+    },
+    PROTO_CREEPER {
+        @Override public String filename() { return "S_trooper_zombie_front.png"; }
+        @Override public int x() { return 55; }
+        @Override public int y() { return 120; }
+    },
+    ADVANCED_CREEPER {
+        @Override public String filename() { return "S_trooper_zombie_c_front.png"; }
+        @Override public int x() { return PROTO_CREEPER.x(); }
+        @Override public int y() { return PROTO_CREEPER.y(); }
+    },
+    PROTO_CANNONEER {
+        @Override public String filename() { return "S_trooper_zombie_cannon_front.png"; }
+        @Override public int x() { return 39; }
+        @Override public int y() { return 119; }
+    },
+    ADVANCED_CANNONEER {
+        @Override public String filename() { return "S_trooper_zombie_cannon_c_front.png"; }
+        @Override public int x() { return PROTO_CANNONEER.x(); }
+        @Override public int y() { return PROTO_CANNONEER.y(); }
+    },
+    ARCHETYPE_CANNONEER {
+        @Override public String filename() { return "S_trooper_zombie_cannon_d_front.png"; }
+        @Override public int x() { return PROTO_CANNONEER.x(); }
+        @Override public int y() { return PROTO_CANNONEER.y(); }
+    },
+    PROTO_STALKER {
+        @Override public String filename() { return "S_trooper_zombie_ninja_front.png"; }
+        @Override public int x() { return 49; }
+        @Override public int y() { return 101; }
+    },
+    ADVANCED_STALKER {
+        @Override public String filename() { return "S_trooper_zombie_ninja_c_front.png"; }
+        @Override public int x() { return PROTO_STALKER.x(); }
+        @Override public int y() { return PROTO_STALKER.y(); }
+    },
+    ARCHETYPE_STALKER {
+        @Override public String filename() { return "S_trooper_zombie_ninja_d_front.png"; }
+        @Override public int x() { return PROTO_STALKER.x(); }
+        @Override public int y() { return PROTO_STALKER.y(); }
+    },
+    APEX_STALKER {
+        @Override public String filename() { return "S_trooper_zombie_ninja_super_front.png"; }
+        @Override public int x() { return 53; }
+        @Override public int y() { return 120; }
+    },
+    PROTO_CRAWLER {
+        @Override public String filename() { return "S_trooper_zombie_spider_front.png"; }
+        @Override public int x() { return 75; }
+        @Override public int y() { return 119; }
+    },
+    ADVANCED_CRAWLER {
+        @Override public String filename() { return "S_trooper_zombie_spider_c_front.png"; }
+        @Override public int x() { return PROTO_CRAWLER.x(); }
+        @Override public int y() { return PROTO_CRAWLER.y(); }
+    },
+    ARCHETYPE_CRAWLER {
+        @Override public String filename() { return "S_trooper_zombie_spider_d_front.png"; }
+        @Override public int x() { return PROTO_CRAWLER.x(); }
+        @Override public int y() { return PROTO_CRAWLER.y(); }
+    },
+    PROTO_BULLFROG {
+        @Override public String filename() { return "S_trooper_zombie_spitter_front.png"; }
+        @Override public int x() { return 45; }
+        @Override public int y() { return 102; }
+    },
+    ADVANCED_BULLFROG {
+        @Override public String filename() { return "S_trooper_zombie_spitter_c_front.png"; }
+        @Override public int x() { return PROTO_BULLFROG.x(); }
+        @Override public int y() { return PROTO_BULLFROG.y(); }
+    },
+    ARCHETYPE_BULLFROG {
+        @Override public String filename() { return "S_trooper_zombie_spitter_d_front.png"; }
+        @Override public int x() { return PROTO_BULLFROG.x(); }
+        @Override public int y() { return PROTO_BULLFROG.y(); }
+    },
+    APEX_BULLFROG {
+        @Override public String filename() { return "S_trooper_zombie_spitter_super_front.png"; }
+        @Override public int x() { return 62; }
+        @Override public int y() { return 118; }
+    },
+    PROTO_COLOSSUS {
+        @Override public String filename() { return "S_trooper_zombie_tank_front.png"; }
+        @Override public int x() { return 63; }
+        @Override public int y() { return 123; }
+    },
+    ARCHETYPE_COLOSSUS {
+        @Override public String filename() { return "S_trooper_zombie_tank_b_front.png"; }
+        @Override public int x() { return PROTO_COLOSSUS.x(); }
+        @Override public int y() { return PROTO_COLOSSUS.y(); }
+    },
+    APEX_COLOSSUS {
+        @Override public String filename() { return "S_trooper_zombie_tank_super_front.png"; }
+        @Override public int x() { return 66; }
+        @Override public int y() { return 133; }
+    },
+    SABOTEUR {
+        @Override public String filename() { return "Saboteur_front.png"; }
+        @Override public int x() { return 26; }
+        @Override public int y() { return 134; }
+    },
+    SANDWORM_GRUBLING {
+        @Override public String filename() { return "SandwormSm_front.png"; }
+        @Override public int x() { return 56; }
+        @Override public int y() { return 133; }
+    },
 
 
 
@@ -994,6 +1249,66 @@ public enum EnemyUnit {
             case "s_raider_raptor_rider_55" -> ELITE_SKIRMISHER;
             case "s_raider_sniper" -> RAIDER_OUTCAST;
             case "s_raider_sniper_55" -> ELITE_OUTCAST;
+            case "s_raptor_large" -> WILD_RAPTOR;
+            case "s_raptor_medium" -> RAPTOR;
+            case "s_raptor_small" -> YOUNG_RAPTOR;
+            case "s_raptor_tough_55" -> PRIMORDIAL_RAPTOR;
+            case "s_raptor_zombie" -> PROTO_SHREDDER;
+            case "s_raptor_zombie_b" -> null;
+            case "s_raptor_zombie_c" -> ADVANCED_SHREDDER;
+            case "s_raptor_zombie_d" -> ARCHETYPE_SHREDDER;
+            case "s_samurai" -> WANDERING_SAMURAI;
+            case "s_sandbags" -> SANDBAG_PILE;
+            case "s_sandworm_55" -> SANDWORM_GUARDIAN;
+            case "TODO TODO" -> null; //VOLCANO_SHAKER; // Large SANDWORM_GUARDIAN
+            case "s_sandworm_emperor" -> EMPEROR_SANDWORM;
+            case "s_sandworm_large" -> GROUNDSHAKER;
+            case "s_sandworm_medium" -> IRONHIDE_SANDWORM;
+            case "s_spiderwasp_spitter"-> SPIDERWASP_STRIKER;
+            case "s_spiderwasp_spitter_70" -> ROYAL_SPIDERWASP_STRIKER;
+            case "s_spiderwasp_warrior" -> SPIDERWASP_WARRIOR;
+            case "s_spiderwasp_warrior_70" -> ROYAL_SPIDERWASP_WARRIOR;
+            case "s_spiderwasp_worker" -> SPIDERWASP_WORKER;
+            case "s_spiderwasp_worker_70" -> ROYAL_SPIDERWASP_WORKER;
+            case "s_trooper_bigGameHunter" -> BIG_GAME_HUNTER;
+            case "s_trooper_cryo" -> CRYO_TROOPER;
+            case "s_trooper_dragoon_heavy" -> LIGHTNING_DRAGOON;
+            case "s_trooper_fire_ice" -> ELEMENTAL_TROOPER;
+            case "s_trooper_jetpack" -> AERO_JETPACK_TROOPER;
+            case "s_trooper_plasma" -> PLASMA_TROOPER;
+            case "s_trooper_railgun" -> RAILGUN_TROOPER;
+            case "s_trooper_saboteur_heavy" -> GUERILLA;
+            case "s_trooper_specialAgent" -> SPECIAL_AGENT;
+            case "s_trooper_veteran" -> VETERAN;
+            case "s_trooper_veteran_rebel" -> VETERAN_2;
+            case "s_trooper_zombie" -> PROTO_CREEPER;
+            case "s_trooper_zombie_b" -> null;
+            case "s_trooper_zombie_c" -> ADVANCED_CREEPER;
+            case "s_trooper_zombie_d" -> null;
+            case "s_trooper_zombie_cannon" -> PROTO_CANNONEER;
+            case "s_trooper_zombie_cannon_b" -> null;
+            case "s_trooper_zombie_cannon_c" -> ADVANCED_CANNONEER;
+            case "s_trooper_zombie_cannon_d" -> ARCHETYPE_CANNONEER;
+            case "s_trooper_zombie_ninja" -> PROTO_STALKER;
+            case "s_trooper_zombie_ninja_b" -> null;
+            case "s_trooper_zombie_ninja_c" -> ADVANCED_STALKER;
+            case "s_trooper_zombie_ninja_d" -> ARCHETYPE_STALKER;
+            case "s_trooper_zombie_ninja_super" -> APEX_STALKER;
+            case "s_trooper_zombie_spider" -> PROTO_CRAWLER;
+            case "s_trooper_zombie_spider_b" -> null;
+            case "s_trooper_zombie_spider_c" -> ADVANCED_CRAWLER;
+            case "s_trooper_zombie_spider_d" -> ARCHETYPE_CRAWLER;
+            case "s_trooper_zombie_spitter" -> PROTO_BULLFROG;
+            case "s_trooper_zombie_spitter_b" -> null;
+            case "s_trooper_zombie_spitter_c" -> ADVANCED_BULLFROG;
+            case "s_trooper_zombie_spitter_d" -> ARCHETYPE_BULLFROG;
+            case "s_trooper_zombie_spitter_super" -> APEX_BULLFROG;
+            case "s_trooper_zombie_tank" -> PROTO_COLOSSUS;
+            case "s_trooper_zombie_tank_b" -> ARCHETYPE_COLOSSUS;
+            case "s_trooper_zombie_tank_super"-> APEX_COLOSSUS;
+            case "saboteur" -> SABOTEUR;
+            case "sandwormSm" -> SANDWORM_GRUBLING;
+
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
