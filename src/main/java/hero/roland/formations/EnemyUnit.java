@@ -586,6 +586,71 @@ public enum EnemyUnit {
         @Override public int x() { return 52; }
         @Override public int y() { return 131; }
     },
+    TRONK {
+        @Override public String filename() { return "RaiderLieutBoom.png"; }
+        @Override public int x() { return 101; }
+        @Override public int y() { return 146; }
+    },
+    CRAZY_BLADES {
+        @Override public String filename() { return "RaiderLieutGirl.png"; }
+        @Override public int x() { return 40; }
+        @Override public int y() { return 135; }
+    },
+    SARIN {
+        @Override public String filename() { return "RaiderLieutThin.png"; }
+        @Override public int x() { return 93; }
+        @Override public int y() { return 163; }
+    },
+    RAIDER_WATCHTOWER {
+        @Override public String filename() { return "Raiderwatchtowerfront.png"; }
+        @Override public int x() { return 54; }
+        @Override public int y() { return 164; }
+    },
+    COMMANDO {
+        @Override public String filename() { return "Ranger_front.png"; }
+        @Override public int x() { return 48; }
+        @Override public int y() { return 119; }
+    },
+    RAT_KING {
+        @Override public String filename() { return "RatBrown.png"; }
+        @Override public int x() { return 21; }
+        @Override public int y() { return 57; }
+    },
+    MANGY_RAT {
+        @Override public String filename() { return "RatGrey.png"; }
+        @Override public int x() { return 21; }
+        @Override public int y() { return 57; }
+    },
+    JET_SKI {
+        @Override public String filename() { return "Rb_ship_jetski_front.png"; }
+        @Override public int x() { return 43; }
+        @Override public int y() { return 116; }
+    },
+    POWER_BOAT {
+        @Override public String filename() { return "Rb_ship_speedboat_front.png"; }
+        @Override public int x() { return 58; }
+        @Override public int y() { return 141; }
+    },
+    ARMORED_TUG {
+        @Override public String filename() { return "Rb_ship_tugboat_front.png"; }
+        @Override public int x() { return 71; }
+        @Override public int y() { return 180; }
+    },
+    RPG_TROOPER {
+        @Override public String filename() { return "Rpg_front.png"; }
+        @Override public int x() { return 75; }
+        @Override public int y() { return 125; }
+    },
+    ARCTIC_TROOPER {
+        @Override public String filename() { return "S_arctic_trooper_front.png"; }
+        @Override public int x() { return 56; }
+        @Override public int y() { return 132; }
+    },
+    ARCTIC_TROOPER_2 {
+        @Override public String filename() { return "S_arctic_trooper_rebel_front.png"; }
+        @Override public int x() { return 56; }
+        @Override public int y() { return 132; }
+    },
 
 
 
@@ -724,6 +789,19 @@ public enum EnemyUnit {
             case "pillbox" -> PILLBOX;
             case "premiumAPC" -> HEAVY_RECON;
             case "raider" -> RAIDER_WARRIOR;
+            case "raiderLuitBoom" -> TRONK;
+            case "raiderLuitGirl" -> CRAZY_BLADES;
+            case "raiderLuitThin" -> SARIN;
+            case "raiderwatchtowerfront" -> RAIDER_WATCHTOWER;
+            case "ranger" -> COMMANDO;
+            case "ratBrown" -> RAT_KING;
+            case "ratGrey" -> MANGY_RAT;
+            case "rb_ship_jetski" -> JET_SKI;
+            case "rb_ship_speedboat" -> POWER_BOAT;
+            case "rb_ship_tugboat" -> ARMORED_TUG;
+            case "rpg" -> RPG_TROOPER;
+            case "s_arctic_trooper" -> ARCTIC_TROOPER;
+            case "s_arctic_trooper_rebel" -> ARCTIC_TROOPER_2;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
