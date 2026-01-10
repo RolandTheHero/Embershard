@@ -1066,6 +1066,81 @@ public enum EnemyUnit {
         @Override public int x() { return 56; }
         @Override public int y() { return 133; }
     },
+    SCOUT_BIKE {
+        @Override public String filename() { return "Scoutbike_grey_front.png"; }
+        @Override public int x() { return 42; }
+        @Override public int y() { return 109; }
+    },
+    MONSTER_GROUPER {
+        @Override public String filename() { return "Sea_grouper_front.png"; }
+        @Override public int x() { return 76; }
+        @Override public int y() { return 120; }
+    },
+    BATTLESHIP_RAPTORCLASS {
+        @Override public String filename() { return "Ship_battleship_med_front.png"; }
+        @Override public int x() { return 79; }
+        @Override public int y() { return 178; }
+    },
+    BATTLESHIP_MAMMOTHCLASS {
+        @Override public String filename() { return "Ship_battleship_super_front.png"; }
+        @Override public int x() { return 74; }
+        @Override public int y() { return 187; }
+    },
+    DESTROYER {
+        @Override public String filename() { return "Ship_destroyer_med_front.png"; }
+        @Override public int x() { return 49; }
+        @Override public int y() { return 142; }
+    },
+    GUNBOAT {
+        @Override public String filename() { return "Ship_gunboat_front.png"; }
+        @Override public int x() { return 71; }
+        @Override public int y() { return 117; }
+    },
+    MINELAYER_DESTROYER {
+        @Override public String filename() { return "Ship_minelayer_front.png"; }
+        @Override public int x() { return 68; }
+        @Override public int y() { return 132; }
+    },
+    MINI_SUB {
+        @Override public String filename() { return "Ship_mini_sub_front.png"; }
+        @Override public int x() { return 48; }
+        @Override public int y() { return 82; }
+    },
+    NAVY_TROOPER {
+        @Override public String filename() { return "Ship_raft_trooper_front.png"; }
+        @Override public int x() { return 60; }
+        @Override public int y() { return 110; }
+    },
+    SUBMARINE {
+        @Override public String filename() { return "Ship_submarine_front.png"; }
+        @Override public int x() { return 43; }
+        @Override public int y() { return 108; }
+    },
+    SHOCK_TROOPER {
+        @Override public String filename() { return "Shocktrooper_grey_front.png"; }
+        @Override public int x() { return 40; }
+        @Override public int y() { return 110; }
+    },
+    RIOT_TROOPER {
+        @Override public String filename() { return "Shotgunner_front.png"; }
+        @Override public int x() { return 24; }
+        @Override public int y() { return 116; }
+    },
+    SHARPSHOOTER {
+        @Override public String filename() { return "Sniper_grey_front.png"; }
+        @Override public int x() { return 37; }
+        @Override public int y() { return 105; }
+    },
+    MORTAR_TRUCK {
+        @Override public String filename() { return "Specialmortar_front.png"; }
+        @Override public int x() { return 61; }
+        @Override public int y() { return 116; }
+    },
+    EARTHSHAKER {
+        @Override public String filename() { return "SuperArtillery_front.png"; }
+        @Override public int x() { return 91; }
+        @Override public int y() { return 142; }
+    },
 
 
 
@@ -1308,6 +1383,23 @@ public enum EnemyUnit {
             case "s_trooper_zombie_tank_super"-> APEX_COLOSSUS;
             case "saboteur" -> SABOTEUR;
             case "sandwormSm" -> SANDWORM_GRUBLING;
+            case "scoutbike_grey" -> SCOUT_BIKE;
+            case "sea_grouper" -> MONSTER_GROUPER;
+            case "ship_battleship_med" -> BATTLESHIP_RAPTORCLASS;
+            case "ship_battleship_super" -> BATTLESHIP_MAMMOTHCLASS;
+            case "ship_destroyer_med" -> DESTROYER;
+            case "ship_gunboat" -> GUNBOAT;
+            case "ship_minelayer" -> MINELAYER_DESTROYER;
+            case "ship_mini_sub" -> MINI_SUB;
+            case "ship_raft_trooper" -> NAVY_TROOPER;
+            case "ship_submarine" -> SUBMARINE;
+            case "TODO TODO 2" -> null; //TACTICAL_SUBMARINE;
+            case "shocktrooper_grey" -> SHOCK_TROOPER;
+            case "shotgunner" -> RIOT_TROOPER;
+            case "sniper_grey" -> SHARPSHOOTER;
+            case "specialmortar" -> MORTAR_TRUCK;
+            case "submarine" -> SUBMARINE; // Shares the same image as 'ship_submarine'
+            case "superArtillery" -> EARTHSHAKER;
 
 
             case "veh_tank_flame_heavy" -> DRAGON;
