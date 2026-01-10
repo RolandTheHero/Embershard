@@ -671,6 +671,146 @@ public enum EnemyUnit {
         @Override public int x() { return 60; }
         @Override public int y() { return 146; }
     },
+    BOAR_VETERAN {
+        @Override public String filename() { return "S_boar_boarus_rex_55_front.png"; }
+        @Override public int x() { return 75; }
+        @Override public int y() { return 131; }
+    },
+    ALPHA_BOAR {
+        @Override public String filename() { return "S_boar_large_front.png"; }
+        @Override public int x() { return 51; }
+        @Override public int y() { return 110; }
+    },
+    WILD_BOAR {
+        @Override public String filename() { return "S_boar_medium_front.png"; }
+        @Override public int x() { return 40; }
+        @Override public int y() { return 100; }
+    },
+    BOAR_PIGLET {
+        @Override public String filename() { return "S_boar_small_front.png"; }
+        @Override public int x() { return 27; }
+        @Override public int y() { return 82; }
+    },
+    IMPERIAL_PEACEMONGER {
+        @Override public String filename() { return "S_bountyHunter_front.png"; }
+        @Override public int x() { return 84; }
+        @Override public int y() { return 151; }
+    },
+    COMMANDO_2 {
+        @Override public String filename() { return "S_commando_rebel_front.png"; }
+        @Override public int x() { return 48; }
+        @Override public int y() { return 122; }
+    },
+    LIGHTNING_TOWER {
+        @Override public String filename() { return "S_def_tesla_coil_front.png"; }
+        @Override public int x() { return 55; }
+        @Override public int y() { return 217; }
+    },
+    SALAMANDER {
+        @Override public String filename() { return "S_flame_heavy_front.png"; }
+        @Override public int x() { return 62; }
+        @Override public int y() { return 143; }
+    },
+    SILVER_WOLF_GOLDEN_EAGLE {
+        @Override public String filename() { return "S_guy_sniper_front.png"; }
+        @Override public int x() { return 59; }
+        @Override public int y() { return 108; }
+    },
+    MAMMOTH_SEER {
+        @Override public String filename() { return "S_mammoth_king_55_front.png"; }
+        @Override public int x() { return 102; }
+        @Override public int y() { return 140; }
+    },
+    MAMMOTH_ELDER {
+        @Override public String filename() { return "S_mammoth_large_front.png"; }
+        @Override public int x() { return 102; }
+        @Override public int y() { return 141; }
+    },
+    MAMMOTH {
+        @Override public String filename() { return "S_mammoth_medium_front.png"; }
+        @Override public int x() { return 58; }
+        @Override public int y() { return 128; }
+    },
+    MAMMOTH_TUSKLING {
+        @Override public String filename() { return "S_mammoth_small_front.png"; }
+        @Override public int x() { return 38; }
+        @Override public int y() { return 98; }
+    },
+    BOARUS_REX {
+        @Override public String filename() { return "S_matriarchBoar_front.png"; }
+        @Override public int x() { return 74; }
+        @Override public int y() { return 131; }
+    },
+    FIELD_AGENT {
+        @Override public String filename() { return "S_midrange_agent_front.png"; }
+        @Override public int x() { return 38; }
+        @Override public int y() { return 145; }
+    },
+    TURTLESHELLER {
+        @Override public String filename() { return "S_mortar_turtleShell_front.png"; }
+        @Override public int x() { return 67; }
+        @Override public int y() { return 153; }
+    },
+    PORTABLE_WALL {
+        @Override public String filename() { return "S_portableWall_front.png"; }
+        @Override public int x() { return 76; }
+        @Override public int y() { return 104; }
+    },
+    BRUTAL_CANNONEER {
+        @Override public String filename() { return "S_raider_bombadier_55_front.png"; }
+        @Override public int x() { return 51; }
+        @Override public int y() { return 138; }
+    },
+    BIG_BADA_BOOM {
+        @Override public String filename() { return "S_raider_boomboom_55_front.png"; }
+        @Override public int x() { return 42; }
+        @Override public int y() { return 125; }
+    },
+    BRUTAL_BRAWLER {
+        @Override public String filename() { return "S_raider_brawler_55_front.png"; }
+        @Override public int x() { return 46; }
+        @Override public int y() { return 141; }
+    },
+    BRUTAL_CHAMPION {
+        @Override public String filename() { return "S_raider_champion_55_front.png"; }
+        @Override public int x() { return 64; }
+        @Override public int y() { return 137; }
+    },
+    DUSTWALKER_DERVISH {
+        @Override public String filename() { return "S_raider_dustwalker_55_front.png"; }
+        @Override public int x() { return 48; }
+        @Override public int y() { return 123; }
+    },
+    SEARING_FIREBREATHER {
+        @Override public String filename() { return "S_raider_firebreather_55_front.png"; }
+        @Override public int x() { return 48; }
+        @Override public int y() { return 128; }
+    },
+    RAIDER_RIFLEMAN {
+        @Override public String filename() { return "S_raider_infantry_55_front.png"; }
+        @Override public int x() { return 56; }
+        @Override public int y() { return 129; }
+    },
+    RAIDER_SKIRMISHER {
+        @Override public String filename() { return "S_raider_raptorRider_front.png"; }
+        @Override public int x() { return 81; }
+        @Override public int y() { return 170; }
+    },
+    ELITE_SKIRMISHER {
+        @Override public String filename() { return "S_raider_raptor_rider_55_front.png"; }
+        @Override public int x() { return 81; }
+        @Override public int y() { return 170; }
+    },
+    RAIDER_OUTCAST {
+        @Override public String filename() { return "S_raider_sniper_front.png"; }
+        @Override public int x() { return 103; }
+        @Override public int y() { return 127; }
+    },
+    ELITE_OUTCAST {
+        @Override public String filename() { return "S_raider_sniper_55_front.png"; }
+        @Override public int x() { return 103; }
+        @Override public int y() { return 127; }
+    },
 
 
 
@@ -826,6 +966,34 @@ public enum EnemyUnit {
             case "S_bigfoot_adult_55" -> BIGFOOT_WARRIOR;
             case "s_bigfoot_child" -> YOUNG_BIGFOOT;
             case "s_bigfoot_zombie_super_player" -> APEX_MAULER;
+            case "s_boar_boarus_rex_55" -> BOAR_VETERAN;
+            case "s_boar_large" -> ALPHA_BOAR;
+            case "s_boar_medium" -> WILD_BOAR;
+            case "s_boar_small" -> BOAR_PIGLET;
+            case "s_bountyHunter" -> IMPERIAL_PEACEMONGER;
+            case "s_commando_rebel" -> COMMANDO_2;
+            case "s_def_tesla_coil" -> LIGHTNING_TOWER;
+            case "s_flame_heavy" -> SALAMANDER;
+            case "s_guy_sniper" -> SILVER_WOLF_GOLDEN_EAGLE;
+            case "s_mammoth_king_55" -> MAMMOTH_SEER;
+            case "s_mammoth_large" -> MAMMOTH_ELDER;
+            case "s_mammoth_medium" -> MAMMOTH;
+            case "s_mammoth_small" -> MAMMOTH_TUSKLING;
+            case "s_matriarchBoar" -> BOARUS_REX;
+            case "s_midrange_agent" -> FIELD_AGENT;
+            case "s_mortar_turtleShell" -> TURTLESHELLER;
+            case "s_portableWall" -> PORTABLE_WALL;
+            case "s_raider_bombadier_55" -> BRUTAL_CANNONEER;
+            case "s_raider_boomboom_55" -> BIG_BADA_BOOM;
+            case "s_raider_brawler_55" -> BRUTAL_BRAWLER;
+            case "s_raider_champion_55" -> BRUTAL_CHAMPION;
+            case "s_raider_dustwalker_55" -> DUSTWALKER_DERVISH;
+            case "s_raider_firebreather_55" -> SEARING_FIREBREATHER;
+            case "s_raider_infantry_55" -> RAIDER_RIFLEMAN;
+            case "s_raider_raptorRider" -> RAIDER_SKIRMISHER;
+            case "s_raider_raptor_rider_55" -> ELITE_SKIRMISHER;
+            case "s_raider_sniper" -> RAIDER_OUTCAST;
+            case "s_raider_sniper_55" -> ELITE_OUTCAST;
 
             case "veh_tank_flame_heavy" -> DRAGON;
             case "wheeledTank" -> PUMA;
