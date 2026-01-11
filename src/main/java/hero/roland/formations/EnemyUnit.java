@@ -1291,14 +1291,130 @@ public enum EnemyUnit {
         @Override public int x() { return 93; }
         @Override public int y() { return 160; }
     },
-
-
-
-
+    NOMAD_ELEMENTAL_ROVER {
+        @Override public String filename() { return "Veh_elemental_rover_front.png"; }
+        @Override public int x() { return 90; }
+        @Override public int y() { return 130; }
+    },
+    T16_AERO_BIKE {
+        @Override public String filename() { return "Veh_hoverbike_front.png"; }
+        @Override public int x() { return 57; }
+        @Override public int y() { return 145; }
+    },
+    ANTIGRAVITY_TANK {
+        @Override public String filename() { return "Veh_hovertank_front.png"; }
+        @Override public int x() { return 90; }
+        @Override public int y() { return 162; }
+    },
+    UNMANNED_FLAME_TURRET {
+        @Override public String filename() { return "Veh_ign_turret_flame_front.png"; }
+        @Override public int x() { return 57; }
+        @Override public int y() { return 140; }
+    },
+    UNMANNED_LASER_TURRET {
+        @Override public String filename() { return "Veh_ign_turret_laser_front.png"; }
+        @Override public int x() { return 66; }
+        @Override public int y() { return 150; }
+    },
+    UNMANNED_MACHINE_GUN_TURRET {
+        @Override public String filename() { return "Veh_ign_turret_mgun_front.png"; }
+        @Override public int x() { return 92; }
+        @Override public int y() { return 148; }
+    },
+    ACES_650CC {
+        @Override public String filename() { return "Veh_motorcycle_advanced_front.png"; }
+        @Override public int x() { return 54; }
+        @Override public int y() { return 157; }
+    },
+    PLASMA_TURRET {
+        @Override public String filename() { return "Veh_plasma_turret_front.png"; }
+        @Override public int x() { return 72; }
+        @Override public int y() { return 156; }
+    },
+    MAMMOTH_TANK {
+        @Override public String filename() { return "Veh_raider_mammoth_armored_55_front.png"; }
+        @Override public int x() { return ARMORED_RAIDER_MAMMOTH.x(); }
+        @Override public int y() { return ARMORED_RAIDER_MAMMOTH.y(); }
+    },
+    TOTAL_WAR_MAMMOTH {
+        @Override public String filename() { return "Veh_raider_mammoth_rockets_55_front.png"; }
+        @Override public int x() { return 90; }
+        @Override public int y() { return 195; }
+    },
+    RAIDER_WAR_MAMMOTH {
+        @Override public String filename() { return "Veh_raider_rocketMammoth_front.png"; }
+        @Override public int x() { return 89; }
+        @Override public int y() { return TOTAL_WAR_MAMMOTH.y(); }
+    },
+    ARCTIC_TANK {
+        @Override public String filename() { return "Veh_tank_arctic_front.png"; }
+        @Override public int x() { return 95; }
+        @Override public int y() { return 153; }
+    },
+    HEAVY_ARCTIC_TANK {
+        @Override public String filename() { return "Veh_tank_arctic_heavy_front.png"; }
+        @Override public int x() { return 112; }
+        @Override public int y() { return 182; }
+    },
+    HEAVY_ARCTIC_TANK_2 {
+        @Override public String filename() { return "Veh_tank_arctic_heavy_rebel_front.png"; }
+        @Override public int x() { return HEAVY_ARCTIC_TANK.x(); }
+        @Override public int y() { return HEAVY_ARCTIC_TANK.y(); }
+    },
+    BASILISK {
+        @Override public String filename() { return "Veh_tank_basilisk_front.png"; }
+        @Override public int x() { return 73; }
+        @Override public int y() { return 143; }
+    },
+    FROSTBITE {
+        @Override public String filename() { return "Veh_tank_cryo_front.png"; }
+        @Override public int x() { return 69; }
+        @Override public int y() { return 150; }
+    },
     DRAGON {
         @Override public String filename() { return "Veh_tank_flame_heavy_front.png"; }
         @Override public int x() { return 66; }
         @Override public int y() { return 147; }
+    },
+    HEAVIER_TANK {
+        @Override public String filename() { return "Veh_tank_heavier_front.png"; }
+        @Override public int x() { return 97; }
+        @Override public int y() { return 137; }
+    },
+    LASER_TANK {
+        @Override public String filename() { return "Veh_tank_laser_front.png"; }
+        @Override public int x() { return 82; }
+        @Override public int y() { return 153; }
+    },
+    MEGA_TANK {
+        @Override public String filename() { return "Veh_tank_mega_front.png"; }
+        @Override public int x() { return 101; }
+        @Override public int y() { return 151; }
+    },
+    MEGA_TANK_2 {
+        @Override public String filename() { return "Veh_tank_mega_rebel_front.png"; }
+        @Override public int x() { return MEGA_TANK.x(); }
+        @Override public int y() { return MEGA_TANK.y(); }
+    },
+    PLASMA_TANK {
+        @Override public String filename() { return "Veh_tank_plasma_front.png"; }
+        @Override public int x() { return 106; }
+        @Override public int y() { return 147; }
+    },
+    SNOW_CRUSHER {
+        @Override public String filename() { return "Veh_tank_snowplow_front.png"; }
+        @Override public int x() { return 84; }
+        @Override public int y() { return 167; }
+    },
+    LIGHTNING_TANK {
+        @Override public String filename() { return "Veh_tank_tesla_front.png"; }
+        @Override public int x() { return 66; }
+        @Override public int y() { return 137; }
+    },
+    ZOEYS_TREBUCHET {
+        @Override public String filename() { return "Veh_trebuchet_front.png"; }
+        @Override public int x() { return 79; }
+        @Override public int y() { return 190; }
     },
     PUMA {
         @Override public String filename() { return "WheeledTank_front.png"; }
@@ -1581,9 +1697,31 @@ public enum EnemyUnit {
             case "veh_artillery_napalm" -> DEATH_FROM_ABOVE;
             case "veh_boomBus" -> BOOM_BUS;
             case "veh_cannon_plasma" -> ARTILLERY_PLASMA_CANNON;
-
-
+            case "veh_elemental_rover" -> NOMAD_ELEMENTAL_ROVER;
+            case "veh_hoverbike" -> T16_AERO_BIKE;
+            case "veh_hovertank" -> ANTIGRAVITY_TANK;
+            case "veh_ign_turret_flame" -> UNMANNED_FLAME_TURRET;
+            case "veh_ign_turret_laser" -> UNMANNED_LASER_TURRET;
+            case "veh_ign_turret_mgun" -> UNMANNED_MACHINE_GUN_TURRET;
+            case "veh_motorcycle_advanced" -> ACES_650CC;
+            case "veh_plasma_turret" -> PLASMA_TURRET;
+            case "veh_raider_mammoth_armored_55" -> MAMMOTH_TANK;
+            case "veh_raider_mammoth_rockets_55" -> TOTAL_WAR_MAMMOTH;
+            case "veh_raider_rocketMammoth" -> RAIDER_WAR_MAMMOTH;
+            case "veh_tank_arctic" -> ARCTIC_TANK;
+            case "veh_tank_arctic_heavy" -> HEAVY_ARCTIC_TANK;
+            case "veh_tank_arctic_heavy_rebel" -> HEAVY_ARCTIC_TANK_2;
+            case "veh_tank_basilisk" -> BASILISK;
+            case "veh_tank_cryo" -> FROSTBITE;
             case "veh_tank_flame_heavy" -> DRAGON;
+            case "veh_tank_heavier" -> HEAVIER_TANK;
+            case "veh_tank_laser" -> LASER_TANK;
+            case "veh_tank_mega" -> MEGA_TANK;
+            case "veh_tank_mega_rebel" -> MEGA_TANK_2;
+            case "veh_tank_plasma" -> PLASMA_TANK;
+            case "veh_tank_snowplow" -> SNOW_CRUSHER;
+            case "veh_tank_tesla" -> LIGHTNING_TANK;
+            case "veh_trebuchet" -> ZOEYS_TREBUCHET;
             case "wheeledTank" -> PUMA;
             default -> UNKNOWN;
         };
