@@ -1251,6 +1251,11 @@ public enum EnemyUnit {
         @Override public int x() { return 75; }
         @Override public int y() { return 204; }
     },
+    BC3_COBRA {
+        @Override public String filename() { return "Air_helicopter_new_front.png"; }
+        @Override public int x() { return BC1_SNAKE.x(); }
+        @Override public int y() { return BC1_SNAKE.y() - 5; }
+    },
     EXPERIMENT_X17 {
         @Override public String filename() { return "Veh_ancient_robot_clone_trap_mission_front.png"; }
         @Override public int x() { return 86; }
@@ -1426,6 +1431,7 @@ public enum EnemyUnit {
     abstract public int x();
     abstract public int y();
     public static EnemyUnit fromId(String s) {
+        // Units marked with ~ are added by me and was not included in the original list
         return switch (s) {
             case "APC" -> RECON_VEHICLE;
             case "BoomBoom" -> BOOM_BOOM;
@@ -1579,6 +1585,7 @@ public enum EnemyUnit {
             case "s_midrange_agent" -> FIELD_AGENT;
             case "s_mortar_turtleShell" -> TURTLESHELLER;
             case "s_portableWall" -> PORTABLE_WALL;
+            case "TODO TODO 5" -> null; //PORTABLE_WALL_2; // Alternative sprite for portable wall
             case "s_raider_bombadier_55" -> BRUTAL_CANNONEER;
             case "s_raider_boomboom_55" -> BIG_BADA_BOOM;
             case "s_raider_brawler_55" -> BRUTAL_BRAWLER;
@@ -1688,7 +1695,7 @@ public enum EnemyUnit {
             case "veh_air_biplane" -> SOPWITH_SPIDERWASP;
             case "veh_air_dirigible" -> ZR66_DIRIGIBLE;
             case "veh_air_helicopter" -> BC1_SNAKE;
-            case "TODO TODO 4" -> null; //BC3_SNAKE;
+            case "bc3_cobra" -> BC3_COBRA; // ~
             case "veh_ancient_robot_clone_trap_mission" -> EXPERIMENT_X17;
             case "veh_ancient_robot_player" -> DEXTER_FRAGMENT;
             case "veh_anti_aircraft_gun_premium" -> ANTIAIRCRAFT_FLAK_GUN;

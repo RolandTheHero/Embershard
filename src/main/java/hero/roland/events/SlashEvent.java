@@ -19,6 +19,7 @@ import java.io.IOException;
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
 import hero.roland.formations.EnemyFormation;
+import hero.roland.formations.FormationException;
 import hero.roland.messages.*;
 
 public interface SlashEvent {
@@ -203,7 +204,7 @@ record FormationCommand() implements SlashEvent {
             } catch (IOException e) {
                 interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\nAn error occurred while generating the formation image. Please try again.").build())
                     .queue();
-            } catch (IllegalArgumentException e) {
+            } catch (FormationException e) {
                 interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\n" + e.getMessage()).build())
                     .queue();
             }

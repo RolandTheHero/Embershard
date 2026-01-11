@@ -48,10 +48,11 @@ public class EnemyFormation {
                     case "11" -> formation.grid11 = EnemyUnit.fromId(value);
                     case "12" -> formation.grid12 = EnemyUnit.fromId(value);
                     case "13" -> formation.grid13 = EnemyUnit.fromId(value);
+                    default -> throw new FormationException("Unknown formation key: `" + key + "`\nIf you need help, use `/formation` with no arguments.");
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new IllegalArgumentException("Your formation data string is malformed. Use `/formation` with no arguments if you need help.");
+            throw new FormationException("Your formation data string is malformed. If you need help, use `/formation` with no arguments.");
         }
         return formation;
     }
@@ -114,8 +115,8 @@ public class EnemyFormation {
             }
             return image;
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
-        return null;
+        throw new FormationException("An error occurred while generating the formation image. Please try again.");
     }
 }

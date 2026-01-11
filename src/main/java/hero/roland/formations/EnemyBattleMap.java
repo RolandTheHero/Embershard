@@ -35,7 +35,7 @@ enum EnemyBattleMap {
             case "ocean" -> OCEAN;
             case "outpost" -> OUTPOST;
             case "snow" -> SNOW;
-            default -> throw new IllegalArgumentException("Unknown BattleMap ID: " + s);
+            default -> throw new FormationException("Unknown BattleMap ID: `" + s + "`\nValid IDs are: `bay`, `cave`, `city`, `jungle`, `ocean`, `outpost`, `snow`.");
         };
     }
 }
