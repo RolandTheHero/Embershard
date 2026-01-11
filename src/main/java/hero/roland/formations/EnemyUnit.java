@@ -1141,6 +1141,156 @@ public enum EnemyUnit {
         @Override public int x() { return 91; }
         @Override public int y() { return 142; }
     },
+    MARKSMAN {
+        @Override public String filename() { return "SuperSniper_front.png"; }
+        @Override public int x() { return 77; }
+        @Override public int y() { return 113; }
+    },
+    WOLF_PICKUP {
+        @Override public String filename() { return "SwMGPickup_front.png"; }
+        @Override public int x() { return 63; }
+        @Override public int y() { return 128; }
+    },
+    WOLF_PUNISHER {
+        @Override public String filename() { return "Sw_guy_bat_front.png"; }
+        @Override public int x() { return 44; }
+        @Override public int y() { return 138; }
+    },
+    WOLF_PUNISHER_2 {
+        @Override public String filename() { return "Sw_guy_bat_5_front.png"; }
+        @Override public int x() { return WOLF_PUNISHER.x(); }
+        @Override public int y() { return WOLF_PUNISHER.y(); }
+    },
+    WOLF_GRENADIER_2 {
+        @Override public String filename() { return "Sw_guy_grenade_5_front.png"; }
+        @Override public int x() { return WOLF_GRENADIER.x(); }
+        @Override public int y() { return WOLF_GRENADIER.y(); }
+    },
+    LASER_WOLF {
+        @Override public String filename() { return "Sw_guy_laser_front.png"; }
+        @Override public int x() { return 53; }
+        @Override public int y() { return 131; }
+    },
+    WOLF_SCRAPPER_2 {
+        @Override public String filename() { return "Sw_guy_machete_5_front.png"; }
+        @Override public int x() { return WOLF_SCRAPPER.x(); }
+        @Override public int y() { return WOLF_SCRAPPER.y(); }
+    },
+    WOLF_DEVASTATOR_2 {
+        @Override public String filename() { return "Sw_guy_rpg_5_front.png"; }
+        @Override public int x() { return WOLF_DEVASTATOR.x(); }
+        @Override public int y() { return WOLF_DEVASTATOR.y(); }
+    },
+    WOLF_SLINGER {
+        @Override public String filename() { return "Sw_guy_slingshot_front.png"; }
+        @Override public int x() { return 73; }
+        @Override public int y() { return 160; }
+    },
+    SILVER_WOLF_GOLDEN_EAGLE_2 {
+        @Override public String filename() { return "S_guy_sniper_front.png"; }
+        @Override public int x() { return SILVER_WOLF_GOLDEN_EAGLE.x(); }
+        @Override public int y() { return SILVER_WOLF_GOLDEN_EAGLE.y(); }
+    },
+    WOLF_THUG_2 {
+        @Override public String filename() { return "Sw_guy_uzi_5_front.png"; }
+        @Override public int x() { return WOLF_THUG.x(); }
+        @Override public int y() { return WOLF_THUG.y(); }
+    },
+    WOLF_ARTILLERY {
+        @Override public String filename() { return "Sw_veh_artillery_front.png"; }
+        @Override public int x() { return 56; }
+        @Override public int y() { return 121; }
+    },
+    WOLF_BOMBADIER_2 {
+        @Override public String filename() { return "Sw_veh_artillery_5_front.png"; }
+        @Override public int x() { return WOLF_BOMBADIER.x(); }
+        @Override public int y() { return WOLF_BOMBADIER.y(); }
+    },
+    WOLF_FURY {
+        @Override public String filename() { return "Sw_veh_catapult_front.png"; }
+        @Override public int x() { return 72; }
+        @Override public int y() { return 174; }
+    },
+    WOLF_PICKUP_2 {
+        @Override public String filename() { return "Sw_veh_pickup_5_front.png"; }
+        @Override public int x() { return WOLF_PICKUP.x(); }
+        @Override public int y() { return WOLF_PICKUP.y(); }
+    },
+    CONVERTED_GARBAGE_TRUCK {
+        @Override public String filename() { return "Sw_veh_rocketTruck_front.png"; }
+        @Override public int x() { return 67; }
+        @Override public int y() { return 134; }
+    },
+    WOLF_ROLLER {
+        @Override public String filename() { return "Sw_veh_steamRoller_front.png"; }
+        @Override public int x() { return 67; }
+        @Override public int y() { return 168; }
+    },
+    TANK_KILLER {
+        @Override public String filename() { return "Tankkiller_grey_front.png"; }
+        @Override public int x() { return 92; }
+        @Override public int y() { return 111; }
+    },
+    TROOPER {
+        @Override public String filename() { return "Trooper_grey_front.png"; }
+        @Override public int x() { return 47; }
+        @Override public int y() { return 112; }
+    },
+    SOPWITH_SPIDERWASP {
+        @Override public String filename() { return "Veh_air_biplane_front.png"; }
+        @Override public int x() { return 60; }
+        @Override public int y() { return 143; }
+    },
+    ZR66_DIRIGIBLE {
+        @Override public String filename() { return "Veh_air_dirigible_front.png"; }
+        @Override public int x() { return 67; }
+        @Override public int y() { return 189; }
+    },
+    BC1_SNAKE {
+        @Override public String filename() { return "Veh_air_helicopter_front.png"; }
+        @Override public int x() { return 75; }
+        @Override public int y() { return 204; }
+    },
+    EXPERIMENT_X17 {
+        @Override public String filename() { return "Veh_ancient_robot_clone_trap_mission_front.png"; }
+        @Override public int x() { return 86; }
+        @Override public int y() { return 139; }
+    },
+    DEXTER_FRAGMENT {
+        @Override public String filename() { return "Veh_ancient_robot_player_front.png"; }
+        @Override public int x() { return EXPERIMENT_X17.x(); }
+        @Override public int y() { return EXPERIMENT_X17.y(); }
+    },
+    ANTIAIRCRAFT_FLAK_GUN {
+        @Override public String filename() { return "Veh_anti_aircraft_gun_premium_front.png"; }
+        @Override public int x() { return 79; }
+        @Override public int y() { return 175; }
+    },
+    ANTIAIRCRAFT_TURRET {
+        @Override public String filename() { return "Veh_anti_aircraft_gun_regular_front.png"; }
+        @Override public int x() { return 56; }
+        @Override public int y() { return 141; }
+    },
+    BRUTALIZER {
+        @Override public String filename() { return "Veh_anti_armor_front.png"; }
+        @Override public int x() { return 88; }
+        @Override public int y() { return 142; }
+    },
+    DEATH_FROM_ABOVE {
+        @Override public String filename() { return "Veh_artillery_napalm_front.png"; }
+        @Override public int x() { return 91; }
+        @Override public int y() { return 142; }
+    },
+    BOOM_BUS {
+        @Override public String filename() { return "Veh_boomBus_front.png"; }
+        @Override public int x() { return 70; }
+        @Override public int y() { return 158; }
+    },
+    ARTILLERY_PLASMA_CANNON {
+        @Override public String filename() { return "Veh_cannon_plasma_front.png"; }
+        @Override public int x() { return 93; }
+        @Override public int y() { return 160; }
+    },
 
 
 
@@ -1400,6 +1550,37 @@ public enum EnemyUnit {
             case "specialmortar" -> MORTAR_TRUCK;
             case "submarine" -> SUBMARINE; // Shares the same image as 'ship_submarine'
             case "superArtillery" -> EARTHSHAKER;
+            case "superSniper" -> MARKSMAN;
+            case "swMGPickup" -> WOLF_PICKUP;
+            case "sw_guy_bat" -> WOLF_PUNISHER;
+            case "sw_guy_bat_5" -> WOLF_PUNISHER_2;
+            case "sw_guy_grenade_5" -> WOLF_GRENADIER_2;
+            case "sw_guy_laser" -> LASER_WOLF;
+            case "sw_guy_machete_5" -> WOLF_SCRAPPER_2;
+            case "sw_guy_rpg_5" -> WOLF_DEVASTATOR_2;
+            case "sw_guy_slingshot" -> WOLF_SLINGER;
+            case "sw_guy_sniper" -> SILVER_WOLF_GOLDEN_EAGLE_2;
+            case "sw_guy_uzi_5" -> WOLF_THUG_2;
+            case "sw_veh_artillery" -> WOLF_ARTILLERY;
+            case "sw_veh_artillery_5" -> WOLF_BOMBADIER_2;
+            case "sw_veh_catapult" -> WOLF_FURY;
+            case "sw_veh_pickup_5" -> WOLF_PICKUP_2;
+            case "sw_veh_rocketTruck" -> CONVERTED_GARBAGE_TRUCK;
+            case "sw_veh_steamRoller" -> WOLF_ROLLER;
+            case "tankkiller_grey" -> TANK_KILLER;
+            case "trooper_grey" -> TROOPER;
+            case "veh_air_biplane" -> SOPWITH_SPIDERWASP;
+            case "veh_air_dirigible" -> ZR66_DIRIGIBLE;
+            case "veh_air_helicopter" -> BC1_SNAKE;
+            case "TODO TODO 4" -> null; //BC3_SNAKE;
+            case "veh_ancient_robot_clone_trap_mission" -> EXPERIMENT_X17;
+            case "veh_ancient_robot_player" -> DEXTER_FRAGMENT;
+            case "veh_anti_aircraft_gun_premium" -> ANTIAIRCRAFT_FLAK_GUN;
+            case "veh_anti_aircraft_gun_regular" -> ANTIAIRCRAFT_TURRET;
+            case "veh_anti_armor" -> BRUTALIZER;
+            case "veh_artillery_napalm" -> DEATH_FROM_ABOVE;
+            case "veh_boomBus" -> BOOM_BUS;
+            case "veh_cannon_plasma" -> ARTILLERY_PLASMA_CANNON;
 
 
             case "veh_tank_flame_heavy" -> DRAGON;
