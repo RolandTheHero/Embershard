@@ -1425,6 +1425,31 @@ public enum EnemyUnit {
         @Override public String filename() { return "WheeledTank_front.png"; }
         @Override public int x() { return 59; }
         @Override public int y() { return 114; }
+    },
+    IRONCLAD_BATTLESHIP {
+        @Override public String filename() { return "Ship_ironclad_front.png"; }
+        @Override public int x() { return 60; }
+        @Override public int y() { return 135; }
+    },
+    PHALANX_TANK {
+        @Override public String filename() { return "Veh_phalanx_tank_player_front.png"; }
+        @Override public int x() { return 65; }
+        @Override public int y() { return 165; }
+    },
+    MELEE_SENTINEL_FRAGMENT {
+        @Override public String filename() { return "Veh_ancient_robot_2_player_left_front.png"; }
+        @Override public int x() { return 83; }
+        @Override public int y() { return 117; }
+    },
+    RANGED_SENTINEL_FRAGMENT {
+        @Override public String filename() { return "Veh_ancient_robot_2_player_right_front.png"; }
+        @Override public int x() { return MELEE_SENTINEL_FRAGMENT.x() - 33; }
+        @Override public int y() { return MELEE_SENTINEL_FRAGMENT.y(); }
+    },
+    THE_WIMP {
+        @Override public String filename() { return "S_trooper_underdog_front.png"; }
+        @Override public int x() { return 48; }
+        @Override public int y() { return 118; }
     };
     public String filePathString() { return "/units/front/" + filename(); }
     abstract public String filename();
@@ -1730,6 +1755,11 @@ public enum EnemyUnit {
             case "veh_tank_tesla" -> LIGHTNING_TANK;
             case "veh_trebuchet" -> ZOEYS_TREBUCHET;
             case "wheeledTank" -> PUMA;
+            case "ironclad_battleship" -> IRONCLAD_BATTLESHIP; // ~
+            case "phalanx_tank" -> PHALANX_TANK; // ~
+            case "melee_sentinel_fragment" -> MELEE_SENTINEL_FRAGMENT; // ~
+            case "ranged_sentinel_fragment" -> RANGED_SENTINEL_FRAGMENT; // ~
+            case "the_wimp" -> THE_WIMP; // ~
             default -> UNKNOWN;
         };
     }
