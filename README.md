@@ -10,8 +10,13 @@ The bot supports various [slash commands](https://discord.com/developers/docs/in
 
 `/setname [username]` Set your Battle Nations username.
 
-`/gold (amount)` View the gold leaderboard. If the `amount` integer parameter is specified, updates your gold amount with the new value instead.
-
 `/guides` View Battle Nations guides compiled from various sources.
 
 `/formation (data)` Create a custom formation image using the provided `data` string. If the `data` argument is not supplied, bring up the command help page instead.
+
+## Former Commands
+The following commands were removed.
+
+`/set [policy]` Set your Raid Policy to the supplied `policy` argument. This command was removed in favour of editing policies through the `/view` command's Edit button.
+
+`/gold (amount)` View the gold leaderboard. If the `amount` integer parameter is specified, updates your gold amount with the new value instead. This command was removed after the introduction of Guilds because gold tracking can now be done in-game.
