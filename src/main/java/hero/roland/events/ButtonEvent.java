@@ -117,6 +117,9 @@ class ScrollListButton implements ButtonEvent {
         });
     }
 }
+/**
+ * @deprecated See {@link GoldCommand}
+ */
 class ScrollGoldButton implements ButtonEvent {
     @Override public void run(ButtonInteractionEvent event) {
         // scrollgold:USERID:PAGE

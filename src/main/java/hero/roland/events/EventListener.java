@@ -13,7 +13,7 @@ public class EventListener extends ListenerAdapter {
         "view", new ViewCommand(),
         "setname", new SetIgNameCommand(),
         "list", new ListCommand(),
-        "gold", new GoldCommand(),
+        //"gold", new GoldCommand(),
         "guides", new GuidesCommand(),
         "formation", new FormationCommand()
     );
@@ -28,7 +28,7 @@ public class EventListener extends ListenerAdapter {
         "editpolicy", new EditPolicyButton(),
         "scrollview", new ScrollViewButton(),
         "scrolllist", new ScrollListButton(),
-        "scrollgold", new ScrollGoldButton(),
+        //"scrollgold", new ScrollGoldButton(),
         "guideselect", new GuidesButton()
     );
     @Override public void onButtonInteraction(ButtonInteractionEvent event) {

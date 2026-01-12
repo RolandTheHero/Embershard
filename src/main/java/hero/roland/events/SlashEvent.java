@@ -139,6 +139,9 @@ record ListCommand() implements SlashEvent {
             .toList();
     }
 }
+/**
+ * @deprecated This command is no longer used since the game has implemented the Guilds feature.
+ */
 record GoldCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
         GuildMember gm = Main.dataHandler().load(event.getUser().getIdLong());

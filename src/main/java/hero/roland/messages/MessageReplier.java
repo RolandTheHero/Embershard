@@ -87,6 +87,9 @@ public abstract class MessageReplier {
 
     static private final int GOLD_LEADERBOARD_PAGE_SIZE = 10;
     static private int goldLeaderboardMembers = 0;
+    /**
+     * @deprecated See {@link hero.roland.events.GoldCommand}
+     */
     static public MessageEmbed getGoldLeaderboardEmbed(GuildMember gmSelf, int page) {
         long totalGold = Main.dataHandler().allMembers().values().stream()
             .mapToLong(gm -> gm.gold())
@@ -118,6 +121,9 @@ public abstract class MessageReplier {
             .build();
         return embed;
     }
+    /**
+     * @deprecated See {@link hero.roland.events.GoldCommand}
+     */
     static public void goldLeaderboardReply(GuildMember gmSelf, ReplyCallbackAction deferReply) {
         ReplyCallbackAction reply = deferReply.setEmbeds(getGoldLeaderboardEmbed(gmSelf, 0));
         Button left = Button.secondary("scrollgold:0:0", "<").asDisabled();
@@ -125,6 +131,9 @@ public abstract class MessageReplier {
         if (goldLeaderboardMembers <= GOLD_LEADERBOARD_PAGE_SIZE) right = right.asDisabled();
         reply.setComponents(ActionRow.of(left, right)).queue();
     }
+    /**
+     * @deprecated See {@link hero.roland.events.GoldCommand}
+     */
     static public void goldLeaderboardReply(GuildMember gmSelf, int page, MessageEditCallbackAction editReply) {
         MessageEditCallbackAction reply = editReply.setEmbeds(getGoldLeaderboardEmbed(gmSelf, page));
         String buttonId = "scrollgold:" + gmSelf.id() + ":";
