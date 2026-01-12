@@ -1341,7 +1341,7 @@ public enum EnemyUnit {
         @Override public int x() { return 72; }
         @Override public int y() { return 156; }
     },
-    MAMMOTH_TANK {
+    RAIDER_MAMMOTH_TANK {
         @Override public String filename() { return "Veh_raider_mammoth_armored_55_front.png"; }
         @Override public int x() { return ARMORED_RAIDER_MAMMOTH.x(); }
         @Override public int y() { return ARMORED_RAIDER_MAMMOTH.y(); }
@@ -1540,6 +1540,26 @@ public enum EnemyUnit {
         @Override public String filename() { return "ancient_mammoth_front.png"; }
         @Override public int x() { return 106; }
         @Override public int y() { return 175; }
+    },
+    LEGENDARY_RAPTOR {
+        @Override public String filename() { return "s_ancient_raptor_player_front.png"; }
+        @Override public int x() { return 82; }
+        @Override public int y() { return 160; }
+    },
+    LEGENDARY_SANDWORM {
+        @Override public String filename() { return "s_ancient_sandworm_front.png"; }
+        @Override public int x() { return 100; }
+        @Override public int y() { return 265; }
+    },
+    MAMMOTH_ARTILLERY {
+        @Override public String filename() { return "s_mammoth_player_artillery_front.png"; }
+        @Override public int x() { return 86; }
+        @Override public int y() { return 196; }
+    },
+    MAMMOTH_TANK {
+        @Override public String filename() { return "s_mammoth_player_tank_front.png"; }
+        @Override public int x() { return 80; }
+        @Override public int y() { return 192; }
     },
     TEST {
         @Override public String filename() { return "this_image_does_not_exist.png"; }
@@ -1832,7 +1852,7 @@ public enum EnemyUnit {
             case "veh_ign_turret_mgun" -> UNMANNED_MACHINE_GUN_TURRET;
             case "veh_motorcycle_advanced" -> ACES_650CC;
             case "veh_plasma_turret" -> PLASMA_TURRET;
-            case "veh_raider_mammoth_armored_55" -> MAMMOTH_TANK;
+            case "veh_raider_mammoth_armored_55" -> RAIDER_MAMMOTH_TANK;
             case "veh_raider_mammoth_rockets_55" -> TOTAL_WAR_MAMMOTH;
             case "veh_raider_rocketMammoth" -> RAIDER_WAR_MAMMOTH;
             case "veh_tank_arctic" -> ARCTIC_TANK;
@@ -1872,6 +1892,10 @@ public enum EnemyUnit {
             case "b10c_boar_ii" -> B10C_BOAR_II; // ~
             case "legendary_boar" -> LEGENDARY_BOAR; // ~
             case "legendary_mammoth" -> LEGENDARY_MAMMOTH; // ~
+            case "legendary_raptor" -> LEGENDARY_RAPTOR; // ~
+            case "legendary_sandworm" -> LEGENDARY_SANDWORM; // ~
+            case "mammoth_artillery" -> MAMMOTH_ARTILLERY; // ~
+            case "mammoth_tank" -> MAMMOTH_TANK; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };
