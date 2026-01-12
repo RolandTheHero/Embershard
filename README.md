@@ -13,3 +13,5 @@ The bot supports various [slash commands](https://discord.com/developers/docs/in
 `/gold (amount)` View the gold leaderboard. If the `amount` integer parameter is specified, updates your gold amount with the new value instead.
 
 `/guides` View Battle Nations guides compiled from various sources.
+
+`/formation (data)` Create a custom formation image using the provided `data` string. If the `data` argument is not supplied, bring up the command help page instead.
