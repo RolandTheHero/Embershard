@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 class FormationTest {
     public static void main(String[] args) {
-        EnemyFormation formation = EnemyFormation.fromDataString("3=the_wimp,8=the_wimp,map=city");
+        EnemyFormation formation = EnemyFormation.fromDataString("3=the_wimp,8=the_wimp,map=arena");
         BufferedImage img = formation.toImage();
         try {
             ImageIO.write(img, "png", new File("enemy_formation.png"));
@@ -20,11 +20,8 @@ class FormationTest {
 
 public class EnemyFormation {
     EnemyBattleMap map = EnemyBattleMap.OUTPOST;
-    EnemyUnit grid1; EnemyUnit grid2; EnemyUnit grid3; EnemyUnit grid4; EnemyUnit grid5;
-    EnemyUnit grid6; EnemyUnit grid7; EnemyUnit grid8; EnemyUnit grid9; EnemyUnit grid10;
-    EnemyUnit grid11; EnemyUnit grid12; EnemyUnit grid13;
-    static final int X_OFFSET = 30;
-    static final int Y_OFFSET = 40;
+    EnemyUnit grid1, grid2, grid3, grid4, grid5, grid6, grid7, grid8, grid9, grid10, grid11, grid12, grid13;
+    static final int X_OFFSET = 30, Y_OFFSET = 40;
     static public EnemyFormation fromDataString(String data) {
         EnemyFormation formation = new EnemyFormation();
         try {

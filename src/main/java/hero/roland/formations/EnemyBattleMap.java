@@ -1,6 +1,9 @@
 package hero.roland.formations;
 
 enum EnemyBattleMap {
+    ARENA {
+        @Override public String filename() { return "BattleMapArenaEnemy.png"; }
+    },
     BAY {
         @Override public String filename() { return "BattleMapBayEnemy.png"; }
     },
@@ -28,6 +31,7 @@ enum EnemyBattleMap {
     public int y() { return 359; }
     public static EnemyBattleMap fromId(String s) {
         return switch (s) {
+            case "arena" -> ARENA;
             case "bay" -> BAY;
             case "cave" -> CAVE;
             case "city" -> CITY;
@@ -35,7 +39,7 @@ enum EnemyBattleMap {
             case "ocean" -> OCEAN;
             case "outpost" -> OUTPOST;
             case "snow" -> SNOW;
-            default -> throw new FormationException("Unknown BattleMap ID: `" + s + "`\nValid IDs are: `bay`, `cave`, `city`, `jungle`, `ocean`, `outpost`, `snow`.");
+            default -> throw new FormationException("Unknown BattleMap ID: `" + s + "`\nValid IDs are: `arena`, `bay`, `cave`, `city`, `jungle`, `ocean`, `outpost`, `snow`.");
         };
     }
 }
