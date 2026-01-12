@@ -153,13 +153,13 @@ public enum EnemyUnit {
     },
     ADVANCED_HUNTER {
         @Override public String filename() { return "Air_s_trooper_zombie_c_front.png"; }
-        @Override public int x() { return 49; }
-        @Override public int y() { return 192; }
+        @Override public int x() { return PROTO_HUNTER.x(); }
+        @Override public int y() { return PROTO_HUNTER.y(); }
     },
     ARCHETYPE_HUNTER {
         @Override public String filename() { return "Air_s_trooper_zombie_d_front.png"; }
-        @Override public int x() { return 49; }
-        @Override public int y() { return 192; }
+        @Override public int x() { return PROTO_HUNTER.x(); }
+        @Override public int y() { return PROTO_HUNTER.y(); }
     },
     SPIDERWASP_DRONE {
         @Override public String filename() { return "Air_spiderwasp_striker_front.png"; }
@@ -698,7 +698,7 @@ public enum EnemyUnit {
     },
     COMMANDO_2 {
         @Override public String filename() { return "S_commando_rebel_front.png"; }
-        @Override public int x() { return 48; }
+        @Override public int x() { return COMMANDO.x(); }
         @Override public int y() { return 122; }
     },
     LIGHTNING_TOWER {
@@ -768,13 +768,13 @@ public enum EnemyUnit {
     },
     BRUTAL_BRAWLER {
         @Override public String filename() { return "S_raider_brawler_55_front.png"; }
-        @Override public int x() { return 46; }
-        @Override public int y() { return 141; }
+        @Override public int x() { return RAIDER_BRAWLER.x(); }
+        @Override public int y() { return RAIDER_BRAWLER.y(); }
     },
     BRUTAL_CHAMPION {
         @Override public String filename() { return "S_raider_champion_55_front.png"; }
-        @Override public int x() { return 64; }
-        @Override public int y() { return 137; }
+        @Override public int x() { return RAIDER_CHAMPION.x(); }
+        @Override public int y() { return RAIDER_CHAMPION.y(); }
     },
     DUSTWALKER_DERVISH {
         @Override public String filename() { return "S_raider_dustwalker_55_front.png"; }
@@ -1447,7 +1447,7 @@ public enum EnemyUnit {
         @Override public int y() { return SUBMARINE.y(); }
     },
     SUPREME_DESTROYER {
-        @Override public String filename() { return "Ship_destroyer_med_rebel_front.png"; }
+        @Override public String filename() { return "ship_destroyer_med_rebel_front.png"; }
         @Override public int x() { return DESTROYER.x(); }
         @Override public int y() { return DESTROYER.y(); }
     },
