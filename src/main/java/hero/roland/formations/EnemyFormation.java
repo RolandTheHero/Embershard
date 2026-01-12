@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 class FormationTest {
     public static void main(String[] args) {
-        EnemyFormation formation = EnemyFormation.fromDataString("5=battleship_mastodon,2=ship_battleship_med,map=ocean");
+        EnemyFormation formation = EnemyFormation.fromDataString("5=sc2_pelican");
         BufferedImage img = formation.toImage();
         try {
             ImageIO.write(img, "png", new File("enemy_formation.png"));

@@ -1431,6 +1431,11 @@ public enum EnemyUnit {
         @Override public int x() { return 59; }
         @Override public int y() { return 114; }
     },
+    SC2_PELICAN {
+        @Override public String filename() { return "air_seaplane_front.png"; }
+        @Override public int x() { return 63; }
+        @Override public int y() { return 140; }
+    },
     HEAVY_GUNBOAT {
         @Override public String filename() { return "ship_gunboat_rebel_front.png"; }
         @Override public int x() { return GUNBOAT.x(); }
@@ -1795,6 +1800,7 @@ public enum EnemyUnit {
             case "veh_tank_tesla" -> LIGHTNING_TANK;
             case "veh_trebuchet" -> ZOEYS_TREBUCHET;
             case "wheeledTank" -> PUMA;
+            case "sc2_pelican" -> SC2_PELICAN; // ~
             case "heavy_gunboat" -> HEAVY_GUNBOAT; // ~
             case "shadow_class_submarine" -> SHADOW_CLASS_SUBMARINE; // ~
             case "supreme_destroyer" -> SUPREME_DESTROYER; // ~
