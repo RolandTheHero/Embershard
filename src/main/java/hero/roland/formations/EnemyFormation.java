@@ -112,8 +112,9 @@ public class EnemyFormation {
             }
             return image;
         } catch (IOException e) {
-            //e.printStackTrace();
+            throw new FormationException("An error occurred while generating the formation image. Please try again.");
+        } catch (IllegalArgumentException e) { // This happens when an image resource does not exist, thrown by ImageIO.read()
+            throw new FormationException("Oops! The image for one or more of the units wasn't found. This is a mistake on <@278366004348977153>'s part. Do let them know!");
         }
-        throw new FormationException("An error occurred while generating the formation image. Please try again.");
     }
 }

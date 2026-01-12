@@ -1450,6 +1450,11 @@ public enum EnemyUnit {
         @Override public String filename() { return "S_trooper_underdog_front.png"; }
         @Override public int x() { return 48; }
         @Override public int y() { return 118; }
+    },
+    TEST {
+        @Override public String filename() { return "this_image_does_not_exist.png"; }
+        @Override public int x() { return -0; }
+        @Override public int y() { return -0; }
     };
     public String filePathString() { return "/units/front/" + filename(); }
     abstract public String filename();
@@ -1760,6 +1765,7 @@ public enum EnemyUnit {
             case "melee_sentinel_fragment" -> MELEE_SENTINEL_FRAGMENT; // ~
             case "ranged_sentinel_fragment" -> RANGED_SENTINEL_FRAGMENT; // ~
             case "the_wimp" -> THE_WIMP; // ~
+            case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };
     }
