@@ -1491,6 +1491,56 @@ public enum EnemyUnit {
         @Override public int x() { return 48; }
         @Override public int y() { return 118; }
     },
+    UD4L_GUNSHIP {
+        @Override public String filename() { return "air_assaultcraft_front.png"; }
+        @Override public int x() { return 80; }
+        @Override public int y() { return 179; }
+    },
+    F51_HELL_FIRE {
+        @Override public String filename() { return "air_flame_helicopter_front.png"; }
+        @Override public int x() { return 68; }
+        @Override public int y() { return 174; }
+    },
+    V47_KITTYHAWK {
+        @Override public String filename() { return "air_jet_fighter_2_front.png"; }
+        @Override public int x() { return 66; }
+        @Override public int y() { return 148; }
+    },
+    C17_WINGED_MAMMOTH {
+        @Override public String filename() { return "air_osprey_helicopter_front.png"; }
+        @Override public int x() { return 104; }
+        @Override public int y() { return 218; }
+    },
+    RSB17_SHADOW_HORNET {
+        @Override public String filename() { return "air_stealth_fighter2_front.png"; }
+        @Override public int x() { return 90; }
+        @Override public int y() { return 165; }
+    },
+    RS17_SHADOWWASP {
+        @Override public String filename() { return "air_stealth_fighter_front.png"; }
+        @Override public int x() { return RSB17_SHADOW_HORNET.x(); }
+        @Override public int y() { return RSB17_SHADOW_HORNET.y(); }
+    },
+    TRIWING_TERROR {
+        @Override public String filename() { return "air_triplane_front.png"; }
+        @Override public int x() { return 69; }
+        @Override public int y() { return 170; }
+    },
+    B10C_BOAR_II {
+        @Override public String filename() { return "air_warthog_2_front.png"; }
+        @Override public int x() { return B10_WILD_BOAR.x(); }
+        @Override public int y() { return B10_WILD_BOAR.y(); }
+    },
+    LEGENDARY_BOAR {
+        @Override public String filename() { return "ancient_boar_player_front.png"; }
+        @Override public int x() { return 105; }
+        @Override public int y() { return 160; }
+    },
+    LEGENDARY_MAMMOTH {
+        @Override public String filename() { return "ancient_mammoth_front.png"; }
+        @Override public int x() { return 106; }
+        @Override public int y() { return 175; }
+    },
     TEST {
         @Override public String filename() { return "this_image_does_not_exist.png"; }
         @Override public int x() { return -0; }
@@ -1812,6 +1862,16 @@ public enum EnemyUnit {
             case "melee_sentinel_fragment" -> MELEE_SENTINEL_FRAGMENT; // ~
             case "ranged_sentinel_fragment" -> RANGED_SENTINEL_FRAGMENT; // ~
             case "the_wimp" -> THE_WIMP; // ~
+            case "ud4l_gunship" -> UD4L_GUNSHIP; // ~
+            case "f51_hell_fire" -> F51_HELL_FIRE; // ~
+            case "v47_kittyhawk" -> V47_KITTYHAWK; // ~
+            case "c17_winged_mammoth" -> C17_WINGED_MAMMOTH; // ~
+            case "rsb17_shadow_hornet" -> RSB17_SHADOW_HORNET; // ~
+            case "rs17_shadowwasp" -> RS17_SHADOWWASP; // ~
+            case "triwing_terror" -> TRIWING_TERROR; // ~
+            case "b10c_boar_ii" -> B10C_BOAR_II; // ~
+            case "legendary_boar" -> LEGENDARY_BOAR; // ~
+            case "legendary_mammoth" -> LEGENDARY_MAMMOTH; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };
