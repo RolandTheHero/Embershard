@@ -1116,6 +1116,11 @@ public enum EnemyUnit {
         @Override public int x() { return 43; }
         @Override public int y() { return 108; }
     },
+    TACTICAL_SUBMARINE {
+        @Override public String filename() { return "ship_tactical_sub_front.png"; }
+        @Override public int x() { return 56; }
+        @Override public int y() { return 129; }
+    },
     SHOCK_TROOPER {
         @Override public String filename() { return "Shocktrooper_grey_front.png"; }
         @Override public int x() { return 40; }
@@ -1426,6 +1431,36 @@ public enum EnemyUnit {
         @Override public int x() { return 59; }
         @Override public int y() { return 114; }
     },
+    HEAVY_GUNBOAT {
+        @Override public String filename() { return "ship_gunboat_rebel_front.png"; }
+        @Override public int x() { return GUNBOAT.x(); }
+        @Override public int y() { return GUNBOAT.y(); }
+    },
+    SHADOW_CLASS_SUBMARINE {
+        @Override public String filename() { return "ship_submarine_rebel_front.png"; }
+        @Override public int x() { return SUBMARINE.x(); }
+        @Override public int y() { return SUBMARINE.y(); }
+    },
+    SUPREME_DESTROYER {
+        @Override public String filename() { return "Ship_destroyer_med_rebel_front.png"; }
+        @Override public int x() { return DESTROYER.x(); }
+        @Override public int y() { return DESTROYER.y(); }
+    },
+    BATTLESHIP_MASTODONCLASS {
+        @Override public String filename() { return "ship_battleship_med_rebel_front.png"; }
+        @Override public int x() { return BATTLESHIP_RAPTORCLASS.x(); }
+        @Override public int y() { return BATTLESHIP_RAPTORCLASS.y() + 4; }
+    },
+    BATTLESHIP_BEHEMOTHCLASS {
+        @Override public String filename() { return "ship_battleship_super_rebel_front.png"; }
+        @Override public int x() { return BATTLESHIP_MAMMOTHCLASS.x(); }
+        @Override public int y() { return BATTLESHIP_MAMMOTHCLASS.y(); }
+    },
+    ATMOSPHERIC_DIVING_TROOPER {
+        @Override public String filename() { return "ship_scuba_trooper_front.png"; }
+        @Override public int x() { return 85; }
+        @Override public int y() { return 110; }
+    },
     IRONCLAD_BATTLESHIP {
         @Override public String filename() { return "Ship_ironclad_front.png"; }
         @Override public int x() { return 60; }
@@ -1696,7 +1731,7 @@ public enum EnemyUnit {
             case "ship_mini_sub" -> MINI_SUB;
             case "ship_raft_trooper" -> NAVY_TROOPER;
             case "ship_submarine" -> SUBMARINE;
-            case "TODO TODO 2" -> null; //TACTICAL_SUBMARINE;
+            case "tactical_submarine" -> TACTICAL_SUBMARINE; // ~
             case "shocktrooper_grey" -> SHOCK_TROOPER;
             case "shotgunner" -> RIOT_TROOPER;
             case "sniper_grey" -> SHARPSHOOTER;
@@ -1760,6 +1795,12 @@ public enum EnemyUnit {
             case "veh_tank_tesla" -> LIGHTNING_TANK;
             case "veh_trebuchet" -> ZOEYS_TREBUCHET;
             case "wheeledTank" -> PUMA;
+            case "heavy_gunboat" -> HEAVY_GUNBOAT; // ~
+            case "shadow_class_submarine" -> SHADOW_CLASS_SUBMARINE; // ~
+            case "supreme_destroyer" -> SUPREME_DESTROYER; // ~
+            case "battleship_mastodon" -> BATTLESHIP_MASTODONCLASS; // ~
+            case "battleship_behemoth" -> BATTLESHIP_BEHEMOTHCLASS; // ~
+            case "atmospheric_diving_trooper" -> ATMOSPHERIC_DIVING_TROOPER; // ~
             case "ironclad_battleship" -> IRONCLAD_BATTLESHIP; // ~
             case "phalanx_tank" -> PHALANX_TANK; // ~
             case "melee_sentinel_fragment" -> MELEE_SENTINEL_FRAGMENT; // ~
