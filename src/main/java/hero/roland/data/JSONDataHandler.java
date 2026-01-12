@@ -56,6 +56,7 @@ public class JSONDataHandler implements DataHandler {
     public void save(GuildMember member) {
         if (!members.containsKey(member.id())) members.put(member.id(), member);
         saveToFile();
+        System.out.println("Updated member: " + member.id() + ", username: " + member.igName());
     }
 
     @Override
