@@ -6,12 +6,20 @@ import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.utils.FileUpload;
 
 import java.awt.Color;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
+import hero.roland.formations.EnemyFormation;
+import hero.roland.formations.FormationException;
 import hero.roland.messages.*;
 
 public interface SlashEvent {
@@ -159,5 +167,47 @@ record GuidesCommand() implements SlashEvent {
         event.replyEmbeds(page.toEmbed())
             .setComponents(page.components())
             .queue();
+    }
+}
+record FormationCommand() implements SlashEvent {
+    @Override public void run(SlashCommandInteractionEvent event) {
+        var dataOption = event.getOption("data");
+        if (dataOption == null) {
+            MessageEmbed embed = new EmbedBuilder()
+                .setTitle("Formation Help")
+                .setDescription("The `/formation` command allows you to generate a custom formation image to share.\n\n" +
+                    "To create a formation, you need to provide a data string that describes the formation. " +
+                    "When referring to units, their unit ID is used. Refer [here](https://battlenations.miraheze.org/wiki/Template:BattleMap/Units) for a list of unit IDs.\n\n" +
+                    "An example of a valid data string is:\n" +
+                    "`map=city,12=heavyartillery,3=heavytank_front_grey,10=assassinator,5=def_wall_concrete_60,1=def_wall_concrete_60`"
+                )
+                .setImage("https://static.wikia.nocookie.net/battlenations/images/2/2b/GridNumbers.png")
+                .setColor(Color.CYAN)
+                .build();
+            event.replyEmbeds(embed).queue();
+            return;
+        }
+        String dataString = dataOption.getAsString();
+        String generatedMessage = "Generated using data string: `" + dataString + "`";  
+        EmbedBuilder unbuiltEmbed = new EmbedBuilder()
+            .setTitle("Enemy Formation")
+            .setDescription(generatedMessage + "\n\nPlease wait a moment while your string is being parsed...")
+            .setImage("attachment://enemy_formation.png")
+            .setColor(Color.CYAN);
+        event.replyEmbeds(unbuiltEmbed.build()).queue(interaction -> {
+            try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+                EnemyFormation formation = EnemyFormation.fromDataString(dataString);
+                ImageIO.write(formation.toImage(), "png", os);
+                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build())
+                    .setAttachments(FileUpload.fromData(os.toByteArray(), "enemy_formation.png"))
+                    .queue();
+            } catch (IOException e) {
+                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\nAn error occurred while generating the formation image. Please try again.").build())
+                    .queue();
+            } catch (FormationException e) {
+                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\n" + e.getMessage()).build())
+                    .queue();
+            }
+        });
     }
 }
