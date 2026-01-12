@@ -17,6 +17,6 @@ The bot supports various [slash commands](https://discord.com/developers/docs/in
 ## Former Commands
 The following commands were removed.
 
-`/set [policy]` Set your Raid Policy to the supplied `policy` argument. This command was removed in favour of editing policies through the `/view` command's Edit button.
+`/set (message)` Set your Raid Policy to the supplied `message` argument. If the `message` argument is not supplied, this will clear your policy instead. This command was removed in favour of editing policies through the `/view` command's Edit button.
 
 `/gold (amount)` View the gold leaderboard. If the `amount` integer parameter is specified, updates your gold amount with the new value instead. This command was removed after the introduction of Guilds because gold tracking can now be done in-game.
