@@ -630,158 +630,179 @@ public enum Unit {
         @Override public int backX() { return 98; }
         @Override public int backY() { return 206; }
     },
-    ARMADILLO {
-        @Override public String id() { return "MgShield"; }
+    ARMADILLO { // Front & Back
+        @Override public String id() { return "mgShield"; }
         @Override public int frontX() { return 50; }
         @Override public int frontY() { return 107; }
+        @Override public int backX() { return 40; }
+        @Override public int backY() { return 120; }
     },
-    MINI_TANK {
-        @Override public String id() { return "MiniTank"; }
+    MINI_TANK { // Front & Back
+        @Override public String id() { return "miniTank"; }
         @Override public int frontX() { return 38; }
         @Override public int frontY() { return 109; }
     },
-    HEAVY_GUNNER {
-        @Override public String id() { return "Minigunner"; }
+    HEAVY_GUNNER { // Front & Back
+        @Override public String id() { return "minigunner"; }
         @Override public int frontX() { return 56; }
         @Override public int frontY() { return 121; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 125; }
     },
-    ROCKET_TRUCK {
-        @Override public String id() { return "Mlrs"; }
+    ROCKET_TRUCK { // Front & Back
+        @Override public String id() { return "mlrs"; }
         @Override public int frontX() { return 58; }
         @Override public int frontY() { return 113; }
+        @Override public int backX() { return 65; }
+        @Override public int backY() { return 122; }
     },
-    MORTAR_TEAM {
-        @Override public String id() { return "Mortarteam"; }
+    MORTAR_TEAM { // Front & Back
+        @Override public String id() { return "mortarteam"; }
         @Override public int frontX() { return 40; }
         @Override public int frontY() { return 117; }
+        @Override public int backY() { return 110; }
     },
-    ARIES {
-        @Override public String id() { return "MtArt"; }
-        @Override public int frontX() { return 156; }
-        @Override public int frontY() { return 198; }
+    ARIES { // Front & Back
+        @Override public String id() { return "mtArt"; }
+        @Override public int frontX() { return 54; }
+        @Override public int frontY() { return 116; }
+        @Override public int backX() { return 65; }
+        @Override public int backY() { return 125; }
     },
-    THE_ROCK {
-        @Override public String id() { return "NatBarricade_01"; }
+    THE_ROCK { // Front & Back
+        @Override public String id() { return "natBarricade_01"; }
         @Override public String frontFilePath() { return "/units/NatBarricade_01.png"; }
         @Override public String backFilePath() { return frontFilePath(); }
         @Override public int frontX() { return 31; }
         @Override public int frontY() { return 87; }
     },
-    STONE_SLAB {
-        @Override public String id() { return "NatBarricade_02"; }
+    STONE_SLAB { // Front & Back
+        @Override public String id() { return "natBarricade_02"; }
         @Override public String frontFilePath() { return "/units/NatBarricade_02.png"; }
         @Override public String backFilePath() { return frontFilePath(); }
         @Override public int frontX() { return 52; }
         @Override public int frontY() { return 109; }
     },
-    LINE_OF_ROCKS {
-        @Override public String id() { return "NatBarricade_03"; }
+    LINE_OF_ROCKS { // Front & Back
+        @Override public String id() { return "natBarricade_03"; }
         @Override public String frontFilePath() { return "/units/NatBarricade_03.png"; }
         @Override public String backFilePath() { return frontFilePath(); }
         @Override public int frontX() { return 63; }
         @Override public int frontY() { return 118; }
     },
-    GRANITE_BOULDER {
-        @Override public String id() { return "NatBarricade_04"; }
+    GRANITE_BOULDER { // Front & Back
+        @Override public String id() { return "natBarricade_04"; }
         @Override public String frontFilePath() { return "/units/NatBarricade_04.png"; }
         @Override public String backFilePath() { return frontFilePath(); }
         @Override public int frontX() { return 75; }
         @Override public int frontY() { return 137; }
     },
-    DEBRIS {
-        @Override public String id() { return "NatBarricade_debris"; }
+    DEBRIS { // Front & Back
+        @Override public String id() { return "natBarricade_debris"; }
         @Override public String frontFilePath() { return "/units/NatBarricade_debris.png"; }
         @Override public String backFilePath() { return frontFilePath(); }
         @Override public int frontX() { return 80; }
         @Override public int frontY() { return 140; }
     },
-    FALLEN_LOG {
-        @Override public String id() { return "NatBarricade_log"; }
+    FALLEN_LOG { // Front & Back
+        @Override public String id() { return "natBarricade_log"; }
         @Override public String frontFilePath() { return "/units/NatBarricade_log.png"; }
         @Override public String backFilePath() { return frontFilePath(); }
         @Override public int frontX() { return 59; }
         @Override public int frontY() { return 107; }
     },
-    NINJA_TROOPER {
-        @Override public String id() { return "NinjaTrooper"; }
+    NINJA_TROOPER { // Front & Back
+        @Override public String id() { return "ninjaTrooper"; }
         @Override public int frontX() { return 36; }
         @Override public int frontY() { return 128; }
+        @Override public int backX() { return 33; }
+        @Override public int backY() { return 140; }
     },
-    JUNIOR_OFFICER {
-        @Override public String id() { return "Officer"; }
+    JUNIOR_OFFICER { // Front & Back
+        @Override public String id() { return "officer"; }
         @Override public int frontX() { return 17; }
         @Override public int frontY() { return 119; }
+        @Override public int backX() { return 30; }
+        @Override public int backY() { return 125; }
     },
-    PILLBOX {
-        @Override public String id() { return "Pillbox"; }
+    PILLBOX { // Front & Back
+        @Override public String id() { return "pillbox"; }
         @Override public int frontX() { return 53; }
         @Override public int frontY() { return 128; }
     },
-    HEAVY_RECON {
-        @Override public String id() { return "PremiumAPC"; }
+    HEAVY_RECON { // Front & Back
+        @Override public String id() { return "premiumAPC"; }
         @Override public int frontX() { return 61; }
         @Override public int frontY() { return 139; }
+        @Override public int backX() { return 83; }
+        @Override public int backY() { return 125; }
     },
-    RAIDER_WARRIOR {
-        @Override public String id() { return "Raider"; }
+    RAIDER_WARRIOR { // Front & Back
+        @Override public String id() { return "raider"; }
         @Override public int frontX() { return 52; }
         @Override public int frontY() { return 131; }
+        @Override public int backX() { return 30; }
     },
-    TRONK {
+    TRONK { // Front
         @Override public String id() { return "RaiderLieutBoom"; }
         @Override public int frontX() { return 101; }
         @Override public int frontY() { return 146; }
     },
-    CRAZY_BLADES {
+    CRAZY_BLADES { // Front
         @Override public String id() { return "RaiderLieutGirl"; }
         @Override public int frontX() { return 40; }
         @Override public int frontY() { return 135; }
     },
-    SARIN {
+    SARIN { // Front
         @Override public String id() { return "RaiderLieutThin"; }
         @Override public int frontX() { return 93; }
         @Override public int frontY() { return 163; }
     },
-    RAIDER_WATCHTOWER {
+    RAIDER_WATCHTOWER { // Front
         @Override public String id() { return "Raiderwatchtower"; }
         @Override public int frontX() { return 54; }
         @Override public int frontY() { return 164; }
     },
-    COMMANDO {
-        @Override public String id() { return "Ranger"; }
+    COMMANDO { // Front & Back
+        @Override public String id() { return "ranger"; }
         @Override public int frontX() { return 48; }
         @Override public int frontY() { return 119; }
     },
-    RAT_KING {
+    RAT_KING { // Front
         @Override public String id() { return "RatBrown"; }
         @Override public int frontX() { return 21; }
         @Override public int frontY() { return 57; }
     },
-    MANGY_RAT {
+    MANGY_RAT { // Front
         @Override public String id() { return "RatGrey"; }
         @Override public int frontX() { return 21; }
         @Override public int frontY() { return 57; }
     },
-    JET_SKI {
-        @Override public String id() { return "Rb_ship_jetski"; }
+    JET_SKI { // Front & Back
+        @Override public String id() { return "rb_ship_jetski"; }
         @Override public int frontX() { return 43; }
         @Override public int frontY() { return 116; }
     },
-    POWER_BOAT {
-        @Override public String id() { return "Rb_ship_speedboat"; }
+    POWER_BOAT { // Front & Back
+        @Override public String id() { return "rb_ship_speedboat"; }
         @Override public int frontX() { return 58; }
         @Override public int frontY() { return 141; }
+        @Override public int backX() { return 70; }
+        @Override public int backY() { return 110; }
     },
-    ARMORED_TUG {
-        @Override public String id() { return "Rb_ship_tugboat"; }
+    ARMORED_TUG { // Front
+        @Override public String id() { return "rb_ship_tugboat"; }
         @Override public int frontX() { return 71; }
         @Override public int frontY() { return 180; }
     },
-    RPG_TROOPER {
-        @Override public String id() { return "Rpg"; }
+    RPG_TROOPER { // Front & Back
+        @Override public String id() { return "rpg"; }
         @Override public int frontX() { return 75; }
         @Override public int frontY() { return 125; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 130; }
     },
+    // BELOW NOT DONE
     ARCTIC_TROOPER {
         @Override public String id() { return "S_arctic_trooper"; }
         @Override public int frontX() { return 56; }

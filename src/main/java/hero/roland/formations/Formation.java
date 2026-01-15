@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 class FormationTest {
     public static void main(String[] args) {
-        Formation formation = Formation.fromDataString("1=megaArtillery,enemy=true");
+        Formation formation = Formation.fromDataString("1=rpg,enemy=false");
         BufferedImage img = formation.toImage();
         try {
             ImageIO.write(img, "png", new File("formation.png"));
