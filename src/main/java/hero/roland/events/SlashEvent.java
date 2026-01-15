@@ -18,7 +18,7 @@ import java.io.IOException;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
-import hero.roland.formations.EnemyFormation;
+import hero.roland.formations.Formation;
 import hero.roland.formations.FormationException;
 import hero.roland.messages.*;
 
@@ -199,7 +199,7 @@ record FormationCommand() implements SlashEvent {
             .setColor(Color.CYAN);
         event.replyEmbeds(unbuiltEmbed.build()).queue(interaction -> {
             try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
-                EnemyFormation formation = EnemyFormation.fromDataString(dataString);
+                Formation formation = Formation.fromDataString(dataString);
                 ImageIO.write(formation.toImage(), "png", os);
                 interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build())
                     .setAttachments(FileUpload.fromData(os.toByteArray(), "enemy_formation.png"))
