@@ -8,7 +8,9 @@ import javax.imageio.ImageIO;
 
 class FormationTest {
     public static void main(String[] args) {
-        Formation formation = Formation.fromDataString("1=rpg,enemy=false");
+        Formation formation = Formation.fromDataString(
+            "1=s_spiderwasp_worker_70,enemy=false"
+        );
         BufferedImage img = formation.toImage();
         try {
             ImageIO.write(img, "png", new File("formation.png"));
@@ -56,6 +58,14 @@ public class Formation {
             throw new FormationException("Your formation data string is malformed. If you need help, use `/formation` with no arguments.");
         }
         return formation;
+    }
+
+    private BufferedImage loadUnitImage(String path) throws IOException {
+        BufferedImage image = ImageIO.read(Formation.class.getResourceAsStream(path));
+        if (image == null) {
+            image = ImageIO.read(Formation.class.getResourceAsStream("/images/units/missing.png"));
+        }
+        return image;
     }
 
     public BufferedImage toImage() {
