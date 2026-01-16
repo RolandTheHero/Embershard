@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 class FormationTest {
     public static void main(String[] args) {
         Formation formation = Formation.fromDataString(
-            "1=veh_ancient_robot_player,4=veh_anti_aircraft_gun_premium,enemy=true"
+            "1=wheeledTank,3=veh_tank_tesla,5=veh_trebuchet,enemy=false"
         );
         BufferedImage img = formation.toImage();
         try {
