@@ -1875,60 +1875,70 @@ public enum Unit {
         @Override public int backX() { return 65; }
         @Override public int backY() { return 110; }
     },
-    SC2_PELICAN {
+    SC2_PELICAN { // Front & Back
         @Override public String id() { return "air_seaplane"; }
         @Override public int frontX() { return 63; }
         @Override public int frontY() { return 140; }
+        @Override public int backX() { return 70; }
+        @Override public int backY() { return 136; }
     },
-    HEAVY_GUNBOAT {
+    HEAVY_GUNBOAT { // Front
         @Override public String id() { return "ship_gunboat_rebel"; }
         @Override public int frontX() { return GUNBOAT.frontX(); }
         @Override public int frontY() { return GUNBOAT.frontY(); }
     },
-    SHADOW_CLASS_SUBMARINE {
+    SHADOW_CLASS_SUBMARINE { // Front
         @Override public String id() { return "ship_submarine_rebel"; }
         @Override public int frontX() { return SUBMARINE.frontX(); }
         @Override public int frontY() { return SUBMARINE.frontY(); }
     },
-    SUPREME_DESTROYER {
+    SUPREME_DESTROYER { // Front
         @Override public String id() { return "ship_destroyer_med_rebel"; }
         @Override public int frontX() { return DESTROYER.frontX(); }
         @Override public int frontY() { return DESTROYER.frontY(); }
     },
-    BATTLESHIP_MASTODONCLASS {
+    BATTLESHIP_MASTODONCLASS { // Front
         @Override public String id() { return "ship_battleship_med_rebel"; }
         @Override public int frontX() { return BATTLESHIP_RAPTORCLASS.frontX(); }
         @Override public int frontY() { return BATTLESHIP_RAPTORCLASS.frontY() + 4; }
     },
-    BATTLESHIP_BEHEMOTHCLASS {
+    BATTLESHIP_BEHEMOTHCLASS { // Front
         @Override public String id() { return "ship_battleship_super_rebel"; }
         @Override public int frontX() { return BATTLESHIP_MAMMOTHCLASS.frontX(); }
         @Override public int frontY() { return BATTLESHIP_MAMMOTHCLASS.frontY(); }
     },
-    ATMOSPHERIC_DIVING_TROOPER {
+    ATMOSPHERIC_DIVING_TROOPER { // Front & Back
         @Override public String id() { return "ship_scuba_trooper"; }
         @Override public int frontX() { return 85; }
         @Override public int frontY() { return 110; }
     },
-    IRONCLAD_BATTLESHIP {
-        @Override public String id() { return "Ship_ironclad"; }
+    IRONCLAD_BATTLESHIP { // Front & Back
+        @Override public String id() { return "ship_ironclad"; }
         @Override public int frontX() { return 60; }
         @Override public int frontY() { return 135; }
+        @Override public int backX() { return 65; }
+        @Override public int backY() { return 105; }
     },
-    PHALANX_TANK {
-        @Override public String id() { return "Veh_phalanx_tank_player"; }
+    PHALANX_TANK { // Front & Back
+        @Override public String id() { return "veh_phalanx_tank_player"; }
         @Override public int frontX() { return 65; }
         @Override public int frontY() { return 165; }
+        @Override public int backX() { return 68; }
+        @Override public int backY() { return 175; }
     },
-    MELEE_SENTINEL_FRAGMENT {
-        @Override public String id() { return "Veh_ancient_robot_2_player_left"; }
+    MELEE_SENTINEL_FRAGMENT { // Front & Back
+        @Override public String id() { return "veh_ancient_robot_2_player_left"; }
         @Override public int frontX() { return 83; }
         @Override public int frontY() { return 117; }
+        @Override public int backX() { return 55; }
+        @Override public int backY() { return 138; }
     },
-    RANGED_SENTINEL_FRAGMENT {
-        @Override public String id() { return "Veh_ancient_robot_2_player_right"; }
+    RANGED_SENTINEL_FRAGMENT { // Front & Back
+        @Override public String id() { return "veh_ancient_robot_2_player_right"; }
         @Override public int frontX() { return MELEE_SENTINEL_FRAGMENT.frontX() - 33; }
         @Override public int frontY() { return MELEE_SENTINEL_FRAGMENT.frontY(); }
+        @Override public int backX() { return MELEE_SENTINEL_FRAGMENT.backX(); }
+        @Override public int backY() { return MELEE_SENTINEL_FRAGMENT.backY() - 15; }
     },
     THE_WIMP { // Front & Back
         @Override public String id() { return "s_trooper_underdog"; }
