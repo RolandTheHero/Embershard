@@ -1135,140 +1135,232 @@ public enum Unit {
         @Override public int backX() { return SPIDERWASP_WORKER.backX(); }
         @Override public int backY() { return SPIDERWASP_WORKER.backY(); }
     },
-    BIG_GAME_HUNTER {
-        @Override public String id() { return "S_trooper_bigGameHunter"; }
+    BIG_GAME_HUNTER { // Front & Back
+        @Override public String id() { return "s_trooper_bigGameHunter"; }
         @Override public int frontX() { return 62; }
         @Override public int frontY() { return 118; }
+        @Override public int backX() { return 40; }
+        @Override public int backY() { return 125; }
     },
-    CRYO_TROOPER {
-        @Override public String id() { return "S_trooper_cryo"; }
+    CRYO_TROOPER { // Front & Back
+        @Override public String id() { return "s_trooper_cryo"; }
         @Override public int frontX() { return 40; }
         @Override public int frontY() { return 137; }
+        @Override public int backX() { return 58; }
+        @Override public int backY() { return 150; }
     },
-    LIGHTNING_DRAGOON {
-        @Override public String id() { return "S_trooper_dragoon_heavy"; }
+    LIGHTNING_DRAGOON { // Front & Back
+        @Override public String id() { return "s_trooper_dragoon_heavy"; }
         @Override public int frontX() { return 90; }
         @Override public int frontY() { return 135; }
+        @Override public int backX() { return 55; }
+        @Override public int backY() { return 150; }
     },
-    ELEMENTAL_TROOPER {
-        @Override public String id() { return "S_trooper_fire_ice"; }
+    ELEMENTAL_TROOPER { // Front & Back
+        @Override public String id() { return "s_trooper_fire_ice"; }
         @Override public int frontX() { return 82; }
         @Override public int frontY() { return 129; }
+        @Override public int backX() { return 45; }
+        @Override public int backY() { return 125; }
     },
-    AERO_JETPACK_TROOPER {
-        @Override public String id() { return "S_trooper_jetpack"; }
+    AERO_JETPACK_TROOPER { // Front & Back
+        @Override public String id() { return "s_trooper_jetpack"; }
         @Override public int frontX() { return 44; }
         @Override public int frontY() { return 159; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 130; }
     },
-    PLASMA_TROOPER {
-        @Override public String id() { return "S_trooper_plasma"; }
+    PLASMA_TROOPER { // Front & Back
+        @Override public String id() { return "s_trooper_plasma"; }
         @Override public int frontX() { return 55; }
         @Override public int frontY() { return 128; }
+        @Override public int backX() { return 40; }
+        @Override public int backY() { return 128; }
     },
-    RAILGUN_TROOPER {
-        @Override public String id() { return "S_trooper_railgun"; }
+    RAILGUN_TROOPER { // Front & Back
+        @Override public String id() { return "s_trooper_railgun"; }
         @Override public int frontX() { return 93; }
         @Override public int frontY() { return 122; }
+        @Override public int backX() { return 60; }
     },
-    GUERILLA {
-        @Override public String id() { return "S_trooper_saboteur_heavy"; }
+    GUERILLA { // Front & Back
+        @Override public String id() { return "s_trooper_saboteur_heavy"; }
         @Override public int frontX() { return 61; }
         @Override public int frontY() { return 130; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 140; }
     },
-    SPECIAL_AGENT {
-        @Override public String id() { return "S_trooper_specialAgent"; }
+    SPECIAL_AGENT { // Front & Back
+        @Override public String id() { return "s_trooper_specialAgent"; }
         @Override public int frontX() { return 41; }
         @Override public int frontY() { return 154; }
+        @Override public int backX() { return 35; }
+        @Override public int backY() { return 140; }
     },
-    VETERAN {
-        @Override public String id() { return "S_trooper_veteran"; }
+    VETERAN { // Front & Back
+        @Override public String id() { return "s_trooper_veteran"; }
         @Override public int frontX() { return 39; }
         @Override public int frontY() { return 172; }
+        @Override public int backX() { return 53; }
+        @Override public int backY() { return 160; }
     },
-    VETERAN_2 {
+    VETERAN_2 { // Front
         @Override public String id() { return "S_trooper_veteran_rebel"; }
         @Override public int frontX() { return VETERAN.frontX(); }
         @Override public int frontY() { return VETERAN.frontY(); }
     },
-    PROTO_CREEPER {
-        @Override public String id() { return "S_trooper_zombie"; }
+    PROTO_CREEPER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie"; }
         @Override public int frontX() { return 55; }
         @Override public int frontY() { return 120; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 122; }
     },
-    ADVANCED_CREEPER {
-        @Override public String id() { return "S_trooper_zombie_c"; }
+    SPECIMEN_CREEPER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_b"; }
         @Override public int frontX() { return PROTO_CREEPER.frontX(); }
         @Override public int frontY() { return PROTO_CREEPER.frontY(); }
+        @Override public int backX() { return PROTO_CREEPER.backX(); }
+        @Override public int backY() { return PROTO_CREEPER.backY(); }
     },
-    PROTO_CANNONEER {
-        @Override public String id() { return "S_trooper_zombie_cannon"; }
+    ADVANCED_CREEPER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_c"; }
+        @Override public int frontX() { return PROTO_CREEPER.frontX(); }
+        @Override public int frontY() { return PROTO_CREEPER.frontY(); }
+        @Override public int backX() { return PROTO_CREEPER.backX(); }
+        @Override public int backY() { return PROTO_CREEPER.backY(); }
+    },
+    ARCHETYPE_CREEPER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_d"; }
+        @Override public int frontX() { return PROTO_CREEPER.frontX(); }
+        @Override public int frontY() { return PROTO_CREEPER.frontY(); }
+        @Override public int backX() { return PROTO_CREEPER.backX(); }
+        @Override public int backY() { return PROTO_CREEPER.backY(); }
+    },
+    PROTO_CANNONEER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_cannon"; }
         @Override public int frontX() { return 39; }
         @Override public int frontY() { return 119; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 122; }
     },
-    ADVANCED_CANNONEER {
-        @Override public String id() { return "S_trooper_zombie_cannon_c"; }
+    SPECIMEN_CANNONEER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_cannon_b"; }
         @Override public int frontX() { return PROTO_CANNONEER.frontX(); }
         @Override public int frontY() { return PROTO_CANNONEER.frontY(); }
+        @Override public int backX() { return PROTO_CANNONEER.backX(); }
+        @Override public int backY() { return PROTO_CANNONEER.backY(); }
     },
-    ARCHETYPE_CANNONEER {
-        @Override public String id() { return "S_trooper_zombie_cannon_d"; }
+    ADVANCED_CANNONEER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_cannon_c"; }
         @Override public int frontX() { return PROTO_CANNONEER.frontX(); }
         @Override public int frontY() { return PROTO_CANNONEER.frontY(); }
+        @Override public int backX() { return PROTO_CANNONEER.backX(); }
+        @Override public int backY() { return PROTO_CANNONEER.backY(); }
     },
-    PROTO_STALKER {
-        @Override public String id() { return "S_trooper_zombie_ninja"; }
+    ARCHETYPE_CANNONEER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_cannon_d"; }
+        @Override public int frontX() { return PROTO_CANNONEER.frontX(); }
+        @Override public int frontY() { return PROTO_CANNONEER.frontY(); }
+        @Override public int backX() { return PROTO_CANNONEER.backX(); }
+        @Override public int backY() { return PROTO_CANNONEER.backY(); }
+    },
+    PROTO_STALKER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_ninja"; }
         @Override public int frontX() { return 49; }
         @Override public int frontY() { return 101; }
+        @Override public int backX() { return 60; }
+        @Override public int backY() { return 110; }
     },
-    ADVANCED_STALKER {
-        @Override public String id() { return "S_trooper_zombie_ninja_c"; }
+    SPECIMEN_STALKER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_ninja_b"; }
+        @Override public int frontX() { return PROTO_STALKER.frontX() + 18; }
+        @Override public int frontY() { return PROTO_STALKER.frontY() + 1; }
+        @Override public int backX() { return PROTO_STALKER.backX(); }
+        @Override public int backY() { return PROTO_STALKER.backY(); }
+    },
+    ADVANCED_STALKER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_ninja_c"; }
         @Override public int frontX() { return PROTO_STALKER.frontX(); }
         @Override public int frontY() { return PROTO_STALKER.frontY(); }
+        @Override public int backX() { return PROTO_STALKER.backX(); }
+        @Override public int backY() { return PROTO_STALKER.backY(); }
     },
-    ARCHETYPE_STALKER {
-        @Override public String id() { return "S_trooper_zombie_ninja_d"; }
+    ARCHETYPE_STALKER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_ninja_d"; }
         @Override public int frontX() { return PROTO_STALKER.frontX(); }
         @Override public int frontY() { return PROTO_STALKER.frontY(); }
+        @Override public int backX() { return PROTO_STALKER.backX(); }
+        @Override public int backY() { return PROTO_STALKER.backY(); }
     },
-    APEX_STALKER {
-        @Override public String id() { return "S_trooper_zombie_ninja_super"; }
+    APEX_STALKER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_ninja_super"; }
         @Override public int frontX() { return 53; }
         @Override public int frontY() { return 120; }
+        @Override public int backY() { return 113; }
     },
-    PROTO_CRAWLER {
-        @Override public String id() { return "S_trooper_zombie_spider"; }
+    PROTO_CRAWLER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spider"; }
         @Override public int frontX() { return 75; }
         @Override public int frontY() { return 119; }
+        @Override public int backX() { return 82; }
+        @Override public int backY() { return 118; }
     },
-    ADVANCED_CRAWLER {
-        @Override public String id() { return "S_trooper_zombie_spider_c"; }
+    SPECIMEN_CRAWLER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spider_b"; }
         @Override public int frontX() { return PROTO_CRAWLER.frontX(); }
         @Override public int frontY() { return PROTO_CRAWLER.frontY(); }
+        @Override public int backX() { return PROTO_CRAWLER.backX(); }
+        @Override public int backY() { return PROTO_CRAWLER.backY(); }
     },
-    ARCHETYPE_CRAWLER {
-        @Override public String id() { return "S_trooper_zombie_spider_d"; }
+    ADVANCED_CRAWLER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spider_c"; }
         @Override public int frontX() { return PROTO_CRAWLER.frontX(); }
         @Override public int frontY() { return PROTO_CRAWLER.frontY(); }
+        @Override public int backX() { return PROTO_CRAWLER.backX(); }
+        @Override public int backY() { return PROTO_CRAWLER.backY(); }
     },
-    PROTO_BULLFROG {
-        @Override public String id() { return "S_trooper_zombie_spitter"; }
+    ARCHETYPE_CRAWLER { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spider_d"; }
+        @Override public int frontX() { return PROTO_CRAWLER.frontX(); }
+        @Override public int frontY() { return PROTO_CRAWLER.frontY(); }
+        @Override public int backX() { return PROTO_CRAWLER.backX(); }
+        @Override public int backY() { return PROTO_CRAWLER.backY(); }
+    },
+    PROTO_BULLFROG { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spitter"; }
         @Override public int frontX() { return 45; }
         @Override public int frontY() { return 102; }
+        @Override public int backX() { return 60; }
+        @Override public int backY() { return 115; }
     },
-    ADVANCED_BULLFROG {
-        @Override public String id() { return "S_trooper_zombie_spitter_c"; }
+    SPECIMEN_BULLFROG { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spitter_b"; }
+        @Override public int frontX() { return PROTO_BULLFROG.frontX() + 21; }
+        @Override public int frontY() { return PROTO_BULLFROG.frontY(); }
+        @Override public int backX() { return PROTO_BULLFROG.backX(); }
+        @Override public int backY() { return PROTO_BULLFROG.backY(); }
+    },
+    ADVANCED_BULLFROG { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spitter_c"; }
         @Override public int frontX() { return PROTO_BULLFROG.frontX(); }
         @Override public int frontY() { return PROTO_BULLFROG.frontY(); }
+        @Override public int backX() { return PROTO_BULLFROG.backX(); }
+        @Override public int backY() { return PROTO_BULLFROG.backY(); }
     },
-    ARCHETYPE_BULLFROG {
-        @Override public String id() { return "S_trooper_zombie_spitter_d"; }
+    ARCHETYPE_BULLFROG { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spitter_d"; }
         @Override public int frontX() { return PROTO_BULLFROG.frontX(); }
         @Override public int frontY() { return PROTO_BULLFROG.frontY(); }
+        @Override public int backX() { return PROTO_BULLFROG.backX(); }
+        @Override public int backY() { return PROTO_BULLFROG.backY(); }
     },
-    APEX_BULLFROG {
-        @Override public String id() { return "S_trooper_zombie_spitter_super"; }
+    APEX_BULLFROG { // Front & Back
+        @Override public String id() { return "s_trooper_zombie_spitter_super"; }
         @Override public int frontX() { return 62; }
         @Override public int frontY() { return 118; }
+        @Override public int backX() { return 83; }
+        @Override public int backY() { return 115; }
     },
     PROTO_COLOSSUS {
         @Override public String id() { return "S_trooper_zombie_tank"; }
@@ -1718,10 +1810,12 @@ public enum Unit {
         @Override public int frontX() { return MELEE_SENTINEL_FRAGMENT.frontX() - 33; }
         @Override public int frontY() { return MELEE_SENTINEL_FRAGMENT.frontY(); }
     },
-    THE_WIMP {
-        @Override public String id() { return "S_trooper_underdog"; }
+    THE_WIMP { // Front & Back
+        @Override public String id() { return "s_trooper_underdog"; }
         @Override public int frontX() { return 48; }
         @Override public int frontY() { return 118; }
+        @Override public int backX() { return 52; }
+        @Override public int backY() { return 122; }
     },
     UD4L_GUNSHIP {
         @Override public String id() { return "air_assaultcraft"; }
@@ -2009,24 +2103,24 @@ public enum Unit {
             case "s_trooper_veteran" -> VETERAN;
             case "s_trooper_veteran_rebel" -> VETERAN_2;
             case "s_trooper_zombie" -> PROTO_CREEPER;
-            case "s_trooper_zombie_b" -> null;
+            case "s_trooper_zombie_b" -> SPECIMEN_CREEPER;
             case "s_trooper_zombie_c" -> ADVANCED_CREEPER;
-            case "s_trooper_zombie_d" -> null;
+            case "s_trooper_zombie_d" -> ARCHETYPE_CREEPER;
             case "s_trooper_zombie_cannon" -> PROTO_CANNONEER;
-            case "s_trooper_zombie_cannon_b" -> null;
+            case "s_trooper_zombie_cannon_b" -> SPECIMEN_CANNONEER;
             case "s_trooper_zombie_cannon_c" -> ADVANCED_CANNONEER;
             case "s_trooper_zombie_cannon_d" -> ARCHETYPE_CANNONEER;
             case "s_trooper_zombie_ninja" -> PROTO_STALKER;
-            case "s_trooper_zombie_ninja_b" -> null;
+            case "s_trooper_zombie_ninja_b" -> SPECIMEN_STALKER;
             case "s_trooper_zombie_ninja_c" -> ADVANCED_STALKER;
             case "s_trooper_zombie_ninja_d" -> ARCHETYPE_STALKER;
             case "s_trooper_zombie_ninja_super" -> APEX_STALKER;
             case "s_trooper_zombie_spider" -> PROTO_CRAWLER;
-            case "s_trooper_zombie_spider_b" -> null;
+            case "s_trooper_zombie_spider_b" -> SPECIMEN_CRAWLER;
             case "s_trooper_zombie_spider_c" -> ADVANCED_CRAWLER;
             case "s_trooper_zombie_spider_d" -> ARCHETYPE_CRAWLER;
             case "s_trooper_zombie_spitter" -> PROTO_BULLFROG;
-            case "s_trooper_zombie_spitter_b" -> null;
+            case "s_trooper_zombie_spitter_b" -> SPECIMEN_BULLFROG;
             case "s_trooper_zombie_spitter_c" -> ADVANCED_BULLFROG;
             case "s_trooper_zombie_spitter_d" -> ARCHETYPE_BULLFROG;
             case "s_trooper_zombie_spitter_super" -> APEX_BULLFROG;
