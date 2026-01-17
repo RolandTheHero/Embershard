@@ -181,24 +181,24 @@ class ToggleFormationButton implements ButtonEvent {
         event.editMessageEmbeds(unbuiltEmbed.build())
             .setComponents()
             .queue(interaction -> {
-            try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
-                Formation formation = Formation.fromDataString(dataString);
-                boolean isEnemyFormation = Boolean.parseBoolean(buttonId[2]);
-                formation.setIsEnemy(isEnemyFormation);
-                ImageIO.write(formation.toImage(), "png", os);
-                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build())
-                    .setAttachments(FileUpload.fromData(os.toByteArray(), "formation.png"))
-                    .setComponents(ActionRow.of(
-                        Button.secondary("toggleformation:" + event.getUser().getId() + ":" + !isEnemyFormation, "Toggle View")
-                    ))
-                    .queue();
-            } catch (IOException e) {
-                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\nAn error occurred while generating the formation image. Please try again.").build())
-                    .queue();
-            } catch (FormationException e) {
-                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\n" + e.getMessage()).build())
-                    .queue();
-            }
-        });
+                try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+                    Formation formation = Formation.fromDataString(dataString);
+                    boolean isEnemyFormation = Boolean.parseBoolean(buttonId[2]);
+                    formation.setIsEnemy(isEnemyFormation);
+                    ImageIO.write(formation.toImage(), "png", os);
+                    interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build())
+                        .setAttachments(FileUpload.fromData(os.toByteArray(), "formation.png"))
+                        .setComponents(ActionRow.of(
+                            Button.secondary("toggleformation:" + event.getUser().getId() + ":" + !isEnemyFormation, "Toggle View")
+                        ))
+                        .queue();
+                } catch (IOException e) {
+                    interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\nAn error occurred while generating the formation image. Please try again.").build())
+                        .queue();
+                } catch (FormationException e) {
+                    interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\n" + e.getMessage()).build())
+                        .queue();
+                }
+            });
     }
 }
