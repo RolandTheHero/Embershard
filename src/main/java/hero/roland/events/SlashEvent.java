@@ -180,9 +180,9 @@ record FormationCommand() implements SlashEvent {
                 .setTitle("Formation Help")
                 .setDescription("The `/formation` command allows you to generate a custom formation image to share.\n\n" +
                     "To create a formation, you need to provide a data string that describes the formation. " +
-                    "When referring to units, their unit ID is used. Refer [here](https://battlenations.miraheze.org/wiki/Template:BattleMap/Units) for a list of unit IDs.\n\n" +
+                    "When referring to units, their unit ID is used. Refer [here](https://docs.google.com/document/d/1NapO41-zFrOWCp8DI0VfLYA3OYWQd2ZjLqsNzepZ1pI/edit?usp=sharing) for a list of unit IDs.\n\n" +
                     "An example of a valid data string is:\n" +
-                    "`map=city,12=heavyartillery,3=heavytank_front_grey,10=assassinator,5=def_wall_concrete_60,1=def_wall_concrete_60`"
+                    "`map=city,12=heavyartillery,3=heavytank,10=assassinator,5=def_barricade_sandbags,1=def_barricade_sandbags`"
                 )
                 .setImage("https://static.wikia.nocookie.net/battlenations/images/2/2b/GridNumbers.png")
                 .setColor(Color.CYAN)
@@ -190,19 +190,22 @@ record FormationCommand() implements SlashEvent {
             event.replyEmbeds(embed).queue();
             return;
         }
-        String dataString = dataOption.getAsString();
-        String generatedMessage = "Generated using data string: `" + dataString + "`";  
+        String dataString = dataOption.getAsString().replaceAll("`", "");
+        String generatedMessage = "`" + dataString + "`";
         EmbedBuilder unbuiltEmbed = new EmbedBuilder()
-            .setTitle("Enemy Formation")
+            .setTitle("Formation")
             .setDescription(generatedMessage + "\n\nPlease wait a moment while your string is being parsed...")
-            .setImage("attachment://enemy_formation.png")
+            .setImage("attachment://formation.png")
             .setColor(Color.CYAN);
         event.replyEmbeds(unbuiltEmbed.build()).queue(interaction -> {
             try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
                 Formation formation = Formation.fromDataString(dataString);
                 ImageIO.write(formation.toImage(), "png", os);
                 interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build())
-                    .setAttachments(FileUpload.fromData(os.toByteArray(), "enemy_formation.png"))
+                    .setAttachments(FileUpload.fromData(os.toByteArray(), "formation.png"))
+                    .setComponents(ActionRow.of(
+                        Button.secondary("toggleformation:" + event.getUser().getId() + ":true", "Toggle View")
+                    ))
                     .queue();
             } catch (IOException e) {
                 interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\nAn error occurred while generating the formation image. Please try again.").build())

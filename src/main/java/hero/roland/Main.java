@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 
 public class Main {
     static private DataHandler dataHandler = new JSONDataHandler();
-    static private JDA jda = JDABuilder.createDefault(Token.TOKEN).build();
+    static private JDA jda = JDABuilder.createDefault(Token.TEST_TOKEN).build();
     public static void main(String[] args) {
         jda.addEventListener(new EventListener());
 

@@ -1947,77 +1947,103 @@ public enum Unit {
         @Override public int backX() { return 52; }
         @Override public int backY() { return 122; }
     },
-    UD4L_GUNSHIP {
+    UD4L_GUNSHIP { // Front & Back
         @Override public String id() { return "air_assaultcraft"; }
         @Override public int frontX() { return 80; }
         @Override public int frontY() { return 179; }
+        @Override public int backX() { return 92; }
+        @Override public int backY() { return 163; }
     },
-    F51_HELL_FIRE {
+    F51_HELL_FIRE { // Front & Back
         @Override public String id() { return "air_flame_helicopter"; }
         @Override public int frontX() { return 68; }
         @Override public int frontY() { return 174; }
+        @Override public int backX() { return 100; }
+        @Override public int backY() { return 164; }
     },
-    V47_KITTYHAWK {
+    V47_KITTYHAWK { // Front & Back
         @Override public String id() { return "air_jet_fighter_2"; }
         @Override public int frontX() { return 66; }
         @Override public int frontY() { return 148; }
+        @Override public int backX() { return 55; }
+        @Override public int backY() { return 125; }
     },
-    C17_WINGED_MAMMOTH {
+    C17_WINGED_MAMMOTH { // Front & Back
         @Override public String id() { return "air_osprey_helicopter"; }
         @Override public int frontX() { return 104; }
         @Override public int frontY() { return 218; }
+        @Override public int backX() { return 126; }
+        @Override public int backY() { return 208; }
     },
-    RSB17_SHADOW_HORNET {
+    RSB17_SHADOW_HORNET { // Front & Back
         @Override public String id() { return "air_stealth_fighter2"; }
         @Override public int frontX() { return 90; }
         @Override public int frontY() { return 165; }
+        @Override public int backX() { return 82; }
+        @Override public int backY() { return 154; }
     },
-    RS17_SHADOWWASP {
+    RS17_SHADOWWASP { // Front & Back
         @Override public String id() { return "air_stealth_fighter"; }
         @Override public int frontX() { return RSB17_SHADOW_HORNET.frontX(); }
         @Override public int frontY() { return RSB17_SHADOW_HORNET.frontY(); }
+        @Override public int backX() { return RSB17_SHADOW_HORNET.backX(); }
+        @Override public int backY() { return RSB17_SHADOW_HORNET.backY(); }
     },
-    TRIWING_TERROR {
+    TRIWING_TERROR { // Front & Back
         @Override public String id() { return "air_triplane"; }
         @Override public int frontX() { return 69; }
         @Override public int frontY() { return 170; }
+        @Override public int backX() { return 74; }
+        @Override public int backY() { return 167; }
     },
-    B10C_BOAR_II {
+    B10C_BOAR_II { // Front & Back
         @Override public String id() { return "air_warthog_2"; }
         @Override public int frontX() { return B10_WILD_BOAR.frontX(); }
         @Override public int frontY() { return B10_WILD_BOAR.frontY(); }
         @Override public int backX() { return B10_WILD_BOAR.backX(); }
         @Override public int backY() { return B10_WILD_BOAR.backY(); }
     },
-    LEGENDARY_BOAR {
+    LEGENDARY_BOAR { // Front & Back
         @Override public String id() { return "ancient_boar_player"; }
         @Override public int frontX() { return 105; }
         @Override public int frontY() { return 160; }
+        @Override public int backX() { return 99; }
+        @Override public int backY() { return 181; }
     },
-    LEGENDARY_MAMMOTH {
+    LEGENDARY_MAMMOTH { // Front & Back
         @Override public String id() { return "ancient_mammoth"; }
         @Override public int frontX() { return 106; }
         @Override public int frontY() { return 175; }
+        @Override public int backX() { return 71; }
+        @Override public int backY() { return 186; }
     },
-    LEGENDARY_RAPTOR {
+    LEGENDARY_RAPTOR { // Front & Back
         @Override public String id() { return "s_ancient_raptor_player"; }
         @Override public int frontX() { return 82; }
         @Override public int frontY() { return 160; }
+        @Override public int backX() { return 102; }
+        @Override public int backY() { return 180; }
     },
-    LEGENDARY_SANDWORM {
+    LEGENDARY_SANDWORM { // Front & Back
         @Override public String id() { return "s_ancient_sandworm"; }
         @Override public int frontX() { return 100; }
         @Override public int frontY() { return 265; }
+        @Override public int backX() { return 58; }
+        @Override public int backY() { return 232; }
     },
-    MAMMOTH_ARTILLERY {
+    MAMMOTH_ARTILLERY { // Front & Back
         @Override public String id() { return "s_mammoth_player_artillery"; }
         @Override public int frontX() { return 86; }
         @Override public int frontY() { return 196; }
+        @Override public int backX() { return 80; }
+        @Override public int backY() { return 203; }
     },
-    MAMMOTH_TANK {
+    MAMMOTH_TANK { // Front & Back
         @Override public String id() { return "s_mammoth_player_tank"; }
         @Override public int frontX() { return 80; }
         @Override public int frontY() { return 192; }
+        @Override public int backX() { return 73; }
+        @Override public int backY() { return 182; }
     },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
@@ -2027,8 +2053,6 @@ public enum Unit {
     abstract public String id();
     public String frontFilePath() { return "/units/front/" + id() + "_front.png"; }
     public String backFilePath() { return "/units/back/" + id() + "_back.png"; }
-    //abstract String frontFilename();
-    //public String backFilename() { return frontFilename(); }
     abstract public int frontX();
     abstract public int frontY();
     public int backX() { return frontX(); };

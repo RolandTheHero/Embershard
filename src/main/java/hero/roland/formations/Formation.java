@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 class FormationTest {
     public static void main(String[] args) {
         Formation formation = Formation.fromDataString(
-            "1=melee_sentinel_fragment,3=ranged_sentinel_fragment,5=phalanx_tank,enemy=tru"
+            "1=mammoth_artillery,3=mammoth_tank,5=legendary_sandworm,enemy=true"
         );
         BufferedImage img = formation.toImage();
         try {
@@ -27,6 +27,8 @@ public class Formation {
     BattleMap map = BattleMap.OUTPOST;
     Unit grid1, grid2, grid3, grid4, grid5, grid6, grid7, grid8, grid9, grid10, grid11, grid12, grid13;
 
+    public void setIsEnemy(boolean isEnemy) { isEnemyFormation = isEnemy; }
+
     static public Formation fromDataString(String data) {
         Formation formation = new Formation();
         try {
@@ -36,7 +38,6 @@ public class Formation {
                 String key = keyValue[0];
                 String value = keyValue[1];
                 switch (key) {
-                    case "enemy" -> formation.isEnemyFormation = Boolean.parseBoolean(value);
                     case "map" -> formation.map = BattleMap.fromId(value);
                     case "1" -> formation.grid1 = Unit.fromId(value);
                     case "2" -> formation.grid2 = Unit.fromId(value);
@@ -61,11 +62,9 @@ public class Formation {
     }
 
     private BufferedImage loadUnitImage(String path) throws IOException {
-        BufferedImage image = ImageIO.read(Formation.class.getResourceAsStream(path));
-        if (image == null) {
-            image = ImageIO.read(Formation.class.getResourceAsStream("/images/units/missing.png"));
-        }
-        return image;
+        var stream = Formation.class.getResourceAsStream(path);
+        if (stream == null) return ImageIO.read(Formation.class.getResourceAsStream("/units/missing.png"));
+        return ImageIO.read(stream);
     }
 
     public BufferedImage toImage() {
@@ -142,73 +141,63 @@ public class Formation {
             int mapX = map.x();
             int mapY = map.y();
             if (grid1 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid1.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid1.backX() + 200 + X_OFFSET, mapY - grid1.backY() + 100 + Y_OFFSET, null);
+                //BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid1.backFilePath()));
+                BufferedImage unitImage = loadUnitImage(grid1.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid1.backX() - 100 + X_OFFSET, mapY - grid1.backY() - 150 + Y_OFFSET, null);
             }
             if (grid2 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid2.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid2.backX() + 100 + X_OFFSET, mapY - grid2.backY() + 50 + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid2.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid2.backX() + X_OFFSET, mapY - grid2.backY() - 100 + Y_OFFSET, null);
             }
             if (grid6 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid6.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid6.backX() + 300 + X_OFFSET, mapY - grid6.backY() + 50 + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid6.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid6.backX() - 200 + X_OFFSET, mapY - grid6.backY() - 100 + Y_OFFSET, null);
             }
             if (grid3 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid3.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid3.backX() + X_OFFSET, mapY - grid3.backY() + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid3.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid3.backX() + 100 + X_OFFSET, mapY - grid3.backY() - 50 + Y_OFFSET, null);
             }
             if (grid7 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid7.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid7.backX() + 200 + X_OFFSET, mapY - grid7.backY() + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid7.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid7.backX() - 100 + X_OFFSET, mapY - grid7.backY() - 50 + Y_OFFSET, null);
             }
             if (grid4 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid4.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid4.backX() - 100 + X_OFFSET, mapY - grid4.backY() - 50 + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid4.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid4.backX() + 200 + X_OFFSET, mapY - grid4.backY() + Y_OFFSET, null);
             }
             if (grid8 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid8.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid8.backX() + 100 + X_OFFSET, mapY - grid8.backY() - 50 + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid8.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid8.backX() + X_OFFSET, mapY - grid8.backY() + Y_OFFSET, null);
             }
             if (grid11 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid11.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid11.backX() + 300 + X_OFFSET, mapY - grid11.backY() - 50 + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid11.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid11.backX() - 200 + X_OFFSET, mapY - grid11.backY() + Y_OFFSET, null);
             }
             if (grid5 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid5.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid5.backX() - 200 + X_OFFSET, mapY - grid5.backY() - 100 + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid5.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid5.backX() + 300 + X_OFFSET, mapY - grid5.backY() + 50 + Y_OFFSET, null);
             }
             if (grid9 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid9.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid9.backX() + X_OFFSET, mapY - grid9.backY() - 100 + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid9.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid9.backX() + 100 + X_OFFSET, mapY - grid9.backY() + 50 + Y_OFFSET, null);
             }
             if (grid12 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid12.backFilePath()));
+                BufferedImage unitImage = loadUnitImage(grid12.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid12.backX() - 100 + X_OFFSET, mapY - grid12.backY() + 50 + Y_OFFSET, null);
             }
             if (grid10 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid10.backFilePath()));
-                //image.getGraphics().drawImage(unitImage, mapX - grid10.backX() - 100 + X_OFFSET, mapY - grid10.backY() - 150 + Y_OFFSET, null);
+                BufferedImage unitImage = loadUnitImage(grid10.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid10.backX() + 200 + X_OFFSET, mapY - grid10.backY() + 100 + Y_OFFSET, null);
             }
             if (grid13 != null) {
-                BufferedImage unitImage = ImageIO.read(Formation.class.getResourceAsStream(grid13.backFilePath()));
+                BufferedImage unitImage = loadUnitImage(grid13.backFilePath());
                 image.getGraphics().drawImage(unitImage, mapX - grid13.backX() + X_OFFSET, mapY - grid13.backY() + 100 + Y_OFFSET, null);
             }
             return image;
         } catch (IOException e) {
             throw new FormationException("An error occurred while generating the formation image. Please try again.");
         } catch (IllegalArgumentException e) { // This happens when an image resource does not exist, thrown by ImageIO.read()
-            throw new FormationException("Oops! The image for one or more of the units wasn't found. This is a mistake on <@278366004348977153>'s part. Do let them know!");
+            throw new FormationException("Oops! The image for one or more of the units wasn't found. It could be that some units don't have back sprites. If you believe this is a mistake, message <@278366004348977153>.");
         }
     }
 }
