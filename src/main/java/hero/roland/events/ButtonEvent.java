@@ -1,6 +1,5 @@
 package hero.roland.events;
 
-import java.awt.Color;
 import java.util.List;
 
 import hero.roland.Main;
@@ -8,7 +7,6 @@ import hero.roland.data.GuildMember;
 import hero.roland.messages.GuidePage;
 import hero.roland.messages.GuidePages;
 import hero.roland.messages.MessageReplier;
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.components.actionrow.ActionRow;
 import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.components.label.Label;
