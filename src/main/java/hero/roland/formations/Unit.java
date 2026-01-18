@@ -2,8 +2,8 @@ package hero.roland.formations;
 
 public enum Unit {
     UNKNOWN {
-        @Override public String id() { return "Orange_question_mark"; }
-        @Override public String frontFilePath() { return "/units/Orange_question_mark.png"; }
+        @Override public String id() { return "orange_question_mark"; }
+        @Override public String frontFilePath() { return "/units/orange_question_mark.png"; }
         @Override public String backFilePath() { return frontFilePath(); }
         @Override public int frontX() { return 32; }
         @Override public int frontY() { return 95; }
