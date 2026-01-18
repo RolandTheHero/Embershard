@@ -2045,6 +2045,38 @@ public enum Unit {
         @Override public int backX() { return 73; }
         @Override public int backY() { return 182; }
     },
+    FRONTIER_CHUCKER { // Front & Back
+        @Override public String id() { return "catapult"; }
+        @Override public int frontX() { return 63; }
+        @Override public int frontY() { return 141; }
+        @Override public int backX() { return 72; }
+        @Override public int backY() { return 118; }
+    },
+    DEADEYE { // Front & Back
+        @Override public String id() { return "s_sniper_special_heavy"; }
+        @Override public int frontX() { return 62; }
+        @Override public int frontY() { return 145; }
+        @Override public int backX() { return 65; }
+        @Override public int backY() { return 135; }
+    },
+    RADIO_TECH { // Front & Back
+        @Override public String id() { return "s_trooper_missilestrike"; }
+        @Override public int frontX() { return 36; }
+        @Override public int frontY() { return 130; }
+        @Override public int backX() { return 45; }
+    },
+    UNICORN_TROOPER { // Front & Back
+        @Override public String id() { return "s_unicorn_trooper"; }
+        @Override public int frontX() { return 65; }
+        @Override public int frontY() { return 128; }
+        @Override public int backY() { return 135; }
+    },
+    WEAPON_TECHNICIAN {
+        @Override public String id() { return "s_scientist"; }
+        @Override public int frontX() { return 35; }
+        @Override public int frontY() { return 125; }
+        @Override public int backY() { return 120; }
+    },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
         @Override public int frontX() { return -0; }
@@ -2383,6 +2415,11 @@ public enum Unit {
             case "legendary_sandworm" -> LEGENDARY_SANDWORM; // ~
             case "mammoth_artillery" -> MAMMOTH_ARTILLERY; // ~
             case "mammoth_tank" -> MAMMOTH_TANK; // ~
+            case "frontier_chucker" -> FRONTIER_CHUCKER; // ~
+            case "deadeye" -> DEADEYE; // ~
+            case "radio_tech" -> RADIO_TECH; // ~
+            case "unicorn_trooper" -> UNICORN_TROOPER; // ~
+            case "weapon_technician" -> WEAPON_TECHNICIAN; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };
