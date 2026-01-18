@@ -1,16 +1,10 @@
 package hero.roland.events;
 
 import java.awt.Color;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.List;
-
-import javax.imageio.ImageIO;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
-import hero.roland.formations.Formation;
-import hero.roland.formations.FormationException;
 import hero.roland.messages.GuidePage;
 import hero.roland.messages.GuidePages;
 import hero.roland.messages.MessageReplier;
@@ -23,7 +17,6 @@ import net.dv8tion.jda.api.components.textinput.TextInputStyle;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.modals.Modal;
-import net.dv8tion.jda.api.utils.FileUpload;
 
 public interface ButtonEvent {
     public void run(ButtonInteractionEvent event);
@@ -156,49 +149,5 @@ class GuidesButton implements ButtonEvent {
         event.editMessageEmbeds(guidePage.toEmbed())
             .setComponents(guidePage.components())
             .queue();
-    }
-}
-/**
- * This is the original button for toggling to enemy formation view.
- * It loads the enemy formation and changes the button to the second one, which simply alternates the formation view.
- */
-class ToggleFormationButton implements ButtonEvent {
-    @Override public void run(ButtonInteractionEvent event) {
-        // toggleformation:USERID:IS_ENEMY
-        String[] buttonId = event.getButton().getCustomId().split(":");
-        long userIdWhoMustRun = Long.parseLong(buttonId[1]);
-        if (userIdWhoMustRun != event.getUser().getIdLong()) {
-            event.reply("You can only toggle your own formation view!").setEphemeral(true).queue();
-            return;
-        }
-        String dataString = event.getMessage().getEmbeds().get(0).getDescription().replaceAll("`", "");
-        String generatedMessage = "`" + dataString + "`";
-        EmbedBuilder unbuiltEmbed = new EmbedBuilder()
-            .setTitle("Formation")
-            .setDescription(generatedMessage + "\n\nPlease wait a moment while your string is being parsed...")
-            .setImage("attachment://formation.png")
-            .setColor(Color.CYAN);
-        event.editMessageEmbeds(unbuiltEmbed.build())
-            .setComponents()
-            .queue(interaction -> {
-                try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
-                    Formation formation = Formation.fromDataString(dataString);
-                    boolean isEnemyFormation = Boolean.parseBoolean(buttonId[2]);
-                    formation.setIsEnemy(isEnemyFormation);
-                    ImageIO.write(formation.toImage(), "png", os);
-                    interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build())
-                        .setAttachments(FileUpload.fromData(os.toByteArray(), "formation.png"))
-                        .setComponents(ActionRow.of(
-                            Button.secondary("toggleformation:" + event.getUser().getId() + ":" + !isEnemyFormation, "Toggle View")
-                        ))
-                        .queue();
-                } catch (IOException e) {
-                    interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\nAn error occurred while generating the formation image. Please try again.").build())
-                        .queue();
-                } catch (FormationException e) {
-                    interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\n" + e.getMessage()).build())
-                        .queue();
-                }
-            });
     }
 }

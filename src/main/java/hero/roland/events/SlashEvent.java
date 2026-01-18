@@ -191,21 +191,26 @@ record FormationCommand() implements SlashEvent {
             return;
         }
         String dataString = dataOption.getAsString().replaceAll("`", "");
-        String generatedMessage = "`" + dataString + "`";
+        String generatedMessage = "Generated using data string: `" + dataString + "`";
         EmbedBuilder unbuiltEmbed = new EmbedBuilder()
             .setTitle("Formation")
             .setDescription(generatedMessage + "\n\nPlease wait a moment while your string is being parsed...")
-            .setImage("attachment://formation.png")
+            .setImage("attachment://enemy_formation.png")
+            .setColor(Color.CYAN);
+        EmbedBuilder unbuiltEmbed2 = new EmbedBuilder()
+            .setImage("attachment://player_formation.png")
             .setColor(Color.CYAN);
         event.replyEmbeds(unbuiltEmbed.build()).queue(interaction -> {
-            try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+            try (ByteArrayOutputStream os = new ByteArrayOutputStream(); ByteArrayOutputStream os2 = new ByteArrayOutputStream()) {
                 Formation formation = Formation.fromDataString(dataString);
                 ImageIO.write(formation.toImage(), "png", os);
-                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build())
-                    .setAttachments(FileUpload.fromData(os.toByteArray(), "formation.png"))
-                    .setComponents(ActionRow.of(
-                        Button.secondary("toggleformation:" + event.getUser().getId() + ":true", "Toggle View")
-                    ))
+                formation.setIsEnemy(true);
+                ImageIO.write(formation.toImage(), "png", os2);
+                interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage).build(), unbuiltEmbed2.build())
+                    .setAttachments(
+                        FileUpload.fromData(os.toByteArray(), "player_formation.png"),
+                        FileUpload.fromData(os2.toByteArray(), "enemy_formation.png")
+                    )
                     .queue();
             } catch (IOException e) {
                 interaction.editOriginalEmbeds(unbuiltEmbed.setDescription(generatedMessage + "\n\nAn error occurred while generating the formation image. Please try again.").build())
