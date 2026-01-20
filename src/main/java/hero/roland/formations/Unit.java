@@ -2077,6 +2077,39 @@ public enum Unit {
         @Override public int frontY() { return 125; }
         @Override public int backY() { return 120; }
     },
+    TF2_SCOUT {
+        @Override public String id() { return "tf2_hero_scout"; }
+        @Override public int frontX() { return 50; }
+        @Override public int frontY() { return 130; }
+        @Override public int backX() { return 38; }
+        @Override public int backY() { return 135; }
+    },
+    TF2_SOLDIER {
+        @Override public String id() { return "tf2_hero_soldier"; }
+        @Override public int frontX() { return 60; }
+        @Override public int frontY() { return 145; }
+        @Override public int backX() { return 45; }
+    },
+    TF2_HEAVY {
+        @Override public String id() { return "tf2_hero_heavy"; }
+        @Override public int frontX() { return 100; }
+        @Override public int frontY() { return 165; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 170; }
+    },
+    TF2_DEMOMAN {
+        @Override public String id() { return "tf2_hero_demoman"; }
+        @Override public int frontX() { return 56; }
+        @Override public int frontY() { return 155; }
+        @Override public int backX() { return 40; }
+    },
+    TF2_PYRO {
+        @Override public String id() { return "tf2_hero_pyro"; }
+        @Override public int frontX() { return 80; }
+        @Override public int frontY() { return 135; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 145; }
+    },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
         @Override public int frontX() { return -0; }
@@ -2087,308 +2120,307 @@ public enum Unit {
     public String backFilePath() { return "/units/back/" + id() + "_back.png"; }
     abstract public int frontX();
     abstract public int frontY();
-    public int backX() { return frontX(); };
-    public int backY() { return frontY(); };
+    public int backX() { return frontX(); }
+    public int backY() { return frontY(); }
     public static Unit fromId(String s) {
         // Units marked with ~ are added by me and was not included in the original list
         return switch (s) {
-            case "APC" -> RECON_VEHICLE;
-            case "BoomBoom" -> BOOM_BOOM;
-            case "BrawlerRaider" -> RAIDER_BRAWLER;
-            case "DustwalkerRaider" -> DUST_WALKER;
-            case "FireBreather" -> FIREBREATHER;
-            case "FlameTurret" -> FLAME_TURRET;
-            case "Gantas" -> WARLORD_GANTAS;
-            case "Guntruck" -> GUN_TRUCK;
-            case "LightTank" -> LIGHT_TANK;
-            case "MGTank" -> TEMPEST;
-            case "MammothRaider" -> MAMMOTH_RIDER;
-            case "SWBombadier" -> WOLF_BOMBADIER;
-            case "SWDefender" -> WOLF_DEFENDER;
-            case "SWDevastator" -> WOLF_DEVASTATOR;
-            case "SWEnforcer" -> WOLF_ENFORCER;
-            case "SWGrenadier" -> WOLF_GRENADIER;
-            case "SWThug" -> WOLF_THUG;
-            case "SWarmoredTruck" -> WOLF_ARMORED_TRUCK;
-            case "SWscrapper" -> WOLF_SCRAPPER;
-            case "Sniper2" -> SNIPER;
-            case "Supertank" -> SUPER_TANK;
-            case "TOW" -> MEERKAT;
-            case "air_ancient_fragment" -> FLYING_DEXTER_FRAGMENT;
-            case "air_attack_helicopter" -> UH1B_SKYRAPTOR;
-            case "air_bomber" -> Z218_BOMBER;
-            case "air_corsair" -> THUNDERCLOUD_F10;
-            case "air_jet_fighter" -> V14_MAVERICK;
-            case "air_raider_zeppelin" -> FALCONS_NEST;
-            case "air_s_trooper_zombie" -> PROTO_HUNTER;
-            case "air_s_trooper_zombie_b" -> SPECIMEN_HUNTER;
-            case "air_s_trooper_zombie_c" -> ADVANCED_HUNTER;
-            case "air_s_trooper_zombie_d" -> ARCHETYPE_HUNTER;
-            case "air_spiderwasp_striker" -> SPIDERWASP_DRONE;
-            case "air_spiderwasp_striker_70" -> ROYAL_SPIDERWASP_DRONE;
-            case "air_sw_plane" -> SILVERWOLF_CROP_BUSTER;
-            case "air_sw_whirlybird" -> SILVERWOLF_CHUNOOK_HELICOPTER;
-            case "air_warthog" -> B10_WILD_BOAR;
-            case "air_ww2_fighter" -> L60_HAWKER_HURRICANE;
-            case "armoredFortress" -> ARMORED_FORTRESS;
-            case "armoredMammoth" -> ARMORED_RAIDER_MAMMOTH;
-            case "armoredPillbox" -> ARMORED_PILLBOX;
+            case "recon_vehicle" -> RECON_VEHICLE;
+            case "raider_boom_boom" -> BOOM_BOOM;
+            case "raider_brawler" -> RAIDER_BRAWLER;
+            case "dust_walker" -> DUST_WALKER;
+            case "firebreather" -> FIREBREATHER;
+            case "flame_turret" -> FLAME_TURRET;
+            case "warlord_gantas" -> WARLORD_GANTAS;
+            case "gun_truck" -> GUN_TRUCK;
+            case "light_tank" -> LIGHT_TANK;
+            case "tempest" -> TEMPEST;
+            case "mammoth_rider" -> MAMMOTH_RIDER;
+            case "wolf_bombadier" -> WOLF_BOMBADIER;
+            case "wolf_defender" -> WOLF_DEFENDER;
+            case "wolf_devastator" -> WOLF_DEVASTATOR;
+            case "wolf_enforcer" -> WOLF_ENFORCER;
+            case "wolf_grenadier" -> WOLF_GRENADIER;
+            case "wolf_thug" -> WOLF_THUG;
+            case "wolf_armored_truck" -> WOLF_ARMORED_TRUCK;
+            case "wolf_scrapper" -> WOLF_SCRAPPER;
+            case "sniper" -> SNIPER;
+            case "super_tank" -> SUPER_TANK;
+            case "meerkat" -> MEERKAT;
+            case "flying_dexter_fragment" -> FLYING_DEXTER_FRAGMENT;
+            case "uh1b_skyraptor" -> UH1B_SKYRAPTOR;
+            case "z218_bomber" -> Z218_BOMBER;
+            case "thundercloud_f10" -> THUNDERCLOUD_F10;
+            case "v14_maverick" -> V14_MAVERICK;
+            case "falcons_nest" -> FALCONS_NEST;
+            case "proto_hunter" -> PROTO_HUNTER;
+            case "specimen_hunter" -> SPECIMEN_HUNTER;
+            case "advanced_hunter" -> ADVANCED_HUNTER;
+            case "archetype_hunter" -> ARCHETYPE_HUNTER;
+            case "spiderwasp_drone" -> SPIDERWASP_DRONE;
+            case "royal_spiderwasp_drone" -> ROYAL_SPIDERWASP_DRONE;
+            case "silverwolf_crop_buster" -> SILVERWOLF_CROP_BUSTER;
+            case "silverwolf_chunook_helicopter" -> SILVERWOLF_CHUNOOK_HELICOPTER;
+            case "b10_wild_boar" -> B10_WILD_BOAR;
+            case "l60_hawker_hurricane" -> L60_HAWKER_HURRICANE;
+            case "armored_fortress" -> ARMORED_FORTRESS;
+            case "armored_raider_mammoth" -> ARMORED_RAIDER_MAMMOTH;
+            case "armored_pillbox" -> ARMORED_PILLBOX;
             case "arsonist" -> ARSONIST;
-            case "artillery" -> LIGHT_ARTILLERY;
+            case "light_artillery" -> LIGHT_ARTILLERY;
             case "assassinator" -> ASSASSINATOR;
-            case "bazookaTeam" -> BAZOOKA_SQUAD;
-            case "bioGrenadier" -> BIO_GRENADIER;
-            case "blockhouses_idle" -> BLOCKHOUSE;
-            case "boss_goliath_tank_leftside" -> MULTILAUNCH_ROCKET_SYSTEM_LEFT;
-            case "boss_goliath_tank_main" -> GOLIATH_TANK;
-            case "boss_goliath_tank_rightside" -> MULTILAUNCH_ROCKET_SYSTEM_RIGHT;
-            case "boss_kraken_arm" -> KRAKEN_TENTACLE;
-            case "boss_kraken_body" -> THE_KRAKEN;
-            case "boss_ship_dreadnought" -> DREADNOUGHT;
-            case "boss_spiderwasp_queen" -> SPIDERWASP_QUEEN;
-            case "cannonSchoolBus" -> WOLF_CRUEL_BUS;
-            case "cannonraider" -> RAIDER_CANNONEER;
-            case "championraider" -> RAIDER_CHAMPION;
-            case "chemSprinkler" -> CHEMICAL_SPRINKLER;
-            case "chemTrooper" -> CHEM_TROOPER;
-            case "commando" -> RANGER;
-            case "crowdControl" -> PEACE_KEEPER;
-            case "def_barricade_cementWall" -> CONCRETE_WALL_A;
-            case "def_barricade_concreteWall" -> CONCRETE_WALL_B;
-            case "def_barricade_sandbags" -> SANDBAGS;
-            case "def_buoy" -> BUOY;
-            case "def_fence_electric" -> PORTABLE_ELECTRIC_FENCE;
-            case "def_mine" -> FLOATING_MINE;
-            case "def_raiderbarricade" -> RAIDER_FENCE;
-            case "def_spiderwasp_egg" -> SPIDERWASP_EGG;
-            case "def_wall_concrete_60" -> REINFORCED_CONCRETE_WALL;
-            case "def_whirlpool" -> WHIRLPOOL;
+            case "bazooka_squad" -> BAZOOKA_SQUAD;
+            case "bio_grenadier" -> BIO_GRENADIER;
+            case "blockhouse" -> BLOCKHOUSE;
+            case "goliath_tank_left" -> MULTILAUNCH_ROCKET_SYSTEM_LEFT;
+            case "goliath_tank" -> GOLIATH_TANK;
+            case "goliath_tank_right" -> MULTILAUNCH_ROCKET_SYSTEM_RIGHT;
+            case "kraken_tentacle" -> KRAKEN_TENTACLE;
+            case "kraken_body" -> THE_KRAKEN;
+            case "dreadnought" -> DREADNOUGHT;
+            case "spiderwasp_queen" -> SPIDERWASP_QUEEN;
+            case "wolf_cruel_bus" -> WOLF_CRUEL_BUS;
+            case "raider_cannoneer" -> RAIDER_CANNONEER;
+            case "raider_champion" -> RAIDER_CHAMPION;
+            case "chemical_sprinkler" -> CHEMICAL_SPRINKLER;
+            case "chem_trooper" -> CHEM_TROOPER;
+            case "ranger" -> RANGER;
+            case "peace_keeper" -> PEACE_KEEPER;
+            case "concrete_wall_a" -> CONCRETE_WALL_A;
+            case "concrete_wall_b" -> CONCRETE_WALL_B;
+            case "sandbags" -> SANDBAGS;
+            case "buoy" -> BUOY;
+            case "portable_electric_fence" -> PORTABLE_ELECTRIC_FENCE;
+            case "floating_mine" -> FLOATING_MINE;
+            case "raider_fence" -> RAIDER_FENCE;
+            case "spiderwasp_egg" -> SPIDERWASP_EGG;
+            case "reinforced_concrete_wall" -> REINFORCED_CONCRETE_WALL;
+            case "whirlpool" -> WHIRLPOOL;
             case "demolitionist" -> DEMOLITIONIST;
-            case "dragoon" -> IMPERIAL_DRAGOON;
-            case "dunerider" -> DUNE_RIDER;
-            case "elderSandworm" -> ELDER_SANDWORM;
-            case "electroTrooper" -> LIGHTNING_TROOPER;
-            case "flametrooper" -> FLAME_TROOPER;
-            case "fliegerhaust" -> HORNET;
+            case "imperial_dragoon" -> IMPERIAL_DRAGOON;
+            case "dune_rider" -> DUNE_RIDER;
+            case "elder_sandworm" -> ELDER_SANDWORM;
+            case "lightning_trooper" -> LIGHTNING_TROOPER;
+            case "flame_trooper" -> FLAME_TROOPER;
+            case "hornet" -> HORNET;
             case "grenadier" -> GRENADIER;
-            case "guardTower_battle" -> WATCHTOWER;
+            case "watchtower" -> WATCHTOWER;
             case "gunner" -> GUNNER;
-            case "heavyChemTank" -> HEAVY_CHEMICAL_TANK;
-            case "heavyLauncher" -> BRIMSTONE;
-            case "heavyartillery" -> HEAVY_ARTILLERY;
-            case "heavytank" -> HEAVY_TANK;
-            case "hero_ancient_robot" -> ANCIENT_CONSTRUCT;
-            case "hero_ancient_robot_2_arm_left" -> MELEE_WEAPON_SYSTEM;
-            case "hero_ancient_robot_2_arm_right" -> RANGED_WEAPON_SYSTEM;
-            case "hero_ancient_robot_2_body" -> ANCIENT_SENTINEL;
-            case "hero_i17_ancient_robot_clone" -> EXPERIMENTAL_CONSTRUCT;
+            case "heavy_chemical_tank" -> HEAVY_CHEMICAL_TANK;
+            case "brimstone" -> BRIMSTONE;
+            case "heavy_artillery" -> HEAVY_ARTILLERY;
+            case "heavy_tank" -> HEAVY_TANK;
+            case "ancient_construct" -> ANCIENT_CONSTRUCT;
+            case "ancient_sentinel_left" -> MELEE_WEAPON_SYSTEM;
+            case "ancient_sentinel_right" -> RANGED_WEAPON_SYSTEM;
+            case "ancient_sentinel" -> ANCIENT_SENTINEL;
+            case "experimental_construct" -> EXPERIMENTAL_CONSTRUCT;
             case "hero_spiderwasp_queen" -> SPIDERWASP_QUEEN; // For some reason two IDs link the Spiderwasp Queen, other being 'boss_spiderwasp_queen'
             case "hitman" -> HITMAN;
             case "hunter" -> HUNTER;
-            case "i17_veh_tank_railgun" -> RAILGUN_TANK;
-            case "jeep" -> HUMVEE;
+            case "railgun_tank" -> RAILGUN_TANK;
+            case "humvee" -> HUMVEE;
             case "juggernaut" -> JUGGERNAUT;
-            case "katyusha" -> HAILSTORM;
-            case "ltChemTank" -> LIGHT_CHEMICAL_TANK;
-            case "ltFlameTank" -> FIREDRAKE;
-            case "mediumtank" -> MEDIUM_TANK;
-            case "megaArtillery" -> PEACEMAKER;
-            case "mgShield" -> ARMADILLO;
-            case "miniTank" -> MINI_TANK;
-            case "minigunner" -> HEAVY_GUNNER;
-            case "mlrs" -> ROCKET_TRUCK;
-            case "mortarteam" -> MORTAR_TEAM;
-            case "mtArt" -> ARIES;
-            case "natBarricade_01" -> THE_ROCK;
-            case "natBarricade_02" -> STONE_SLAB;
-            case "natBarricade_03" -> LINE_OF_ROCKS;
-            case "natBarricade_04" -> GRANITE_BOULDER;
-            case "natBarricade_debris" -> DEBRIS;
-            case "natBarricade_log" -> FALLEN_LOG;
-            case "ninjaTrooper" -> NINJA_TROOPER;
-            case "officer" -> JUNIOR_OFFICER;
+            case "hailstorm" -> HAILSTORM;
+            case "light_chemical_tank" -> LIGHT_CHEMICAL_TANK;
+            case "firedrake" -> FIREDRAKE;
+            case "medium_tank" -> MEDIUM_TANK;
+            case "peacemaker" -> PEACEMAKER;
+            case "armadillo" -> ARMADILLO;
+            case "mini_tank" -> MINI_TANK;
+            case "heavy_gunner" -> HEAVY_GUNNER;
+            case "rocket_truck" -> ROCKET_TRUCK;
+            case "mortar_team" -> MORTAR_TEAM;
+            case "aries" -> ARIES;
+            case "the_rock" -> THE_ROCK;
+            case "stone_slab" -> STONE_SLAB;
+            case "line_of_rocks" -> LINE_OF_ROCKS;
+            case "granite_boulder" -> GRANITE_BOULDER;
+            case "debris" -> DEBRIS;
+            case "fallen_log" -> FALLEN_LOG;
+            case "ninja_trooper" -> NINJA_TROOPER;
+            case "junior_officer" -> JUNIOR_OFFICER;
             case "pillbox" -> PILLBOX;
-            case "premiumAPC" -> HEAVY_RECON;
-            case "raider" -> RAIDER_WARRIOR;
-            case "raiderLuitBoom" -> TRONK;
-            case "raiderLuitGirl" -> CRAZY_BLADES;
-            case "raiderLuitThin" -> SARIN;
-            case "raiderwatchtowerfront" -> RAIDER_WATCHTOWER;
-            case "ranger" -> COMMANDO;
-            case "ratBrown" -> RAT_KING;
-            case "ratGrey" -> MANGY_RAT;
-            case "rb_ship_jetski" -> JET_SKI;
-            case "rb_ship_speedboat" -> POWER_BOAT;
-            case "rb_ship_tugboat" -> ARMORED_TUG;
-            case "rpg" -> RPG_TROOPER;
-            case "s_arctic_trooper" -> ARCTIC_TROOPER;
-            case "s_arctic_trooper_rebel" -> ARCTIC_TROOPER_2;
-            case "s_bigfoot_adult" -> BIGFOOT;
-            case "s_bigfoot_adult_55" -> BIGFOOT_WARRIOR;
-            case "s_bigfoot_child" -> YOUNG_BIGFOOT;
-            case "s_bigfoot_zombie_super_player" -> APEX_MAULER;
-            case "s_boar_boarus_rex_55" -> BOAR_VETERAN;
-            case "s_boar_large" -> ALPHA_BOAR;
-            case "s_boar_medium" -> WILD_BOAR;
-            case "s_boar_small" -> BOAR_PIGLET;
-            case "s_bountyHunter" -> IMPERIAL_PEACEMONGER;
-            case "s_commando_rebel" -> COMMANDO_2;
-            case "s_def_tesla_coil" -> LIGHTNING_TOWER;
-            case "s_flame_heavy" -> SALAMANDER;
-            case "s_guy_sniper" -> SILVER_WOLF_GOLDEN_EAGLE;
-            case "s_mammoth_king_55" -> MAMMOTH_SEER;
-            case "s_mammoth_large" -> MAMMOTH_ELDER;
-            case "s_mammoth_medium" -> MAMMOTH;
-            case "s_mammoth_small" -> MAMMOTH_TUSKLING;
-            case "s_matriarchBoar" -> BOARUS_REX;
-            case "s_midrange_agent" -> FIELD_AGENT;
-            case "s_mortar_turtleShell" -> TURTLESHELLER;
-            case "s_portableWall" -> PORTABLE_WALL;
-            case "TODO TODO 5" -> null; //PORTABLE_WALL_2; // Alternative sprite for portable wall
-            case "s_raider_bombadier_55" -> BRUTAL_CANNONEER;
-            case "s_raider_boomboom_55" -> BIG_BADA_BOOM;
-            case "s_raider_brawler_55" -> BRUTAL_BRAWLER;
-            case "s_raider_champion_55" -> BRUTAL_CHAMPION;
-            case "s_raider_dustwalker_55" -> DUSTWALKER_DERVISH;
-            case "s_raider_firebreather_55" -> SEARING_FIREBREATHER;
-            case "s_raider_infantry_55" -> RAIDER_RIFLEMAN;
-            case "s_raider_raptorRider" -> RAIDER_SKIRMISHER;
-            case "s_raider_raptor_rider_55" -> ELITE_SKIRMISHER;
-            case "s_raider_sniper" -> RAIDER_OUTCAST;
-            case "s_raider_sniper_55" -> ELITE_OUTCAST;
-            case "s_raptor_large" -> WILD_RAPTOR;
-            case "s_raptor_medium" -> RAPTOR;
-            case "s_raptor_small" -> YOUNG_RAPTOR;
-            case "s_raptor_tough_55" -> PRIMORDIAL_RAPTOR;
-            case "s_raptor_zombie" -> PROTO_SHREDDER;
-            case "s_raptor_zombie_b" -> SPECIMEN_SHREDDER;
-            case "s_raptor_zombie_c" -> ADVANCED_SHREDDER;
-            case "s_raptor_zombie_d" -> ARCHETYPE_SHREDDER;
-            case "s_samurai" -> WANDERING_SAMURAI;
-            case "s_sandbags" -> SANDBAG_PILE;
-            case "s_sandworm_55" -> SANDWORM_GUARDIAN;
-            case "TODO TODO" -> null; //VOLCANO_SHAKER; // Large SANDWORM_GUARDIAN
-            case "s_sandworm_emperor" -> EMPEROR_SANDWORM;
-            case "s_sandworm_large" -> GROUNDSHAKER;
-            case "s_sandworm_medium" -> IRONHIDE_SANDWORM;
-            case "s_spiderwasp_spitter"-> SPIDERWASP_STRIKER;
-            case "s_spiderwasp_spitter_70" -> ROYAL_SPIDERWASP_STRIKER;
-            case "s_spiderwasp_warrior" -> SPIDERWASP_WARRIOR;
-            case "s_spiderwasp_warrior_70" -> ROYAL_SPIDERWASP_WARRIOR;
-            case "s_spiderwasp_worker" -> SPIDERWASP_WORKER;
-            case "s_spiderwasp_worker_70" -> ROYAL_SPIDERWASP_WORKER;
-            case "s_trooper_bigGameHunter" -> BIG_GAME_HUNTER;
-            case "s_trooper_cryo" -> CRYO_TROOPER;
-            case "s_trooper_dragoon_heavy" -> LIGHTNING_DRAGOON;
-            case "s_trooper_fire_ice" -> ELEMENTAL_TROOPER;
-            case "s_trooper_jetpack" -> AERO_JETPACK_TROOPER;
-            case "s_trooper_plasma" -> PLASMA_TROOPER;
-            case "s_trooper_railgun" -> RAILGUN_TROOPER;
-            case "s_trooper_saboteur_heavy" -> GUERILLA;
-            case "s_trooper_specialAgent" -> SPECIAL_AGENT;
-            case "s_trooper_veteran" -> VETERAN;
-            case "s_trooper_veteran_rebel" -> VETERAN_2;
-            case "s_trooper_zombie" -> PROTO_CREEPER;
-            case "s_trooper_zombie_b" -> SPECIMEN_CREEPER;
-            case "s_trooper_zombie_c" -> ADVANCED_CREEPER;
-            case "s_trooper_zombie_d" -> ARCHETYPE_CREEPER;
-            case "s_trooper_zombie_cannon" -> PROTO_CANNONEER;
-            case "s_trooper_zombie_cannon_b" -> SPECIMEN_CANNONEER;
-            case "s_trooper_zombie_cannon_c" -> ADVANCED_CANNONEER;
-            case "s_trooper_zombie_cannon_d" -> ARCHETYPE_CANNONEER;
-            case "s_trooper_zombie_ninja" -> PROTO_STALKER;
-            case "s_trooper_zombie_ninja_b" -> SPECIMEN_STALKER;
-            case "s_trooper_zombie_ninja_c" -> ADVANCED_STALKER;
-            case "s_trooper_zombie_ninja_d" -> ARCHETYPE_STALKER;
-            case "s_trooper_zombie_ninja_super" -> APEX_STALKER;
-            case "s_trooper_zombie_spider" -> PROTO_CRAWLER;
-            case "s_trooper_zombie_spider_b" -> SPECIMEN_CRAWLER;
-            case "s_trooper_zombie_spider_c" -> ADVANCED_CRAWLER;
-            case "s_trooper_zombie_spider_d" -> ARCHETYPE_CRAWLER;
-            case "s_trooper_zombie_spitter" -> PROTO_BULLFROG;
-            case "s_trooper_zombie_spitter_b" -> SPECIMEN_BULLFROG;
-            case "s_trooper_zombie_spitter_c" -> ADVANCED_BULLFROG;
-            case "s_trooper_zombie_spitter_d" -> ARCHETYPE_BULLFROG;
-            case "s_trooper_zombie_spitter_super" -> APEX_BULLFROG;
-            case "s_trooper_zombie_tank" -> PROTO_COLOSSUS;
-            case "s_trooper_zombie_tank_b" -> ARCHETYPE_COLOSSUS;
-            case "s_trooper_zombie_tank_super"-> APEX_COLOSSUS;
+            case "heavy_recon_vehicle" -> HEAVY_RECON;
+            case "raider_warrior" -> RAIDER_WARRIOR;
+            case "tronk" -> TRONK;
+            case "crazy_blades" -> CRAZY_BLADES;
+            case "sarin" -> SARIN;
+            case "raider_watchtower" -> RAIDER_WATCHTOWER;
+            case "commando" -> COMMANDO;
+            case "rat_king" -> RAT_KING;
+            case "mangy_rat" -> MANGY_RAT;
+            case "jet_ski" -> JET_SKI;
+            case "power_boat" -> POWER_BOAT;
+            case "armored_tug" -> ARMORED_TUG;
+            case "rpg_trooper" -> RPG_TROOPER;
+            case "arctic_trooper" -> ARCTIC_TROOPER;
+            case "arctic_trooper_rebel" -> ARCTIC_TROOPER_2;
+            case "bigfoot" -> BIGFOOT;
+            case "bigfoot_warrior" -> BIGFOOT_WARRIOR;
+            case "young_bigfoot" -> YOUNG_BIGFOOT;
+            case "apex_mauler" -> APEX_MAULER;
+            case "boar_veteran" -> BOAR_VETERAN;
+            case "alpha_boar" -> ALPHA_BOAR;
+            case "wild_boar" -> WILD_BOAR;
+            case "boar_piglet" -> BOAR_PIGLET;
+            case "imperial_peacemonger" -> IMPERIAL_PEACEMONGER;
+            case "commando_rebel" -> COMMANDO_2;
+            case "lightning_tower" -> LIGHTNING_TOWER;
+            case "salamander" -> SALAMANDER;
+            case "silver_wolf_golden_eagle" -> SILVER_WOLF_GOLDEN_EAGLE;
+            case "mammoth_seer" -> MAMMOTH_SEER;
+            case "mammoth_elder" -> MAMMOTH_ELDER;
+            case "mammoth" -> MAMMOTH;
+            case "mammoth_tuskling" -> MAMMOTH_TUSKLING;
+            case "boarus_rex" -> BOARUS_REX;
+            case "field_agent" -> FIELD_AGENT;
+            case "turtlesheller" -> TURTLESHELLER;
+            case "portable_wall" -> PORTABLE_WALL;
+            case "portable_wall_rebel" -> null; //PORTABLE_WALL_2; // Alternative sprite for portable wall
+            case "brutal_cannoneer" -> BRUTAL_CANNONEER;
+            case "big_bada_boom" -> BIG_BADA_BOOM;
+            case "brutal_brawler" -> BRUTAL_BRAWLER;
+            case "brutal_champion" -> BRUTAL_CHAMPION;
+            case "dustwalker_dervish" -> DUSTWALKER_DERVISH;
+            case "searing_firebreather" -> SEARING_FIREBREATHER;
+            case "raider_rifleman" -> RAIDER_RIFLEMAN;
+            case "raider_skirmisher" -> RAIDER_SKIRMISHER;
+            case "elite_skirmisher" -> ELITE_SKIRMISHER;
+            case "raider_outcast" -> RAIDER_OUTCAST;
+            case "elite_outcast" -> ELITE_OUTCAST;
+            case "wild_raptor" -> WILD_RAPTOR;
+            case "raptor" -> RAPTOR;
+            case "young_raptor" -> YOUNG_RAPTOR;
+            case "primordial_raptor" -> PRIMORDIAL_RAPTOR;
+            case "proto_shredder" -> PROTO_SHREDDER;
+            case "specimen_shredder" -> SPECIMEN_SHREDDER;
+            case "advanced_shredder" -> ADVANCED_SHREDDER;
+            case "archetype_shredder" -> ARCHETYPE_SHREDDER;
+            case "wandering_samurai" -> WANDERING_SAMURAI;
+            case "sandbag_pile" -> SANDBAG_PILE;
+            case "sandworm_guardian" -> SANDWORM_GUARDIAN;
+            case "volcano_shaker" -> null; //VOLCANO_SHAKER; // Large SANDWORM_GUARDIAN
+            case "emperor_sandworm" -> EMPEROR_SANDWORM;
+            case "groundshaker" -> GROUNDSHAKER;
+            case "ironhide_sandworm" -> IRONHIDE_SANDWORM;
+            case "spiderwasp_striker"-> SPIDERWASP_STRIKER;
+            case "royal_spiderwasp_striker" -> ROYAL_SPIDERWASP_STRIKER;
+            case "spiderwasp_warrior" -> SPIDERWASP_WARRIOR;
+            case "royal_spiderwasp_warrior" -> ROYAL_SPIDERWASP_WARRIOR;
+            case "spiderwasp_worker" -> SPIDERWASP_WORKER;
+            case "royal_spiderwasp_worker" -> ROYAL_SPIDERWASP_WORKER;
+            case "big_game_hunter" -> BIG_GAME_HUNTER;
+            case "cryo_trooper" -> CRYO_TROOPER;
+            case "lightning_dragoon" -> LIGHTNING_DRAGOON;
+            case "elemental_trooper" -> ELEMENTAL_TROOPER;
+            case "aero_jetpack_trooper" -> AERO_JETPACK_TROOPER;
+            case "plasma_trooper" -> PLASMA_TROOPER;
+            case "railgun_trooper" -> RAILGUN_TROOPER;
+            case "guerilla" -> GUERILLA;
+            case "special_agent" -> SPECIAL_AGENT;
+            case "veteran" -> VETERAN;
+            case "veteran_rebel" -> VETERAN_2;
+            case "proto_creeper" -> PROTO_CREEPER;
+            case "specimen_creeper" -> SPECIMEN_CREEPER;
+            case "advanced_creeper" -> ADVANCED_CREEPER;
+            case "archetype_creeper" -> ARCHETYPE_CREEPER;
+            case "proto_cannoneer" -> PROTO_CANNONEER;
+            case "specimen_cannoneer" -> SPECIMEN_CANNONEER;
+            case "advanced_cannoneer" -> ADVANCED_CANNONEER;
+            case "archetype_cannoneer" -> ARCHETYPE_CANNONEER;
+            case "proto_stalker" -> PROTO_STALKER;
+            case "specimen_stalker" -> SPECIMEN_STALKER;
+            case "advanced_stalker" -> ADVANCED_STALKER;
+            case "archetype_stalker" -> ARCHETYPE_STALKER;
+            case "apex_stalker" -> APEX_STALKER;
+            case "proto_crawler" -> PROTO_CRAWLER;
+            case "specimen_crawler" -> SPECIMEN_CRAWLER;
+            case "advanced_crawler" -> ADVANCED_CRAWLER;
+            case "archetype_crawler" -> ARCHETYPE_CRAWLER;
+            case "proto_bullfrog" -> PROTO_BULLFROG;
+            case "specimen_bullfrog" -> SPECIMEN_BULLFROG;
+            case "advanced_bullfrog" -> ADVANCED_BULLFROG;
+            case "archetype_bullfrog" -> ARCHETYPE_BULLFROG;
+            case "apex_bullfrog" -> APEX_BULLFROG;
+            case "proto_colossus" -> PROTO_COLOSSUS;
+            case "archetype_colossus" -> ARCHETYPE_COLOSSUS;
+            case "apex_colossus" -> APEX_COLOSSUS;
             case "saboteur" -> SABOTEUR;
-            case "sandwormSm" -> SANDWORM_GRUBLING;
-            case "scoutbike" -> SCOUT_BIKE;
-            case "sea_grouper" -> MONSTER_GROUPER;
-            case "ship_battleship_med" -> BATTLESHIP_RAPTORCLASS;
-            case "ship_battleship_super" -> BATTLESHIP_MAMMOTHCLASS;
-            case "ship_destroyer_med" -> DESTROYER;
-            case "ship_gunboat" -> GUNBOAT;
-            case "ship_minelayer" -> MINELAYER_DESTROYER;
-            case "ship_mini_sub" -> MINI_SUB;
-            case "ship_raft_trooper" -> NAVY_TROOPER;
-            case "ship_submarine" -> SUBMARINE;
+            case "sandworm_grubling" -> SANDWORM_GRUBLING;
+            case "scout_bike" -> SCOUT_BIKE;
+            case "monster_grouper" -> MONSTER_GROUPER;
+            case "battleship_raptor" -> BATTLESHIP_RAPTORCLASS;
+            case "battleship_mammoth" -> BATTLESHIP_MAMMOTHCLASS;
+            case "destroyer" -> DESTROYER;
+            case "gunboat" -> GUNBOAT;
+            case "minelayer_destroyer" -> MINELAYER_DESTROYER;
+            case "mini_sub" -> MINI_SUB;
+            case "navy_trooper" -> NAVY_TROOPER;
             case "tactical_submarine" -> TACTICAL_SUBMARINE; // ~
-            case "shocktrooper" -> SHOCK_TROOPER;
-            case "shotgunner" -> RIOT_TROOPER;
-            case "sniper" -> SHARPSHOOTER;
-            case "specialmortar" -> MORTAR_TRUCK;
-            case "submarine" -> SUBMARINE; // Shares the same image as 'ship_submarine'
-            case "superArtillery" -> EARTHSHAKER;
-            case "superSniper" -> MARKSMAN;
-            case "swMGPickup" -> WOLF_PICKUP;
-            case "sw_guy_bat" -> WOLF_PUNISHER;
-            case "sw_guy_bat_5" -> WOLF_PUNISHER_2;
-            case "sw_guy_grenade_5" -> WOLF_GRENADIER_2;
-            case "sw_guy_laser" -> LASER_WOLF;
-            case "sw_guy_machete_5" -> WOLF_SCRAPPER_2;
-            case "sw_guy_rpg_5" -> WOLF_DEVASTATOR_2;
-            case "sw_guy_slingshot" -> WOLF_SLINGER;
-            case "sw_guy_sniper" -> SILVER_WOLF_GOLDEN_EAGLE_2;
-            case "sw_guy_uzi_5" -> WOLF_THUG_2;
-            case "sw_veh_artillery" -> WOLF_ARTILLERY;
-            case "sw_veh_artillery_5" -> WOLF_BOMBADIER_2;
-            case "sw_veh_catapult" -> WOLF_FURY;
-            case "sw_veh_pickup_5" -> WOLF_PICKUP_2;
-            case "sw_veh_rocketTruck" -> CONVERTED_GARBAGE_TRUCK;
-            case "sw_veh_steamRoller" -> WOLF_ROLLER;
-            case "tankkiller" -> TANK_KILLER;
+            case "shock_trooper" -> SHOCK_TROOPER;
+            case "riot_trooper" -> RIOT_TROOPER;
+            case "sharpshooter" -> SHARPSHOOTER;
+            case "mortar_truck" -> MORTAR_TRUCK;
+            case "submarine" -> SUBMARINE;
+            case "earthshaker" -> EARTHSHAKER;
+            case "marksman" -> MARKSMAN;
+            case "wolf_pickup" -> WOLF_PICKUP;
+            case "wolf_punisher" -> WOLF_PUNISHER;
+            case "wolf_punisher_2" -> WOLF_PUNISHER_2;
+            case "wolf_grenadier_2" -> WOLF_GRENADIER_2;
+            case "laser_wolf" -> LASER_WOLF;
+            case "wolf_scrapper_2" -> WOLF_SCRAPPER_2;
+            case "wolf_devastator_2" -> WOLF_DEVASTATOR_2;
+            case "wolf_slinger" -> WOLF_SLINGER;
+            case "silver_wolf_golden_eagle_2" -> SILVER_WOLF_GOLDEN_EAGLE_2;
+            case "wolf_thug_2" -> WOLF_THUG_2;
+            case "wolf_artillery" -> WOLF_ARTILLERY;
+            case "wolf_bombadier_2" -> WOLF_BOMBADIER_2;
+            case "wolf_fury" -> WOLF_FURY;
+            case "wolf_pickup_2" -> WOLF_PICKUP_2;
+            case "converted_garbage_truck" -> CONVERTED_GARBAGE_TRUCK;
+            case "wolf_roller" -> WOLF_ROLLER;
+            case "tank_killer" -> TANK_KILLER;
             case "trooper" -> TROOPER;
-            case "veh_air_biplane" -> SOPWITH_SPIDERWASP;
-            case "veh_air_dirigible" -> ZRS6_DIRIGIBLE;
-            case "veh_air_helicopter" -> BC1_SNAKE;
+            case "sopwith_spiderwasp" -> SOPWITH_SPIDERWASP;
+            case "zrs6_dirigible" -> ZRS6_DIRIGIBLE;
+            case "bc1_snake" -> BC1_SNAKE;
             case "bc3_cobra" -> BC3_COBRA; // ~
-            case "veh_ancient_robot_clone_trap_mission" -> EXPERIMENT_X17;
-            case "veh_ancient_robot_player" -> DEXTER_FRAGMENT;
-            case "veh_anti_aircraft_gun_premium" -> ANTIAIRCRAFT_FLAK_GUN;
-            case "veh_anti_aircraft_gun_regular" -> ANTIAIRCRAFT_TURRET;
-            case "veh_anti_armor" -> BRUTALIZER;
-            case "veh_artillery_napalm" -> DEATH_FROM_ABOVE;
-            case "veh_boomBus" -> BOOM_BUS;
-            case "veh_cannon_plasma" -> ARTILLERY_PLASMA_CANNON;
-            case "veh_elemental_rover" -> NOMAD_ELEMENTAL_ROVER;
-            case "veh_hoverbike" -> T16_AERO_BIKE;
-            case "veh_hovertank" -> ANTIGRAVITY_TANK;
-            case "veh_ign_turret_flame" -> UNMANNED_FLAME_TURRET;
-            case "veh_ign_turret_laser" -> UNMANNED_LASER_TURRET;
-            case "veh_ign_turret_mgun" -> UNMANNED_MACHINE_GUN_TURRET;
-            case "veh_motorcycle_advanced" -> ACES_650CC;
-            case "veh_plasma_turret" -> PLASMA_TURRET;
-            case "veh_raider_mammoth_armored_55" -> RAIDER_MAMMOTH_TANK;
-            case "veh_raider_mammoth_rockets_55" -> TOTAL_WAR_MAMMOTH;
-            case "veh_raider_rocketMammoth" -> RAIDER_WAR_MAMMOTH;
-            case "veh_tank_arctic" -> ARCTIC_TANK;
-            case "veh_tank_arctic_heavy" -> HEAVY_ARCTIC_TANK;
-            case "veh_tank_arctic_heavy_rebel" -> HEAVY_ARCTIC_TANK_2;
-            case "veh_tank_basilisk" -> BASILISK;
-            case "veh_tank_cryo" -> FROSTBITE;
-            case "veh_tank_flame_heavy" -> DRAGON;
-            case "veh_tank_heavier" -> HEAVIER_TANK;
-            case "veh_tank_laser" -> LASER_TANK;
-            case "veh_tank_mega" -> MEGA_TANK;
-            case "veh_tank_mega_rebel" -> MEGA_TANK_2;
-            case "veh_tank_plasma" -> PLASMA_TANK;
-            case "veh_tank_snowplow" -> SNOW_CRUSHER;
-            case "veh_tank_tesla" -> LIGHTNING_TANK;
-            case "veh_trebuchet" -> ZOEYS_TREBUCHET;
-            case "wheeledTank" -> PUMA;
+            case "experiment_x17" -> EXPERIMENT_X17;
+            case "dexter_fragment" -> DEXTER_FRAGMENT;
+            case "antiaircraft_flak_gun" -> ANTIAIRCRAFT_FLAK_GUN;
+            case "antiaircraft_turret" -> ANTIAIRCRAFT_TURRET;
+            case "brutalizer" -> BRUTALIZER;
+            case "death_from_above" -> DEATH_FROM_ABOVE;
+            case "boom_bus" -> BOOM_BUS;
+            case "artillery_plasma_cannon" -> ARTILLERY_PLASMA_CANNON;
+            case "nomad_elemental_rover" -> NOMAD_ELEMENTAL_ROVER;
+            case "t16_aero_bike" -> T16_AERO_BIKE;
+            case "antigravity_tank" -> ANTIGRAVITY_TANK;
+            case "unmanned_flame_turret" -> UNMANNED_FLAME_TURRET;
+            case "unmanned_laser_turret" -> UNMANNED_LASER_TURRET;
+            case "unmanned_machine_gun_turret" -> UNMANNED_MACHINE_GUN_TURRET;
+            case "aces_650cc" -> ACES_650CC;
+            case "plasma_turret" -> PLASMA_TURRET;
+            case "raider_mammoth_tank" -> RAIDER_MAMMOTH_TANK;
+            case "total_war_mammoth" -> TOTAL_WAR_MAMMOTH;
+            case "raider_war_mammoth" -> RAIDER_WAR_MAMMOTH;
+            case "arctic_tank" -> ARCTIC_TANK;
+            case "heavy_arctic_tank" -> HEAVY_ARCTIC_TANK;
+            case "heavy_arctic_tank_rebel" -> HEAVY_ARCTIC_TANK_2;
+            case "basilisk" -> BASILISK;
+            case "frostbite" -> FROSTBITE;
+            case "dragon" -> DRAGON;
+            case "heavier_tank" -> HEAVIER_TANK;
+            case "laser_tank" -> LASER_TANK;
+            case "mega_tank" -> MEGA_TANK;
+            case "mega_tank_rebel" -> MEGA_TANK_2;
+            case "plasma_tank" -> PLASMA_TANK;
+            case "snow_crusher" -> SNOW_CRUSHER;
+            case "lightning_tank" -> LIGHTNING_TANK;
+            case "zoeys_trebuchet" -> ZOEYS_TREBUCHET;
+            case "puma" -> PUMA;
             case "sc2_pelican" -> SC2_PELICAN; // ~
             case "heavy_gunboat" -> HEAVY_GUNBOAT; // ~
             case "shadow_class_submarine" -> SHADOW_CLASS_SUBMARINE; // ~
@@ -2420,6 +2452,11 @@ public enum Unit {
             case "radio_tech" -> RADIO_TECH; // ~
             case "unicorn_trooper" -> UNICORN_TROOPER; // ~
             case "weapon_technician" -> WEAPON_TECHNICIAN; // ~
+            case "scout" -> TF2_SCOUT; // ~
+            case "soldier" -> TF2_SOLDIER; // ~
+            case "demoman" -> TF2_DEMOMAN; // ~
+            case "heavy" -> TF2_HEAVY; // ~
+            case "pyro" -> TF2_PYRO; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };

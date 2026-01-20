@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 class FormationTest {
     public static void main(String[] args) {
         Formation formation = Formation.fromDataString(
-            "map=city,12=elderSandworm,3=heavytank,10=assassinator,5=def_barricade_sandbags,1=def_barricade_sandbags"
+            "map=outpost,1=super_tank,4=super_tank,5=super_tank,6=veteran,7=veteran,11=veteran,9=cryo_trooper,10=bc1_snake,12=bc1_snake,13=bc1_snake"
         );
         formation.setIsEnemy(true);
         BufferedImage img = formation.toImage();
@@ -54,7 +54,7 @@ public class Formation {
                     case "11" -> formation.grid11 = Unit.fromId(value);
                     case "12" -> formation.grid12 = Unit.fromId(value);
                     case "13" -> formation.grid13 = Unit.fromId(value);
-                    default -> throw new FormationException("Unknown formation key: `" + key + "`\nIf you need help, use `/formation` with no arguments.");
+                    default -> throw new FormationException("Unknown formation key: `" + key + "`\nValid keys are `map` and grid numbers `1` through `13`. If you need further help, use `/formation` with no arguments.");
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e) {
@@ -80,10 +80,7 @@ public class Formation {
         image.getGraphics().drawImage(ImageIO.read(resource), map.x() + gridX - unitX + X_OFFSET, map.y() + gridY - unitY + Y_OFFSET, null);
     }
 
-    public BufferedImage toImage() {
-        if (isEnemyFormation) return toEnemyImage();
-        else return toPlayerImage();
-    }
+    public BufferedImage toImage() { return isEnemyFormation ? toEnemyImage() : toPlayerImage(); }
     private BufferedImage toEnemyImage() {
         try {
             BufferedImage image = ImageIO.read(Formation.class.getResourceAsStream(map.enemyFilePath()));

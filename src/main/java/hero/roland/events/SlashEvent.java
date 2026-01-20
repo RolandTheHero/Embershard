@@ -182,7 +182,7 @@ record FormationCommand() implements SlashEvent {
                     "To create a formation, you need to provide a data string that describes the formation. " +
                     "When referring to units, their unit ID is used. Refer [here](https://docs.google.com/document/d/1NapO41-zFrOWCp8DI0VfLYA3OYWQd2ZjLqsNzepZ1pI/edit?usp=sharing) for a list of unit IDs.\n\n" +
                     "An example of a valid data string is:\n" +
-                    "`map=city,12=heavyartillery,3=heavytank,10=assassinator,5=def_barricade_sandbags,1=def_barricade_sandbags`"
+                    "`map=city,12=heavy_artillery,3=heavy_tank,10=assassinator,5=sandbags,1=sandbags`"
                 )
                 .setImage("https://static.wikia.nocookie.net/battlenations/images/2/2b/GridNumbers.png")
                 .setColor(Color.CYAN)
