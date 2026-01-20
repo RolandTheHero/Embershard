@@ -1203,12 +1203,14 @@ public enum Unit {
         @Override public int frontX() { return 39; }
         @Override public int frontY() { return 172; }
         @Override public int backX() { return 53; }
-        @Override public int backY() { return 160; }
+        @Override public int backY() { return 163; }
     },
     VETERAN_2 { // Front
         @Override public String id() { return "s_trooper_veteran_rebel"; }
         @Override public int frontX() { return VETERAN.frontX(); }
         @Override public int frontY() { return VETERAN.frontY(); }
+        @Override public int backX() { return VETERAN.backX(); }
+        @Override public int backY() { return VETERAN.backY(); }
     },
     PROTO_CREEPER { // Front & Back
         @Override public String id() { return "s_trooper_zombie"; }

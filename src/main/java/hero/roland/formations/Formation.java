@@ -12,8 +12,7 @@ class FormationTest {
         Formation formation = Formation.fromDataString(
             "map=outpost,1=super_tank,4=super_tank,5=super_tank,6=veteran,7=veteran,11=veteran,9=cryo_trooper,10=bc1_snake,12=bc1_snake,13=bc1_snake"
         );
-        formation.setIsEnemy(true);
-        BufferedImage img = formation.toImage();
+        BufferedImage img = formation.toImage(false);
         try {
             ImageIO.write(img, "png", new File("formation.png"));
         } catch (IOException e) {
@@ -25,11 +24,8 @@ class FormationTest {
 public class Formation {
     static final int X_OFFSET = 30, Y_OFFSET = 40;
 
-    boolean isEnemyFormation = false;
     BattleMap map = BattleMap.OUTPOST;
     Unit grid1, grid2, grid3, grid4, grid5, grid6, grid7, grid8, grid9, grid10, grid11, grid12, grid13;
-
-    public void setIsEnemy(boolean isEnemy) { isEnemyFormation = isEnemy; }
 
     static public Formation fromDataString(String data) {
         Formation formation = new Formation();
@@ -80,7 +76,7 @@ public class Formation {
         image.getGraphics().drawImage(ImageIO.read(resource), map.x() + gridX - unitX + X_OFFSET, map.y() + gridY - unitY + Y_OFFSET, null);
     }
 
-    public BufferedImage toImage() { return isEnemyFormation ? toEnemyImage() : toPlayerImage(); }
+    public BufferedImage toImage(boolean isEnemy) { return isEnemy ? toEnemyImage() : toPlayerImage(); }
     private BufferedImage toEnemyImage() {
         try {
             BufferedImage image = ImageIO.read(Formation.class.getResourceAsStream(map.enemyFilePath()));

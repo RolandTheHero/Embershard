@@ -143,4 +143,13 @@ public abstract class MessageReplier {
         if (GOLD_LEADERBOARD_PAGE_SIZE * (page + 1) >= goldLeaderboardMembers) right = right.asDisabled();
         reply.setComponents(ActionRow.of(left, right)).queue();
     }
+
+    static public EmbedBuilder formationEmbed(String data) {
+        EmbedBuilder embed = new EmbedBuilder()
+            .setTitle("Formation")
+            .setFooter(data)
+            .setImage("attachment://formation.png")
+            .setColor(Color.CYAN);
+        return embed;
+    }
 }
