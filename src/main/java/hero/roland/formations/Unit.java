@@ -2126,6 +2126,20 @@ public enum Unit {
         @Override public int frontX() { return 35; }
         @Override public int frontY() { return 125; }
     },
+    MECHANIZED_TROOPER {
+        @Override public String id() { return "s_armored_trooper"; }
+        @Override public int frontX() { return 97; }
+        @Override public int frontY() { return 176; }
+        @Override public int backX() { return 70; }
+        @Override public int backY() { return 182; }
+    },
+    MECHANIZED_ARTILLERY {
+        @Override public String id() { return "veh_artillery_mech"; }
+        @Override public int frontX() { return 114; }
+        @Override public int frontY() { return 167; }
+        @Override public int backX() { return 70; }
+        @Override public int backY() { return 199; }
+    },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
         @Override public int frontX() { return -0; }
@@ -2475,6 +2489,8 @@ public enum Unit {
             case "heavy" -> TF2_HEAVY; // ~
             case "pyro" -> TF2_PYRO; // ~
             case "test_dummy" -> TEST_DUMMY; // ~
+            case "mechanized_trooper" -> MECHANIZED_TROOPER; // ~
+            case "mechanized_artillery" -> MECHANIZED_ARTILLERY; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };

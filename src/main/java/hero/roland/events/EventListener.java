@@ -30,7 +30,8 @@ public class EventListener extends ListenerAdapter {
         "scrolllist", new ScrollListButton(),
         //"scrollgold", new ScrollGoldButton(),
         "guideselect", new GuidesButton(),
-        "toggleformation", new ToggleFormationButton()
+        "toggleformation", new ToggleFormationButton(),
+        "editformation", new EditFormationButton()
     );
     @Override public void onButtonInteraction(ButtonInteractionEvent event) {
         String buttonId = event.getButton().getCustomId().split(":")[0];
@@ -40,7 +41,8 @@ public class EventListener extends ListenerAdapter {
     }
 
     final private Map<String, ModalEvent> modalEvents = Map.of(
-        "editpolicymodal", new EditPolicyModal()
+        "editpolicymodal", new EditPolicyModal(),
+        "editformationmodal", new EditFormationModal()
     );
     @Override public void onModalInteraction(ModalInteractionEvent event) {
         String modalId = event.getModalId().split(":")[0];

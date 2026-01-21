@@ -1,17 +1,25 @@
 package hero.roland.messages;
 
 import java.awt.Color;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
+import hero.roland.formations.Formation;
+import hero.roland.formations.FormationException;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.components.actionrow.ActionRow;
 import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.requests.restaction.interactions.MessageEditCallbackAction;
 import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
+import net.dv8tion.jda.api.utils.FileUpload;
 
 public abstract class MessageReplier {
     static public MessageEmbed getPolicyReply(User userToView) {
@@ -151,5 +159,34 @@ public abstract class MessageReplier {
             .setImage("attachment://formation.png")
             .setColor(Color.CYAN);
         return embed;
+    }
+    static public void formationReply(InteractionHook interaction, String data, boolean isEnemy) {
+        EmbedBuilder embed = formationEmbed(data);
+        long userId = interaction.getInteraction().getUser().getIdLong();
+        try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+            ImageIO.write(Formation.fromDataString(data).toImage(isEnemy), "png", os);
+            interaction.editOriginalEmbeds(embed.build())
+                .setAttachments(FileUpload.fromData(os.toByteArray(), "formation.png"))
+                .setComponents(
+                    ActionRow.of(
+                        Button.secondary("toggleformation:" + userId + ":" + !isEnemy, "Toggle Side"),
+                        Button.secondary("editformation:" + userId, "Edit")
+                    )
+                ).queue();
+        } catch (IOException e) {
+            interaction.editOriginalEmbeds(
+                MessageReplier.formationEmbed(data).setDescription("An error occurred while generating the formation image. Please try again.")
+                    .build()
+            ).setComponents(
+                ActionRow.of(Button.secondary("editformation:" + userId, "Edit"))
+            ).queue();
+        } catch (FormationException e) {
+            interaction.editOriginalEmbeds(
+                MessageReplier.formationEmbed(data).setDescription(e.getMessage())
+                    .build()
+            ).setComponents(
+                ActionRow.of(Button.secondary("editformation:" + userId, "Edit"))
+            ).queue();
+        } 
     }
 }

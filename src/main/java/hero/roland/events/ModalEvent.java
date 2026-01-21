@@ -29,3 +29,11 @@ class EditPolicyModal implements ModalEvent {
         MessageReplier.viewPolicyReply(event.getUser(), event.getUser(), event.deferEdit());
     }
 }
+class EditFormationModal implements ModalEvent {
+    @Override public void run(ModalInteractionEvent event) {
+        ModalMapping dataModalEntry = event.getValue("data");
+        String data = dataModalEntry.getAsString();
+        event.editMessageEmbeds(MessageReplier.formationEmbed(data).appendDescription("\n\nPlease wait while your data string is being parsed...").build())
+            .queue(interaction -> MessageReplier.formationReply(interaction, data, false));
+    }
+}

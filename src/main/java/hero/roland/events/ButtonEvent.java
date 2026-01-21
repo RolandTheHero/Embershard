@@ -1,15 +1,9 @@
 package hero.roland.events;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.List;
-
-import javax.imageio.ImageIO;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
-import hero.roland.formations.Formation;
-import hero.roland.formations.FormationException;
 import hero.roland.messages.GuidePage;
 import hero.roland.messages.GuidePages;
 import hero.roland.messages.MessageReplier;
@@ -21,7 +15,6 @@ import net.dv8tion.jda.api.components.textinput.TextInputStyle;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.modals.Modal;
-import net.dv8tion.jda.api.utils.FileUpload;
 
 public interface ButtonEvent {
     public void run(ButtonInteractionEvent event);
@@ -168,23 +161,28 @@ class ToggleFormationButton implements ButtonEvent {
         String dataString = event.getMessage().getEmbeds().get(0).getFooter().getText();
         boolean isEnemy = Boolean.parseBoolean(buttonId[2]);
         event.editMessageEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build()).setComponents()
-            .queue(interaction -> {
-                try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
-                    Formation formation = Formation.fromDataString(dataString);
-                    ImageIO.write(formation.toImage(isEnemy), "png", os);
-                    interaction.editOriginalEmbeds(MessageReplier.formationEmbed(dataString).build())
-                        .setAttachments(
-                            FileUpload.fromData(os.toByteArray(), "formation.png")
-                        ).setComponents(
-                            ActionRow.of(Button.secondary("toggleformation:" + event.getUser().getId() + ":" + !isEnemy, "Toggle Side"))
-                        ).queue();
-                } catch (IOException e) {
-                    interaction.editOriginalEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nAn error occurred while generating the formation image. Please try again.").build())
-                        .queue();
-                } catch (FormationException e) {
-                    interaction.editOriginalEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\n" + e.getMessage()).build())
-                        .queue();
-                }
-            });
+            .queue(interaction -> MessageReplier.formationReply(interaction, dataString, isEnemy));
+    }
+}
+class EditFormationButton implements ButtonEvent {
+    @Override public void run(ButtonInteractionEvent event) {
+        // editformation:USERID
+        String[] buttonId = event.getButton().getCustomId().split(":");
+        long userIdWhoMustRun = Long.parseLong(buttonId[1]);
+        if (userIdWhoMustRun != event.getUser().getIdLong()) {
+            event.reply("You can only edit your own formation! Copy the data string and use the `/formation` command with it to make your own.").setEphemeral(true).queue();
+            return;
+        }
+        String data = event.getMessage().getEmbeds().get(0).getFooter().getText();
+        TextInput dataInput = TextInput.create("data", TextInputStyle.PARAGRAPH)
+            .setRequired(false)
+            .setPlaceholder("map=bay,3=ironclad_battleship,5=monster_grouper, ...")
+            .setValue(data)
+            .setMaxLength(500)
+            .build();
+        Modal modal = Modal.create("editformationmodal:" + event.getMessageIdLong(), "Edit Formation")
+            .addComponents(Label.of("Formation Data", dataInput))
+            .build();
+        event.replyModal(modal).queue();
     }
 }

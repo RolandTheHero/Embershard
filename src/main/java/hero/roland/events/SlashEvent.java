@@ -6,20 +6,12 @@ import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-import net.dv8tion.jda.api.utils.FileUpload;
 
 import java.awt.Color;
 import java.util.List;
 
-import javax.imageio.ImageIO;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
-import hero.roland.formations.Formation;
-import hero.roland.formations.FormationException;
 import hero.roland.messages.*;
 
 public interface SlashEvent {
@@ -191,25 +183,7 @@ record FormationCommand() implements SlashEvent {
             return;
         }
         String dataString = dataOption.getAsString().replaceAll("`", "");
-        event.replyEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build()).queue(interaction -> {
-            try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
-                Formation formation = Formation.fromDataString(dataString);
-                ImageIO.write(formation.toImage(false), "png", os);
-                interaction.editOriginalEmbeds(MessageReplier.formationEmbed(dataString).build())
-                    .setAttachments(
-                        FileUpload.fromData(os.toByteArray(), "formation.png")
-                    )
-                    .setComponents(
-                        ActionRow.of(Button.secondary("toggleformation:" + event.getUser().getId() + ":true", "Toggle Side"))
-                    )
-                    .queue();
-            } catch (IOException e) {
-                interaction.editOriginalEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nAn error occurred while generating the formation image. Please try again.").build())
-                    .queue();
-            } catch (FormationException e) {
-                interaction.editOriginalEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\n" + e.getMessage()).build())
-                    .queue();
-            }
-        });
+        event.replyEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build())
+            .queue(interaction -> MessageReplier.formationReply(interaction, dataString, false));
     }
 }
