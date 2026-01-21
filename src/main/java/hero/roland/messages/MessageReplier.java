@@ -161,6 +161,7 @@ public abstract class MessageReplier {
         return embed;
     }
     static public void formationReply(InteractionHook interaction, String data, boolean isEnemy) {
+        if (data == null ) data = "";
         EmbedBuilder embed = formationEmbed(data);
         long userId = interaction.getInteraction().getUser().getIdLong();
         try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {

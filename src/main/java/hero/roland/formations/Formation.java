@@ -29,6 +29,7 @@ public class Formation {
 
     static public Formation fromDataString(String data) {
         Formation formation = new Formation();
+        if (data.isEmpty()) return formation;
         try {
             String[] parts = data.split(",");
             for (String part : parts) {

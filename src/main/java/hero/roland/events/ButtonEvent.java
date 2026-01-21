@@ -158,7 +158,8 @@ class ToggleFormationButton implements ButtonEvent {
             event.reply("You can only toggle your own formation view!").setEphemeral(true).queue();
             return;
         }
-        String dataString = event.getMessage().getEmbeds().get(0).getFooter().getText();
+        var footer = event.getMessage().getEmbeds().get(0).getFooter();
+        String dataString = footer == null ? "" : footer.getText();
         boolean isEnemy = Boolean.parseBoolean(buttonId[2]);
         event.editMessageEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build()).setComponents()
             .queue(interaction -> MessageReplier.formationReply(interaction, dataString, isEnemy));
@@ -173,11 +174,12 @@ class EditFormationButton implements ButtonEvent {
             event.reply("You can only edit your own formation! Copy the data string and use the `/formation` command with it to make your own.").setEphemeral(true).queue();
             return;
         }
-        String data = event.getMessage().getEmbeds().get(0).getFooter().getText();
+        var footer = event.getMessage().getEmbeds().get(0).getFooter();
+        String dataString = footer == null ? null : footer.getText();
         TextInput dataInput = TextInput.create("data", TextInputStyle.PARAGRAPH)
             .setRequired(false)
             .setPlaceholder("map=bay,3=ironclad_battleship,5=monster_grouper, ...")
-            .setValue(data)
+            .setValue(dataString)
             .setMaxLength(500)
             .build();
         Modal modal = Modal.create("editformationmodal:" + event.getMessageIdLong(), "Edit Formation")
