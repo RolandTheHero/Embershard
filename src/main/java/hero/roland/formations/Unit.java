@@ -1413,6 +1413,13 @@ public enum Unit {
         @Override public int backX() { return 90; }
         @Override public int backY() { return 130; }
     },
+    BABY_GROUPER { // Front & Back
+        @Override public String id() { return "sea_grouper_baby"; }
+        @Override public int frontX() { return 45; }
+        @Override public int frontY() { return 95; }
+        @Override public int backX() { return 55; }
+        @Override public int backY() { return 100; }
+    },
     BATTLESHIP_RAPTORCLASS { // Front & Back
         @Override public String id() { return "ship_battleship_med"; }
         @Override public int frontX() { return 79; }
@@ -2112,6 +2119,13 @@ public enum Unit {
         @Override public int backX() { return 50; }
         @Override public int backY() { return 145; }
     },
+    TEST_DUMMY {
+        @Override public String id() { return "dummy"; }
+        @Override public String frontFilePath() { return "/units/dummy.png"; }
+        @Override public String backFilePath() { return frontFilePath(); }
+        @Override public int frontX() { return 35; }
+        @Override public int frontY() { return 125; }
+    },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
         @Override public int frontX() { return -0; }
@@ -2352,6 +2366,7 @@ public enum Unit {
             case "sandworm_grubling" -> SANDWORM_GRUBLING;
             case "scout_bike" -> SCOUT_BIKE;
             case "monster_grouper" -> MONSTER_GROUPER;
+            case "baby_grouper" -> BABY_GROUPER;
             case "battleship_raptor" -> BATTLESHIP_RAPTORCLASS;
             case "battleship_mammoth" -> BATTLESHIP_MAMMOTHCLASS;
             case "destroyer" -> DESTROYER;
@@ -2459,6 +2474,7 @@ public enum Unit {
             case "demoman" -> TF2_DEMOMAN; // ~
             case "heavy" -> TF2_HEAVY; // ~
             case "pyro" -> TF2_PYRO; // ~
+            case "test_dummy" -> TEST_DUMMY; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };

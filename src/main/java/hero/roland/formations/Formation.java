@@ -10,9 +10,9 @@ import javax.imageio.ImageIO;
 class FormationTest {
     public static void main(String[] args) {
         Formation formation = Formation.fromDataString(
-            "map=outpost,1=super_tank,4=super_tank,5=super_tank,6=veteran,7=veteran,11=veteran,9=cryo_trooper,10=bc1_snake,12=bc1_snake,13=bc1_snake"
+            "1=test_dummy"
         );
-        BufferedImage img = formation.toImage(false);
+        BufferedImage img = formation.toImage(true);
         try {
             ImageIO.write(img, "png", new File("formation.png"));
         } catch (IOException e) {
