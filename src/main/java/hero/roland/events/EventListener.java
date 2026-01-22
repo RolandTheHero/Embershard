@@ -31,7 +31,8 @@ public class EventListener extends ListenerAdapter {
         //"scrollgold", new ScrollGoldButton(),
         "guideselect", new GuidesButton(),
         "toggleformation", new ToggleFormationButton(),
-        "editformation", new EditFormationButton()
+        "editformation", new EditFormationButton(),
+        "finishformation", new FinishFormationButton()
     );
     @Override public void onButtonInteraction(ButtonInteractionEvent event) {
         String buttonId = event.getButton().getCustomId().split(":")[0];

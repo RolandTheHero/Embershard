@@ -170,8 +170,9 @@ public abstract class MessageReplier {
                 .setAttachments(FileUpload.fromData(os.toByteArray(), "formation.png"))
                 .setComponents(
                     ActionRow.of(
-                        Button.secondary("toggleformation:" + userId + ":" + !isEnemy, "Toggle Side"),
-                        Button.secondary("editformation:" + userId, "Edit")
+                        Button.primary("finishformation:" + userId, "Finish"),
+                        Button.secondary("editformation:" + userId + ":" + isEnemy, "Edit"),
+                        Button.secondary("toggleformation:" + userId + ":" + !isEnemy, "Toggle Side")
                     )
                 ).queue();
         } catch (IOException e) {
@@ -179,14 +180,20 @@ public abstract class MessageReplier {
                 MessageReplier.formationEmbed(data).setDescription("An error occurred while generating the formation image. Please try again.")
                     .build()
             ).setComponents(
-                ActionRow.of(Button.secondary("editformation:" + userId, "Edit"))
+                ActionRow.of(
+                    Button.primary("finishformation:" + userId, "Finish"),
+                    Button.secondary("editformation:" + userId + ":" + isEnemy, "Edit")
+                )
             ).queue();
         } catch (FormationException e) {
             interaction.editOriginalEmbeds(
                 MessageReplier.formationEmbed(data).setDescription(e.getMessage())
                     .build()
             ).setComponents(
-                ActionRow.of(Button.secondary("editformation:" + userId, "Edit"))
+                ActionRow.of(
+                    Button.primary("finishformation:" + userId, "Finish"),
+                    Button.secondary("editformation:" + userId + ":" + isEnemy, "Edit")
+                )
             ).queue();
         } 
     }

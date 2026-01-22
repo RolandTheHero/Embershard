@@ -2080,46 +2080,46 @@ public enum Unit {
         @Override public int frontY() { return 128; }
         @Override public int backY() { return 135; }
     },
-    WEAPON_TECHNICIAN {
+    WEAPON_TECHNICIAN { // Front & Back
         @Override public String id() { return "s_scientist"; }
         @Override public int frontX() { return 35; }
         @Override public int frontY() { return 125; }
         @Override public int backY() { return 120; }
     },
-    TF2_SCOUT {
+    TF2_SCOUT { // Front & Back
         @Override public String id() { return "tf2_hero_scout"; }
         @Override public int frontX() { return 50; }
         @Override public int frontY() { return 130; }
         @Override public int backX() { return 38; }
         @Override public int backY() { return 135; }
     },
-    TF2_SOLDIER {
+    TF2_SOLDIER { // Front & Back
         @Override public String id() { return "tf2_hero_soldier"; }
         @Override public int frontX() { return 60; }
         @Override public int frontY() { return 145; }
         @Override public int backX() { return 45; }
     },
-    TF2_HEAVY {
+    TF2_HEAVY { // Front & Back
         @Override public String id() { return "tf2_hero_heavy"; }
         @Override public int frontX() { return 100; }
         @Override public int frontY() { return 165; }
         @Override public int backX() { return 50; }
         @Override public int backY() { return 170; }
     },
-    TF2_DEMOMAN {
+    TF2_DEMOMAN { // Front & Back
         @Override public String id() { return "tf2_hero_demoman"; }
         @Override public int frontX() { return 56; }
         @Override public int frontY() { return 155; }
         @Override public int backX() { return 40; }
     },
-    TF2_PYRO {
+    TF2_PYRO { // Front & Back
         @Override public String id() { return "tf2_hero_pyro"; }
         @Override public int frontX() { return 80; }
         @Override public int frontY() { return 135; }
         @Override public int backX() { return 50; }
         @Override public int backY() { return 145; }
     },
-    TEST_DUMMY {
+    TEST_DUMMY { // Front & Back
         @Override public String id() { return "dummy"; }
         @Override public String frontFilePath() { return "/units/dummy.png"; }
         @Override public String backFilePath() { return frontFilePath(); }
@@ -2139,6 +2139,111 @@ public enum Unit {
         @Override public int frontY() { return 167; }
         @Override public int backX() { return 70; }
         @Override public int backY() { return 199; }
+    },
+    AURORA { // Back
+        @Override public String id() { return "hero_aurora"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 20; }
+        @Override public int backY() { return 145; }
+    },
+    BRONSON { // Front
+        @Override public String id() { return "hero_cast_bronson"; }
+        @Override public int frontX() { return 65; }
+        @Override public int frontY() { return 150; }
+    },
+    DOUG { // Front
+        @Override public String id() { return "swbrute"; }
+        @Override public int frontX() { return 45; }
+        @Override public int frontY() { return 138; }
+    },
+    CASSIDY { // Back
+        @Override public String id() { return "cassidy"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 20; }
+        @Override public int backY() { return 140; }
+    },
+    CASSIDY_RAILGUN { // Back
+        @Override public String id() { return "hero_cast_cassidy_railgun"; }
+        @Override public int frontX() { return 35; }
+        @Override public int frontY() { return 170; }
+    },
+    PERKINS { // Front & Back
+        @Override public String id() { return "hero_cast_perkins"; }
+        @Override public int frontX() { return 23; }
+        @Override public int frontY() { return 130; }
+    },
+    ELDER_TAOS { // Back
+        @Override public String id() { return "taos"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 45; }
+        @Override public int backY() { return 140; }
+    },
+    FLOYD { // Back
+        @Override public String id() { return "floyd"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 20; }
+        @Override public int backY() { return 135; }
+    },
+    LT_MORGAN { // Back
+        @Override public String id() { return "morgan"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 18; }
+        @Override public int backY() { return 165; }
+    },
+    MR_PURRFACE { // Front & Back
+        @Override public String id() { return "purrface"; }
+        @Override public int frontX() { return 18; }
+        @Override public int frontY() { return 80; }
+    },
+    PERCIVAL { // Back
+        @Override public String id() { return "percival"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 35; }
+        @Override public int backY() { return 140; }
+    },
+    SGT_RAMSEY { // Back
+        @Override public String id() { return "ramsey"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 33; }
+        @Override public int backY() { return 135; }
+    },
+    SHERIFF_COLT { // Back
+        @Override public String id() { return "sheriffcolt"; }
+        @Override public int frontX() { return 33; }
+        @Override public int frontY() { return 142; }
+    },
+    THE_RAIDER_KIDS { // Front & Back
+        @Override public String id() { return "raiderkidstank"; }
+        @Override public int frontX() { return MINI_TANK.frontX(); }
+        @Override public int frontY() { return MINI_TANK.frontY() + 10; }
+    },
+    YOUNG_ASHE { // Back
+        @Override public String id() { return "youngashe"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 60; }
+        @Override public int backY() { return 155; }
+    },
+    GENERAL_ASHE { // Front & Back
+        @Override public String id() { return "generalashe"; }
+        @Override public int frontX() { return 50; }
+        @Override public int frontY() { return 150; }
+        @Override public int backX() { return 30; }
+        @Override public int backY() { return 145; }
+    },
+    ZOEY { // Back
+        @Override public String id() { return "zoey"; }
+        @Override public int frontX() { return 0; }
+        @Override public int frontY() { return 0; }
+        @Override public int backX() { return 30; }
+        @Override public int backY() { return 135; }
     },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
@@ -2491,6 +2596,23 @@ public enum Unit {
             case "test_dummy" -> TEST_DUMMY; // ~
             case "mechanized_trooper" -> MECHANIZED_TROOPER; // ~
             case "mechanized_artillery" -> MECHANIZED_ARTILLERY; // ~
+            case "aurora" -> AURORA; // ~
+            case "bronson" -> BRONSON; // ~
+            case "doug" -> DOUG; // ~
+            case "cassidy" -> CASSIDY; // ~
+            case "cassidy_railgun" -> CASSIDY_RAILGUN; // ~
+            case "perkins" -> PERKINS; // ~
+            case "elder_taos" -> ELDER_TAOS; // ~
+            case "floyd" -> FLOYD; // ~
+            case "lt_morgan" -> LT_MORGAN; // ~
+            case "mr_purrface" -> MR_PURRFACE; // ~
+            case "percival" -> PERCIVAL; // ~
+            case "sgt_ramsey" -> SGT_RAMSEY; // ~
+            case "sheriff_colt" -> SHERIFF_COLT; // ~
+            case "the_raider_kids" -> THE_RAIDER_KIDS; // ~
+            case "young_ashe" -> YOUNG_ASHE; // ~
+            case "general_ashe" -> GENERAL_ASHE; // ~
+            case "zoey" -> ZOEY; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };

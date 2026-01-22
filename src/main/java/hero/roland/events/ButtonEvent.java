@@ -167,7 +167,7 @@ class ToggleFormationButton implements ButtonEvent {
 }
 class EditFormationButton implements ButtonEvent {
     @Override public void run(ButtonInteractionEvent event) {
-        // editformation:USERID
+        // editformation:USERID:IS_ENEMY
         String[] buttonId = event.getButton().getCustomId().split(":");
         long userIdWhoMustRun = Long.parseLong(buttonId[1]);
         if (userIdWhoMustRun != event.getUser().getIdLong()) {
@@ -182,9 +182,24 @@ class EditFormationButton implements ButtonEvent {
             .setValue(dataString)
             .setMaxLength(500)
             .build();
-        Modal modal = Modal.create("editformationmodal:" + event.getMessageIdLong(), "Edit Formation")
+        Modal modal = Modal.create("editformationmodal:" + buttonId[2], "Edit Formation")
             .addComponents(Label.of("Formation Data", dataInput))
             .build();
         event.replyModal(modal).queue();
+    }
+}
+class FinishFormationButton implements ButtonEvent {
+    @Override public void run(ButtonInteractionEvent event) {
+        // finishformation:USERID
+        String[] buttonId = event.getButton().getCustomId().split(":");
+        long userIdWhoMustRun = Long.parseLong(buttonId[1]);
+        if (userIdWhoMustRun != event.getUser().getIdLong()) {
+            event.reply("You can only finish your own formation!").setEphemeral(true).queue();
+            return;
+        }
+        if (event.getMessage().getEmbeds().getFirst().getImage() == null) {
+            event.deferEdit().queue();
+            event.getMessage().delete().queue();
+        } else event.editMessageEmbeds().setComponents().queue();
     }
 }
