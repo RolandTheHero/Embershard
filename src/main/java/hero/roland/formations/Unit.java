@@ -1420,6 +1420,13 @@ public enum Unit {
         @Override public int backX() { return 55; }
         @Override public int backY() { return 100; }
     },
+    ELDER_GROUPER { // Front
+        @Override public String id() { return "sea_grouper_adult"; }
+        @Override public int frontX() { return MONSTER_GROUPER.frontX(); }
+        @Override public int frontY() { return MONSTER_GROUPER.frontY(); }
+        @Override public int backX() { return MONSTER_GROUPER.backX(); }
+        @Override public int backY() { return MONSTER_GROUPER.backY(); }
+    },
     BATTLESHIP_RAPTORCLASS { // Front & Back
         @Override public String id() { return "ship_battleship_med"; }
         @Override public int frontX() { return 79; }
@@ -2185,15 +2192,15 @@ public enum Unit {
         @Override public String id() { return "floyd"; }
         @Override public int frontX() { return 0; }
         @Override public int frontY() { return 0; }
-        @Override public int backX() { return 20; }
-        @Override public int backY() { return 135; }
+        @Override public int backX() { return 30; }
+        @Override public int backY() { return 130; }
     },
     LT_MORGAN { // Back
         @Override public String id() { return "morgan"; }
         @Override public int frontX() { return 0; }
         @Override public int frontY() { return 0; }
-        @Override public int backX() { return 18; }
-        @Override public int backY() { return 165; }
+        @Override public int backX() { return 30; }
+        @Override public int backY() { return 160; }
     },
     MR_PURRFACE { // Front & Back
         @Override public String id() { return "purrface"; }
@@ -2211,13 +2218,13 @@ public enum Unit {
         @Override public String id() { return "ramsey"; }
         @Override public int frontX() { return 0; }
         @Override public int frontY() { return 0; }
-        @Override public int backX() { return 33; }
-        @Override public int backY() { return 135; }
+        @Override public int backX() { return 42; }
+        @Override public int backY() { return 125; }
     },
     SHERIFF_COLT { // Back
         @Override public String id() { return "sheriffcolt"; }
-        @Override public int frontX() { return 33; }
-        @Override public int frontY() { return 142; }
+        @Override public int frontX() { return 45; }
+        @Override public int frontY() { return 138; }
     },
     THE_RAIDER_KIDS { // Front & Back
         @Override public String id() { return "raiderkidstank"; }
@@ -2244,6 +2251,75 @@ public enum Unit {
         @Override public int frontY() { return 0; }
         @Override public int backX() { return 30; }
         @Override public int backY() { return 135; }
+    },
+    OUTSIDER_BEGONE_BOMBARD { // Front
+        @Override public String id() { return "raiderbombardcannon"; }
+        @Override public int frontX() { return 80; }
+        @Override public int frontY() { return 152; }
+    },
+    RAMSEY_HOSTAGE { // Front
+        @Override public String id() { return "ramseyhostage"; }
+        @Override public int frontX() { return 30; }
+        @Override public int frontY() { return 120; }
+    },
+    CIVILIAN { // Front
+        @Override public String id() { return "unarmedcivilian"; }
+        @Override public int frontX() { return 30; }
+        @Override public int frontY() { return 135; }
+    },
+    CIVILIAN_FEMALE { // Front
+        @Override public String id() { return "civilian_unarmed_female"; }
+        @Override public int frontX() { return 27; }
+        @Override public int frontY() { return 135; }
+    },
+    FRONTIER_BRUSHFIRE { // Front & Back
+        @Override public String id() { return "fireworkstruck"; }
+        @Override public int frontX() { return 68; }
+        @Override public int frontY() { return 135; }
+        @Override public int backX() { return 90; }
+        @Override public int backY() { return 118; }
+    },
+    FRONTIER_TRACTOR { // Front & Back
+        @Override public String id() { return "tractor"; }
+        @Override public int frontX() { return 80; }
+        @Override public int frontY() { return 120; }
+        @Override public int backX() { return 60; }
+        @Override public int backY() { return 123; }
+    },
+    FRONTIER_ENGINEER {
+        @Override public String id() { return "frdynamiteguy"; }
+        @Override public int frontX() { return 40; }
+        @Override public int frontY() { return 120; }
+        @Override public int backX() { return 42; }
+        @Override public int backY() { return 122; }
+    },
+    FRONTIER_HUNTER {
+        @Override public String id() { return "frhunter"; }
+        @Override public int frontX() { return 55; }
+        @Override public int frontY() { return 115; }
+        @Override public int backX() { return 35; }
+        @Override public int backY() { return 120; }
+    },
+    FRONTIER_LUMBERJACK {
+        @Override public String id() { return "frlumberjack"; }
+        @Override public int frontX() { return 50; }
+        @Override public int frontY() { return 122; }
+        @Override public int backX() { return 25; }
+        @Override public int backY() { return 120; }
+    },
+    FRONTIER_MINUTEMAN {
+        @Override public String id() { return "frminuteman"; }
+        @Override public int frontX() { return 38; }
+        @Override public int frontY() { return 122; }
+        @Override public int backX() { return 20; }
+        @Override public int backY() { return 120; }
+    },
+    FRONTIER_PYRO {
+        @Override public String id() { return "frpyro"; }
+        @Override public int frontX() { return 70; }
+        @Override public int frontY() { return 125; }
+        @Override public int backX() { return 45; }
+        @Override public int backY() { return 117; }
     },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
@@ -2486,6 +2562,7 @@ public enum Unit {
             case "scout_bike" -> SCOUT_BIKE;
             case "monster_grouper" -> MONSTER_GROUPER;
             case "baby_grouper" -> BABY_GROUPER;
+            case "elder_grouper" -> ELDER_GROUPER;
             case "battleship_raptor" -> BATTLESHIP_RAPTORCLASS;
             case "battleship_mammoth" -> BATTLESHIP_MAMMOTHCLASS;
             case "destroyer" -> DESTROYER;
@@ -2613,6 +2690,17 @@ public enum Unit {
             case "young_ashe" -> YOUNG_ASHE; // ~
             case "general_ashe" -> GENERAL_ASHE; // ~
             case "zoey" -> ZOEY; // ~
+            case "outsider_begone_bombard" -> OUTSIDER_BEGONE_BOMBARD; // ~
+            case "ramsey_hostage" -> RAMSEY_HOSTAGE; // ~
+            case "civilian" -> CIVILIAN; // ~
+            case "civilian_female" -> CIVILIAN_FEMALE; // ~
+            case "frontier_brushfire" -> FRONTIER_BRUSHFIRE; // ~
+            case "frontier_tractor" -> FRONTIER_TRACTOR; // ~
+            case "frontier_engineer" -> FRONTIER_ENGINEER; // ~
+            case "frontier_hunter" -> FRONTIER_HUNTER; // ~
+            case "frontier_lumberjack" -> FRONTIER_LUMBERJACK; // ~
+            case "frontier_minuteman" -> FRONTIER_MINUTEMAN; // ~
+            case "frontier_pyro" -> FRONTIER_PYRO; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };

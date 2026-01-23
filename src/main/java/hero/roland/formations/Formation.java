@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 class FormationTest {
     public static void main(String[] args) {
         Formation formation = Formation.fromDataString(
-            "1=general_ashe,2=zoey"
+            "1=frontier_engineer,3=frontier_hunter,4=frontier_lumberjack,5=frontier_minuteman,2=frontier_pyro,map=outpost"
         );
         BufferedImage img = formation.toImage(true);
         try {
