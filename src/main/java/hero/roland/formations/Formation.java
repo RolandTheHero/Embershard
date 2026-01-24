@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 class FormationTest {
     public static void main(String[] args) {
         Formation formation = Formation.fromDataString(
-            "1=frontier_engineer,3=frontier_hunter,4=frontier_lumberjack,5=frontier_minuteman,2=frontier_pyro,map=outpost"
+            "1=frontier_chucker,3=frontier_hunter,4=frontier_lumberjack,5=frontier_minuteman,2=frontier_pyro,map=arena"
         );
         BufferedImage img = formation.toImage(true);
         try {
@@ -77,51 +77,43 @@ public class Formation {
         image.getGraphics().drawImage(ImageIO.read(resource), map.x() + gridX - unitX + X_OFFSET, map.y() + gridY - unitY + Y_OFFSET, null);
     }
 
-    public BufferedImage toImage(boolean isEnemy) { return isEnemy ? toEnemyImage() : toPlayerImage(); }
-    private BufferedImage toEnemyImage() {
-        try {
-            BufferedImage image = ImageIO.read(Formation.class.getResourceAsStream(map.enemyFilePath()));
-            if (grid13 != null) drawUnit(image, grid13, 100, -150, true);
-            if (grid10 != null) drawUnit(image, grid10, -100, -150, true);
-            if (grid12 != null) drawUnit(image, grid12, 200, -100, true);
-            if (grid9 != null) drawUnit(image, grid9, 0, -100, true);
-            if (grid5 != null) drawUnit(image, grid5, -200, -100, true);
-            if (grid11 != null) drawUnit(image, grid11, 300, -50, true);
-            if (grid8 != null) drawUnit(image, grid8, 100, -50, true);
-            if (grid4 != null) drawUnit(image, grid4, -100, -50, true);
-            if (grid7 != null) drawUnit(image, grid7, 200, 0, true);
-            if (grid3 != null) drawUnit(image, grid3, 0, 0, true);
-            if (grid6 != null) drawUnit(image, grid6, 300, 50, true);
-            if (grid2 != null) drawUnit(image, grid2, 100, 50, true);
-            if (grid1 != null) drawUnit(image, grid1, 200, 100, true);
-            return image;
-        } catch (IOException e) {
-            throw new FormationException("An error occurred while generating the formation image. Please try again.");
-        } catch (IllegalArgumentException e) { // This happens when an image resource does not exist, thrown by ImageIO.read()
-            throw new FormationException("Oops! The image for one or more of the units wasn't found. This is a mistake on <@278366004348977153>'s part. Do let them know!");
-        }
+    public BufferedImage toImage(boolean isEnemy) {
+        try { return isEnemy ? toEnemyImage() : toPlayerImage(); }
+        catch (IOException e) { throw new FormationException("An error occurred while generating the formation image. Please try again."); }
+        catch (IllegalArgumentException e) { throw new FormationException("Oops! The image for one or more of the units wasn't found. This is a mistake on <@278366004348977153>'s part. Do let them know!"); }
     }
-    private BufferedImage toPlayerImage() {
-        try {
-            BufferedImage image = ImageIO.read(Formation.class.getResourceAsStream(map.playerFilePath()));
-            if (grid1 != null) drawUnit(image, grid1, -100, -150, false);
-            if (grid2 != null) drawUnit(image, grid2, 0, -100, false);
-            if (grid6 != null) drawUnit(image, grid6, -200, -100, false);
-            if (grid3 != null) drawUnit(image, grid3, 100, -50, false);
-            if (grid7 != null) drawUnit(image, grid7, -100, -50, false);
-            if (grid4 != null) drawUnit(image, grid4, 200, 0, false);
-            if (grid8 != null) drawUnit(image, grid8, 0, 0, false);
-            if (grid11 != null) drawUnit(image, grid11, -200, 0, false);
-            if (grid5 != null) drawUnit(image, grid5, 300, 50, false);
-            if (grid9 != null) drawUnit(image, grid9, 100, 50, false);
-            if (grid12 != null) drawUnit(image, grid12, -100, 50, false);
-            if (grid10 != null) drawUnit(image, grid10, 200, 100, false);
-            if (grid13 != null) drawUnit(image, grid13, 0, 100, false);
-            return image;
-        } catch (IOException e) {
-            throw new FormationException("An error occurred while generating the formation image. Please try again.");
-        } catch (IllegalArgumentException e) { // This happens when an image resource does not exist, thrown by ImageIO.read()
-            throw new FormationException("Oops! The image for one or more of the units wasn't found. It could be that some units don't have back sprites. If you believe this is a mistake, message <@278366004348977153>.");
-        }
+    private BufferedImage toEnemyImage() throws IOException {
+        BufferedImage image = ImageIO.read(Formation.class.getResourceAsStream(map.enemyFilePath()));
+        if (grid13 != null) drawUnit(image, grid13, 100, -150, true);
+        if (grid10 != null) drawUnit(image, grid10, -100, -150, true);
+        if (grid12 != null) drawUnit(image, grid12, 200, -100, true);
+        if (grid9 != null) drawUnit(image, grid9, 0, -100, true);
+        if (grid5 != null) drawUnit(image, grid5, -200, -100, true);
+        if (grid11 != null) drawUnit(image, grid11, 300, -50, true);
+        if (grid8 != null) drawUnit(image, grid8, 100, -50, true);
+        if (grid4 != null) drawUnit(image, grid4, -100, -50, true);
+        if (grid7 != null) drawUnit(image, grid7, 200, 0, true);
+        if (grid3 != null) drawUnit(image, grid3, 0, 0, true);
+        if (grid6 != null) drawUnit(image, grid6, 300, 50, true);
+        if (grid2 != null) drawUnit(image, grid2, 100, 50, true);
+        if (grid1 != null) drawUnit(image, grid1, 200, 100, true);
+        return image;
+    }
+    private BufferedImage toPlayerImage() throws IOException {
+        BufferedImage image = ImageIO.read(Formation.class.getResourceAsStream(map.playerFilePath()));
+        if (grid1 != null) drawUnit(image, grid1, -100, -150, false);
+        if (grid2 != null) drawUnit(image, grid2, 0, -100, false);
+        if (grid6 != null) drawUnit(image, grid6, -200, -100, false);
+        if (grid3 != null) drawUnit(image, grid3, 100, -50, false);
+        if (grid7 != null) drawUnit(image, grid7, -100, -50, false);
+        if (grid4 != null) drawUnit(image, grid4, 200, 0, false);
+        if (grid8 != null) drawUnit(image, grid8, 0, 0, false);
+        if (grid11 != null) drawUnit(image, grid11, -200, 0, false);
+        if (grid5 != null) drawUnit(image, grid5, 300, 50, false);
+        if (grid9 != null) drawUnit(image, grid9, 100, 50, false);
+        if (grid12 != null) drawUnit(image, grid12, -100, 50, false);
+        if (grid10 != null) drawUnit(image, grid10, 200, 100, false);
+        if (grid13 != null) drawUnit(image, grid13, 0, 100, false);
+        return image;
     }
 }
