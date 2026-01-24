@@ -25,8 +25,8 @@ class EditPolicyModal implements ModalEvent {
         if (raidPolicy.isBlank()) raidPolicy = null;
         gm.setRaidPolicy(raidPolicy);
         Main.dataHandler().save(gm);
-
-        MessageReplier.viewPolicyReply(event.getUser(), event.getUser(), event.deferEdit());
+        event.deferEdit().queue();
+        MessageReplier.viewPolicyReply(event.getUser(), event.getUser(), event.getHook());
     }
 }
 class EditFormationModal implements ModalEvent {

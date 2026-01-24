@@ -28,8 +28,9 @@ record ViewCommand() implements SlashEvent {
         else discordUserToView = null;
         if (bnUserOption != null) bnUserToView = bnUserOption.getAsString();
         else bnUserToView = null;
+        event.deferReply().queue();
         if (discordUserToView == null && bnUserToView == null) { // No arguments supplied, show own policy
-            MessageReplier.viewPolicyReply(event.getUser(), event.getUser(), event.deferReply());
+            MessageReplier.viewPolicyReply(event.getUser(), event.getUser(), event.getHook());
             return;
         }
         if (discordUserToView != null && bnUserToView != null) { // Both arguments supplied, error
@@ -37,7 +38,7 @@ record ViewCommand() implements SlashEvent {
             return;
         }
         if (discordUserToView != null) { // View by Discord user
-            MessageReplier.viewPolicyReply(event.getUser(), discordUserToView, event.deferReply());
+            MessageReplier.viewPolicyReply(event.getUser(), discordUserToView, event.getHook());
             return;
         }
         // Search by Battle Nations username
@@ -51,7 +52,7 @@ record ViewCommand() implements SlashEvent {
         }
         Main.jda().retrieveUserById(searchResults.get(0).id()).queue(user -> {
             if (searchResults.size() == 1) {
-                MessageReplier.viewPolicyReply(event.getUser(), user, event.deferReply());
+                MessageReplier.viewPolicyReply(event.getUser(), user, event.getHook());
                 return;
             }
             MessageEmbed policyEmbed = MessageReplier.getPolicyReply(user);

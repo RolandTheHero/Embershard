@@ -37,23 +37,14 @@ public abstract class MessageReplier {
             .build();
         return embed;
     }
-    static public void viewPolicyReply(User userWhoInitiated, User userToView, MessageEditCallbackAction reply) {
+    static public void viewPolicyReply(User userWhoInitiated, User userToView, InteractionHook hook) {
         MessageEmbed embed = getPolicyReply(userToView);
-        reply.setEmbeds(embed);
+        var action = hook.editOriginalEmbeds(embed);
         if (userWhoInitiated.getIdLong() == userToView.getIdLong()) { // if viewing own policy
             Button editButton = Button.secondary("editpolicy:" + userToView.getIdLong(), "Edit");
-            reply.setComponents(ActionRow.of(editButton));
+            action.setComponents(ActionRow.of(editButton));
         }
-        reply.queue();
-    }
-    static public void viewPolicyReply(User userWhoInitiated, User userToView, ReplyCallbackAction reply) {
-        MessageEmbed embed = getPolicyReply(userToView);
-        reply.setEmbeds(embed);
-        if (userWhoInitiated.getIdLong() == userToView.getIdLong()) { // if viewing own policy
-            Button editButton = Button.secondary("editpolicy:" + userToView.getIdLong(), "Edit");
-            reply.setComponents(ActionRow.of(editButton));
-        }
-        reply.queue();
+        action.queue();
     }
     
     static public MessageEmbed getPaginatedMemberList(List<GuildMember> members, int page, String footerMessage) {
@@ -164,14 +155,16 @@ public abstract class MessageReplier {
         if (data == null ) data = "";
         EmbedBuilder embed = formationEmbed(data);
         long userId = interaction.getInteraction().getUser().getIdLong();
+        Button finishButton = Button.primary("finishformation:" + userId, "Finish");
+        Button editButton = Button.secondary("editformation:" + userId + ":" + isEnemy, "Edit");
         try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
             ImageIO.write(Formation.fromDataString(data).toImage(isEnemy), "png", os);
             interaction.editOriginalEmbeds(embed.build())
                 .setAttachments(FileUpload.fromData(os.toByteArray(), "formation.png"))
                 .setComponents(
                     ActionRow.of(
-                        Button.primary("finishformation:" + userId, "Finish"),
-                        Button.secondary("editformation:" + userId + ":" + isEnemy, "Edit"),
+                        finishButton,
+                        editButton,
                         Button.secondary("toggleformation:" + userId + ":" + !isEnemy, "Toggle Side")
                     )
                 ).queue();
@@ -179,22 +172,14 @@ public abstract class MessageReplier {
             interaction.editOriginalEmbeds(
                 MessageReplier.formationEmbed(data).setDescription("An error occurred while generating the formation image. Please try again.")
                     .build()
-            ).setComponents(
-                ActionRow.of(
-                    Button.primary("finishformation:" + userId, "Finish"),
-                    Button.secondary("editformation:" + userId + ":" + isEnemy, "Edit")
-                )
-            ).queue();
+            ).setComponents(ActionRow.of(finishButton, editButton))
+            .queue();
         } catch (FormationException e) {
             interaction.editOriginalEmbeds(
                 MessageReplier.formationEmbed(data).setDescription(e.getMessage())
                     .build()
-            ).setComponents(
-                ActionRow.of(
-                    Button.primary("finishformation:" + userId, "Finish"),
-                    Button.secondary("editformation:" + userId + ":" + isEnemy, "Edit")
-                )
-            ).queue();
+            ).setComponents(ActionRow.of(finishButton, editButton))
+            .queue();
         } 
     }
 }
