@@ -183,7 +183,7 @@ record FormationCommand() implements SlashEvent {
             event.replyEmbeds(embed).queue();
             return;
         }
-        String dataString = dataOption.getAsString().replaceAll("`", "");
+        String dataString = dataOption.getAsString();
         event.replyEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build())
             .queue(interaction -> MessageReplier.formationReply(interaction, dataString, false));
     }

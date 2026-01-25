@@ -2426,7 +2426,6 @@ public enum Unit {
             case "ancient_sentinel_right" -> RANGED_WEAPON_SYSTEM;
             case "ancient_sentinel" -> ANCIENT_SENTINEL;
             case "experimental_construct" -> EXPERIMENTAL_CONSTRUCT;
-            case "hero_spiderwasp_queen" -> SPIDERWASP_QUEEN; // For some reason two IDs link the Spiderwasp Queen, other being 'boss_spiderwasp_queen'
             case "hitman" -> HITMAN;
             case "hunter" -> HUNTER;
             case "railgun_tank" -> RAILGUN_TANK;
