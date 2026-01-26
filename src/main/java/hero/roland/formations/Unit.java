@@ -85,6 +85,8 @@ public enum Unit {
         @Override public String id() { return "swdefender"; }
         @Override public int frontX() { return 37; }
         @Override public int frontY() { return 106; }
+        @Override public int backX() { return 35; }
+        @Override public int backY() { return 123; }
     },
     WOLF_DEVASTATOR {
         @Override public String id() { return "swdevastator"; }
