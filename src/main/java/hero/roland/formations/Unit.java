@@ -114,10 +114,12 @@ public enum Unit {
         @Override public int frontY() { return 120; }
         @Override public int backX() { return 35; }
     },
-    WOLF_ARMORED_TRUCK {
+    WOLF_ARMORED_TRUCK { // Front & Back
         @Override public String id() { return "swarmoredtruck"; }
         @Override public int frontX() { return 57; }
         @Override public int frontY() { return 125; }
+        @Override public int backX() { return 65; }
+        @Override public int backY() { return 123; }
     },
     WOLF_SCRAPPER {
         @Override public String id() { return "swscrapper"; }
@@ -942,6 +944,11 @@ public enum Unit {
         @Override public int frontX() { return 76; }
         @Override public int frontY() { return 104; }
         @Override public int backY() { return 106; }
+    },
+    PORTABLE_WALL_2 {
+        @Override public String id() { return "s_portablewall_rebel"; }
+        @Override public int frontX() { return PORTABLE_WALL.frontX(); }
+        @Override public int frontY() { return PORTABLE_WALL.frontY() + 4; }
     },
     BRUTAL_CANNONEER { // Front
         @Override public String id() { return "s_raider_bombadier_55"; }
@@ -2489,7 +2496,7 @@ public enum Unit {
             case "field_agent" -> FIELD_AGENT;
             case "turtlesheller" -> TURTLESHELLER;
             case "portable_wall" -> PORTABLE_WALL;
-            case "portable_wall_rebel" -> null; //PORTABLE_WALL_2; // Alternative sprite for portable wall
+            case "portable_wall_rebel" -> PORTABLE_WALL_2; // Alternative sprite for portable wall
             case "brutal_cannoneer" -> BRUTAL_CANNONEER;
             case "big_bada_boom" -> BIG_BADA_BOOM;
             case "brutal_brawler" -> BRUTAL_BRAWLER;
@@ -2702,6 +2709,54 @@ public enum Unit {
             case "frontier_lumberjack" -> FRONTIER_LUMBERJACK; // ~
             case "frontier_minuteman" -> FRONTIER_MINUTEMAN; // ~
             case "frontier_pyro" -> FRONTIER_PYRO; // ~
+            case "xt04_experimental_laser_tank" -> UNKNOWN; // ~
+            case "xt11_experimental_laser_jeep" -> UNKNOWN; // ~
+            case "laser_technician" -> UNKNOWN; // ~
+            case "malfunctioning_laser" -> UNKNOWN; // ~
+            case "malfunctioning_robot" -> UNKNOWN; // ~
+            case "ancient_sentry" -> UNKNOWN; // ~
+            case "armor_mulcher" -> UNKNOWN; // ~
+            case "attack_drone" -> UNKNOWN; // ~
+            case "bigfoot_shaman" -> UNKNOWN; // ~
+            case "blood_ninja" -> UNKNOWN; // ~
+            case "shinobi" -> UNKNOWN; // ~
+            case "borabora_hovercraft" -> UNKNOWN; // ~
+            case "demolisher" -> UNKNOWN; // ~
+            case "eagle_eye" -> UNKNOWN; // ~
+            case "deadshot" -> UNKNOWN; // ~
+            case "hellshot" -> UNKNOWN; // ~
+            case "killshot" -> UNKNOWN; // ~
+            case "deathmonger" -> UNKNOWN; // ~
+            case "painmonger" -> UNKNOWN; // ~
+            case "warmonger" -> UNKNOWN; // ~
+            case "flames_of_love_archer" -> UNKNOWN; // ~
+            case "ad7_bigfoot_skybus" -> UNKNOWN; // ~
+            case "armored_suv" -> UNKNOWN; // ~
+            case "gold_tank" -> UNKNOWN; // ~
+            case "heavy_grenadier" -> UNKNOWN; // ~
+            case "imitation_fragment" -> UNKNOWN; // ~
+            case "jedrek_the_crusher" -> UNKNOWN; // ~
+            case "l7_sandworm_drill" -> UNKNOWN; // ~
+            case "laser_sniper" -> UNKNOWN; // ~
+            case "laser_trooper" -> UNKNOWN; // ~
+            case "missile_defense_system" -> UNKNOWN; // ~
+            case "plasma_field_technician" -> UNKNOWN; // ~
+            case "raider_recruit" -> UNKNOWN; // ~
+            case "raider_summoner" -> UNKNOWN; // ~
+            case "railgun_buggy" -> UNKNOWN; // ~
+            case "railgun_sniper" -> UNKNOWN; // ~
+            case "railgun_tech" -> UNKNOWN; // ~
+            case "ruddock_the_red_nosed_raptor" -> UNKNOWN; // ~
+            case "supreme_mini_tank" -> UNKNOWN; // ~
+            case "tank_crusher" -> UNKNOWN; // ~
+            case "thresher_tank" -> UNKNOWN; // ~
+            case "unmanned_scram_cannon_turret" -> UNKNOWN; // ~
+            case "zombie_hunter" -> UNKNOWN; // ~
+            case "zombie_slayer" -> UNKNOWN; // ~
+            case "cargo_ship" -> UNKNOWN; // ~
+            case "militia" -> UNKNOWN; // ~
+            case "plasma_technician" -> UNKNOWN; // ~
+            case "red_flag" -> UNKNOWN; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };
