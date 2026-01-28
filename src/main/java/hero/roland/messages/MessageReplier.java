@@ -166,7 +166,7 @@ public abstract class MessageReplier {
                     ActionRow.of(
                         finishButton,
                         editButton,
-                        Button.secondary("toggleformation:" + userId + ":" + !isEnemy, "Toggle Side")
+                        Button.secondary("flipformation:" + userId + ":" + !isEnemy, "Flip")
                     )
                 ).queue();
         } catch (IOException e) {

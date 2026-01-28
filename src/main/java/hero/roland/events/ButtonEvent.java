@@ -149,13 +149,13 @@ class GuidesButton implements ButtonEvent {
             .queue();
     }
 }
-class ToggleFormationButton implements ButtonEvent {
+class FlipFormationButton implements ButtonEvent {
     @Override public void run(ButtonInteractionEvent event) {
-        // toggleformation:USERID:ISENEMY
+        // flipformation:USERID:ISENEMY
         String[] buttonId = event.getButton().getCustomId().split(":");
         long userIdWhoMustRun = Long.parseLong(buttonId[1]);
         if (userIdWhoMustRun != event.getUser().getIdLong()) {
-            event.reply("You can only toggle your own formation view!").setEphemeral(true).queue();
+            event.reply("You can't use this button!").setEphemeral(true).queue();
             return;
         }
         var footer = event.getMessage().getEmbeds().get(0).getFooter();
@@ -197,7 +197,8 @@ class FinishFormationButton implements ButtonEvent {
             event.reply("You can only finish your own formation!").setEphemeral(true).queue();
             return;
         }
-        if (event.getMessage().getEmbeds().getFirst().getImage() == null) {
+        List<MessageEmbed> embeds = event.getMessage().getEmbeds();
+        if (!embeds.isEmpty() && embeds.getFirst().getImage() == null) {
             event.deferEdit().queue();
             event.getMessage().delete().queue();
         } else event.editMessageEmbeds().setComponents().queue();

@@ -10,9 +10,9 @@ import javax.imageio.ImageIO;
 class FormationTest {
     public static void main(String[] args) {
         Formation formation = Formation.fromDataString(
-            "1=frontier_chucker,3=frontier_hunter,4=frontier_lumberjack,5=frontier_minuteman,2=frontier_pyro,map=arena"
+            "1=m2014_laser_gunner,3=laser_trooper,5=armor_mulcher"
         );
-        BufferedImage img = formation.toImage(true);
+        BufferedImage img = formation.toImage(false);
         try {
             ImageIO.write(img, "png", new File("formation.png"));
         } catch (IOException e) {

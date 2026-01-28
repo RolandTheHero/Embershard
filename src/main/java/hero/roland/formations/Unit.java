@@ -1447,8 +1447,8 @@ public enum Unit {
         @Override public String id() { return "ship_battleship_super"; }
         @Override public int frontX() { return 74; }
         @Override public int frontY() { return 187; }
-        @Override public int backX() { return 80; }
-        @Override public int backY() { return 155; }
+        @Override public int backX() { return 75; }
+        @Override public int backY() { return 150; }
     },
     DESTROYER { // Front & Back
         @Override public String id() { return "ship_destroyer_med"; }
@@ -1930,7 +1930,7 @@ public enum Unit {
     BATTLESHIP_BEHEMOTHCLASS { // Front
         @Override public String id() { return "ship_battleship_super_rebel"; }
         @Override public int frontX() { return BATTLESHIP_MAMMOTHCLASS.frontX(); }
-        @Override public int frontY() { return BATTLESHIP_MAMMOTHCLASS.frontY(); }
+        @Override public int frontY() { return BATTLESHIP_MAMMOTHCLASS.frontY() + 2; }
     },
     ATMOSPHERIC_DIVING_TROOPER { // Front & Back
         @Override public String id() { return "ship_scuba_trooper"; }
@@ -2330,6 +2330,72 @@ public enum Unit {
         @Override public int backX() { return 45; }
         @Override public int backY() { return 117; }
     },
+    XT04_EXPERIMENTAL_LASER_TANK { // Front & Back
+        @Override public String id() { return "lasertank"; }
+        @Override public int frontX() { return 70; }
+        @Override public int frontY() { return 110; }
+        @Override public int backX() { return 75; }
+        @Override public int backY() { return 113; }
+    },
+    XT11_EXPERIMENTAL_LASER_JEEP { // Front & Back
+        @Override public String id() { return "laserjeep"; }
+        @Override public int frontX() { return 60; }
+        @Override public int frontY() { return 114; }
+        @Override public int backX() { return 67; }
+        @Override public int backY() { return 103; }
+    },
+    LASER_TECHNICIAN { // Front & Back
+        @Override public String id() { return "lasertechnician"; }
+        @Override public int frontX() { return 45; }
+        @Override public int frontY() { return 120; }
+        @Override public int backX() { return 37; }
+        @Override public int backY() { return 125; }
+    },
+    MALFUNCTIONING_LASER { // Front
+        @Override public String id() { return "mallaser"; }
+        @Override public int frontX() { return 32; }
+        @Override public int frontY() { return 122; }
+    },
+    MALFUNCTIONING_ROBOT { // Front
+        @Override public String id() { return "hero_malfunctioning_robot"; }
+        @Override public int frontX() { return 58; }
+        @Override public int frontY() { return 142; }
+    },
+    ANCIENT_SENTRY { // Front & Back
+        @Override public String id() { return "veh_ancient_sentry"; }
+        @Override public int frontX() { return 62; }
+        @Override public int frontY() { return 200; }
+        @Override public int backX() { return 60; }
+        @Override public int backY() { return 180; }
+    },
+    LASER_SNIPER { // Front & Back
+        @Override public String id() { return "s_laser_sniper"; }
+        @Override public int frontX() { return 75; }
+        @Override public int frontY() { return 118; }
+        @Override public int backX() { return 68; }
+        @Override public int backY() { return 105; }
+    },
+    LASER_TROOPER { // Front & Back
+        @Override public String id() { return "s_laser_trooper"; }
+        @Override public int frontX() { return 60; }
+        @Override public int frontY() { return 125; }
+        @Override public int backX() { return 39; }
+        @Override public int backY() { return 132; }
+    },
+    M2014_LASER_GUNNER { // Front & Back
+        @Override public String id() { return "s_laser_machingun"; }
+        @Override public int frontX() { return 60; }
+        @Override public int frontY() { return 115; }
+        @Override public int backX() { return 55; }
+        @Override public int backY() { return 127; }
+    },
+    ARMOR_MULCHER { // Front & Back
+        @Override public String id() { return "def_saw_trap"; }
+        @Override public int frontX() { return 50; }
+        @Override public int frontY() { return 123; }
+        @Override public int backX() { return 38; }
+        @Override public int backY() { return 128; }
+    },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
         @Override public int frontX() { return -0; }
@@ -2709,13 +2775,16 @@ public enum Unit {
             case "frontier_lumberjack" -> FRONTIER_LUMBERJACK; // ~
             case "frontier_minuteman" -> FRONTIER_MINUTEMAN; // ~
             case "frontier_pyro" -> FRONTIER_PYRO; // ~
-            case "xt04_experimental_laser_tank" -> UNKNOWN; // ~
-            case "xt11_experimental_laser_jeep" -> UNKNOWN; // ~
-            case "laser_technician" -> UNKNOWN; // ~
-            case "malfunctioning_laser" -> UNKNOWN; // ~
-            case "malfunctioning_robot" -> UNKNOWN; // ~
-            case "ancient_sentry" -> UNKNOWN; // ~
-            case "armor_mulcher" -> UNKNOWN; // ~
+            case "xt04_experimental_laser_tank" -> XT04_EXPERIMENTAL_LASER_TANK; // ~
+            case "xt11_experimental_laser_jeep" -> XT11_EXPERIMENTAL_LASER_JEEP; // ~
+            case "laser_technician" -> LASER_TECHNICIAN; // ~
+            case "malfunctioning_laser" -> MALFUNCTIONING_LASER; // ~
+            case "malfunctioning_robot" -> MALFUNCTIONING_ROBOT; // ~
+            case "ancient_sentry" -> ANCIENT_SENTRY; // ~
+            case "laser_sniper" -> LASER_SNIPER; // ~
+            case "laser_trooper" -> LASER_TROOPER; // ~
+            case "m2014_laser_gunner" -> M2014_LASER_GUNNER; // ~
+            case "armor_mulcher" -> ARMOR_MULCHER; // ~
             case "attack_drone" -> UNKNOWN; // ~
             case "bigfoot_shaman" -> UNKNOWN; // ~
             case "blood_ninja" -> UNKNOWN; // ~
@@ -2737,8 +2806,6 @@ public enum Unit {
             case "imitation_fragment" -> UNKNOWN; // ~
             case "jedrek_the_crusher" -> UNKNOWN; // ~
             case "l7_sandworm_drill" -> UNKNOWN; // ~
-            case "laser_sniper" -> UNKNOWN; // ~
-            case "laser_trooper" -> UNKNOWN; // ~
             case "missile_defense_system" -> UNKNOWN; // ~
             case "plasma_field_technician" -> UNKNOWN; // ~
             case "raider_recruit" -> UNKNOWN; // ~

@@ -30,7 +30,7 @@ public class EventListener extends ListenerAdapter {
         "scrolllist", new ScrollListButton(),
         //"scrollgold", new ScrollGoldButton(),
         "guideselect", new GuidesButton(),
-        "toggleformation", new ToggleFormationButton(),
+        "flipformation", new FlipFormationButton(),
         "editformation", new EditFormationButton(),
         "finishformation", new FinishFormationButton()
     );

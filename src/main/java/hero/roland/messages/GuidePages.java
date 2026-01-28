@@ -166,7 +166,7 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> BOSS_FORMATIONS_ANCIENT_SENTINEL = userId -> new GuidePage(
         "Guides: Boss Formations - Ancient Sentinel",
-        "Check out BNAP's video on this matter: https://www.youtube.com/watch?v=M6D9EpVOpRY",
+        "Check out the Ultimate Formation Guide from Boom Bus Radio: https://www.youtube.com/watch?v=Yvum8ilbhWQ",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/5/55/Hero_ancient_BossFull_icon.png",
         null,
