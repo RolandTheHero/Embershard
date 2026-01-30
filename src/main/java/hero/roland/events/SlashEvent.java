@@ -28,13 +28,13 @@ record ViewCommand() implements SlashEvent {
         else discordUserToView = null;
         if (bnUserOption != null) bnUserToView = bnUserOption.getAsString();
         else bnUserToView = null;
+        if (discordUserToView != null && bnUserToView != null) { // Both arguments supplied, error
+            event.reply("Please provide either a Discord user or a Battle Nations username, not both!").setEphemeral(true).queue();
+            return;
+        }
         event.deferReply().queue();
         if (discordUserToView == null && bnUserToView == null) { // No arguments supplied, show own policy
             MessageReplier.viewPolicyReply(event.getUser(), event.getUser(), event.getHook());
-            return;
-        }
-        if (discordUserToView != null && bnUserToView != null) { // Both arguments supplied, error
-            event.reply("Please provide either a Discord user or a Battle Nations username, not both!").setEphemeral(true).queue();
             return;
         }
         if (discordUserToView != null) { // View by Discord user
@@ -47,7 +47,7 @@ record ViewCommand() implements SlashEvent {
             .sorted((gm1, gm2) -> gm1.igName().compareToIgnoreCase(gm2.igName()))
             .toList();
         if (searchResults.isEmpty()) {
-            event.reply("No members found with the Battle Nations username containing `" + bnUserToView + "`.").queue();
+            event.getHook().editOriginal("No members found with the Battle Nations username containing `" + bnUserToView + "`.").queue();
             return;
         }
         Main.jda().retrieveUserById(searchResults.get(0).id()).queue(user -> {
@@ -57,7 +57,7 @@ record ViewCommand() implements SlashEvent {
             }
             MessageEmbed policyEmbed = MessageReplier.getPolicyReply(user);
             MessageEmbed embed = MessageReplier.getPaginatedMemberList(searchResults, 0, "Showing usernames containing `" + bnUserToView + "`");
-            event.replyEmbeds(policyEmbed, embed)
+            event.getHook().editOriginalEmbeds(policyEmbed, embed)
                 .setComponents(ActionRow.of(
                     Button.secondary("scrollview:" + event.getUser().getId() + ":" + bnUserToView + ":-3", "<<<"),
                     Button.secondary("scrollview:" + event.getUser().getId() + ":" + bnUserToView + ":-1", "<"),
