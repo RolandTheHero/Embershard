@@ -20,3 +20,6 @@ The following commands were removed.
 `/set (message)` Set your Raid Policy to the supplied `message` argument. If the `message` argument is not supplied, this will clear your policy instead. This command was removed in favour of editing policies through the `/view` command's Edit button.
 
 `/gold (amount)` View the gold leaderboard. If the `amount` integer parameter is specified, updates your gold amount with the new value instead. This command was removed after the introduction of Guilds because gold tracking can now be done in-game.
+
+## Game Assets
+The bot requires Battle Nations assets under `src/resources` used by certain commands such as `/formation`, though, due to copyright reasons, are not included in the repository.
