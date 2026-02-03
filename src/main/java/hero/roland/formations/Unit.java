@@ -2396,6 +2396,153 @@ public enum Unit {
         @Override public int backX() { return 38; }
         @Override public int backY() { return 128; }
     },
+    ATTACK_DRONE { // Front & Back
+        @Override public String id() { return "air_drone"; }
+        @Override public int frontX() { return 38; }
+        @Override public int frontY() { return 150; }
+        @Override public int backX() { return 45; }
+        @Override public int backY() { return 130; }
+    },
+    BIGFOOT_SHAMAN { // Front & Back
+        @Override public String id() { return "s_bigfoot_shaman"; }
+        @Override public int frontX() { return 87; }
+        @Override public int frontY() { return 158; }
+        @Override public int backX() { return 77; }
+        @Override public int backY() { return 155; }
+    },
+    BLOOD_NINJA {
+        @Override public String id() { return "s_ninja_red"; }
+        @Override public int frontX() { return NINJA_TROOPER.frontX(); }
+        @Override public int frontY() { return NINJA_TROOPER.frontY(); }
+        @Override public int backX() { return NINJA_TROOPER.backX(); }
+        @Override public int backY() { return NINJA_TROOPER.backY(); }
+    },
+    SHINOBI {
+        @Override public String id() { return "s_ninja_white"; }
+        @Override public int frontX() { return NINJA_TROOPER.frontX(); }
+        @Override public int frontY() { return NINJA_TROOPER.frontY(); }
+        @Override public int backX() { return NINJA_TROOPER.backX(); }
+        @Override public int backY() { return NINJA_TROOPER.backY(); }
+    },
+    BORABORA_HOVERCRAFT {
+        @Override public String id() { return "veh_hovercraft"; }
+        @Override public int frontX() { return 74; }
+        @Override public int frontY() { return 134; }
+        @Override public int backX() { return 84; }
+        @Override public int backY() { return 117; }
+    },
+    DEMOLISHER {
+        @Override public String id() { return "veh_demolisher"; }
+        @Override public int frontX() { return 100; }
+        @Override public int frontY() { return 220; }
+        @Override public int backX() { return 76; }
+        @Override public int backY() { return 238; }
+    },
+    EAGLE_EYE {
+        @Override public String id() { return "s_hunter_eagleeye"; }
+        @Override public int frontX() { return 75; }
+        @Override public int frontY() { return 133; }
+        @Override public int backX() { return 55; }
+        @Override public int backY() { return 130; }
+    },
+    DEADSHOT {
+        @Override public String id() { return "s_sniper_elite_white"; }
+        @Override public int frontX() { return 76; }
+        @Override public int frontY() { return 118; }
+        @Override public int backX() { return 53; }
+        @Override public int backY() { return 137; }
+    },
+    HELLSHOT {
+        @Override public String id() { return "s_sniper_elite_black"; }
+        @Override public int frontX() { return DEADSHOT.frontX(); }
+        @Override public int frontY() { return DEADSHOT.frontY(); }
+        @Override public int backX() { return DEADSHOT.backX(); }
+        @Override public int backY() { return DEADSHOT.backY(); }
+    },
+    KILLSHOT {
+        @Override public String id() { return "s_sniper_elite_yellow"; }
+        @Override public int frontX() { return DEADSHOT.frontX(); }
+        @Override public int frontY() { return DEADSHOT.frontY(); }
+        @Override public int backX() { return DEADSHOT.backX(); }
+        @Override public int backY() { return DEADSHOT.backY(); }
+    },
+    DEATHMONGER {
+        @Override public String id() { return "s_warmonger_black"; }
+        @Override public int frontX() { return 66; }
+        @Override public int frontY() { return 170; }
+        @Override public int backX() { return 84; }
+        @Override public int backY() { return 151; }
+    },
+    PAINMONGER {
+        @Override public String id() { return "s_warmonger_white"; }
+        @Override public int frontX() { return DEATHMONGER.frontX(); }
+        @Override public int frontY() { return DEATHMONGER.frontY(); }
+        @Override public int backX() { return DEATHMONGER.backX(); }
+        @Override public int backY() { return DEATHMONGER.backY(); }
+    },
+    WARMONGER {
+        @Override public String id() { return "s_warmonger_yellow"; }
+        @Override public int frontX() { return DEATHMONGER.frontX(); }
+        @Override public int frontY() { return DEATHMONGER.frontY(); }
+        @Override public int backX() { return DEATHMONGER.backX(); }
+        @Override public int backY() { return DEATHMONGER.backY(); }
+    },
+    FLAMES_OF_LOVE_ARCHER {
+        @Override public String id() { return "s_raider_flame_archer"; }
+        @Override public int frontX() { return 83; }
+        @Override public int frontY() { return 135; }
+        @Override public int backX() { return 50; }
+        @Override public int backY() { return 140; }
+    },
+    AD7_BIGFOOT_SKYBUS {
+        @Override public String id() { return "air_cargo_plane"; }
+        @Override public int frontX() { return 81; }
+        @Override public int frontY() { return 184; }
+        @Override public int backX() { return 105; }
+        @Override public int backY() { return 164; }
+    },
+    ARMORED_SUV {
+        @Override public String id() { return "veh_armored_suv"; }
+        @Override public int frontX() { return 76; }
+        @Override public int frontY() { return 150; }
+        @Override public int backX() { return 112; }
+        @Override public int backY() { return 125; }
+    },
+    GOLD_TANK {
+        @Override public String id() { return "goldheavytank"; }
+        @Override public int frontX() { return HEAVY_TANK.frontX(); }
+        @Override public int frontY() { return HEAVY_TANK.frontY(); }
+        @Override public int backX() { return HEAVY_TANK.backX(); }
+        @Override public int backY() { return HEAVY_TANK.backY(); }
+    },
+    HEAVY_GRENADIER {
+        @Override public String id() { return "s_trooper_gatlinggrenadier"; }
+        @Override public int frontX() { return 42; }
+        @Override public int frontY() { return 128; }
+        @Override public int backX() { return 35; }
+        @Override public int backY() { return 118; }
+    },
+    IMITATION_FRAGMENT {
+        @Override public String id() { return "veh_ancient_robot_player_clone"; }
+        @Override public int frontX() { return DEXTER_FRAGMENT.frontX(); }
+        @Override public int frontY() { return DEXTER_FRAGMENT.frontY(); }
+        @Override public int backX() { return DEXTER_FRAGMENT.backX(); }
+        @Override public int backY() { return DEXTER_FRAGMENT.backY(); }
+    },
+    JEDREK_THE_CRUSHER {
+        @Override public String id() { return "s_trooper_strongman"; }
+        @Override public int frontX() { return 58; }
+        @Override public int frontY() { return 142; }
+        @Override public int backX() { return 48; }
+        @Override public int backY() { return 136; }
+    },
+    L7_SANDWORM_DRILL {
+        @Override public String id() { return "veh_anti_railgun_drill"; }
+        @Override public int frontX() { return 82; }
+        @Override public int frontY() { return 158; }
+        @Override public int backX() { return 98; }
+        @Override public int backY() { return 125; }
+    },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
         @Override public int frontX() { return -0; }
@@ -2785,27 +2932,27 @@ public enum Unit {
             case "laser_trooper" -> LASER_TROOPER; // ~
             case "m2014_laser_gunner" -> M2014_LASER_GUNNER; // ~
             case "armor_mulcher" -> ARMOR_MULCHER; // ~
-            case "attack_drone" -> UNKNOWN; // ~
-            case "bigfoot_shaman" -> UNKNOWN; // ~
-            case "blood_ninja" -> UNKNOWN; // ~
-            case "shinobi" -> UNKNOWN; // ~
-            case "borabora_hovercraft" -> UNKNOWN; // ~
-            case "demolisher" -> UNKNOWN; // ~
-            case "eagle_eye" -> UNKNOWN; // ~
-            case "deadshot" -> UNKNOWN; // ~
-            case "hellshot" -> UNKNOWN; // ~
-            case "killshot" -> UNKNOWN; // ~
-            case "deathmonger" -> UNKNOWN; // ~
-            case "painmonger" -> UNKNOWN; // ~
-            case "warmonger" -> UNKNOWN; // ~
-            case "flames_of_love_archer" -> UNKNOWN; // ~
-            case "ad7_bigfoot_skybus" -> UNKNOWN; // ~
-            case "armored_suv" -> UNKNOWN; // ~
-            case "gold_tank" -> UNKNOWN; // ~
-            case "heavy_grenadier" -> UNKNOWN; // ~
-            case "imitation_fragment" -> UNKNOWN; // ~
-            case "jedrek_the_crusher" -> UNKNOWN; // ~
-            case "l7_sandworm_drill" -> UNKNOWN; // ~
+            case "attack_drone" -> ATTACK_DRONE; // ~
+            case "bigfoot_shaman" -> BIGFOOT_SHAMAN; // ~
+            case "blood_ninja" -> BLOOD_NINJA; // ~
+            case "shinobi" -> SHINOBI; // ~
+            case "borabora_hovercraft" -> BORABORA_HOVERCRAFT; // ~
+            case "demolisher" -> DEMOLISHER; // ~
+            case "eagle_eye" -> EAGLE_EYE; // ~
+            case "deadshot" -> DEADSHOT; // ~
+            case "hellshot" -> HELLSHOT; // ~
+            case "killshot" -> KILLSHOT; // ~
+            case "deathmonger" -> DEATHMONGER; // ~
+            case "painmonger" -> PAINMONGER; // ~
+            case "warmonger" -> WARMONGER; // ~
+            case "flames_of_love_archer" -> FLAMES_OF_LOVE_ARCHER; // ~
+            case "ad7_bigfoot_skybus" -> AD7_BIGFOOT_SKYBUS; // ~
+            case "armored_suv" -> ARMORED_SUV; // ~
+            case "gold_tank" -> GOLD_TANK; // ~
+            case "heavy_grenadier" -> HEAVY_GRENADIER; // ~
+            case "imitation_fragment" -> IMITATION_FRAGMENT; // ~
+            case "jedrek_the_crusher" -> JEDREK_THE_CRUSHER; // ~
+            case "l7_sandworm_drill" -> L7_SANDWORM_DRILL; // ~
             case "missile_defense_system" -> UNKNOWN; // ~
             case "plasma_field_technician" -> UNKNOWN; // ~
             case "raider_recruit" -> UNKNOWN; // ~
@@ -2824,6 +2971,7 @@ public enum Unit {
             case "militia" -> UNKNOWN; // ~
             case "plasma_technician" -> UNKNOWN; // ~
             case "red_flag" -> UNKNOWN; // ~
+            case "nt1_mechanical_tank" -> UNKNOWN; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };

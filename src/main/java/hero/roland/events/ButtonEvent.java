@@ -158,7 +158,12 @@ class FlipFormationButton implements ButtonEvent {
             event.reply("You can't use this button!").setEphemeral(true).queue();
             return;
         }
-        var footer = event.getMessage().getEmbeds().get(0).getFooter();
+        List<MessageEmbed> embeds = event.getMessage().getEmbeds();
+        if (embeds.isEmpty()) {
+            event.reply("The embed of this formation was removed prematurely, so the formation cannot be flipped.").setEphemeral(true).queue();
+            return;
+        }
+        var footer = embeds.getFirst().getFooter();
         String dataString = footer == null ? "" : footer.getText();
         boolean isEnemy = Boolean.parseBoolean(buttonId[2]);
         event.editMessageEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build()).setComponents()
@@ -174,7 +179,12 @@ class EditFormationButton implements ButtonEvent {
             event.reply("You can only edit your own formation! Copy the data string and use the `/formation` command with it to make your own.").setEphemeral(true).queue();
             return;
         }
-        var footer = event.getMessage().getEmbeds().get(0).getFooter();
+        List<MessageEmbed> embeds = event.getMessage().getEmbeds();
+        if (embeds.isEmpty()) {
+            event.reply("The embed of this formation was removed prematurely, so the formation cannot be edited.").setEphemeral(true).queue();
+            return;
+        }
+        var footer = embeds.getFirst().getFooter();
         String dataString = footer == null ? null : footer.getText();
         TextInput dataInput = TextInput.create("data", TextInputStyle.PARAGRAPH)
             .setRequired(false)
