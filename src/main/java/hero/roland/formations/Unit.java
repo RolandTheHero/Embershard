@@ -839,6 +839,11 @@ public enum Unit {
         @Override public int frontX() { return 60; }
         @Override public int frontY() { return 146; }
     },
+    SPECIMEN_MAULER {
+        @Override public String id() { return "s_bigfoot_zombie_player"; }
+        @Override public int frontX() { return APEX_MAULER.frontX(); }
+        @Override public int frontY() { return APEX_MAULER.frontY(); }
+    },
     BOAR_VETERAN { // Front & Back
         @Override public String id() { return "s_boar_boarus_rex_55"; }
         @Override public int frontX() { return 75; }
@@ -2692,6 +2697,7 @@ public enum Unit {
             case "bigfoot_warrior" -> BIGFOOT_WARRIOR;
             case "young_bigfoot" -> YOUNG_BIGFOOT;
             case "apex_mauler" -> APEX_MAULER;
+            case "specimen_mauler" -> SPECIMEN_MAULER; // ~
             case "boar_veteran" -> BOAR_VETERAN;
             case "alpha_boar" -> ALPHA_BOAR;
             case "wild_boar" -> WILD_BOAR;
