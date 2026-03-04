@@ -1960,8 +1960,8 @@ public enum Unit {
         @Override public String id() { return "veh_ancient_robot_2_player_left"; }
         @Override public int frontX() { return 83; }
         @Override public int frontY() { return 117; }
-        @Override public int backX() { return 55; }
-        @Override public int backY() { return 138; }
+        @Override public int backX() { return 56; }
+        @Override public int backY() { return 128; }
     },
     RANGED_SENTINEL_FRAGMENT { // Front & Back
         @Override public String id() { return "veh_ancient_robot_2_player_right"; }
@@ -2548,6 +2548,139 @@ public enum Unit {
         @Override public int backX() { return 98; }
         @Override public int backY() { return 125; }
     },
+    MISSILE_DEFENSE_SYSTEM {
+        @Override public String id() { return "def_missile_defense"; }
+        @Override public String frontFilePath() { return "/units/def_missile_defense.png"; }
+        @Override public String backFilePath() { return frontFilePath(); }
+        @Override public int frontX() { return 62; }
+        @Override public int frontY() { return 109; }
+    },
+    PLASMA_FIELD_TECHNICIAN {
+        @Override public String id() { return "i17_guy_weapon_experiment_player"; }
+        @Override public int frontX() { return 50; }
+        @Override public int frontY() { return 120; }
+        @Override public int backX() { return 38; }
+        @Override public int backY() { return 123; }
+    },
+    RAIDER_RECRUIT { // Front & Back
+        @Override public String id() { return "s_raider_recruit_player"; }
+        @Override public int frontX() { return 54; }
+        @Override public int frontY() { return 152; }
+        @Override public int backX() { return 58; }
+        @Override public int backY() { return 145; }
+    },
+    RAIDER_SUMMONER { // Front & Back
+        @Override public String id() { return "s_raider_sandworm_shaman"; }
+        @Override public int frontX() { return 52; }
+        @Override public int frontY() { return 140; }
+        @Override public int backX() { return 58; }
+        @Override public int backY() { return 138; }
+    },
+    RAILGUN_BUGGY { // Front & Back
+        @Override public String id() { return "i17_veh_railgun_buggy"; }
+        @Override public int frontX() { return 77; }
+        @Override public int frontY() { return 151; }
+        @Override public int backX() { return 100; }
+        @Override public int backY() { return 118; }
+    },
+    RAILGUN_SNIPER { // Front & Back
+        @Override public String id() { return "s_sniper_railgun"; }
+        @Override public int frontX() { return 64; }
+        @Override public int frontY() { return 100; }
+        @Override public int backX() { return 40; }
+    },
+    RAILGUN_TECH { // Front & Back
+        @Override public String id() { return "i17_guy_railgun"; }
+        @Override public int frontX() { return 74; }
+        @Override public int frontY() { return 122; }
+        @Override public int backX() { return 52; }
+        @Override public int backY() { return 130; }
+    },
+    BATTLE_RAPTOR { // Front & Back
+        @Override public String id() { return "raptor"; }
+        @Override public int frontX() { return 68; }
+        @Override public int frontY() { return 125; }
+        @Override public int backX() { return 95; }
+        @Override public int backY() { return 155; }
+    },
+    RUDDOCK_THE_RED_NOSED_RAPTOR { // Front & Back
+        @Override public String id() { return "s_raptor_rednose"; }
+        @Override public int frontX() { return BATTLE_RAPTOR.frontX(); }
+        @Override public int frontY() { return BATTLE_RAPTOR.frontY(); }
+        @Override public int backX() { return BATTLE_RAPTOR.backX(); }
+        @Override public int backY() { return BATTLE_RAPTOR.backY(); }
+    },
+    SUPREME_MINI_TANK { // Front & Back
+        @Override public String id() { return "veh_tank_mini_super"; }
+        @Override public int frontX() { return 55; }
+        @Override public int frontY() { return 122; }
+        @Override public int backX() { return 64; }
+        @Override public int backY() { return 130; }
+    },
+    TANK_CRUSHER { // Front & Back
+        @Override public String id() { return "veh_monster"; }
+        @Override public int frontX() { return 95; }
+        @Override public int frontY() { return 170; }
+        @Override public int backX() { return 102; }
+        @Override public int backY() { return 146; }
+    },
+    THRESHER_TANK { // Front & Back
+        @Override public String id() { return "veh_sw_tank"; }
+        @Override public int frontX() { return 119; }
+        @Override public int frontY() { return 167; }
+        @Override public int backX() { return 135; }
+        @Override public int backY() { return 143; }
+    },
+    UNMANNED_SCRAM_CANNON_TURRET {
+        @Override public String id() { return "veh_scram_cannon_turret"; }
+        @Override public int frontX() { return 75; }
+        @Override public int frontY() { return 190; }
+        @Override public int backX() { return 108; }
+        @Override public int backY() { return 148; }
+    },
+    ZOMBIE_HUNTER {
+        @Override public String id() { return "s_zombie_hunter"; }
+        @Override public int frontX() { return 68; }
+        @Override public int frontY() { return 142; }
+        @Override public int backX() { return 67; }
+    },
+    ZOMBIE_SLAYER {
+        @Override public String id() { return "s_zombie_hunter2"; }
+        @Override public int frontX() { return 65; }
+        @Override public int frontY() { return 140; }
+        @Override public int backX() { return 36; }
+        @Override public int backY() { return 140; }
+    },
+    CARGO_SHIP {
+        @Override public String id() { return "ship_cargoship"; }
+        @Override public String frontFilePath() { return "/units/ship_cargoship.png"; }
+        @Override public String backFilePath() { return frontFilePath(); }
+        @Override public int frontX() { return 70; }
+        @Override public int frontY() { return 140; }
+    },
+    MILITIA {
+        @Override public String id() { return "militia"; }
+        @Override public String frontFilePath() { return "/units/front/trooper_front.png"; }
+        @Override public String backFilePath() { return "/units/back/militia_back.png"; }
+        @Override public int frontX() { return TROOPER.frontX(); }
+        @Override public int frontY() { return TROOPER.frontY(); }
+        @Override public int backX() { return TROOPER.backX(); }
+        @Override public int backY() { return TROOPER.backY(); }
+    },
+    RED_FLAG {
+        @Override public String id() { return "def_flag"; }
+        @Override public String frontFilePath() { return "/units/def_flag.png"; }
+        @Override public String backFilePath() { return frontFilePath(); }
+        @Override public int frontX() { return 15; }
+        @Override public int frontY() { return 160; }
+    },
+    NT1_MECHANICAL_TANK {
+        @Override public String id() { return "veh_tank_mech"; }
+        @Override public int frontX() { return 104; }
+        @Override public int frontY() { return 196; }
+        @Override public int backX() { return 102; }
+        @Override public int backY() { return 185; }
+    },
     TEST {
         @Override public String id() { return "this_id_does_not_exist"; }
         @Override public int frontX() { return -0; }
@@ -2959,25 +3092,25 @@ public enum Unit {
             case "imitation_fragment" -> IMITATION_FRAGMENT; // ~
             case "jedrek_the_crusher" -> JEDREK_THE_CRUSHER; // ~
             case "l7_sandworm_drill" -> L7_SANDWORM_DRILL; // ~
-            case "missile_defense_system" -> UNKNOWN; // ~
-            case "plasma_field_technician" -> UNKNOWN; // ~
-            case "raider_recruit" -> UNKNOWN; // ~
-            case "raider_summoner" -> UNKNOWN; // ~
-            case "railgun_buggy" -> UNKNOWN; // ~
-            case "railgun_sniper" -> UNKNOWN; // ~
-            case "railgun_tech" -> UNKNOWN; // ~
-            case "ruddock_the_red_nosed_raptor" -> UNKNOWN; // ~
-            case "supreme_mini_tank" -> UNKNOWN; // ~
-            case "tank_crusher" -> UNKNOWN; // ~
-            case "thresher_tank" -> UNKNOWN; // ~
-            case "unmanned_scram_cannon_turret" -> UNKNOWN; // ~
-            case "zombie_hunter" -> UNKNOWN; // ~
-            case "zombie_slayer" -> UNKNOWN; // ~
-            case "cargo_ship" -> UNKNOWN; // ~
-            case "militia" -> UNKNOWN; // ~
-            case "plasma_technician" -> UNKNOWN; // ~
-            case "red_flag" -> UNKNOWN; // ~
-            case "nt1_mechanical_tank" -> UNKNOWN; // ~
+            case "missile_defense_system" -> MISSILE_DEFENSE_SYSTEM; // ~
+            case "plasma_field_technician" -> PLASMA_FIELD_TECHNICIAN; // ~
+            case "raider_recruit" -> RAIDER_RECRUIT; // ~
+            case "raider_summoner" -> RAIDER_SUMMONER; // ~
+            case "railgun_buggy" -> RAILGUN_BUGGY; // ~
+            case "railgun_sniper" -> RAILGUN_SNIPER; // ~
+            case "railgun_tech" -> RAILGUN_TECH; // ~
+            case "battle_raptor" -> BATTLE_RAPTOR; // ~
+            case "ruddock_the_red_nosed_raptor" -> RUDDOCK_THE_RED_NOSED_RAPTOR; // ~
+            case "supreme_mini_tank" -> SUPREME_MINI_TANK; // ~
+            case "tank_crusher" -> TANK_CRUSHER; // ~
+            case "thresher_tank" -> THRESHER_TANK; // ~
+            case "unmanned_scram_cannon_turret" -> UNMANNED_SCRAM_CANNON_TURRET; // ~
+            case "zombie_hunter" -> ZOMBIE_HUNTER; // ~
+            case "zombie_slayer" -> ZOMBIE_SLAYER; // ~
+            case "cargo_ship" -> CARGO_SHIP; // ~
+            case "militia" -> MILITIA; // ~
+            case "red_flag" -> RED_FLAG; // ~
+            case "nt1_mechanical_tank" -> NT1_MECHANICAL_TANK; // ~
             case "test_dne" -> TEST; // To test what happens if an image does not exist
             default -> UNKNOWN;
         };
