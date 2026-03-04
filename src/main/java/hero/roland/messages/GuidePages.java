@@ -27,7 +27,7 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> RAIDING_RESOURCES = userId -> new GuidePage(
         "Guides: Raiding Resources",
-        "Select a resource below to learn more. If a resource is not listed, it is not possible (yet) to collect it by raiding.\nGuides are available for the following resources:\n* Stone\n* Wood\n* Iron\n* Coal\n* Oil\n* Lumber",
+        "Select a resource below to learn more. If a resource is not listed, it is not possible (yet) to collect it by raiding.\nGuides are available for the following resources:\n* Stone\n* Wood\n* Iron\n* Coal\n* Oil\n* Concrete\n* Lumber\n* Steel",
         null,
         null,
         null,
@@ -39,7 +39,9 @@ public abstract class GuidePages {
                 .addOption("Iron", "raiding-resources-iron")
                 .addOption("Coal", "raiding-resources-coal")
                 .addOption("Oil", "raiding-resources-oil")
+                .addOption("Concrete", "raiding-resources-concrete")
                 .addOption("Lumber", "raiding-resources-lumber")
+                .addOption("Steel", "raiding-resources-steel")
                 .build()
         ),
         ActionRow.of(
@@ -58,7 +60,7 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> RAIDING_WOOD = userId -> new GuidePage(
         "Guides: Raiding Resources - Wood",
-        "**Raider Farms** (Level ??+): 120 wood\n**Greenborough** (Level ??+): 50 wood, 30 lumber",
+        "**Raider Farms** (Level ??+): 120 wood\n**Greenborough** (Level ??+): 50 wood, 30 lumber\n**Bigfoot Country** (Level 46+): 25 wood, 20 stone",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/8/88/Resource-wood.png",
         "https://cdn.discordapp.com/attachments/1041212643958071336/1445950908289781841/woodlocations.png?ex=69323639&is=6930e4b9&hm=8e2518651e01656a265341720b6b5ca1c63dcf58ab1dd85a39d2b12988f5e711&",
@@ -68,10 +70,11 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> RAIDING_IRON = userId -> new GuidePage(
         "Guides: Raiding Resources - Iron",
-        "**Greenborough** (Level ??+): 30 iron, 6 stone, 5 wood\n**Warlord Gantas' Fortress** (Level ??+): 10 iron, 20 stone, 5 wood",
+        "**New Haven** (Level 56+): 100 iron\n**Greenborough** (Level ??+): 30 iron, 6 stone, 5 wood\n**Warlord Gantas' Fortress** (Level ??+): 10 iron, 20 stone, 5 wood\n\n" + 
+        "Notes:\n* You can use Unmanned Machine Gun Turrets to finish a battle at Warlord Gantas' Fortress in one turn, which can be a faster source of Iron than New Haven and Greenborough.",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/b/b0/Resource-iron.png",
-        "https://cdn.discordapp.com/attachments/1041212643958071336/1445958063554035944/ironlocations.png?ex=69323ce2&is=6930eb62&hm=2d3e0c11bba74985e4507df0c6231779fdb737ddf372fa819daa8f5e1bf3158e&",
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1478651498023092383/ironlocations.png?ex=69a92d05&is=69a7db85&hm=d11707466bcb2fab4cad09c60d4bc495b8643b62fcd847b03081be6c71f60f3b&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":raiding-resources", "Back")
         )
@@ -88,7 +91,7 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> RAIDING_OIL = userId -> new GuidePage(
         "Guides: Raiding Resources - Oil",
-        "**Greenborough** (Level ??+): 40 oil, 6 stone\n**Blade's Base** (Level ??+): 40 oil\n**Bigfoot Country** (Level 46+): 25 oil\n\nNotes:\n* Bigfoot Country, although less oil, may be desirable to raid due to higher SP rewards.\n* It may be slower to raid oil in Greenborough due to its strong defenders.",
+        "**Greenborough** (Level ??+): 40 oil, 6 stone\n**Blade's Base** (Level ??+): 40 oil\n**Bigfoot Country** (Level 46+): 25 oil\n\nNotes:\n* Bigfoot Country, although less Oil, may be desirable to raid due to higher SP rewards.\n* It may be slower to raid Oil in Greenborough due to its strong defenders.",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/9/9e/Resource-oil.png",
         "https://cdn.discordapp.com/attachments/1041212643958071336/1456604393825894410/oillocations.png?ex=6958f80d&is=6957a68d&hm=0c3f8dfce2bd91aa3a38fd0425ca765710e37342c1e1689a42ede7d1c4779dee&",
@@ -102,6 +105,26 @@ public abstract class GuidePages {
         null,
         "https://static.wikia.nocookie.net/battlenations/images/7/7c/Resource-lumber.png",
         "https://cdn.discordapp.com/attachments/1041212643958071336/1445961173160689756/lumberlocations.png?ex=69323fc8&is=6930ee48&hm=3b46ef90011d8284ef90f829b0a883d44e9f9fb3b199a9d6108a8623282f8f42&",
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":raiding-resources", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> RAIDING_CONCRETE = userId -> new GuidePage(
+        "Guides: Raiding Resources - Concrete",
+        "**New Haven** (Level 56+): 10 concrete, 15 steel, 20 stone, 40 iron",
+        null,
+        "https://static.wikia.nocookie.net/battlenations/images/1/13/Resource-concrete.png",
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1478624771825598534/steelANDconcretelocation.png?ex=69a91421&is=69a7c2a1&hm=be5df1e96291170b041592fbe1a8b5ffdced1716d76d97d7a999c831bcdae3dd&",
+        ActionRow.of(
+            Button.secondary("guideselect:" + userId + ":raiding-resources", "Back")
+        )
+    );
+    static private final Function<Long, GuidePage> RAIDING_STEEL = userId -> new GuidePage(
+        "Guides: Raiding Resources - Steel",
+        "**New Haven** (Level 56+): 15 steel, 10 concrete, 20 stone, 40 iron",
+        null,
+        "https://static.wikia.nocookie.net/battlenations/images/2/25/Resource-steel.png",
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1478624771825598534/steelANDconcretelocation.png?ex=69a91421&is=69a7c2a1&hm=be5df1e96291170b041592fbe1a8b5ffdced1716d76d97d7a999c831bcdae3dd&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":raiding-resources", "Back")
         )
@@ -312,6 +335,8 @@ public abstract class GuidePages {
         pages.put("raiding-resources-coal", RAIDING_COAL);
         pages.put("raiding-resources-oil", RAIDING_OIL);
         pages.put("raiding-resources-lumber", RAIDING_LUMBER);
+        pages.put("raiding-resources-concrete", RAIDING_CONCRETE);
+        pages.put("raiding-resources-steel", RAIDING_STEEL);
         pages.put("boss-formations", BOSS_FORMATIONS);
         pages.put("boss-formations-ancient-construct", BOSS_FORMATIONS_ANCIENT_CONSTRUCT);
         pages.put("boss-formations-dreadnought", BOSS_FORMATIONS_DREADNOUGHT);
