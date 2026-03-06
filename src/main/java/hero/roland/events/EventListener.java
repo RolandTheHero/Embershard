@@ -2,18 +2,20 @@ package hero.roland.events;
 
 import java.util.Map;
 
+import hero.roland.Main;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.Command;
 
 public class EventListener extends ListenerAdapter {
     final private Map<String, SlashEvent> slashEvents = Map.of(
         "view", new ViewCommand(),
         "setname", new SetIgNameCommand(),
         "list", new ListCommand(),
-        //"gold", new GoldCommand(),
         "guides", new GuidesCommand(),
         "formation", new FormationCommand()
     );
@@ -28,7 +30,6 @@ public class EventListener extends ListenerAdapter {
         "editpolicy", new EditPolicyButton(),
         "scrollview", new ScrollViewButton(),
         "scrolllist", new ScrollListButton(),
-        //"scrollgold", new ScrollGoldButton(),
         "guideselect", new GuidesButton(),
         "flipformation", new FlipFormationButton(),
         "editformation", new EditFormationButton(),
@@ -60,5 +61,18 @@ public class EventListener extends ListenerAdapter {
         StringSelectEvent sscmd = stringSelectEvents.get(selectId);
         if (sscmd == null) throw new IllegalArgumentException("No such string select command: " + selectId);
         sscmd.run(event);
+    }
+
+    @Override public void onCommandAutoCompleteInteraction(CommandAutoCompleteInteractionEvent event) {
+        if (event.getFocusedOption().getName().equals("bn-user")) {
+            String currentInput = event.getFocusedOption().getValue();
+            var choices = Main.dataHandler().allMembers().values().stream()
+                .filter(gm -> gm.igName() != null && gm.igName().toLowerCase().contains(currentInput.toLowerCase()))
+                .sorted((gm1, gm2) -> gm1.igName().compareToIgnoreCase(gm2.igName()))
+                .limit(25)
+                .map(gm -> new Command.Choice(gm.igName(), gm.igName()))
+                .toList();
+            event.replyChoices(choices).queue();
+        }
     }
 }

@@ -17,8 +17,6 @@ import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.interactions.InteractionHook;
-import net.dv8tion.jda.api.requests.restaction.interactions.MessageEditCallbackAction;
-import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
 import net.dv8tion.jda.api.utils.FileUpload;
 
 public abstract class MessageReplier {
@@ -84,65 +82,6 @@ public abstract class MessageReplier {
             .build();
     }
 
-    static private final int GOLD_LEADERBOARD_PAGE_SIZE = 10;
-    static private int goldLeaderboardMembers = 0;
-    /**
-     * @deprecated See {@link hero.roland.events.GoldCommand}
-     */
-    static public MessageEmbed getGoldLeaderboardEmbed(GuildMember gmSelf, int page) {
-        long totalGold = Main.dataHandler().allMembers().values().stream()
-            .mapToLong(gm -> gm.gold())
-            .sum();
-        List<GuildMember> sortedByGold = Main.dataHandler().allMembers().values().stream()
-            .filter(gm -> gm.gold() > 0)
-            .sorted((gm1, gm2) -> Long.compare(gm2.gold(), gm1.gold()))
-            .toList();
-        goldLeaderboardMembers = sortedByGold.size();
-        StringBuilder desc = new StringBuilder(
-            String.format("<@%d>, you have <:gold:1435206410429403180>%,d, which is `%.2f%%` of the guild's total of <:gold:1435206410429403180>%,d.\n", 
-            gmSelf.id(), gmSelf.gold(), (double) gmSelf.gold() / totalGold * 100, totalGold)
-        );
-        desc.append(String.format("The guild is `%.2f%%` of the way to <:gold:1435206410429403180>1,258,441,650.", (double) totalGold / 1258441650 * 100));
-        desc.append("```stan\n");
-        for (int rank = 1 + GOLD_LEADERBOARD_PAGE_SIZE * page; rank <= sortedByGold.size(); rank++) {
-            GuildMember gm = sortedByGold.get(rank - 1); // Since rank starts from 1
-            String igName = gm.igName() == null ? "<@" + gm.id() + ">" : gm.igName();
-            desc.append(String.format("%2d. %-25s %,10d\n", rank, igName, gm.gold()));
-            if (rank >= GOLD_LEADERBOARD_PAGE_SIZE * (page + 1)) break;
-        }
-        if (sortedByGold.isEmpty()) desc.append("There are no gold records yet.\n");
-        desc.append("```");
-        MessageEmbed embed = new EmbedBuilder()
-            .setTitle("Gold Leaderboard")
-            .setDescription(desc.toString())
-            .setFooter("Page " + (page + 1) + " of " + Math.max(1, (goldLeaderboardMembers - 1) / GOLD_LEADERBOARD_PAGE_SIZE + 1))
-            .setColor(Color.CYAN)
-            .build();
-        return embed;
-    }
-    /**
-     * @deprecated See {@link hero.roland.events.GoldCommand}
-     */
-    static public void goldLeaderboardReply(GuildMember gmSelf, ReplyCallbackAction deferReply) {
-        ReplyCallbackAction reply = deferReply.setEmbeds(getGoldLeaderboardEmbed(gmSelf, 0));
-        Button left = Button.secondary("scrollgold:0:0", "<").asDisabled();
-        Button right = Button.secondary("scrollgold:" + gmSelf.id() + ":1", ">");
-        if (goldLeaderboardMembers <= GOLD_LEADERBOARD_PAGE_SIZE) right = right.asDisabled();
-        reply.setComponents(ActionRow.of(left, right)).queue();
-    }
-    /**
-     * @deprecated See {@link hero.roland.events.GoldCommand}
-     */
-    static public void goldLeaderboardReply(GuildMember gmSelf, int page, MessageEditCallbackAction editReply) {
-        MessageEditCallbackAction reply = editReply.setEmbeds(getGoldLeaderboardEmbed(gmSelf, page));
-        String buttonId = "scrollgold:" + gmSelf.id() + ":";
-        Button left = Button.secondary(buttonId + (page - 1), "<");
-        if (page <= 0) left = left.asDisabled();
-        Button right = Button.secondary(buttonId + (page + 1), ">");
-        if (GOLD_LEADERBOARD_PAGE_SIZE * (page + 1) >= goldLeaderboardMembers) right = right.asDisabled();
-        reply.setComponents(ActionRow.of(left, right)).queue();
-    }
-
     static public EmbedBuilder formationEmbed(String data) {
         EmbedBuilder embed = new EmbedBuilder()
             .setTitle("Formation")
@@ -153,7 +92,7 @@ public abstract class MessageReplier {
     }
     static public void formationReply(InteractionHook interaction, String data, boolean isEnemy) {
         if (data == null) data = "";
-        data = data.replaceAll(" ", "");
+        data = data.replaceAll(" ", "").toLowerCase();
         EmbedBuilder embed = formationEmbed(data);
         long userId = interaction.getInteraction().getUser().getIdLong();
         Button finishButton = Button.primary("finishformation:" + userId, "Finish");

@@ -132,31 +132,6 @@ record ListCommand() implements SlashEvent {
             .toList();
     }
 }
-/**
- * @deprecated This command is no longer used since the game has implemented the Guilds feature.
- */
-record GoldCommand() implements SlashEvent {
-    @Override public void run(SlashCommandInteractionEvent event) {
-        GuildMember gm = Main.dataHandler().load(event.getUser().getIdLong());
-        var amountOption = event.getOption("amount");
-        if (amountOption == null) { // View leaderboard
-            MessageReplier.goldLeaderboardReply(gm, event.deferReply());
-            return;
-        }
-        long amount = amountOption.getAsLong();
-        if (amount < 0) amount = 0;
-        else if (amount > 999_999_999L) amount = 999_999_999L;
-        gm.setGold(amount);
-        Main.dataHandler().save(gm);
-
-        MessageEmbed embed = new EmbedBuilder()
-            .setTitle("Gold")
-            .setDescription(String.format("%s, your gold amount has been updated to <:gold:1435206410429403180>%,d.", event.getMember().getAsMention(), amount))
-            .setColor(Color.CYAN)
-            .build();
-        event.replyEmbeds(embed).setEphemeral(true).queue();
-    }
-}
 record GuidesCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
         GuidePage page = GuidePages.getPage("home", event.getUser().getIdLong());
@@ -168,7 +143,7 @@ record GuidesCommand() implements SlashEvent {
 record FormationCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
         var dataOption = event.getOption("data");
-        if (dataOption == null) {
+        if (dataOption == null) { // Show the help embed
             MessageEmbed embed = new EmbedBuilder()
                 .setTitle("Formation Help")
                 .setDescription("The `/formation` command allows you to generate a custom formation image to share.\n\n" +
