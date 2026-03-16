@@ -36,6 +36,7 @@ class EditFormationModal implements ModalEvent {
         String data = dataModalEntry.getAsString();
         boolean isEnemy = Boolean.parseBoolean(event.getCustomId().split(":")[1]);
         event.editMessageEmbeds(MessageReplier.formationEmbed(data).appendDescription("\n\nPlease wait while your data string is being parsed...").build())
+            .setComponents()
             .queue(interaction -> MessageReplier.formationReply(interaction, data, isEnemy));
     }
 }
