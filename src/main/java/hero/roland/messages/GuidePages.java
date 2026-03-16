@@ -60,10 +60,10 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> RAIDING_WOOD = userId -> new GuidePage(
         "Guides: Raiding Resources - Wood",
-        "**Raider Farms** (Level ??+): 120 wood\n**Greenborough** (Level ??+): 50 wood, 30 lumber\n**Bigfoot Country** (Level 46+): 25 wood, 20 stone",
+        "**Raider Farms** (Level ??+): 120 wood\n**Greenborough** (Level ??+): 50 wood, 30 lumber\n**Bigfoot Country** (Level 46+): 30 wood\n**Bigfoot Country** (Level 46+): 25 wood, 20 stone",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/8/88/Resource-wood.png",
-        "https://cdn.discordapp.com/attachments/1041212643958071336/1445950908289781841/woodlocations.png?ex=69323639&is=6930e4b9&hm=8e2518651e01656a265341720b6b5ca1c63dcf58ab1dd85a39d2b12988f5e711&",
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1483011069596274698/woodlocations.png?ex=69b90930&is=69b7b7b0&hm=4ff28dc169cb1fa9fedb8b9084e5d2748cfd96791efc2c7aaa2d98dae44d8b7e&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":raiding-resources", "Back")
         )

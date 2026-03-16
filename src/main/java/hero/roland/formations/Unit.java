@@ -1896,7 +1896,8 @@ public enum Unit {
         @Override public String id() { return "veh_trebuchet"; }
         @Override public int frontX() { return 79; }
         @Override public int frontY() { return 190; }
-        @Override public int backY() { return 162; }
+        @Override public int backX() { return 88; }
+        @Override public int backY() { return 165; }
     },
     PUMA { // Front & Back
         @Override public String id() { return "wheeledtank"; }
