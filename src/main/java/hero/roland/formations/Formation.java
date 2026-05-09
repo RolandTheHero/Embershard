@@ -60,6 +60,27 @@ public class Formation {
         return formation;
     }
 
+    public void setMap(String mapId) { map = BattleMap.fromId(mapId); }
+    public void setUnit(int tileNumber, String unitId) {
+        Unit unit = Unit.fromId(unitId);
+        switch (tileNumber) {
+            case 1 -> grid1 = unit;
+            case 2 -> grid2 = unit;
+            case 3 -> grid3 = unit;
+            case 4 -> grid4 = unit;
+            case 5 -> grid5 = unit;
+            case 6 -> grid6 = unit;
+            case 7 -> grid7 = unit;
+            case 8 -> grid8 = unit;
+            case 9 -> grid9 = unit;
+            case 10 -> grid10 = unit;
+            case 11 -> grid11 = unit;
+            case 12 -> grid12 = unit;
+            case 13 -> grid13 = unit;
+            default -> throw new FormationException("Invalid tile number: `" + tileNumber + "`.");
+        }
+    }
+
     private void drawUnit(BufferedImage image, Unit unit, int gridX, int gridY, boolean isEnemy) throws IOException {
         if (unit == null) return;
         InputStream resource = isEnemy ? 

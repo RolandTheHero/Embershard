@@ -1,80 +1,86 @@
 package hero.roland.formations;
 
-enum BattleMap {
-    ARENA {
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public enum BattleMap {
+    ARENA("arena", "Arena") {
         @Override public String enemyFilename() { return "BattleMapArenaEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapArenaPlayer.png"; }
     },
-    BAY {
+    BAY("bay", "Bay") {
         @Override public String enemyFilename() { return "BattleMapBayEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapBayPlayer.png"; }
     },
-    CAVE {
+    CAVE("cave", "Cave") {
         @Override public String enemyFilename() { return "BattleMapCaveEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapCavePlayer.png"; }
     },
-    CITY {
+    CITY("city", "City") {
         @Override public String enemyFilename() { return "BattleMapCityEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapCityPlayer.png"; }
     },
-    FRONTIER {
+    FRONTIER("frontier", "Frontier") {
         @Override public String enemyFilename() { return "BattleMapFrontierEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapFrontierPlayer.png"; }
     },
-    FRONTIER_TOWN {
+    FRONTIER_TOWN("frontier_town", "Frontier Town") {
         @Override public String enemyFilename() { return "BattleMapFrontierTownEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapFrontierTownPlayer.png"; }
     },
-    INSTALLATION_17 {
+    INSTALLATION_17("i17", "Installation 17") {
         @Override public String enemyFilename() { return "BattleMapI17Enemy.png"; }
         @Override public String playerFilename() { return "BattleMapI17Player.png"; }
     },
-    JUNGLE {
+    JUNGLE("jungle", "Jungle") {
         @Override public String enemyFilename() { return "BattleMapJungleEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapJunglePlayer.png"; }
     },
-    OCEAN {
+    OCEAN("ocean", "Ocean") {
         @Override public String enemyFilename() { return "BattleMapOceanEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapOceanPlayer.png"; }
     },
-    OUTPOST {
+    OUTPOST("outpost", "Outpost") {
         @Override public String enemyFilename() { return "BattleMapOutpostEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapOutpostPlayer.png"; }
     },
-    RAIDER {
+    RAIDER("raider", "Raider") {
         @Override public String enemyFilename() { return "BattleMapRaiderEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapRaiderPlayer.png"; }
     },
-    SEALAND {
+    SEALAND("sealand", "Sealand") {
         @Override public String enemyFilename() { return "BattleMapSealandEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapSealandPlayer.png"; }
     },
-    SNOW {
+    SNOW("snow", "Snow") {
         @Override public String enemyFilename() { return "BattleMapSnowEnemy.png"; }
         @Override public String playerFilename() { return "BattleMapSnowPlayer.png"; }
     };
+
+    static final private Map<String, BattleMap> MAP_IDS = Arrays.stream(values()).collect(Collectors.toMap(BattleMap::id, m -> m));
+    static public Map<String, BattleMap> getMapIdMap() { return Collections.unmodifiableMap(MAP_IDS); }
+
+    public String id() { return id; }
+    public String mapName() { return mapName; }
     public String enemyFilePath() { return "/maps/" + enemyFilename(); }
     public String playerFilePath() { return "/maps/" + playerFilename(); }
     abstract public String enemyFilename();
     abstract public String playerFilename();
     public int x() { return 277; }
     public int y() { return 359; }
+
+    private final String id;
+    private final String mapName;
+
+    BattleMap(String id, String mapName) {
+        this.id = id;
+        this.mapName = mapName;
+    }
     public static BattleMap fromId(String s) {
-        return switch (s) {
-            case "arena" -> ARENA;
-            case "bay" -> BAY;
-            case "cave" -> CAVE;
-            case "city" -> CITY;
-            case "frontier" -> FRONTIER;
-            case "frontier_town" -> FRONTIER_TOWN;
-            case "i17" -> INSTALLATION_17;
-            case "jungle" -> JUNGLE;
-            case "ocean" -> OCEAN;
-            case "outpost" -> OUTPOST;
-            case "raider" -> RAIDER;
-            case "sealand" -> SEALAND;
-            case "snow" -> SNOW;
-            default -> throw new FormationException("Unknown BattleMap ID: `" + s + "`\nValid IDs are: `arena`, `bay`, `cave`, `city`, `frontier`, `frontier_town`, `i17`, `jungle`, `ocean`, `outpost`, `raider`, `sealand`, `snow`.");
-        };
+        BattleMap map = MAP_IDS.get(s);
+        if (map == null) throw new FormationException("Invalid map id: `" + s + "`.");
+        return map;
     }
 }

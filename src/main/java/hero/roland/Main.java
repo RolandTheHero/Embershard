@@ -1,5 +1,7 @@
 package hero.roland;
 
+import java.util.stream.IntStream;
+
 import hero.roland.data.DataHandler;
 import hero.roland.data.JSONDataHandler;
 import hero.roland.events.EventListener;
@@ -27,7 +29,13 @@ public class Main {
                 .addOption(OptionType.BOOLEAN, "all", "Show all members regardless of their name or raid policy set.", false),
             Commands.slash("guides", "View the Battle Nations guides."),
             Commands.slash("formation", "Create a custom formation image.")
-                .addOption(OptionType.STRING, "data", "The formation data string to load.", false)
+                .addOption(OptionType.STRING, "data", "The formation data string to load.", false),
+            Commands.slash("formation2", "Create a custom formation image.")
+                .addOptions(new OptionData(OptionType.STRING, "map", "The map to use for the formation. Defaults to `outpost`.", false, true))
+                .addOptions(
+                    IntStream.rangeClosed(1, 13).mapToObj(i -> new OptionData(OptionType.STRING, String.valueOf(i), "The unit to be placed on tile " + i + ".", false, true))
+                        .toArray(OptionData[]::new)
+                )
         ).queue();
     }
     static public DataHandler dataHandler() { return dataHandler; }

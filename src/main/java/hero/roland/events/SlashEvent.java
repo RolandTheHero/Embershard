@@ -163,3 +163,21 @@ record FormationCommand() implements SlashEvent {
             .queue(interaction -> MessageReplier.formationReply(interaction, dataString, false));
     }
 }
+record Formation2Command() implements SlashEvent {
+    @Override public void run(SlashCommandInteractionEvent event) {
+        String dataString = "";
+        var mapOption = event.getOption("map");
+        if (mapOption != null) {
+            dataString += "map=" + mapOption.getAsString() + ",";
+        }
+        for (int i = 1; i <= 13; i++) {
+            var option = event.getOption(String.valueOf(i));
+            if (option == null) continue;
+            String unitId = option.getAsString();
+            dataString += i + "=" + unitId + ",";
+        }
+        String finalDataString = dataString;
+        event.replyEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build())
+            .queue(interaction -> MessageReplier.formationReply(interaction, finalDataString, false));
+    }
+}

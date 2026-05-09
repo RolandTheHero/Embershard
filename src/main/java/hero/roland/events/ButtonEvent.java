@@ -1,6 +1,7 @@
 package hero.roland.events;
 
 import java.util.List;
+import java.util.UUID;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
@@ -176,7 +177,7 @@ class EditFormationButton implements ButtonEvent {
             .setValue(dataString)
             .setMaxLength(500)
             .build();
-        Modal modal = Modal.create("editformationmodal:" + buttonId[2], "Edit Formation")
+        Modal modal = Modal.create("editformationmodal:" + buttonId[2] + ":" + UUID.randomUUID(), "Edit Formation") // Random UUID to prevent modal client caching
             .addComponents(Label.of("Formation Data", dataInput))
             .build();
         event.replyModal(modal).queue();
