@@ -29,9 +29,7 @@ public class Main {
                 .addOption(OptionType.BOOLEAN, "all", "Show all members regardless of their name or raid policy set.", false),
             Commands.slash("guides", "View the Battle Nations guides."),
             Commands.slash("formation", "Create a custom formation image.")
-                .addOption(OptionType.STRING, "data", "The formation data string to load.", false),
-            Commands.slash("formation2", "Create a custom formation image.")
-                .addOptions(new OptionData(OptionType.STRING, "map", "The map to use for the formation. Defaults to `outpost`.", false, true))
+                .addOptions(new OptionData(OptionType.STRING, "map", "The formation background. Defaults to 'Outpost' if unsupplied.", false, true))
                 .addOptions(
                     IntStream.rangeClosed(1, 13).mapToObj(i -> new OptionData(OptionType.STRING, String.valueOf(i), "The unit to be placed on tile " + i + ".", false, true))
                         .toArray(OptionData[]::new)

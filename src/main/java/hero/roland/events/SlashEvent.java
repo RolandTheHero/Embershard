@@ -142,29 +142,6 @@ record GuidesCommand() implements SlashEvent {
 }
 record FormationCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
-        var dataOption = event.getOption("data");
-        if (dataOption == null) { // Show the help embed
-            MessageEmbed embed = new EmbedBuilder()
-                .setTitle("Formation Help")
-                .setDescription("The `/formation` command allows you to generate a custom formation image to share.\n\n" +
-                    "To create a formation, you need to provide a data string that describes the formation. " +
-                    "When referring to units, their unit ID is used. Refer [here](https://docs.google.com/document/d/1NapO41-zFrOWCp8DI0VfLYA3OYWQd2ZjLqsNzepZ1pI/edit?usp=sharing) for a list of unit IDs.\n\n" +
-                    "An example of a valid data string is:\n" +
-                    "`map=city,12=heavy_artillery,3=heavy_tank,10=assassinator,5=sandbags,1=sandbags`"
-                )
-                .setImage("https://static.wikia.nocookie.net/battlenations/images/2/2b/GridNumbers.png")
-                .setColor(Color.CYAN)
-                .build();
-            event.replyEmbeds(embed).queue();
-            return;
-        }
-        String dataString = dataOption.getAsString();
-        event.replyEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build())
-            .queue(interaction -> MessageReplier.formationReply(interaction, dataString, false));
-    }
-}
-record Formation2Command() implements SlashEvent {
-    @Override public void run(SlashCommandInteractionEvent event) {
         String dataString = "";
         var mapOption = event.getOption("map");
         if (mapOption != null) {

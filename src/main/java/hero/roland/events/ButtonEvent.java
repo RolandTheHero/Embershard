@@ -11,6 +11,7 @@ import hero.roland.messages.MessageReplier;
 import net.dv8tion.jda.api.components.actionrow.ActionRow;
 import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.components.label.Label;
+import net.dv8tion.jda.api.components.textdisplay.TextDisplay;
 import net.dv8tion.jda.api.components.textinput.TextInput;
 import net.dv8tion.jda.api.components.textinput.TextInputStyle;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -177,8 +178,9 @@ class EditFormationButton implements ButtonEvent {
             .setValue(dataString)
             .setMaxLength(500)
             .build();
+        TextDisplay noteMessage = TextDisplay.of("Editing a formation currently requires referencing IDs found [here](https://docs.google.com/document/d/1NapO41-zFrOWCp8DI0VfLYA3OYWQd2ZjLqsNzepZ1pI/edit?usp=sharing). If you do not want to use IDs, rerun the command and generate a new formation.\n**Note**: *Most* unit IDs are just the unit's full name with spaces replaced with `_` and all punctuation removed.");
         Modal modal = Modal.create("editformationmodal:" + buttonId[2] + ":" + UUID.randomUUID(), "Edit Formation") // Random UUID to prevent modal client caching
-            .addComponents(Label.of("Formation Data", dataInput))
+            .addComponents(noteMessage, Label.of("Formation Data", dataInput))
             .build();
         event.replyModal(modal).queue();
     }

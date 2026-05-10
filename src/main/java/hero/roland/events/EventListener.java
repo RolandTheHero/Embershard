@@ -20,8 +20,7 @@ public class EventListener extends ListenerAdapter {
         "setname", new SetIgNameCommand(),
         "list", new ListCommand(),
         "guides", new GuidesCommand(),
-        "formation", new FormationCommand(),
-        "formation2", new Formation2Command()
+        "formation", new FormationCommand()
     );
     @Override public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         String eventName = event.getName();
@@ -79,11 +78,11 @@ public class EventListener extends ListenerAdapter {
                 .toList();
             event.replyChoices(choices).queue();
         } else if (List.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13").contains(eventName)) {
-            List<Command.Choice> choices = Unit.getUnitIdMap().values().stream()
-                .filter(unit -> unit.fullName().toLowerCase().contains(event.getFocusedOption().getValue().toLowerCase()))
-                .sorted((u1, u2) -> u1.fullName().compareToIgnoreCase(u2.fullName()))
+            List<Command.Choice> choices = Unit.getUnitIdMap().entrySet().stream()
+                .filter(unit -> unit.getValue().fullName().toLowerCase().contains(event.getFocusedOption().getValue().toLowerCase()))
+                .sorted((u1, u2) -> u1.getValue().fullName().compareToIgnoreCase(u2.getValue().fullName()))
                 .limit(25)
-                .map(unit -> new Command.Choice(unit.fullName(), unit.id()))
+                .map(unit -> new Command.Choice(unit.getValue().fullName(), unit.getKey()))
                 .toList();
             event.replyChoices(choices).queue();
         } else if (eventName.equals("map")) {
