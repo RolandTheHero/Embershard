@@ -1,8 +1,11 @@
 package hero.roland.events;
 
+import java.util.List;
 import java.util.Map;
 
 import hero.roland.Main;
+import hero.roland.formations.Unit;
+import hero.roland.formations.BattleMap;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -64,13 +67,30 @@ public class EventListener extends ListenerAdapter {
     }
 
     @Override public void onCommandAutoCompleteInteraction(CommandAutoCompleteInteractionEvent event) {
-        if (event.getFocusedOption().getName().equals("bn-user")) {
+        String eventName = event.getFocusedOption().getName();
+        if (eventName.equals("bn-user")) {
             String currentInput = event.getFocusedOption().getValue();
-            var choices = Main.dataHandler().allMembers().values().stream()
+            List<Command.Choice> choices = Main.dataHandler().allMembers().values().stream()
                 .filter(gm -> gm.igName() != null && gm.igName().toLowerCase().contains(currentInput.toLowerCase()))
                 .sorted((gm1, gm2) -> gm1.igName().compareToIgnoreCase(gm2.igName()))
                 .limit(25)
                 .map(gm -> new Command.Choice(gm.igName(), gm.igName()))
+                .toList();
+            event.replyChoices(choices).queue();
+        } else if (List.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13").contains(eventName)) {
+            List<Command.Choice> choices = Unit.getUnitIdMap().entrySet().stream()
+                .filter(unit -> unit.getValue().fullName().toLowerCase().contains(event.getFocusedOption().getValue().toLowerCase()))
+                .sorted((u1, u2) -> u1.getValue().fullName().compareToIgnoreCase(u2.getValue().fullName()))
+                .limit(25)
+                .map(unit -> new Command.Choice(unit.getValue().fullName(), unit.getKey()))
+                .toList();
+            event.replyChoices(choices).queue();
+        } else if (eventName.equals("map")) {
+            List<Command.Choice> choices = BattleMap.getMapIdMap().values().stream()
+                .filter(map -> map.id().toLowerCase().contains(event.getFocusedOption().getValue().toLowerCase()))
+                .sorted((m1, m2) -> m1.id().compareToIgnoreCase(m2.id()))
+                .limit(25)
+                .map(map -> new Command.Choice(map.mapName(), map.id()))
                 .toList();
             event.replyChoices(choices).queue();
         }

@@ -12,7 +12,7 @@ The bot supports various [slash commands](https://discord.com/developers/docs/in
 
 `/guides` View Battle Nations guides compiled from various sources.
 
-`/formation (data)` Create a custom formation image using the provided `data` string. If the `data` argument is not supplied, bring up the command help page instead.
+`/formation (map) (1) (2) (3) (4) (5) (6) (7) (8) (9) (10) (11) (12) (13)` Create a custom formation image using the provided information. An autofill selection will appear for each argument option.
 
 ## Former Commands
 The following commands were removed.

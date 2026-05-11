@@ -1,6 +1,7 @@
 package hero.roland.events;
 
 import java.util.List;
+import java.util.UUID;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
@@ -10,6 +11,7 @@ import hero.roland.messages.MessageReplier;
 import net.dv8tion.jda.api.components.actionrow.ActionRow;
 import net.dv8tion.jda.api.components.buttons.Button;
 import net.dv8tion.jda.api.components.label.Label;
+import net.dv8tion.jda.api.components.textdisplay.TextDisplay;
 import net.dv8tion.jda.api.components.textinput.TextInput;
 import net.dv8tion.jda.api.components.textinput.TextInputStyle;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -160,7 +162,7 @@ class EditFormationButton implements ButtonEvent {
         String[] buttonId = event.getButton().getCustomId().split(":");
         long userIdWhoMustRun = Long.parseLong(buttonId[1]);
         if (userIdWhoMustRun != event.getUser().getIdLong()) {
-            event.reply("You can only edit your own formation! Copy the data string and use the `/formation` command with it to make your own.").setEphemeral(true).queue();
+            event.reply("You can only edit your own formation! Copy the data string and use the `/formation` command, then hit Edit and paste the data string to make it your own.").setEphemeral(true).queue();
             return;
         }
         List<MessageEmbed> embeds = event.getMessage().getEmbeds();
@@ -176,8 +178,9 @@ class EditFormationButton implements ButtonEvent {
             .setValue(dataString)
             .setMaxLength(500)
             .build();
-        Modal modal = Modal.create("editformationmodal:" + buttonId[2], "Edit Formation")
-            .addComponents(Label.of("Formation Data", dataInput))
+        TextDisplay noteMessage = TextDisplay.of("Editing a formation currently requires referencing IDs found [here](https://docs.google.com/document/d/1NapO41-zFrOWCp8DI0VfLYA3OYWQd2ZjLqsNzepZ1pI/edit?usp=sharing). If you do not want to use IDs, rerun the command and generate a new formation.\n**Note**: *Most* unit IDs are just the unit's full name with spaces replaced with `_` and all punctuation removed.");
+        Modal modal = Modal.create("editformationmodal:" + buttonId[2] + ":" + UUID.randomUUID(), "Edit Formation") // Random UUID to prevent modal client caching
+            .addComponents(noteMessage, Label.of("Formation Data", dataInput))
             .build();
         event.replyModal(modal).queue();
     }

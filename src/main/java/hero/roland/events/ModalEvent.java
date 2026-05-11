@@ -31,7 +31,7 @@ class EditPolicyModal implements ModalEvent {
 }
 class EditFormationModal implements ModalEvent {
     @Override public void run(ModalInteractionEvent event) {
-        // editformationmodal:IS_ENEMY
+        // editformationmodal:IS_ENEMY:UUID
         ModalMapping dataModalEntry = event.getValue("data");
         String data = dataModalEntry.getAsString();
         boolean isEnemy = Boolean.parseBoolean(event.getCustomId().split(":")[1]);
