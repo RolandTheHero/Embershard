@@ -162,7 +162,7 @@ class EditFormationButton implements ButtonEvent {
         String[] buttonId = event.getButton().getCustomId().split(":");
         long userIdWhoMustRun = Long.parseLong(buttonId[1]);
         if (userIdWhoMustRun != event.getUser().getIdLong()) {
-            event.reply("You can only edit your own formation! Copy the data string and use the `/formation` command with it to make your own.").setEphemeral(true).queue();
+            event.reply("You can only edit your own formation! Copy the data string and use the `/formation` command, then hit Edit and paste the data string to make it your own.").setEphemeral(true).queue();
             return;
         }
         List<MessageEmbed> embeds = event.getMessage().getEmbeds();

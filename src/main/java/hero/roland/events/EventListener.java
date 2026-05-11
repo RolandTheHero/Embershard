@@ -70,7 +70,7 @@ public class EventListener extends ListenerAdapter {
         String eventName = event.getFocusedOption().getName();
         if (eventName.equals("bn-user")) {
             String currentInput = event.getFocusedOption().getValue();
-            var choices = Main.dataHandler().allMembers().values().stream()
+            List<Command.Choice> choices = Main.dataHandler().allMembers().values().stream()
                 .filter(gm -> gm.igName() != null && gm.igName().toLowerCase().contains(currentInput.toLowerCase()))
                 .sorted((gm1, gm2) -> gm1.igName().compareToIgnoreCase(gm2.igName()))
                 .limit(25)

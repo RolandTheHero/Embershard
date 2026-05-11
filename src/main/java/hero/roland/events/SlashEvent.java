@@ -8,7 +8,9 @@ import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import hero.roland.Main;
 import hero.roland.data.GuildMember;
@@ -142,19 +144,19 @@ record GuidesCommand() implements SlashEvent {
 }
 record FormationCommand() implements SlashEvent {
     @Override public void run(SlashCommandInteractionEvent event) {
-        String dataString = "";
+        List<String> dataStrings = new ArrayList<>();
         var mapOption = event.getOption("map");
         if (mapOption != null) {
-            dataString += "map=" + mapOption.getAsString() + ",";
+            dataStrings.add("map=" + mapOption.getAsString());
         }
         for (int i = 1; i <= 13; i++) {
             var option = event.getOption(String.valueOf(i));
             if (option == null) continue;
             String unitId = option.getAsString();
-            dataString += i + "=" + unitId + ",";
+            dataStrings.add(i + "=" + unitId);
         }
-        String finalDataString = dataString;
-        event.replyEmbeds(MessageReplier.formationEmbed(dataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build())
+        String finalDataString = dataStrings.stream().collect(Collectors.joining(","));
+        event.replyEmbeds(MessageReplier.formationEmbed(finalDataString).appendDescription("\n\nPlease wait while your data string is being parsed...").build())
             .queue(interaction -> MessageReplier.formationReply(interaction, finalDataString, false));
     }
 }
