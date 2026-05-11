@@ -70,11 +70,11 @@ public abstract class GuidePages {
     );
     static private final Function<Long, GuidePage> RAIDING_IRON = userId -> new GuidePage(
         "Guides: Raiding Resources - Iron",
-        "**New Haven** (Level 56+): 100 iron\n**Greenborough** (Level ??+): 30 iron, 6 stone, 5 wood\n**Warlord Gantas' Fortress** (Level ??+): 10 iron, 20 stone, 5 wood\n\n" + 
+        "**New Haven** (Level 56+): 120 iron, 20 stone\n**Greenborough** (Level ??+): 30 iron, 6 stone, 5 wood\n**Warlord Gantas' Fortress** (Level ??+): 10 iron, 20 stone, 5 wood\n\n" + 
         "Notes:\n* You can use Unmanned Machine Gun Turrets to finish a battle at Warlord Gantas' Fortress in one turn, which can be a faster source of Iron than New Haven and Greenborough.",
         null,
         "https://static.wikia.nocookie.net/battlenations/images/b/b0/Resource-iron.png",
-        "https://cdn.discordapp.com/attachments/1041212643958071336/1478651498023092383/ironlocations.png?ex=69a92d05&is=69a7db85&hm=d11707466bcb2fab4cad09c60d4bc495b8643b62fcd847b03081be6c71f60f3b&",
+        "https://cdn.discordapp.com/attachments/1041212643958071336/1503383921541255310/ironlocations.png?ex=6a0326e2&is=6a01d562&hm=4a443aebbb28ffd52cdd24c4aae2f428e0820e05453b0bd66beacf1712584fd5&",
         ActionRow.of(
             Button.secondary("guideselect:" + userId + ":raiding-resources", "Back")
         )
